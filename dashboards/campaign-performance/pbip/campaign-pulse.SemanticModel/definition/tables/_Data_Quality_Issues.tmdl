@@ -1,4 +1,4 @@
-table _DQ_Issues
+table _Data_Quality_Issues
 	isHidden
 	lineageTag: ee346a2e-80d6-4b6a-bbf1-9c99c0af35e3
 
@@ -86,7 +86,7 @@ table _DQ_Issues
 
 		annotation SummarizationSetBy = Automatic
 
-	partition _DQ_Issues = m
+	partition _Data_Quality_Issues = m
 		mode: import
 		source = ```
 				let

@@ -254,6 +254,7 @@ table Dim_Customer
 
 	partition Dim_Customer = m
 		mode: import
+		queryGroup: 'Dimension Tables'
 		source =
 				let
 				    // Load source data

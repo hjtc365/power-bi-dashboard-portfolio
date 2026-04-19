@@ -20,7 +20,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_DQ_Issues"
+                      "Entity": "_Data_Quality_Issues"
                     }
                   },
                   "Property": "Customer ID"
@@ -34,7 +34,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_DQ_Issues"
+                      "Entity": "_Data_Quality_Issues"
                     }
                   },
                   "Property": "Birth Year"
@@ -48,7 +48,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_DQ_Issues"
+                      "Entity": "_Data_Quality_Issues"
                     }
                   },
                   "Property": "Age"
@@ -62,7 +62,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_DQ_Issues"
+                      "Entity": "_Data_Quality_Issues"
                     }
                   },
                   "Property": "IsBirthYearOutlier"
@@ -76,7 +76,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_DQ_Issues"
+                      "Entity": "_Data_Quality_Issues"
                     }
                   },
                   "Property": "Income"
@@ -90,7 +90,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_DQ_Issues"
+                      "Entity": "_Data_Quality_Issues"
                     }
                   },
                   "Property": "IsIncomeMissing"
@@ -104,7 +104,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_DQ_Issues"
+                      "Entity": "_Data_Quality_Issues"
                     }
                   },
                   "Property": "IsIncomeOutlier"

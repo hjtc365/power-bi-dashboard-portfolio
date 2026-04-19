@@ -14,11 +14,15 @@ queryGroup 'Fact Tables'
 
 	annotation PBI_QueryGroupOrder = 1
 
+queryGroup 'Dimension Tables'
+
+	annotation PBI_QueryGroupOrder = 2
+
 annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling"]
 
-annotation PBI_QueryOrder = ["_DataSources","Marketing_Data_Source","Marketing_Data_Dictionary","Fact_ProductSpend","Fact_ChannelPurchases","Fact_CampaignResponse","Dim_Product","Dim_Channel","Dim_Campaign","Dim_Customer","_DQ_Issues"]
+annotation PBI_QueryOrder = ["_DataSources","Marketing_Data_Source","Marketing_Data_Dictionary","Fact_ProductSpend","Fact_ChannelPurchases","Fact_CampaignResponse","Dim_Product","Dim_Channel","Dim_Campaign","Dim_Customer","_Data_Quality_Issues"]
 
 ref table Fact_ProductSpend
 ref table Fact_ChannelPurchases
@@ -29,7 +33,7 @@ ref table Dim_Campaign
 ref table Dim_Customer
 ref table Dim_Date
 ref table _Measures
-ref table _DQ_Issues
+ref table _Data_Quality_Issues
 
 ref cultureInfo en-US
 

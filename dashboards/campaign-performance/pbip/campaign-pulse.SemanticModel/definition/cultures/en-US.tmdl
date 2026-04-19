@@ -7785,7 +7785,7 @@ cultureInfo en-US
 			    "DQ_issue": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "_DQ_Issues"
+			          "ConceptualEntity": "_Data_Quality_Issues"
 			        }
 			      },
 			      "State": "Generated",
@@ -7916,7 +7916,7 @@ cultureInfo en-US
 			    "DQ_issue.customer_ID": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "_DQ_Issues",
+			          "ConceptualEntity": "_Data_Quality_Issues",
 			          "ConceptualProperty": "Customer ID"
 			        }
 			      },
@@ -8041,7 +8041,7 @@ cultureInfo en-US
 			    "DQ_issue.birth_year": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "_DQ_Issues",
+			          "ConceptualEntity": "_Data_Quality_Issues",
 			          "ConceptualProperty": "Birth Year"
 			        }
 			      },
@@ -8071,7 +8071,7 @@ cultureInfo en-US
 			    "DQ_issue.age": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "_DQ_Issues",
+			          "ConceptualEntity": "_Data_Quality_Issues",
 			          "ConceptualProperty": "Age"
 			        }
 			      },
@@ -8150,7 +8150,7 @@ cultureInfo en-US
 			    "DQ_issue.is_birth_year_outlier": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "_DQ_Issues",
+			          "ConceptualEntity": "_Data_Quality_Issues",
 			          "ConceptualProperty": "IsBirthYearOutlier"
 			        }
 			      },
@@ -8224,7 +8224,7 @@ cultureInfo en-US
 			    "DQ_issue.is_income_outlier": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "_DQ_Issues",
+			          "ConceptualEntity": "_Data_Quality_Issues",
 			          "ConceptualProperty": "IsIncomeOutlier"
 			        }
 			      },
@@ -8262,7 +8262,7 @@ cultureInfo en-US
 			    "DQ_issue.is_income_missing": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "_DQ_Issues",
+			          "ConceptualEntity": "_Data_Quality_Issues",
 			          "ConceptualProperty": "IsIncomeMissing"
 			        }
 			      },
@@ -8310,7 +8310,7 @@ cultureInfo en-US
 			    "DQ_issue.income": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "_DQ_Issues",
+			          "ConceptualEntity": "_Data_Quality_Issues",
 			          "ConceptualProperty": "Income"
 			        }
 			      },

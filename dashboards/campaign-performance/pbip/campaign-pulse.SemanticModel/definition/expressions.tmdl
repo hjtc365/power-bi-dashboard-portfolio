@@ -1,6 +1,6 @@
 expression _DataSources =
 		let
-		    Source = Folder.Files("C:\Dev\Power BI Dashboards\Campaign Pulse Dashboard\_DataSources")
+		    Source = Folder.Files("C:\Dev\power-bi-dashboard-portfolio\dashboards\campaign-performance\datasets")
 		in
 		    Source
 	lineageTag: 58c12d74-ff63-4ac6-a8c1-ee563bf70dae
@@ -13,7 +13,7 @@ expression _DataSources =
 expression Marketing_Data_Source =
 		let
 		    Source = _DataSources,
-		    #"C:\Dev\Power BI Dashboards\Campaign Pulse Dashboard\_DataSources\_marketing_data csv" = Source{[#"Folder Path"="C:\Dev\Power BI Dashboards\Campaign Pulse Dashboard\_DataSources\",Name="marketing_data.csv"]}[Content],
+		    #"C:\Dev\Power BI Dashboards\Campaign Pulse Dashboard\_DataSources\_marketing_data csv" = Source{[#"Folder Path"="C:\Dev\power-bi-dashboard-portfolio\dashboards\campaign-performance\datasets\",Name="marketing_data.csv"]}[Content],
 		    #"Imported CSV" = Csv.Document(#"C:\Dev\Power BI Dashboards\Campaign Pulse Dashboard\_DataSources\_marketing_data csv",[Delimiter=",", Columns=28, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 		    #"Promoted Headers" = Table.PromoteHeaders(#"Imported CSV", [PromoteAllScalars=true]),
 		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"ID", Int64.Type}, {"Year_Birth", Int64.Type}, {"Education", type text}, {"Marital_Status", type text}, {" Income ", Int64.Type}, {"Kidhome", Int64.Type}, {"Teenhome", Int64.Type}, {"Dt_Customer", type date}, {"Recency", Int64.Type}, {"MntWines", Int64.Type}, {"MntFruits", Int64.Type}, {"MntMeatProducts", Int64.Type}, {"MntFishProducts", Int64.Type}, {"MntSweetProducts", Int64.Type}, {"MntGoldProds", Int64.Type}, {"NumDealsPurchases", Int64.Type}, {"NumWebPurchases", Int64.Type}, {"NumCatalogPurchases", Int64.Type}, {"NumStorePurchases", Int64.Type}, {"NumWebVisitsMonth", Int64.Type}, {"AcceptedCmp3", Int64.Type}, {"AcceptedCmp4", Int64.Type}, {"AcceptedCmp5", Int64.Type}, {"AcceptedCmp1", Int64.Type}, {"AcceptedCmp2", Int64.Type}, {"Response", Int64.Type}, {"Complain", Int64.Type}, {"Country", type text}})
@@ -29,7 +29,7 @@ expression Marketing_Data_Source =
 expression Marketing_Data_Dictionary =
 		let
 		    Source = _DataSources,
-		    #"C:\Dev\Power BI Dashboards\Campaign Pulse Dashboard\_DataSources\_marketing_data_dictionary csv" = Source{[#"Folder Path"="C:\Dev\Power BI Dashboards\Campaign Pulse Dashboard\_DataSources\",Name="marketing_data_dictionary.csv"]}[Content],
+		    #"C:\Dev\Power BI Dashboards\Campaign Pulse Dashboard\_DataSources\_marketing_data_dictionary csv" = Source{[#"Folder Path"="C:\Dev\power-bi-dashboard-portfolio\dashboards\campaign-performance\datasets\",Name="marketing_data_dictionary.csv"]}[Content],
 		    #"Imported CSV" = Csv.Document(#"C:\Dev\Power BI Dashboards\Campaign Pulse Dashboard\_DataSources\_marketing_data_dictionary csv",[Delimiter=",", Columns=2, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 		    #"Changed Type" = Table.TransformColumnTypes(#"Imported CSV",{{"Column1", type text}, {"Column2", type text}}),
 		    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),

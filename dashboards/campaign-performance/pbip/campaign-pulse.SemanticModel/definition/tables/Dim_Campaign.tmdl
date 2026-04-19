@@ -25,6 +25,7 @@ table Dim_Campaign
 
 	partition Dim_Campaign = m
 		mode: import
+		queryGroup: 'Dimension Tables'
 		source =
 				let
 				    Source = Marketing_Data_Source,

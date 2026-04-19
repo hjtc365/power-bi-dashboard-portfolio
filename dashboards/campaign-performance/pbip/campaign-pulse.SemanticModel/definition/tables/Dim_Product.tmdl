@@ -25,6 +25,7 @@ table Dim_Product
 
 	partition Dim_Product = m
 		mode: import
+		queryGroup: 'Dimension Tables'
 		source =
 				let
 				    Source = Marketing_Data_Source,

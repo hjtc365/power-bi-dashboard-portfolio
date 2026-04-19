@@ -2,7 +2,7 @@
   "version": "4.0",
   "datasetReference": {
     "byPath": {
-      "path": "../Campaign Pulse Dashboard.SemanticModel"
+      "path": "../campaign-pulse.SemanticModel"
     }
   }
 }

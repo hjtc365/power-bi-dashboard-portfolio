@@ -1,11 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "SemanticModel",
-    "displayName": "Campaign Pulse Dashboard"
+    "type": "Report",
+    "displayName": "campaign-pulse"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "1710bad8-8989-4ebb-9e3d-75e599eb7f53"
+    "logicalId": "2cec44b3-7842-481f-a362-66e719210221"
   }
 }
