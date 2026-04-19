@@ -1,0 +1,145 @@
+table _DQ_Issues
+	isHidden
+	lineageTag: ee346a2e-80d6-4b6a-bbf1-9c99c0af35e3
+
+	column 'Customer ID'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4501af76-5829-44aa-86de-2886f9e21588
+		summarizeBy: count
+		sourceColumn: Customer ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Birth Year'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 1f6e5d86-568d-4a6d-9f59-30f8e9f513b3
+		summarizeBy: sum
+		sourceColumn: Birth Year
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2fef910b-ef25-4f92-bb2b-e946614c8301
+		summarizeBy: sum
+		sourceColumn: Age
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsBirthYearOutlier
+		dataType: boolean
+		isHidden
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b663039a-516f-4523-8297-4bbd8b4992d7
+		summarizeBy: none
+		sourceColumn: IsBirthYearOutlier
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsIncomeOutlier
+		dataType: boolean
+		isHidden
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5504d970-f21e-47a2-9870-9bf54c71aeb6
+		summarizeBy: none
+		sourceColumn: IsIncomeOutlier
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsIncomeMissing
+		dataType: boolean
+		isHidden
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 43e0f177-8fb6-419e-95f2-6eeb0461b89c
+		summarizeBy: none
+		sourceColumn: IsIncomeMissing
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Income
+		dataType: double
+		isHidden
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 67d23e7a-b5c1-4c4d-b7ce-435a64782b35
+		summarizeBy: sum
+		sourceColumn: Income
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _DQ_Issues = m
+		mode: import
+		source = ```
+				let
+				    Source = Dim_Customer,
+				
+				    // Rename flag columns for clarity and consistency
+				    rename_flags = Table.RenameColumns(Source,{
+				        {"Flag_IncomeNull", "IsIncomeMissing"},
+				        {"Flag_Income_Outlier", "IsIncomeOutlier"},
+				        {"Flag_BirthYear_Outlier", "IsBirthYearOutlier"},
+				        {"Year_Birth", "Birth Year"}, 
+				        {"Customer_ID", "Customer ID"}
+				    }),
+				
+				    // Override income to null if originally missing
+				    set_income_blank_if_missing = Table.AddColumn(
+				        rename_flags,
+				        "Income_Clean",
+				        each if [IsIncomeMissing] = true then null else [Income],
+				        type nullable number
+				    ),
+				
+				    remove_old_income = Table.RemoveColumns(set_income_blank_if_missing, {"Income"}),
+				
+				    rename_income = Table.RenameColumns(remove_old_income, {{"Income_Clean", "Income"}}),
+				
+				    // Consolidated data quality flag
+				    add_dq_flag = Table.AddColumn(rename_income, "HasDQIssue",
+				        each if [IsBirthYearOutlier] or [IsIncomeOutlier] or [IsIncomeMissing] then true else false,
+				        type logical),
+				
+				    // Keep only problematic records
+				    filter_dq_rows = Table.SelectRows(add_dq_flag,
+				        each [HasDQIssue] = true),
+				
+				    // Select relevant columns
+				    select_columns = Table.SelectColumns(filter_dq_rows,
+				        {"Customer ID", "Birth Year", "Income", "IsIncomeMissing", "Age",
+				         "IsBirthYearOutlier", "IsIncomeOutlier"}),
+				
+				    // Reorder for readability
+				    reorder_columns = Table.ReorderColumns(select_columns,
+				        {"Customer ID", "Birth Year", "Age", "IsBirthYearOutlier",
+				         "Income", "IsIncomeMissing", "IsIncomeOutlier"}),
+				    #"Sorted Rows" = Table.Sort(reorder_columns,{{"Customer ID", Order.Ascending}})
+				
+				in
+				    #"Sorted Rows"
+				```
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

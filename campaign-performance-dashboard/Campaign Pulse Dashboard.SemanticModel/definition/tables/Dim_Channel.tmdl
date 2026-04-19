@@ -1,0 +1,49 @@
+table Dim_Channel
+	lineageTag: 68846b03-cafb-4ac9-a181-c6cc47682b47
+
+	column Channel_ID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4eea59c9-f948-4772-ab3f-1528bcb5cc32
+		summarizeBy: none
+		sourceColumn: Channel_ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Channel
+		dataType: string
+		lineageTag: fde22abe-98fc-448d-9a84-39f3ffd16541
+		summarizeBy: none
+		sourceColumn: Channel
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Channel = m
+		mode: import
+		source =
+				let
+				    Source = Marketing_Data_Source,
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([ID] = 1)),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"ID", "NumDealsPurchases", "NumWebPurchases", "NumCatalogPurchases", "NumStorePurchases"}),
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Removed Other Columns", {"ID"}, "Attribute", "Value"),
+				    #"Removed Other Columns1" = Table.SelectColumns(#"Unpivoted Other Columns",{"Attribute"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Removed Other Columns1","NumDealsPurchases","Deals",Replacer.ReplaceText,{"Attribute"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","NumWebPurchases","Web",Replacer.ReplaceText,{"Attribute"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","NumCatalogPurchases","Catalog",Replacer.ReplaceText,{"Attribute"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","NumStorePurchases","Store",Replacer.ReplaceText,{"Attribute"}),
+				    #"Sorted Rows" = Table.Sort(#"Replaced Value3",{{"Attribute", Order.Ascending}}),
+				    #"Added Index" = Table.AddIndexColumn(#"Sorted Rows", "Index", 1, 1, Int64.Type),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Added Index",{"Index", "Attribute"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Reordered Columns",{{"Index", "Channel_ID"}, {"Attribute", "Channel"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

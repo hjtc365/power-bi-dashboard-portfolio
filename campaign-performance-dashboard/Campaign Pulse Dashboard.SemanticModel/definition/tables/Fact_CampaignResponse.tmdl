@@ -1,0 +1,79 @@
+table Fact_CampaignResponse
+	lineageTag: 2a9aaa21-1dc7-4289-b9ba-0595d1256d03
+
+	column Customer_ID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a6fb9701-acbe-41a1-9afe-4abadf7b6fc6
+		summarizeBy: none
+		sourceColumn: Customer_ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Accepted
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c1e72d20-44cc-4616-9a9a-a59586c4cf4d
+		summarizeBy: sum
+		sourceColumn: Accepted
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Campaign_ID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ca71bd05-da0a-4ac7-9206-9582d9449987
+		summarizeBy: none
+		sourceColumn: Campaign_ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Enrollment_Date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 3dc1861a-285e-459a-813e-64c9bdd750e2
+		summarizeBy: none
+		sourceColumn: Enrollment_Date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Fact_CampaignResponse = m
+		mode: import
+		queryGroup: 'Fact Tables'
+		source =
+				let
+				    Source = Marketing_Data_Source,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"ID", "AcceptedCmp3", "AcceptedCmp4", "AcceptedCmp5", "AcceptedCmp1", "AcceptedCmp2", "Response", "Dt_Customer"}),
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Removed Other Columns", {"ID", "Dt_Customer"}, "Attribute", "Value"),
+				    #"Replaced Value" = Table.ReplaceValue(#"Unpivoted Other Columns","AcceptedCmp3","Campaign 3",Replacer.ReplaceText,{"Attribute"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","AcceptedCmp4","Campaign 4",Replacer.ReplaceText,{"Attribute"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","AcceptedCmp5","Campaign 5",Replacer.ReplaceText,{"Attribute"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","AcceptedCmp1","Campaign 1",Replacer.ReplaceText,{"Attribute"}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Replaced Value3","AcceptedCmp2","Campaign 2",Replacer.ReplaceText,{"Attribute"}),
+				    #"Replaced Value5" = Table.ReplaceValue(#"Replaced Value4","Response","Campaign 6",Replacer.ReplaceText,{"Attribute"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Replaced Value5",{{"Attribute", "Campaign"}, {"Value", "Accepted"}, {"ID", "Customer_ID"}, {"Dt_Customer", "Enrollment_Date"}}),
+				    #"Merged Queries" = Table.NestedJoin(#"Renamed Columns", {"Campaign"}, Dim_Campaign, {"Campaign"}, "Dim_Campaign", JoinKind.Inner),
+				    #"Expanded Dim_Campaign" = Table.ExpandTableColumn(#"Merged Queries", "Dim_Campaign", {"Campaign_ID"}, {"Campaign_ID"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Expanded Dim_Campaign",{"Customer_ID", "Campaign_ID", "Campaign", "Accepted"}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Reordered Columns",{"Campaign"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

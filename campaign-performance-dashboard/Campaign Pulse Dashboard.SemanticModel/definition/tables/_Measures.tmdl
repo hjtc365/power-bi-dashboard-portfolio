@@ -1,0 +1,332 @@
+table _Measures
+	lineageTag: 6d03cf64-2e2d-43b7-9be0-150344d65fc5
+
+	/// Count of all customers in the dataset
+	measure 'Total Customers' =
+			
+			COUNTROWS ( Dim_Customer )
+		formatString: #,##0
+		displayFolder: Core Metrics
+		lineageTag: 1a5941a1-9088-4ce8-a2d3-aedae0d72872
+
+	/// Total monetary amount spent across all product categories
+	measure 'Total Spend' =
+			
+			SUM ( Fact_ProductSpend[Amount] )
+		formatString: $#,##0
+		displayFolder: Core Metrics
+		lineageTag: 67b80552-a8d0-4849-a4a6-af5e0f1597b0
+
+	/// Total number of purchases across all channels
+	measure 'Total Purchases' =
+			
+			SUM ( Fact_ChannelPurchases[Purchases] )
+		formatString: #,##0
+		displayFolder: Core Metrics
+		lineageTag: a1818d84-f268-4fb3-b21e-5b37aa4417ee
+
+	/// Total number of campaign acceptances (1 = accepted)
+	measure 'Total Acceptances' =
+			
+			SUM ( Fact_CampaignResponse[Accepted] )
+		formatString: #,##0
+		displayFolder: Core Metrics
+		lineageTag: 612a9e05-ca85-46fb-9755-1d4fca3ea185
+
+	/// Total number of campaign offers made (customers x campaigns)
+	measure 'Total Campaign Offers' =
+			
+			COUNTROWS ( Fact_CampaignResponse )
+		formatString: #,##0
+		displayFolder: Core Metrics
+		lineageTag: 88bcd210-7238-4526-8b9f-aa963cc8ce7c
+
+	/// Number of customers with null/missing income values
+	measure 'Null Income Count' =
+			
+			CALCULATE ( [Total Customers], Dim_Customer[Flag_IncomeNull] = TRUE )
+		formatString: #,##0
+		displayFolder: Data Quality
+		lineageTag: 8324ba4f-c475-4579-bd9a-f2a1f6096e96
+
+	/// Number of customers with birth year before 1924 (age > 100)
+	measure 'Birth Year Outlier Count' =
+			
+			CALCULATE ( [Total Customers], Dim_Customer[Flag_BirthYear_Outlier] = TRUE )
+		formatString: #,##0
+		displayFolder: Data Quality
+		lineageTag: 52f005b6-7313-46f2-b808-4188262c2d29
+
+	/// Number of customers with income exceeding $162,000
+	measure 'Income Outlier Count' =
+			
+			CALCULATE ( [Total Customers], Dim_Customer[Flag_Income_Outlier] = TRUE )
+		formatString: #,##0
+		displayFolder: Data Quality
+		lineageTag: 1a09fb75-d044-4061-8676-63f3adaa50ac
+
+	/// Percentage of customers with null income
+	measure '% Null Income' =
+			
+			DIVIDE ( [Null Income Count], [Total Customers] )
+		formatString: 0.0%
+		displayFolder: Data Quality
+		lineageTag: 18eb7676-748a-4a87-a145-cc7d6b8dcb5a
+
+	/// Percentage of customers flagged as outliers (birth year or income)
+	measure '% Outliers' =
+			
+			DIVIDE (
+			    [Birth Year Outlier Count] + [Income Outlier Count],
+			    [Total Customers]
+			)
+		formatString: 0.0%
+		displayFolder: Data Quality
+		lineageTag: 29d16243-c7ab-43cf-9f08-3985eee3ad21
+
+	/// Customers with no null income and no outlier flags
+	measure 'Clean Customer Count' =
+			
+			CALCULATE (
+			    [Total Customers],
+			    Dim_Customer[Flag_IncomeNull] = FALSE,
+			    Dim_Customer[Flag_BirthYear_Outlier] = FALSE,
+			    Dim_Customer[Flag_Income_Outlier] = FALSE
+			)
+		formatString: #,##0
+		displayFolder: Data Quality
+		lineageTag: 878dd05f-c84e-48b3-8244-2f95120b7b14
+
+	/// Average yearly household income across all customers
+	measure 'Avg Income' =
+			
+			AVERAGE ( Dim_Customer[Income] )
+		formatString: $#,##0
+		displayFolder: Customer Profile
+		lineageTag: 62811aaa-84d1-441f-9157-b8ebebdb766f
+
+	/// Median yearly household income across all customers
+	measure 'Median Income' =
+			
+			MEDIAN ( Dim_Customer[Income] )
+		formatString: $#,##0
+		displayFolder: Customer Profile
+		lineageTag: 26f3c2da-c086-43dd-8d48-b7dbe9cca2bd
+
+	/// Average customer age computed from birth year (base year 2024)
+	measure 'Avg Age' =
+			
+			AVERAGEX ( Dim_Customer, Dim_Customer[Age] )
+		formatString: #,##0.0
+		displayFolder: Customer Profile
+		lineageTag: df2b939b-44b8-4a96-8057-ee88260b584f
+
+	/// Average number of days since customer's last purchase
+	measure 'Avg Recency' =
+			
+			AVERAGE ( Dim_Customer[Recency] )
+		formatString: #,##0.0
+		displayFolder: Customer Profile
+		lineageTag: 62a3b678-dd5a-41d5-9e0c-aa9a432f6569
+
+	/// Average monthly website visits per customer
+	measure 'Avg Web Visits per Month' =
+			
+			AVERAGE ( Dim_Customer[NumWebVisitsMonth] )
+		formatString: #,##0.0
+		displayFolder: Customer Profile
+		lineageTag: 4efd9773-cc2b-400a-82dd-10982e2b6252
+
+	/// Percentage of customers who filed a complaint in the last 2 years
+	measure 'Complaint Rate' =
+			
+			DIVIDE ( SUM ( Dim_Customer[Complain] ), [Total Customers] )
+		formatString: 0.0%
+		displayFolder: Customer Profile
+		lineageTag: dcc13349-d816-46b4-bb3d-dfea6941a6fd
+
+	/// Percentage of customers who have at least one child or teenager
+	measure '% With Children' =
+			
+			DIVIDE (
+			    CALCULATE ( [Total Customers], Dim_Customer[Children Status] = "Has Children" ),
+			    [Total Customers]
+			)
+		formatString: 0.0%
+		displayFolder: Customer Profile
+		lineageTag: 87506249-bc15-4055-b8df-292243052cc7
+
+	/// Average amount spent per customer across all products
+	measure 'Avg Spend per Customer' =
+			
+			DIVIDE ( [Total Spend], [Total Customers] )
+		formatString: $#,##0
+		displayFolder: Product Performance
+		lineageTag: 4066a876-e19e-4442-af9e-a14a2511e296
+
+	/// Each product's share of total spend (ignores product filter context for denominator)
+	measure 'Product % of Total Spend' =
+			
+			DIVIDE (
+			    [Total Spend],
+			    CALCULATE ( [Total Spend], REMOVEFILTERS ( Dim_Product ) )
+			)
+		formatString: 0.0%
+		displayFolder: Product Performance
+		lineageTag: 74967eef-8987-48f9-b96d-6f389658f9c7
+
+	/// Rank of each product by total spend (1 = highest)
+	measure 'Product Rank' =
+			
+			RANKX ( ALL ( Dim_Product[Product] ), [Total Spend],, DESC, DENSE )
+		formatString: 0
+		displayFolder: Product Performance
+		lineageTag: 3c68891b-91c8-4c0d-a032-63ab38fa1fbf
+
+	/// Total spend for the current product category (same as Total Spend, used in product-filtered visuals)
+	measure 'Spend per Product Category' =
+			
+			[Total Spend]
+		formatString: $#,##0
+		displayFolder: Product Performance
+		lineageTag: 9df1e702-7b67-4cb7-9931-403a4800312e
+
+	/// Average number of purchases per customer across all channels
+	measure 'Avg Purchases per Customer' =
+			
+			DIVIDE ( [Total Purchases], [Total Customers] )
+		formatString: #,##0.0
+		displayFolder: Channel Performance
+		lineageTag: c806d1c4-158c-43e8-9e94-bdd1c6133f26
+
+	/// Each channel's share of total purchases (ignores channel filter context for denominator)
+	measure 'Channel % of Total' =
+			
+			DIVIDE (
+			    [Total Purchases],
+			    CALCULATE ( [Total Purchases], REMOVEFILTERS ( Dim_Channel ) )
+			)
+		formatString: 0.0%
+		displayFolder: Channel Performance
+		lineageTag: 5a7883b6-cfb7-4a79-b125-3e5b1cb643ee
+
+	/// Rank of each channel by total purchases (1 = highest)
+	measure 'Channel Rank' =
+			
+			RANKX ( ALL ( Dim_Channel[Channel] ), [Total Purchases],, DESC, DENSE )
+		formatString: 0
+		displayFolder: Channel Performance
+		lineageTag: 835ff57e-b692-4f45-9dc9-ee09777e0af8
+
+	/// Total purchases made through the company website
+	measure 'Total Web Purchases' =
+			
+			CALCULATE ( [Total Purchases], Dim_Channel[Channel] = "Web" )
+		formatString: #,##0
+		displayFolder: Channel Performance
+		lineageTag: 5e86ef6c-a33c-4a93-888b-208e97154e63
+
+	/// Total purchases made directly in physical stores
+	measure 'Total Store Purchases' =
+			
+			CALCULATE ( [Total Purchases], Dim_Channel[Channel] = "Store" )
+		formatString: #,##0
+		displayFolder: Channel Performance
+		lineageTag: 3d7791dd-0107-46d7-a3e1-f06975289cb4
+
+	/// Total purchases made using a catalog
+	measure 'Total Catalog Purchases' =
+			
+			CALCULATE ( [Total Purchases], Dim_Channel[Channel] = "Catalog" )
+		formatString: #,##0
+		displayFolder: Channel Performance
+		lineageTag: d47d237c-fffc-4d87-ba6e-6a6283c070ca
+
+	/// Total purchases made with a discount/deal
+	measure 'Total Deal Purchases' =
+			
+			CALCULATE ( [Total Purchases], Dim_Channel[Channel] = "Deals" )
+		formatString: #,##0
+		displayFolder: Channel Performance
+		lineageTag: 1fec0887-41e8-4c2b-b8bf-42dd8d7f8af9
+
+	/// Percentage of campaign offers that were accepted
+	measure 'Acceptance Rate' =
+			
+			DIVIDE ( [Total Acceptances], [Total Campaign Offers] )
+		formatString: 0.0%
+		displayFolder: Campaign Effectiveness
+		lineageTag: 7d711e32-fe29-4379-8c1e-b9ce34e4c3d5
+
+	/// Each campaign's share of total acceptances (ignores campaign filter for denominator)
+	measure 'Campaign % of Total Acceptances' =
+			
+			DIVIDE (
+			    [Total Acceptances],
+			    CALCULATE ( [Total Acceptances], REMOVEFILTERS ( Dim_Campaign ) )
+			)
+		formatString: 0.0%
+		displayFolder: Campaign Effectiveness
+		lineageTag: a95a23ad-268b-4409-b56b-55e67368df39
+
+	/// Distinct count of customers who accepted at least one campaign
+	measure 'Unique Accepted Customers' =
+			
+			CALCULATE (
+			    DISTINCTCOUNT ( Fact_CampaignResponse[Customer_ID] ),
+			    Fact_CampaignResponse[Accepted] = 1
+			)
+		formatString: #,##0
+		displayFolder: Campaign Effectiveness
+		lineageTag: de9f325f-58bc-49bc-adfd-87fa3fabf368
+
+	/// Rank of each campaign by total acceptances (1 = most successful)
+	measure 'Campaign Rank' =
+			
+			RANKX ( ALL ( Dim_Campaign[Campaign] ), [Total Acceptances],, DESC, DENSE )
+		formatString: 0
+		displayFolder: Campaign Effectiveness
+		lineageTag: cb867028-0adf-4038-b19c-6efccdb41af9
+
+	/// Average number of campaigns accepted per customer
+	measure 'Avg Campaigns Accepted per Customer' =
+			
+			DIVIDE ( [Total Acceptances], [Total Customers], 0 )
+		formatString: 0.00
+		displayFolder: Campaign Effectiveness
+		lineageTag: 2a90369a-4728-474b-b0b1-d891a13bf3bb
+
+	/// Average number of web purchases per customer
+	measure 'Avg Web Purchases per Customer' =
+			
+			DIVIDE ( [Total Web Purchases], [Total Customers] )
+		formatString: #,##0.0
+		displayFolder: Web Purchase Drivers
+		lineageTag: 8f8340c5-98c1-4004-8e95-ff37c8540174
+
+	/// Web purchases as a percentage of all channel purchases
+	measure 'Web Purchase Share' =
+			
+			DIVIDE ( [Total Web Purchases], [Total Purchases] )
+		formatString: 0.0%
+		displayFolder: Web Purchase Drivers
+		lineageTag: 9053d058-3015-4f81-bf99-b4fbbbc6a0da
+
+	/// Ratio of average monthly web visits to average web purchases per customer (higher = less conversion)
+	measure 'Web Visit to Purchase Ratio' =
+			
+			DIVIDE ( [Avg Web Visits per Month], [Avg Web Purchases per Customer] )
+		formatString: #,##0.0
+		displayFolder: Web Purchase Drivers
+		lineageTag: 32969521-b61f-463c-a639-222dae34f667
+
+	column Value
+		isHidden
+		lineageTag: 54fcfb22-4e7c-45f5-8744-57542e906b36
+		isNameInferred
+		sourceColumn: [Value]
+
+	partition _Measures = calculated
+		mode: import
+		source = {BLANK()}
+

@@ -1,0 +1,166 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "a34204bb81a9b6446887",
+  "position": {
+    "x": 564,
+    "y": 185.33333333333334,
+    "z": 3000,
+    "height": 498.66666666666669,
+    "width": 704,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_DQ_Issues"
+                    }
+                  },
+                  "Property": "Customer ID"
+                }
+              },
+              "queryRef": "_Customers_DQ_Issues.Customer ID",
+              "nativeQueryRef": "Customer ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_DQ_Issues"
+                    }
+                  },
+                  "Property": "Birth Year"
+                }
+              },
+              "queryRef": "Sum(_Customers_DQ_Issues.Birth Year)",
+              "nativeQueryRef": "Birth Year"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_DQ_Issues"
+                    }
+                  },
+                  "Property": "Age"
+                }
+              },
+              "queryRef": "_Customers_DQ_Issues.Age",
+              "nativeQueryRef": "Age"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_DQ_Issues"
+                    }
+                  },
+                  "Property": "IsBirthYearOutlier"
+                }
+              },
+              "queryRef": "_Customers_DQ_Issues.Flag_BirthYear_Outlier",
+              "nativeQueryRef": "IsBirthYearOutlier"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_DQ_Issues"
+                    }
+                  },
+                  "Property": "Income"
+                }
+              },
+              "queryRef": "Sum(_Customers_DQ_Issues.Income)",
+              "nativeQueryRef": "Income"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_DQ_Issues"
+                    }
+                  },
+                  "Property": "IsIncomeMissing"
+                }
+              },
+              "queryRef": "_Customers_DQ_Issues.Flag_IncomeNull",
+              "nativeQueryRef": "Flag_IncomeNull"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_DQ_Issues"
+                    }
+                  },
+                  "Property": "IsIncomeOutlier"
+                }
+              },
+              "queryRef": "_Customers_DQ_Issues.Flag_Income_Outlier",
+              "nativeQueryRef": "Flag_Income_Outlier"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Customer Records with Data Quality Issues'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

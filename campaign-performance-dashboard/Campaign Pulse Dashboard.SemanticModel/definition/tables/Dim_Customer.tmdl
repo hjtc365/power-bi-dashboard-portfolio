@@ -1,0 +1,359 @@
+table Dim_Customer
+	lineageTag: 5208735d-f8c2-4eec-8b8e-829559fe4956
+
+	column Customer_ID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f47a7e7f-5b10-4af5-922d-94bca9f07d97
+		summarizeBy: none
+		sourceColumn: Customer_ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year_Birth
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 42ced661-735c-4a58-aa60-21ddc2e72862
+		summarizeBy: sum
+		sourceColumn: Year_Birth
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Education
+		dataType: string
+		lineageTag: 33c70428-f898-4d2f-b122-a460f55234ad
+		summarizeBy: none
+		sourceColumn: Education
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Marital Status'
+		dataType: string
+		isHidden
+		lineageTag: ca6185ed-6e6b-4194-b5d7-722ec75b7758
+		summarizeBy: none
+		sourceColumn: Marital Status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Income
+		dataType: double
+		isHidden
+		formatString: 0
+		lineageTag: 6b7667dd-d369-4e56-9ac8-2bd8ccb3850d
+		summarizeBy: sum
+		sourceColumn: Income
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kidhome
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f4828ae3-ac47-41ba-8c61-f9195bca9caa
+		summarizeBy: sum
+		sourceColumn: Kidhome
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Teenhome
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 8e3a78bd-d487-49b2-b2bb-3af287e1b377
+		summarizeBy: sum
+		sourceColumn: Teenhome
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Recency
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: af911feb-d449-4a7c-8a37-15165a1a89a2
+		summarizeBy: sum
+		sourceColumn: Recency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumWebVisitsMonth
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2855e6d9-bbab-4491-8b84-7e8e4d972c33
+		summarizeBy: sum
+		sourceColumn: NumWebVisitsMonth
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Complain
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e740a76a-ba38-4cb8-80f3-94a7838fca4d
+		summarizeBy: sum
+		sourceColumn: Complain
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 832ffecb-58b9-4a33-bf20-25428fe5cf9c
+		summarizeBy: none
+		sourceColumn: Country
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c293fa21-dc0f-4964-8f15-ac50a600b576
+		summarizeBy: sum
+		sourceColumn: Age
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Age Group'
+		dataType: string
+		lineageTag: 2af73c28-33bd-4503-bfa4-4643af0acd46
+		summarizeBy: none
+		sourceColumn: Age Group
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Flag_BirthYear_Outlier
+		dataType: boolean
+		isHidden
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a8521a72-eb24-42ce-8682-800432c7d8ce
+		summarizeBy: none
+		sourceColumn: Flag_BirthYear_Outlier
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Flag_Income_Outlier
+		dataType: boolean
+		isHidden
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: faa66b9c-4617-4020-af1d-4c4792c352d3
+		summarizeBy: none
+		sourceColumn: Flag_Income_Outlier
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Flag_IncomeNull
+		dataType: boolean
+		isHidden
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 48588f2c-16fe-4feb-be86-eeab5afbdabb
+		summarizeBy: none
+		sourceColumn: Flag_IncomeNull
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Income Band'
+		dataType: string
+		lineageTag: 3037ec68-5e73-4ddd-ba87-1c4e7aa589c3
+		summarizeBy: none
+		sourceColumn: Income Band
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Relationship Status'
+		dataType: string
+		lineageTag: 433fc8d4-dbcd-45d7-9d5f-a7230f3172be
+		summarizeBy: none
+		sourceColumn: Relationship Status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalChildren
+		dataType: double
+		isHidden
+		lineageTag: e148a450-5fbe-47cc-87f1-b75f260d451d
+		summarizeBy: sum
+		sourceColumn: TotalChildren
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalCampaignsAccepted
+		dataType: double
+		isHidden
+		lineageTag: 89d1290a-b5f3-4abb-9274-e9ac83ebc084
+		summarizeBy: sum
+		sourceColumn: TotalCampaignsAccepted
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Campaign Engagement'
+		dataType: string
+		lineageTag: 95c4e571-9a43-42d6-bcbf-9ff0d82dc3ff
+		summarizeBy: none
+		sourceColumn: Campaign Engagement
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Children Status'
+		dataType: string
+		lineageTag: 3b8cc1ee-3457-4ee1-ad78-400efb2b26af
+		summarizeBy: none
+		sourceColumn: Children Status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Customer = m
+		mode: import
+		source =
+				let
+				    // Load source data
+				    source_data = Marketing_Data_Source,
+				
+				    // Calculate total campaigns accepted
+				    add_total_campaigns = Table.AddColumn(source_data, "TotalCampaignsAccepted",
+				        each List.Sum({[AcceptedCmp3], [AcceptedCmp4], [AcceptedCmp5], [AcceptedCmp1], [AcceptedCmp2], [Response]}),
+				        type number),
+				
+				    // Calculate total children in household
+				    add_total_children = Table.AddColumn(add_total_campaigns, "TotalChildren",
+				        each [Kidhome] + [Teenhome],
+				        type number),
+				
+				    // Keep only relevant columns
+				    select_relevant_columns = Table.SelectColumns(add_total_children,
+				        {"ID", "Year_Birth", "Education", "Marital_Status", " Income ", "Kidhome", "Teenhome",
+				         "Recency", "NumWebVisitsMonth", "Complain", "Country", "TotalChildren", "TotalCampaignsAccepted"}),
+				
+				    // Standardize column names
+				    rename_columns = Table.RenameColumns(select_relevant_columns,
+				        {{"ID", "Customer_ID"}, {"Marital_Status", "Marital Status"}, {" Income ", "Income"}}),
+				
+				    // Flag original null income values
+				    flag_null_income = Table.AddColumn(rename_columns, "Flag_IncomeNull",
+				        each if [Income] = null then 1 else 0, Int64.Type),
+				
+				    // Compute median income excluding nulls
+				    median_income = List.Median(List.RemoveNulls(flag_null_income[Income])),
+				
+				    // Replace null income with median
+				    impute_income = Table.TransformColumns(
+				        flag_null_income,
+				        {
+				            {
+				                "Income",
+				                each if _ = null then median_income else _,
+				                type number
+				            }
+				        }
+				    ),
+				
+				    // Derive age from birth year
+				    add_age = Table.AddColumn(impute_income, "Age",
+				        each 2024 - [Year_Birth]),
+				
+				    // Create age groups
+				    add_age_group = Table.AddColumn(add_age, "Age Group",
+				        each if [Age] < 30 then "Under 30"
+				        else if [Age] < 45 then "30-44"
+				        else if [Age] < 60 then "45-59"
+				        else "60+",
+				        type text),
+				
+				    // Flag unrealistic birth years
+				    flag_birthyear_outlier = Table.AddColumn(add_age_group, "Flag_BirthYear_Outlier",
+				        each if [Year_Birth] < 1924 then 1 else 0, Int64.Type),
+				
+				    // Flag high income outliers
+				    flag_income_outlier = Table.AddColumn(flag_birthyear_outlier, "Flag_Income_Outlier",
+				        each if [Income] > 162000 then 1 else 0, Int64.Type),
+				
+				    // Create income bands
+				    add_income_band = Table.AddColumn(flag_income_outlier, "Income Band",
+				        each if [Income] < 30000 then "Low (<$30K)"
+				        else if [Income] < 55000 then "Mid ($30K–$55K)"
+				        else if [Income] < 80000 then "High ($55K–$80K)"
+				        else "Very High ($80K+)",
+				        type text),
+				
+				    // Set final data types
+				    set_data_types = Table.TransformColumnTypes(add_income_band,
+				        {{"Flag_BirthYear_Outlier", type logical},
+				         {"Flag_Income_Outlier", type logical},
+				         {"Flag_IncomeNull", type logical}}),
+				
+				    // Group marital status into relationship categories
+				    add_relationship_status = Table.AddColumn(set_data_types, "Relationship Status",
+				        each if [Marital Status] = "Married" or [Marital Status] = "Together" then "Partnered"
+				        else if [Marital Status] = "Single" or [Marital Status] = "Alone" then "Single"
+				        else if [Marital Status] = "Divorced" or [Marital Status] = "Widow" then "Former"
+				        else "Unknown"),
+				
+				    // Classify campaign engagement level
+				    add_campaign_engagement = Table.AddColumn(add_relationship_status, "Campaign Engagement",
+				        each if [TotalCampaignsAccepted] = 0 then "None"
+				        else if [TotalCampaignsAccepted] = 1 then "1 Campaign"
+				        else if [TotalCampaignsAccepted] = 2 then "2 Campaigns"
+				        else "3+ Campaigns"),
+				
+				    // Identify presence of children
+				    add_children_status = Table.AddColumn(add_campaign_engagement, "Children Status",
+				        each if [TotalChildren] = 0 then "No Children" else "Has Children"),
+				    #"Changed Type" = Table.TransformColumnTypes(add_children_status,{{"Age", Int64.Type}})
+				
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

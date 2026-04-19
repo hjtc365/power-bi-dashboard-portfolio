@@ -1,0 +1,355 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 229.28818250684688,
+        "y": 9.8618573121224458
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 656
+          },
+          "nodeIndex": "Dim_Product",
+          "nodeLineageTag": "f6b31d86-ca7e-4f24-b491-88ecbbb9bac4",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 290
+          },
+          "nodeIndex": "Fact_ProductSpend",
+          "nodeLineageTag": "37eaaf37-170c-4ba1-9d11-81bc7b717ff7",
+          "size": {
+            "height": 187,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 374,
+            "y": 283
+          },
+          "nodeIndex": "Fact_CampaignResponse",
+          "nodeLineageTag": "2a9aaa21-1dc7-4289-b9ba-0595d1256d03",
+          "size": {
+            "height": 191,
+            "width": 248
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 863,
+            "y": 261
+          },
+          "nodeIndex": "Fact_ChannelPurchases",
+          "nodeLineageTag": "018f1500-34c5-43c6-b38a-ba87b97651d8",
+          "size": {
+            "height": 185,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 630,
+            "y": 509
+          },
+          "nodeIndex": "Dim_Campaign",
+          "nodeLineageTag": "c01afe33-29e0-4ab2-aa26-6bdd4fd771c6",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1046,
+            "y": 498
+          },
+          "nodeIndex": "Dim_Channel",
+          "nodeLineageTag": "68846b03-cafb-4ac9-a181-c6cc47682b47",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 379,
+            "y": 620.5
+          },
+          "nodeIndex": "Dim_Customer",
+          "nodeLineageTag": "5208735d-f8c2-4eec-8b8e-829559fe4956",
+          "size": {
+            "height": 699,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 385,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Date",
+          "nodeLineageTag": "92cf53b8-8cb2-4eb8-aed4-39edb5308f01",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1414.9980381873629,
+            "y": 9.8618573121224387
+          },
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "6d03cf64-2e2d-43b7-9be0-150344d65fc5",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 823.71930054581139
+        },
+        {
+          "location": {
+            "x": 1416.702372627858,
+            "y": 151.02494027154606
+          },
+          "nodeIndex": "_DQ_Issues",
+          "nodeLineageTag": "ee346a2e-80d6-4b6a-bbf1-9c99c0af35e3",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 81.120622077610022,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Date",
+          "nodeLineageTag": "92cf53b8-8cb2-4eb8-aed4-39edb5308f01",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 409.92436664668662,
+            "y": 468
+          },
+          "nodeIndex": "Fact_ProductSpend",
+          "nodeLineageTag": "37eaaf37-170c-4ba1-9d11-81bc7b717ff7",
+          "size": {
+            "height": 192,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 718.28865647452324,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Customer",
+          "nodeLineageTag": "5208735d-f8c2-4eec-8b8e-829559fe4956",
+          "size": {
+            "height": 414,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 348.68382573154167,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Product",
+          "nodeLineageTag": "f6b31d86-ca7e-4f24-b491-88ecbbb9bac4",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Product Spend",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 2,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 457,
+            "y": 445
+          },
+          "nodeIndex": "Fact_ChannelPurchases",
+          "nodeLineageTag": "018f1500-34c5-43c6-b38a-ba87b97651d8",
+          "size": {
+            "height": 252,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Date",
+          "nodeLineageTag": "92cf53b8-8cb2-4eb8-aed4-39edb5308f01",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 369,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Channel",
+          "nodeLineageTag": "68846b03-cafb-4ac9-a181-c6cc47682b47",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 744,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Customer",
+          "nodeLineageTag": "5208735d-f8c2-4eec-8b8e-829559fe4956",
+          "size": {
+            "height": 425,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Channel Purchases",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 3,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 429,
+            "y": 446
+          },
+          "nodeIndex": "Fact_CampaignResponse",
+          "nodeLineageTag": "2a9aaa21-1dc7-4289-b9ba-0595d1256d03",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Date",
+          "nodeLineageTag": "92cf53b8-8cb2-4eb8-aed4-39edb5308f01",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 371,
+            "y": 1
+          },
+          "nodeIndex": "Dim_Campaign",
+          "nodeLineageTag": "c01afe33-29e0-4ab2-aa26-6bdd4fd771c6",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 814,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Customer",
+          "nodeLineageTag": "5208735d-f8c2-4eec-8b8e-829559fe4956",
+          "size": {
+            "height": 421,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Campaign Response",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Channel Purchases",
+  "defaultDiagram": "All tables"
+}

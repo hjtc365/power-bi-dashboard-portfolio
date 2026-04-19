@@ -1,0 +1,51 @@
+table Dim_Campaign
+	lineageTag: c01afe33-29e0-4ab2-aa26-6bdd4fd771c6
+
+	column Campaign_ID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 79c17037-4964-4e88-9ab9-711a8ef1733d
+		summarizeBy: none
+		sourceColumn: Campaign_ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Campaign
+		dataType: string
+		lineageTag: 6d9d3499-d9f2-4fee-a19f-83eb57bfbb39
+		summarizeBy: none
+		sourceColumn: Campaign
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Campaign = m
+		mode: import
+		source =
+				let
+				    Source = Marketing_Data_Source,
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([ID] = 1)),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"ID", "AcceptedCmp3", "AcceptedCmp4", "AcceptedCmp5", "AcceptedCmp1", "AcceptedCmp2", "Response"}),
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Removed Other Columns", {"ID"}, "Attribute", "Value"),
+				    #"Removed Other Columns1" = Table.SelectColumns(#"Unpivoted Other Columns",{"Attribute"}),
+				    #"Sorted Rows" = Table.Sort(#"Removed Other Columns1",{{"Attribute", Order.Ascending}}),
+				    #"Added Index" = Table.AddIndexColumn(#"Sorted Rows", "Index", 1, 1, Int64.Type),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Added Index",{"Index", "Attribute"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Reordered Columns","AcceptedCmp1","Campaign 1",Replacer.ReplaceText,{"Attribute"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","AcceptedCmp2","Campaign 2",Replacer.ReplaceText,{"Attribute"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","AcceptedCmp3","Campaign 3",Replacer.ReplaceText,{"Attribute"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","AcceptedCmp4","Campaign 4",Replacer.ReplaceText,{"Attribute"}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Replaced Value3","AcceptedCmp5","Campaign 5",Replacer.ReplaceText,{"Attribute"}),
+				    #"Replaced Value5" = Table.ReplaceValue(#"Replaced Value4","Response","Campaign 6",Replacer.ReplaceText,{"Attribute"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Replaced Value5",{{"Attribute", "Campaign"}, {"Index", "Campaign_ID"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

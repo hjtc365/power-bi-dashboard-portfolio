@@ -1,0 +1,82 @@
+table Fact_ProductSpend
+	isHidden
+	lineageTag: 37eaaf37-170c-4ba1-9d11-81bc7b717ff7
+
+	column Customer_ID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 96fd5d1a-53d0-4e78-bfff-cd6087eb8580
+		summarizeBy: none
+		sourceColumn: Customer_ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2b239f33-64dc-4205-9a28-7b39a3052859
+		summarizeBy: sum
+		sourceColumn: Amount
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product_ID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 14dca7dc-eb72-4646-bb60-610e3d0a5141
+		summarizeBy: none
+		sourceColumn: Product_ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Enrollment_Date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: f5f3039d-26da-4ef1-84e8-d11802fe46c5
+		summarizeBy: none
+		sourceColumn: Enrollment_Date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Fact_ProductSpend = m
+		mode: import
+		queryGroup: 'Fact Tables'
+		source =
+				let
+				    Source = Marketing_Data_Source,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"ID", "MntWines", "MntFruits", "MntMeatProducts", "MntFishProducts", "MntSweetProducts", "MntGoldProds", "Dt_Customer"}),
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Removed Other Columns", {"ID", "Dt_Customer"}, "Attribute", "Value"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Unpivoted Other Columns",{{"Attribute", "Product"}, {"Value", "Amount"}, {"ID", "Customer_ID"}, {"Dt_Customer", "Enrollment_Date"}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns","MntWines","Wines",Replacer.ReplaceText,{"Product"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","MntFruits","Fruits",Replacer.ReplaceText,{"Product"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","MntMeatProducts","Meat",Replacer.ReplaceText,{"Product"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","MntFishProducts","Fish",Replacer.ReplaceText,{"Product"}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Replaced Value3","MntSweetProducts","Sweet",Replacer.ReplaceText,{"Product"}),
+				    #"Replaced Value5" = Table.ReplaceValue(#"Replaced Value4","MntGoldProds","Gold",Replacer.ReplaceText,{"Product"}),
+				    #"Merged Queries" = Table.NestedJoin(#"Replaced Value5", {"Product"}, Dim_Product, {"Product"}, "Dim_Product", JoinKind.Inner),
+				    #"Expanded Dim_Product" = Table.ExpandTableColumn(#"Merged Queries", "Dim_Product", {"Product_ID"}, {"Product_ID"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Expanded Dim_Product",{"Customer_ID", "Product_ID", "Product", "Amount"}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Reordered Columns",{"Product"})
+				in
+				    #"Removed Columns"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

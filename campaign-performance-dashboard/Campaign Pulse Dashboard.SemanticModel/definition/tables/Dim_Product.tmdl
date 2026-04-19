@@ -1,0 +1,51 @@
+table Dim_Product
+	lineageTag: f6b31d86-ca7e-4f24-b491-88ecbbb9bac4
+
+	column Product_ID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4f9489fd-83d0-4c9c-84cd-3677c6c26ffe
+		summarizeBy: none
+		sourceColumn: Product_ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product
+		dataType: string
+		lineageTag: 5ccf6341-1519-42a7-8595-d4e213e281d0
+		summarizeBy: none
+		sourceColumn: Product
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Product = m
+		mode: import
+		source =
+				let
+				    Source = Marketing_Data_Source,
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([ID] = 1)),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"ID", "MntWines", "MntFruits", "MntMeatProducts", "MntFishProducts", "MntSweetProducts", "MntGoldProds"}),
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Removed Other Columns", {"ID"}, "Attribute", "Value"),
+				    #"Removed Other Columns1" = Table.SelectColumns(#"Unpivoted Other Columns",{"Attribute"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Removed Other Columns1","MntWines","Wines",Replacer.ReplaceText,{"Attribute"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","MntFruits","Fruits",Replacer.ReplaceText,{"Attribute"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","MntMeatProducts","Meat",Replacer.ReplaceText,{"Attribute"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","MntFishProducts","Fish",Replacer.ReplaceText,{"Attribute"}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Replaced Value3","MntSweetProducts","Sweet",Replacer.ReplaceText,{"Attribute"}),
+				    #"Replaced Value5" = Table.ReplaceValue(#"Replaced Value4","MntGoldProds","Gold",Replacer.ReplaceText,{"Attribute"}),
+				    #"Sorted Rows" = Table.Sort(#"Replaced Value5",{{"Attribute", Order.Ascending}}),
+				    #"Added Index" = Table.AddIndexColumn(#"Sorted Rows", "Index", 1, 1, Int64.Type),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Added Index",{"Index", "Attribute"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Reordered Columns",{{"Index", "Product_ID"}, {"Attribute", "Product"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

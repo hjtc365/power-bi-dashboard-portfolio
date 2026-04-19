@@ -1,0 +1,36 @@
+relationship AutoDetected_32a9d0ef-ece7-43ee-a119-b9426257187d
+	fromColumn: Fact_ProductSpend.Product_ID
+	toColumn: Dim_Product.Product_ID
+
+relationship AutoDetected_42c461fd-be42-4465-b311-7222f26e09b6
+	fromColumn: Fact_ChannelPurchases.Channel_ID
+	toColumn: Dim_Channel.Channel_ID
+
+relationship AutoDetected_4b4f9158-8560-4d15-8a66-7fa01e0bbe5a
+	fromColumn: Fact_CampaignResponse.Campaign_ID
+	toColumn: Dim_Campaign.Campaign_ID
+
+relationship 72689d10-cdd7-b466-38c1-cce101900357
+	fromColumn: Fact_ProductSpend.Customer_ID
+	toColumn: Dim_Customer.Customer_ID
+
+relationship 6b3d48c0-6d39-5c1e-8312-87fc705f2967
+	fromColumn: Fact_CampaignResponse.Customer_ID
+	toColumn: Dim_Customer.Customer_ID
+
+relationship 285a1c30-e9a7-3732-cb52-a2dcac21f138
+	fromColumn: Fact_ChannelPurchases.Customer_ID
+	toColumn: Dim_Customer.Customer_ID
+
+relationship 555bd9f5-6ace-3ac2-bf42-5234c6b9263e
+	fromColumn: Fact_ProductSpend.Enrollment_Date
+	toColumn: Dim_Date.Date
+
+relationship f390e5c0-38fe-f4e7-467c-6ba3cae44d07
+	fromColumn: Fact_CampaignResponse.Enrollment_Date
+	toColumn: Dim_Date.Date
+
+relationship 0585cf0e-3de6-13d2-f6dc-9b7cb437cdf5
+	fromColumn: Fact_ChannelPurchases.Enrollment_Date
+	toColumn: Dim_Date.Date
+

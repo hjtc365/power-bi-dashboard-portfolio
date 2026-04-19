@@ -1,0 +1,47 @@
+table Dim_Date
+	lineageTag: 92cf53b8-8cb2-4eb8-aed4-39edb5308f01
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: Short Date
+		lineageTag: 77b162f4-1e8b-4e17-a7eb-241e622b5e09
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year = YEAR(Dim_Date[Date])
+		formatString: 0
+		lineageTag: 70c746a7-c04d-490a-99ed-02e37bb5eb3e
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month = FORMAT(Dim_Date[Date], "MMM")
+		lineageTag: 96bc3ae9-eabf-4e6c-a6b3-4236138d3711
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number' = MONTH(Dim_Date[Date])
+		formatString: 0
+		lineageTag: 8123b5e9-87a9-4027-83d7-37c9ff267104
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Date = calculated
+		mode: import
+		source =
+				
+				CALENDAR(
+				    DATE( YEAR(MIN(Fact_ProductSpend[Enrollment_Date])), 1, 1),
+				    DATE( YEAR(MAX(Fact_ProductSpend[Enrollment_Date])), 12, 31)
+				)
+
+	annotation PBI_Id = dd49e72f7fb148469feabd7b51d33197
+

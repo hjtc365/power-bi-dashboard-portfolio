@@ -1,0 +1,80 @@
+table Fact_ChannelPurchases
+	isHidden
+	lineageTag: 018f1500-34c5-43c6-b38a-ba87b97651d8
+
+	column Customer_ID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 08251d3c-e265-40af-bedf-748c35fefbff
+		summarizeBy: none
+		sourceColumn: Customer_ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Purchases
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c6fb3dc1-e33e-4c11-a0d5-fbb5aa476be8
+		summarizeBy: sum
+		sourceColumn: Purchases
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Channel_ID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 977e7544-2ee9-4c6b-a869-77f766383f2e
+		summarizeBy: none
+		sourceColumn: Channel_ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Enrollment_Date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: f9d8911b-f9ce-475e-b2eb-ce9fe6ad5e7d
+		summarizeBy: none
+		sourceColumn: Enrollment_Date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Fact_ChannelPurchases = m
+		mode: import
+		queryGroup: 'Fact Tables'
+		source =
+				let
+				    Source = Marketing_Data_Source,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"ID", "NumDealsPurchases", "NumWebPurchases", "NumCatalogPurchases", "NumStorePurchases", "Dt_Customer"}),
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Removed Other Columns", {"ID", "Dt_Customer"}, "Attribute", "Value"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Unpivoted Other Columns",{{"Attribute", "Channel"}, {"Value", "Purchases"}, {"ID", "Customer_ID"}, {"Dt_Customer", "Enrollment_Date"}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns","NumDealsPurchases","Deals",Replacer.ReplaceText,{"Channel"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","NumWebPurchases","Web",Replacer.ReplaceText,{"Channel"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","NumCatalogPurchases","Catalog",Replacer.ReplaceText,{"Channel"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","NumStorePurchases","Store",Replacer.ReplaceText,{"Channel"}),
+				    #"Merged Queries" = Table.NestedJoin(#"Replaced Value3", {"Channel"}, Dim_Channel, {"Channel"}, "Dim_Channel", JoinKind.Inner),
+				    #"Expanded Dim_Channel" = Table.ExpandTableColumn(#"Merged Queries", "Dim_Channel", {"Channel_ID"}, {"Channel_ID"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Expanded Dim_Channel",{"Customer_ID", "Channel_ID", "Channel", "Purchases"}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Reordered Columns",{"Channel"})
+				in
+				    #"Removed Columns"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
