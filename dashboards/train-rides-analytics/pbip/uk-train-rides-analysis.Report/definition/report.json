@@ -9,6 +9,15 @@
         "page": "2.3.1"
       },
       "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "UK_Rail___Slipstream7725825751978627.json",
+      "reportVersionAtImport": {
+        "visual": "2.8.0",
+        "report": "3.2.0",
+        "page": "2.3.1"
+      },
+      "type": "RegisteredResources"
     }
   },
   "objects": {
@@ -19,6 +28,19 @@
             "expr": {
               "Literal": {
                 "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
               }
             }
           }
@@ -35,6 +57,92 @@
           "name": "CY26SU04",
           "path": "BaseThemes/CY26SU04.json",
           "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "cover-banner646638437961095.svg",
+          "path": "cover-banner646638437961095.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-overview5752913731475725.svg",
+          "path": "icon-overview5752913731475725.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-overview9170753109528375.svg",
+          "path": "icon-overview9170753109528375.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-overview9345452584299199.svg",
+          "path": "icon-overview9345452584299199.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-passengers053945335692373586.svg",
+          "path": "icon-passengers053945335692373586.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-passengers42894699786606305.svg",
+          "path": "icon-passengers42894699786606305.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-performance18213061800461627.svg",
+          "path": "icon-performance18213061800461627.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-performance7086433014421062.svg",
+          "path": "icon-performance7086433014421062.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-revenue615908740642554.svg",
+          "path": "icon-revenue615908740642554.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-revenue6560787352485887.svg",
+          "path": "icon-revenue6560787352485887.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-route4046114118226263.svg",
+          "path": "icon-route4046114118226263.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-route5510092170242215.svg",
+          "path": "icon-route5510092170242215.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-simulator3884312246349274.svg",
+          "path": "icon-simulator3884312246349274.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-simulator949839699268763.svg",
+          "path": "icon-simulator949839699268763.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-train033407193934829604.svg",
+          "path": "icon-train033407193934829604.svg",
+          "type": "Image"
+        },
+        {
+          "name": "UK_Rail___Slipstream7725825751978627.json",
+          "path": "UK_Rail___Slipstream7725825751978627.json",
+          "type": "CustomTheme"
         }
       ]
     }

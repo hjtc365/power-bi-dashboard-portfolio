@@ -123,10 +123,38 @@ Every page uses the **same three-zone layout**. Set it up once and duplicate it.
 3. **Format Shape:**
    - Fill: `#1F3864` (Dark Navy), 100% opacity
    - Border: off
-4. Add a **Text Box** on top:
-   - Text: your page title, e.g. **"EXECUTIVE OVERVIEW"**
+
+#### Step 2 — Add the page icon
+
+Each analysis page has a matching icon in `assets/`. The icon sits in the left portion of the header bar, vertically centred.
+
+| Page | Icon file |
+|---|---|
+| Page 1 — Executive Overview | `icon-overview.svg` |
+| Page 2 — Passenger Usage | `icon-passengers.svg` |
+| Page 3 — Sales & Revenue | `icon-revenue.svg` |
+| Page 4 — Railway Performance | `icon-performance.svg` |
+| Page 5 — Route Analysis | `icon-route.svg` |
+| Page 6 — Scenario Simulator | `icon-simulator.svg` |
+
+1. **Insert** → **Image** → navigate to `dashboards/train-rides-analytics/assets/` → select the matching icon file for this page.
+2. In **Format visual** → **Image** → Image fit: **Fit** (preserves the circular shape).
+3. Set exact size and position:
+   - **W = 44, H = 44**
+   - **X = 8, Y = 8** (8px from the left edge, 8px from the top — perfectly centres the 44px icon in the 60px banner height)
+4. Right-click the icon image → **Send to back** (then bring it forward one step above the banner rectangle, so it sits on top of the rectangle but below any text).
+
+> **Why these coordinates?** The banner is 60px tall. A 44px icon centred vertically: (60 − 44) ÷ 2 = 8px top offset. The larger 44px size makes the icon clearly visible without overflowing the banner.
+
+#### Step 3 — Add the page title text box
+
+4. Add a **Text Box** on top of the banner:
+   - Text: your page title in ALL CAPS, e.g. **"EXECUTIVE OVERVIEW"**
    - Font: Segoe UI, 18pt, **Bold**, White (`#FFFFFF`)
-   - Position: X = 180, Y = 10
+   - **Position:** X = 60, Y = 18 (immediately right of the icon, vertically centred)
+   - **Size:** W = 700, H = 28
+
+> **X = 60** = icon X (8) + icon width (44) + 8px gap. **Y = 18** centres the 24px-tall 18pt text in the 60px banner: (60 − 24) ÷ 2 = 18.
 
 ### 3.2 Create the Navigation Sidebar
 
@@ -150,6 +178,24 @@ After creating the layout on Page 1:
 ## 4. Page 0 — Cover / Landing Page
 
 > **Purpose:** A professional title screen that makes a great first impression and provides one-click navigation to each analysis page.
+
+```
+Canvas: 1280 × 720  ·  no sidebar on the Cover page
+┌──────────────────────────────────────────────────────────────────────────┐ ← Y = 0
+│                  COVER BANNER SVG  (1280 × 400 px)                       │
+│        [title, subtitle, date pill, tagline — all embedded in SVG]       │
+│                   [🚆 icon straddles seam at Y = 368]                    │
+├──────────────────────────────────────────────────────────────────────────┤ ← Y = 400
+│                        dark zone  (#0D1E38)                               │
+│                                                                           │
+│  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌───────┐ │ ← Y = 504
+│  │ [icon]  │ │ [icon]  │ │ [icon]  │ │ [icon]  │ │ [icon]  │ │[icon] │ │
+│  │Overview │ │Passenger│ │Revenue  │ │Perf.    │ │Routes   │ │Simultr│ │
+│  └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘ └───────┘ │ ← Y = 604
+│                  205 × 100 px each  ·  6 tiles total                     │
+├───────────────── footer strip (13 px, #00B0F0) ──────────────────────────┤ ← Y = 707
+└──────────────────────────────────────────────────────────────────────────┘ ← Y = 720
+```
 
 ### 4.1 Page Setup
 
@@ -199,8 +245,9 @@ Each tile has a dedicated SVG icon in the `assets/` folder:
 #### Step 1 — Build the background rectangle (tile template)
 
 1. **Insert** → **Shapes** → **Rectangle**.
-2. Size: **W = 180, H = 85**. Rounded corners: 10px.
-3. Fill: `#FFFFFF` at 8% opacity. Border: `#00B0F0`, 2px.
+2. Size: **W = 205, H = 100**. Rounded corners: 10px.
+3. Fill: `#1F3864` at 55% opacity. Border: `#00B0F0`, 2px.
+   > **Why 55% opacity?** The cover canvas is deep navy `#0D1E38`. At 8% white the tile was invisible — white text had no anchor. At 55% navy the tile reads as a clear frosted-glass card while the border and icon still pop.
 4. Select the rectangle → **Format visual** → **Action** → toggle **ON**:
    - Type: **Page navigation** · Destination: *(set per tile — see table below)*
 
@@ -211,28 +258,28 @@ Each icon sits in the **left third** of the tile, vertically centred.
 1. With the rectangle placed, go to **Insert** → **Image** → select the matching icon file.
 2. Set Image fit: **Fit** (preserves the circle shape).
 3. Set size: **W = 44, H = 44**.
-4. Position the icon at: `tile_X + 10`, `tile_Y + 20` (10px from left edge, 20px from top — centres the 44px icon inside the 85px tile height).
+4. Position the icon at: `tile_X + 10`, `tile_Y + 28` (10px from left edge, 28px from top — centres the 44px icon inside the 100px tile height: (100 − 44) ÷ 2 = 28).
 
 #### Step 3 — Add the text label
 
 1. **Insert** → **Text box**.
-2. Font: Segoe UI 10pt Bold, White.
-3. Size: **W = 110, H = 44**.
-4. Position: `tile_X + 62`, `tile_Y + 20` (immediately right of the icon with 8px gap).
+2. Font: Segoe UI **11pt** Bold, colour `#EBF3FB` (very light blue — sharper against the navy tile than pure white).
+3. Size: **W = 125, H = 44**.
+4. Position: `tile_X + 62`, `tile_Y + 28` (immediately right of the icon with 8px gap, vertically aligned with the icon).
 5. Type the label text (see table below).
 
 #### Tile positions, icons, and labels
 
 | Tile | Rect X | Rect Y | Icon file | Label text | Target page |
 |---|---|---|---|---|---|
-| 1 | 148 | 420 | `icon-overview.svg` | Executive Overview | Page 1 |
-| 2 | 340 | 420 | `icon-passengers.svg` | Passenger Usage | Page 2 |
-| 3 | 532 | 420 | `icon-revenue.svg` | Sales & Revenue | Page 3 |
-| 4 | 724 | 420 | `icon-performance.svg` | Railway Performance | Page 4 |
-| 5 | 916 | 420 | `icon-route.svg` | Route Analysis | Page 5 |
-| 6 | 1108 | 420 | `icon-simulator.svg` | Scenario Simulator | Page 6 |
+| 1 | 1 | 504 | `icon-overview.svg` | Executive Overview | Page 1 |
+| 2 | 214 | 504 | `icon-passengers.svg` | Passenger Usage | Page 2 |
+| 3 | 427 | 504 | `icon-revenue.svg` | Sales & Revenue | Page 3 |
+| 4 | 640 | 504 | `icon-performance.svg` | Railway Performance | Page 4 |
+| 5 | 853 | 504 | `icon-route.svg` | Route Analysis | Page 5 |
+| 6 | 1066 | 504 | `icon-simulator.svg` | Scenario Simulator | Page 6 |
 
-> **Efficient workflow:** Build Tile 1 completely (rectangle + icon + text box). Select all three → right-click → **Group**. Then Ctrl+D five times to duplicate. On each copy, update: (a) the rectangle's page navigation destination, (b) the icon image file, (c) the text label. Move each copy to its correct X position — Y stays at 420 for all six.
+> **Efficient workflow:** Build Tile 1 completely (rectangle + icon + text box). Select all three → right-click → **Group**. Then Ctrl+D five times to duplicate. On each copy, update: (a) the rectangle's page navigation destination, (b) the icon image file, (c) the text label. Move each copy to its correct X position — Y stays at 504 for all six.
 
 #### Step 4 — Group and lock each tile
 
@@ -258,6 +305,28 @@ Each icon sits in the **left third** of the tile, vertically centred.
 ## 5. Page 1 — Executive Overview
 
 > **Purpose:** One-screen summary. A busy exec can see total journeys, revenue, on-time %, and key trends without clicking anything.
+
+```
+Canvas: 1280 × 720
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│ [icon] EXECUTIVE OVERVIEW                         [Month ▼]  [Ticket Class ▼]   │ ← Y = 0–60
+├────────┬─────────────────────────────────────────────────────────────────────────┤
+│        │  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐          │ ← Y = 80
+│  NAV   │  │Journeys │ │Revenue  │ │On-Time% │ │Disruptns│ │Refund £ │          │
+│  160px │  └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘          │ ← Y = 180
+│        ├───────────────────────────────────────┬─────────────────────────────────┤
+│  UK    │  Monthly Journey Trend                │  Journey Status Split           │ ← Y = 200
+│  Rail  │  (line + MoM % secondary axis)        │  (donut)                        │
+│        │  X=168, W=540, H=220                  │  X=720, W=250, H=220            │
+│        │                                       │                                 │ ← Y = 420
+│        ├───────────────────────────────────────┴─────────────────────────────────┤
+│        │  Revenue by Month, Ticket Class           Top 5 Routes by Journeys      │ ← Y = 440
+│        │  (stacked column)  X=168, W=540, H=230    (h-bar)  X=720, W=540, H=230  │
+│        │  ─────────────────────────────────────────────────────────────────────  │
+│        │  §5.7: replace bottom row → [Metric Selector tiles]                     │ ← Y = 460
+│        │  + Dynamic KPI bar (X=168, W=800, H=190) + KPI Label card (X=980)      │ ← Y = 670
+└────────┴─────────────────────────────────────────────────────────────────────────┘
+```
 
 ### 5.1 KPI Cards Row (top of content area)
 
@@ -423,6 +492,27 @@ Add **2 slicers** in the header area (Y = 15, right-aligned):
 
 > **Purpose:** Show when people travel, what type of ticket they use, and railcard adoption.
 
+```
+Canvas: 1280 × 720
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│ [icon] PASSENGER USAGE & PEAK TRAVEL              [Month ▼]  [Ticket Class ▼]   │ ← Y = 0–60
+├────────┬─────────────────────────────────────────────────────────────────────────┤
+│        │  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐          │ ← Y = 80
+│  NAV   │  │Journeys │ │Peak Jrny│ │Peak Rate│ │Railcard │ │Railcd % │          │
+│  160px │  └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘          │ ← Y = 180
+│        ├──────────────────────────────────────────────────┬──────────────────────┤
+│  UK    │  Journeys by Hour — "Heartbeat"                  │  Journeys by         │ ← Y = 200
+│  Rail  │  (col chart, peak hours highlighted cyan)        │  Day of Week         │
+│        │  X=168, W=740, H=250                             │  (col chart)         │
+│        │                                                  │  X=920, W=350, H=250 │
+│        ├──────────────────────┬───────────────────────────┴──────────────────────┤ ← Y = 450
+│        │  Time Band           │  Railcard Split       │  Ticket Type Mix         │ ← Y = 470
+│        │  (donut)             │  (donut)              │  (stacked h-bar)         │
+│        │  X=168, W=280, H=220 │  X=460, W=280, H=220  │  X=752, W=520, H=220     │
+│        │  ── §6.8: replace bottom-left+mid with [Month|Day|Band|Hour] tiles ─── │ ← Y = 690
+└────────┴──────────────────────┴───────────────────────────────────────────────────┘
+```
+
 ### 6.1 KPI Cards Row
 
 Same row layout as Page 1 (5 cards, Y = 80):
@@ -587,6 +677,27 @@ Add a **Button slicer** for `Dim_Payment[Purchase Type]`:
 
 > **Purpose:** Detailed breakdown of where money comes from by ticket class, type, payment method, and month.
 
+```
+Canvas: 1280 × 720
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│ [icon] SALES & REVENUE                            [Month ▼]  [Ticket Class ▼]   │ ← Y = 0–60
+├────────┬─────────────────────────────────────────────────────────────────────────┤
+│        │  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐          │ ← Y = 80
+│  NAV   │  │Revenue  │ │Avg Price│ │1st Cl % │ │Advance £│ │Rev/Jrny │          │
+│  160px │  └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘          │ ← Y = 180
+│        ├────────────────────────────────────────────────┬─────────────────────────┤
+│  UK    │  Revenue by Month & Ticket Type                │  Revenue vs Avg Price   │ ← Y = 200
+│  Rail  │  (line + stacked col combo)                    │  (scatter chart)        │
+│        │  X=168, W=700, H=250                           │  X=880, W=390, H=250    │
+│        │                                                │                         │ ← Y = 450
+│        ├──────────────────┬─────────────────────────────┼─────────────────────────┤
+│        │  Rev by Ticket   │  Avg Ticket Price            │  Revenue by Payment     │ ← Y = 466
+│        │  Class (donut)   │  Comparison (clustered bar)  │  Method (h-bar)         │
+│        │  X=168, W=260    │  X=440, W=380                │  X=832, W=438           │
+│        │                  │                              │                         │ ← Y = 686
+└────────┴──────────────────┴──────────────────────────────┴─────────────────────────┘
+```
+
 ### 7.1 KPI Cards Row (5 cards)
 
 | Measure | Label |
@@ -691,6 +802,27 @@ Position them as a small row at the bottom right of the page.
 
 > **Purpose:** Deep-dive into on-time performance, delay causes, refund patterns, and the impact of disruptions.
 
+```
+Canvas: 1280 × 720
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│ [icon] RAILWAY PERFORMANCE                        [Month ▼]  [Ticket Class ▼]   │ ← Y = 0–60
+├────────┬─────────────────────────────────────────────────────────────────────────┤
+│        │  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐          │ ← Y = 80
+│  NAV   │  │On-Time% │ │Delay %  │ │Cancel % │ │Avg Delay│ │Refund £ │          │
+│  160px │  └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘          │ ← Y = 180
+│        ├────────────────────────────────────────┬────────────────────────────────┤
+│  UK    │  Journey Status by Month               │  Disruptions by Reason         │ ← Y = 200
+│  Rail  │  (100% stacked col + raw col pair)     │  (h-bar, reason not blank)     │
+│        │  X=168, W=560, H=230                   │  X=740, W=530, H=230           │
+│        │                                        │                                │ ← Y = 430
+│        ├──────────────────────┬─────────────────┼────────────────────────────────┤
+│        │  Disruptions vs      │  Delays >15 min │  Refund Rate by                │ ← Y = 446
+│        │  Refund Requests     │  (gauge)        │  Delay Reason                  │
+│        │  (clustered h-bar)   │  X=720, W=260   │  (matrix + conditional fmt)    │
+│        │  X=168, W=540, H=240 │  H=240          │  X=992, W=278, H=240           │ ← Y = 686
+└────────┴──────────────────────┴─────────────────┴────────────────────────────────┘
+```
+
 ### 8.1 KPI Cards Row (5 cards)
 
 | Measure | Label |
@@ -790,6 +922,24 @@ Format:
 
 > **Purpose:** Identify the most popular and most profitable routes, and where delays concentrate.
 
+```
+Canvas: 1280 × 720
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│ [icon] ROUTE ANALYSIS                             [Month ▼]  [Ticket Class ▼]   │ ← Y = 0–60
+├────────┬─────────────────────────────────────────────────────────────────────────┤
+│        │  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐       │ ← Y = 80
+│  NAV   │  │Total Routes │ │Total Journys│ │Total Revenue│ │Top Rt Jrnys │       │
+│  160px │  └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘       │ ← Y = 180
+│        ├──────────────────────────────────────────┬─────────────────────────────┤
+│  UK    │  Top 10 Routes by Journeys               │  Top 10 Routes by Revenue    │ ← Y = 200
+│  Rail  │  (h-bar, top-N filter, descending)       │  (h-bar, gradient colour)    │
+│        │  X=168, W=530, H=480                     │  X=710, W=560, H=480         │
+│        │                                          │                              │
+│        │  Both charts span full content height    │                              │
+│        │  — intentionally tall for readability    │                              │ ← Y = 680
+└────────┴──────────────────────────────────────────┴─────────────────────────────┘
+```
+
 ### 9.1 KPI Cards Row (4 cards)
 
 | Measure | Label |
@@ -855,6 +1005,28 @@ Place a **Matrix** visual on a second row (if space allows on this page, or add 
 > **Purpose:** A dedicated "what could happen" page for live scenario modelling. Users drag two sliders to model different refund eligibility thresholds and ticket price adjustments — watching key metrics update in real time.
 >
 > **Why a separate page?** Field Parameters (§16) enhance existing charts in-place — they are UI polish. What-If sliders change the mathematical *assumptions* of the model. Mixing descriptive analytics ("what happened") with prescriptive modelling ("what if") on the same page creates cognitive confusion. A dedicated Scenario page signals clearly: you have left the historical record and entered the simulator.
+
+```
+Canvas: 1280 × 720
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│ [icon] SCENARIO SIMULATOR  ·  subtitle: operational impact modelling             │ ← Y = 0–55
+├──────────────────────────────────────────────────────────────────────────────────┤
+│ Readout: Delay Threshold: [card]  │  Price Adjustment: [card]  (live values)    │ ← Y = 55–87
+├────────┬────────────────────────────────────────┬───────────────────────────────┤
+│        │   REFUND POLICY SIMULATOR              │   PRICE SCENARIO SIMULATOR    │ ← Y = 90
+│  NAV   │   ──────────────────────────────       │   ─────────────────────────   │
+│  160px │  [ Delay Threshold slider ]            │  [ Price Adjustment slider ]  │ ← Y = 140
+│        │                                        │                               │
+│  UK    │  ┌───────┐  ┌────────┐  ┌────────┐    │  ┌─────┐┌─────┐┌─────┐┌─────┐│ ← Y = 215
+│  Rail  │  │ Jrnys │  │Refund  │  │Policy  │    │  │Actl ││Siml.││ Δ £ ││ Δ % ││
+│        │  │ Above │  │Exposre │  │Saving  │    │  │ Rev ││ Rev ││     ││     ││ ← Y = 305
+│        │  └───────┘  └────────┘  └────────┘    │  └─────┘└─────┘└─────┘└─────┘│
+│        │                                        │                               │ ← Y = 336
+│        │  Affected Journeys vs Total            │  Actual vs Simulated Revenue  │
+│        │  (line + col combo chart)              │  (line + col combo chart)     │
+│        │  X=178, W=516, H=370                   │  X=730, W=530, H=354          │ ← Y = 710
+└────────┴────────────────────────────────────────┴───────────────────────────────┘
+```
 
 ### 10.1 Page Setup
 
@@ -1057,10 +1229,29 @@ Create one button per page with these labels:
 
 ### 11.5 Active page indicator
 
-To show which page the user is on:
-1. Add a small Rectangle (W = 4, H = 42) to the left of the active page's button.
-2. Fill it with `#00B0F0` (cyan).
-3. Since this is static per page, each page's sidebar has the indicator next to its own button.
+Power BI button borders apply uniformly to all four sides — use this to add a cyan outline to the active page's button.
+
+#### Active vs inactive button styles
+
+| Property | Active (current page) | Inactive (other pages) |
+|---|---|---|
+| Fill | `#1F3864` (dark navy) | `#2A4A7F` (mid navy) |
+| Border | `#00B0F0`, 2px, all sides | None |
+| Font weight | Bold ON | Bold OFF |
+
+#### Step-by-step
+
+**On each analysis page, style the active button's Default state:**
+
+1. Select the nav button for the current page.
+2. **Format Visual** → **Button** → **Default** state:
+   - Fill: `#1F3864`
+   - Border: ON · Colour `#00B0F0` · Width: **2px**
+   - Font: Bold ON
+3. Leave all other nav buttons at the standard inactive Default style (no border).
+4. Repeat on every page — one button per page gets the active border style.
+
+> **Why not the native Selected state?** Power BI's Selected format is designed for within-page toggle groups. It does not survive cross-page navigation — the border approach baked into Default state is the correct method.
 
 ---
 
