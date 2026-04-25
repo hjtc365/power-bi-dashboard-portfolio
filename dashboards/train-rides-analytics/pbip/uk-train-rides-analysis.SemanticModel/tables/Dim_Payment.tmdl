@@ -36,3 +36,5 @@ table Dim_Payment
 				in
 				    Reorder
 
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,16 @@
+/// What-If parameter: simulate revenue impact of a global ticket price change. Default = 0.
+table 'Price Adjustment %'
+	lineageTag: e03b7d9f-f833-4ebe-b0ae-2cab64ba296c
+
+	column Value
+		isNameInferred
+		sourceColumn: [Value]
+
+	partition 'Price Adjustment %' = calculated
+		mode: import
+		source = GENERATESERIES(-30, 30, 5)
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

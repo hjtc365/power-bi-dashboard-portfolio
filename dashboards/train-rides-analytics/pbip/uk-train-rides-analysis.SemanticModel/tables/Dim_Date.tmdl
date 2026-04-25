@@ -14,10 +14,13 @@ table Dim_Date
 	column Date
 		dataType: dateTime
 		isUnique
+		formatString: Long Date
 		lineageTag: dc1a2c80-a182-448d-b0f0-c93b8c0a2746
 		dataCategory: PaddedDateTableDates
 		summarizeBy: none
 		sourceColumn: Date
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column Year
 		dataType: int64

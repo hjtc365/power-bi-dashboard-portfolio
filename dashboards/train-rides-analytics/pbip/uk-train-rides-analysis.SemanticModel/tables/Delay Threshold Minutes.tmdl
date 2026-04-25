@@ -1,0 +1,16 @@
+/// What-If parameter: set the minimum delay (minutes) that triggers refund eligibility. Default = 15.
+table 'Delay Threshold Minutes'
+	lineageTag: 85329e14-9332-4521-a979-31b7bf630784
+
+	column Value
+		isNameInferred
+		sourceColumn: [Value]
+
+	partition 'Delay Threshold Minutes' = calculated
+		mode: import
+		source = GENERATESERIES(0, 60, 5)
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

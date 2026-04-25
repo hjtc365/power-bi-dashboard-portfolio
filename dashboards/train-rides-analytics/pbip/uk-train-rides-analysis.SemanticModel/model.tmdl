@@ -10,6 +10,8 @@ annotation __PBI_TimeIntelligenceEnabled = 0
 
 annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling"]
 
+annotation PBI_QueryOrder = ["Dim_Date","Dim_Station","Dim_Ticket","Dim_Payment","Dim_Journey_Status","Fact_Transactions","RailwayData"]
+
 ref table Dim_Date
 ref table Dim_Station
 ref table Dim_Ticket
@@ -17,6 +19,10 @@ ref table Dim_Payment
 ref table Dim_Journey_Status
 ref table Fact_Transactions
 ref table _Measures
+ref table 'Delay Threshold Minutes'
+ref table 'Price Adjustment %'
+ref table 'Metric Selector'
+ref table 'Time Dimension'
 
 ref cultureInfo en-US
 

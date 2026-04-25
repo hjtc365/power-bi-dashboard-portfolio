@@ -1,0 +1,26 @@
+/// Disconnected selector — switches time-axis breakdown via Button Slicer.
+table 'Time Dimension'
+	lineageTag: 6f04f705-efa2-442a-89b5-dc7caa5f5da9
+
+	column 'Dimension Name'
+		isNameInferred
+		sourceColumn: [Dimension Name]
+
+	column 'Sort Order'
+		isNameInferred
+		sourceColumn: [Sort Order]
+
+	partition 'Time Dimension' = calculated
+		mode: import
+		source =
+				DATATABLE(
+				    "Dimension Name", STRING,
+				    "Sort Order", INTEGER,
+				    {
+				        {"Month",           1},
+				        {"Day of Week",     2},
+				        {"Time Band",       3},
+				        {"Departure Hour",  4}
+				    }
+				)
+

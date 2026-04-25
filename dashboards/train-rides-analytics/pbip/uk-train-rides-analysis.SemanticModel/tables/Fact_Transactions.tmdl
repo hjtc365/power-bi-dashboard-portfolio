@@ -81,6 +81,8 @@ table Fact_Transactions
 		summarizeBy: none
 		sourceColumn: Time of Purchase
 
+		annotation UnderlyingDateTimeDataType = Time
+
 	/// Scheduled departure time
 	column 'Departure Time'
 		dataType: dateTime
@@ -88,6 +90,8 @@ table Fact_Transactions
 		lineageTag: 01a100ed-4a90-4858-83f4-e28397932344
 		summarizeBy: none
 		sourceColumn: Departure Time
+
+		annotation UnderlyingDateTimeDataType = Time
 
 	/// Scheduled arrival time
 	column 'Arrival Time'
@@ -97,6 +101,8 @@ table Fact_Transactions
 		summarizeBy: none
 		sourceColumn: Arrival Time
 
+		annotation UnderlyingDateTimeDataType = Time
+
 	/// Actual arrival time — null for cancelled journeys
 	column 'Actual Arrival Time'
 		dataType: dateTime
@@ -105,12 +111,57 @@ table Fact_Transactions
 		summarizeBy: none
 		sourceColumn: Actual Arrival Time
 
+		annotation UnderlyingDateTimeDataType = Time
+
 	/// True when passenger submitted a refund request
 	column 'Refund Request'
 		dataType: boolean
 		lineageTag: aed3ebb7-2232-44fa-8164-a642709e2ebc
 		summarizeBy: none
 		sourceColumn: Refund Request
+
+	/// Concatenated route label: Departure → Arrival.
+	column Route = RELATED(Dim_Station[Station Name]) & " → " & LOOKUPVALUE(Dim_Station[Station Name], Dim_Station[Station Key], Fact_Transactions[Arrival Station Key])
+		dataType: string
+		lineageTag: ec198b8a-c881-4280-a498-b10e0968acac
+		summarizeBy: none
+
+	/// Hour of scheduled departure (0-23).
+	column 'Departure Hour' = HOUR(Fact_Transactions[Departure Time])
+		dataType: int64
+		formatString: 0
+		lineageTag: ea495f9e-c643-4efd-b402-0993ac77e8b4
+		summarizeBy: none
+
+	/// Time band based on National Rail peak definitions (weekday 06-09 and 16-18).
+	column 'Time Band' =
+			VAR h = HOUR(Fact_Transactions[Departure Time])
+			VAR jDate = LOOKUPVALUE(Dim_Date[Date], Dim_Date[Date Key], Fact_Transactions[Journey Date Key])
+			VAR isWeekday = WEEKDAY(jDate, 2) <= 5
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        isWeekday && h >= 6  && h < 9,  "Morning Peak",
+			        isWeekday && h >= 16 && h < 18, "Afternoon Peak",
+			        h >= 9  && h < 16,              "Daytime Off-Peak",
+			        h >= 18 && h < 22,              "Evening",
+			        "Night / Early Morning"
+			    )
+		dataType: string
+		lineageTag: e8e36cb5-a1bf-4616-96cd-463ba1753c83
+		summarizeBy: none
+
+	/// Minutes late vs scheduled arrival. 0 for on-time, blank for cancelled.
+	column 'Delay Minutes' =
+			IF(
+			    ISBLANK(Fact_Transactions[Actual Arrival Time]),
+			    BLANK(),
+			    DATEDIFF(Fact_Transactions[Arrival Time], Fact_Transactions[Actual Arrival Time], MINUTE)
+			)
+		dataType: int64
+		formatString: 0
+		lineageTag: 12b5fab2-891b-4866-a5f9-b31837db4690
+		summarizeBy: none
 
 	partition Fact_Transactions = m
 		mode: import
@@ -129,27 +180,27 @@ table Fact_Transactions
 				           + Date.Day([Date of Journey]), Int64.Type),
 				
 				    // ── Departure Station Key ───────────────────────────────────────────────────
-				    MergeDepStn   = Table.NestedJoin(AddJourneyDK,      {"Departure Station"},   Dim_Station, {"Station Name"}, "_dep", JoinKind.Left),
+				    MergeDepStn   = Table.NestedJoin(AddJourneyDK,      {"Departure Station"},   Dim_Station, {"Station Name"}, "_dep", JoinKind.LeftOuter),
 				    ExpandDepKey  = Table.ExpandTableColumn(MergeDepStn,  "_dep", {"Station Key"}, {"Departure Station Key"}),
 				    TypeDepKey    = Table.TransformColumnTypes(ExpandDepKey,  {{"Departure Station Key", Int64.Type}}),
 				
 				    // ── Arrival Station Key ─────────────────────────────────────────────────────
-				    MergeArrStn   = Table.NestedJoin(TypeDepKey,         {"Arrival Destination"}, Dim_Station, {"Station Name"}, "_arr", JoinKind.Left),
+				    MergeArrStn   = Table.NestedJoin(TypeDepKey,         {"Arrival Destination"}, Dim_Station, {"Station Name"}, "_arr", JoinKind.LeftOuter),
 				    ExpandArrKey  = Table.ExpandTableColumn(MergeArrStn,  "_arr", {"Station Key"}, {"Arrival Station Key"}),
 				    TypeArrKey    = Table.TransformColumnTypes(ExpandArrKey,  {{"Arrival Station Key", Int64.Type}}),
 				
 				    // ── Ticket Key ──────────────────────────────────────────────────────────────
-				    MergeTicket   = Table.NestedJoin(TypeArrKey,         {"Ticket Class","Ticket Type","Railcard"}, Dim_Ticket, {"Ticket Class","Ticket Type","Railcard"}, "_tkt", JoinKind.Left),
+				    MergeTicket   = Table.NestedJoin(TypeArrKey,         {"Ticket Class","Ticket Type","Railcard"}, Dim_Ticket, {"Ticket Class","Ticket Type","Railcard"}, "_tkt", JoinKind.LeftOuter),
 				    ExpandTktKey  = Table.ExpandTableColumn(MergeTicket,  "_tkt", {"Ticket Key"}, {"Ticket Key"}),
 				    TypeTktKey    = Table.TransformColumnTypes(ExpandTktKey,  {{"Ticket Key", Int64.Type}}),
 				
 				    // ── Payment Key ─────────────────────────────────────────────────────────────
-				    MergePayment  = Table.NestedJoin(TypeTktKey,         {"Payment Method","Purchase Type"}, Dim_Payment, {"Payment Method","Purchase Type"}, "_pay", JoinKind.Left),
+				    MergePayment  = Table.NestedJoin(TypeTktKey,         {"Payment Method","Purchase Type"}, Dim_Payment, {"Payment Method","Purchase Type"}, "_pay", JoinKind.LeftOuter),
 				    ExpandPayKey  = Table.ExpandTableColumn(MergePayment, "_pay", {"Payment Key"}, {"Payment Key"}),
 				    TypePayKey    = Table.TransformColumnTypes(ExpandPayKey,  {{"Payment Key", Int64.Type}}),
 				
 				    // ── Journey Status Key ──────────────────────────────────────────────────────
-				    MergeStatus   = Table.NestedJoin(TypePayKey,         {"Journey Status","Reason for Delay"}, Dim_Journey_Status, {"Journey Status","Reason for Delay"}, "_sta", JoinKind.Left),
+				    MergeStatus   = Table.NestedJoin(TypePayKey,         {"Journey Status","Reason for Delay"}, Dim_Journey_Status, {"Journey Status","Reason for Delay"}, "_sta", JoinKind.LeftOuter),
 				    ExpandStaKey  = Table.ExpandTableColumn(MergeStatus,  "_sta", {"Journey Status Key"}, {"Journey Status Key"}),
 				    TypeStaKey    = Table.TransformColumnTypes(ExpandStaKey,  {{"Journey Status Key", Int64.Type}}),
 				

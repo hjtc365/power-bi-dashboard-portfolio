@@ -54,3 +54,5 @@ table Dim_Journey_Status
 				in
 				    Reorder
 
+	annotation PBI_ResultType = Table
+

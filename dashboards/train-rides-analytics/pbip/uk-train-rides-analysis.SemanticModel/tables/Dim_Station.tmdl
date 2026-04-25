@@ -33,3 +33,5 @@ table Dim_Station
 				in
 				    Reorder
 
+	annotation PBI_ResultType = Table
+
