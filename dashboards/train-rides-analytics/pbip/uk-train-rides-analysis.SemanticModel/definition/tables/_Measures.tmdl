@@ -1,0 +1,152 @@
+/// Dedicated table for all DAX measures.
+table _Measures
+	lineageTag: 42850685-0da1-4d6a-beef-e87184154fad
+
+	/// Total number of ticket transactions
+	measure 'Total Transactions' = COUNTROWS(Fact_Transactions)
+		formatString: #,##0
+		displayFolder: Volume
+		lineageTag: caebb590-425c-43df-a09e-fa3c9cc08ea2
+
+	/// Transactions where the train arrived on time
+	measure 'On Time Journeys' =
+			CALCULATE(
+			    COUNTROWS(Fact_Transactions),
+			    Dim_Journey_Status[Journey Status] = "On Time"
+			)
+		formatString: #,##0
+		displayFolder: Volume
+		lineageTag: 636704f7-9a38-4aca-a9c5-a49facde6af9
+
+	/// Transactions where the train was delayed
+	measure 'Delayed Journeys' =
+			CALCULATE(
+			    COUNTROWS(Fact_Transactions),
+			    Dim_Journey_Status[Journey Status] = "Delayed"
+			)
+		formatString: #,##0
+		displayFolder: Volume
+		lineageTag: 24b40b28-70f6-40dd-9e0f-45b6edd2cdba
+
+	/// Transactions where the train was cancelled
+	measure 'Cancelled Journeys' =
+			CALCULATE(
+			    COUNTROWS(Fact_Transactions),
+			    Dim_Journey_Status[Journey Status] = "Cancelled"
+			)
+		formatString: #,##0
+		displayFolder: Volume
+		lineageTag: fdc8cf87-691d-4cc0-a86f-05b330755e35
+
+	/// Percentage of journeys that arrived on time
+	measure 'On Time Rate %' = DIVIDE([On Time Journeys], [Total Transactions])
+		formatString: 0.0%
+		displayFolder: Rates
+		lineageTag: dc60e1d8-383b-49ed-8cf6-74047abc529c
+
+	/// Percentage of journeys that were delayed
+	measure 'Delay Rate %' = DIVIDE([Delayed Journeys], [Total Transactions])
+		formatString: 0.0%
+		displayFolder: Rates
+		lineageTag: 69a5c9b6-3183-4378-a71e-bac20b3505ee
+
+	/// Percentage of journeys that were cancelled
+	measure 'Cancel Rate %' = DIVIDE([Cancelled Journeys], [Total Transactions])
+		formatString: 0.0%
+		displayFolder: Rates
+		lineageTag: 4c8bcf83-d8f3-4508-bab9-7a94f2bfa823
+
+	/// Sum of all ticket prices (GBP)
+	measure 'Total Revenue' = SUM(Fact_Transactions[Price])
+		formatString: £#,##0
+		displayFolder: Revenue
+		lineageTag: 92b2afb0-2699-4472-9004-3b1af0732e44
+
+	/// Average ticket price across all transactions (GBP)
+	measure 'Avg Ticket Price' = AVERAGE(Fact_Transactions[Price])
+		formatString: £#,##0.00
+		displayFolder: Revenue
+		lineageTag: 64846168-3476-4352-a30c-e565c73e6366
+
+	/// Number of transactions where a refund was requested
+	measure 'Refund Requests' =
+			CALCULATE(
+			    COUNTROWS(Fact_Transactions),
+			    Fact_Transactions[Refund Request] = TRUE()
+			)
+		formatString: #,##0
+		displayFolder: Refunds
+		lineageTag: 5ea88bab-23a0-4c3b-af72-b70e7ea4d6ee
+
+	/// Percentage of transactions that resulted in a refund request
+	measure 'Refund Request Rate %' = DIVIDE([Refund Requests], [Total Transactions])
+		formatString: 0.0%
+		displayFolder: Refunds
+		lineageTag: 84472232-0a94-409d-92f0-fb963f68244e
+
+	/// Total revenue filtered by journey date (uses inactive relationship)
+	measure 'Total Revenue (Journey Date)' =
+			CALCULATE(
+			    [Total Revenue],
+			    USERELATIONSHIP(Fact_Transactions[Journey Date Key], Dim_Date[Date Key])
+			)
+		formatString: £#,##0
+		displayFolder: Revenue
+		lineageTag: 204ccf12-386e-4f72-916a-81b13d766f07
+
+	/// Total transactions filtered by journey date (uses inactive relationship)
+	measure 'Total Transactions (Journey Date)' =
+			CALCULATE(
+			    [Total Transactions],
+			    USERELATIONSHIP(Fact_Transactions[Journey Date Key], Dim_Date[Date Key])
+			)
+		formatString: #,##0
+		displayFolder: Volume
+		lineageTag: d73dce2b-6fdf-4633-ac2c-fa85169b633f
+
+	/// Total revenue filtered by arrival station (uses inactive relationship)
+	measure 'Total Revenue (Arrival Station)' =
+			CALCULATE(
+			    [Total Revenue],
+			    USERELATIONSHIP(Fact_Transactions[Arrival Station Key], Dim_Station[Station Key])
+			)
+		formatString: £#,##0
+		displayFolder: Revenue
+		lineageTag: c1f236b7-843b-4053-9d01-9aeded76a765
+
+	/// Total transactions filtered by arrival station (uses inactive relationship)
+	measure 'Total Transactions (Arrival Station)' =
+			CALCULATE(
+			    [Total Transactions],
+			    USERELATIONSHIP(Fact_Transactions[Arrival Station Key], Dim_Station[Station Key])
+			)
+		formatString: #,##0
+		displayFolder: Volume
+		lineageTag: c0853e49-37ea-4db3-9b6e-7f6a56c1d1c5
+
+	/// Transactions purchased with railcard discount
+	measure 'Railcard Transactions' =
+			CALCULATE(
+			    COUNTROWS(Fact_Transactions),
+			    Dim_Ticket[Has Railcard] = TRUE()
+			)
+		formatString: #,##0
+		displayFolder: Volume
+		lineageTag: 7e8b154a-a7ff-4521-9860-b3f4f5cc6020
+
+	/// Percentage of transactions that used a railcard
+	measure 'Railcard Usage Rate %' = DIVIDE([Railcard Transactions], [Total Transactions])
+		formatString: 0.0%
+		displayFolder: Rates
+		lineageTag: b7c4c019-3325-475e-9124-bbdc6c111767
+
+	column _Placeholder
+		isHidden
+		lineageTag: a4b95f33-1e7a-4716-9ba2-1f05d14767d6
+		isNameInferred
+		sourceColumn: [_Placeholder]
+
+	partition _Measures = calculated
+		mode: import
+		source = ROW("_Placeholder", "")
+

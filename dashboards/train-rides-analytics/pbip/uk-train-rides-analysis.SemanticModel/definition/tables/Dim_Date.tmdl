@@ -1,0 +1,126 @@
+/// Calendar dimension. Role-playing: Purchase Date and Journey Date both relate here.
+table Dim_Date
+	lineageTag: 411294ed-93de-46aa-ac2a-39f9c46c5ba3
+	dataCategory: Time
+
+	/// Integer surrogate PK — YYYYMMDD format
+	column 'Date Key'
+		dataType: int64
+		lineageTag: c3ea4d19-f941-491b-9b71-8e0e7cb92d06
+		summarizeBy: none
+		sourceColumn: Date Key
+
+	/// Calendar date
+	column Date
+		dataType: dateTime
+		isUnique
+		formatString: Long Date
+		lineageTag: dc1a2c80-a182-448d-b0f0-c93b8c0a2746
+		dataCategory: PaddedDateTableDates
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		lineageTag: 153640a6-7aa3-4f7a-ba5f-416a0cf3801d
+		summarizeBy: none
+		sourceColumn: Year
+
+	column 'Quarter Number'
+		dataType: int64
+		isHidden
+		lineageTag: 2ba2d629-fc2f-4c6d-89d1-f6eaca397ed9
+		summarizeBy: none
+		sourceColumn: Quarter Number
+
+	column Quarter
+		dataType: string
+		lineageTag: 33c28516-057c-4db1-8107-497b19fd80fe
+		summarizeBy: none
+		sourceColumn: Quarter
+
+	column 'Month Number'
+		dataType: int64
+		isHidden
+		lineageTag: b078f5de-8628-4744-96ee-6f5044e0b2c9
+		summarizeBy: none
+		sourceColumn: Month Number
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: 73107f64-d9c5-4450-a075-03d145ba4806
+		summarizeBy: none
+		sourceColumn: Month Name
+		sortByColumn: 'Month Number'
+
+	column 'Month Short'
+		dataType: string
+		lineageTag: 4bdf2cda-df18-403e-b1fd-01e7be0e2342
+		summarizeBy: none
+		sourceColumn: Month Short
+		sortByColumn: 'Month Number'
+
+	column 'Week Number'
+		dataType: int64
+		lineageTag: b406bec2-0da6-451b-b3e1-ef944a8e6b43
+		summarizeBy: none
+		sourceColumn: Week Number
+
+	column 'Day of Week Number'
+		dataType: int64
+		isHidden
+		lineageTag: a4599206-85bb-4a40-af10-59b833a31625
+		summarizeBy: none
+		sourceColumn: Day of Week Number
+
+	column 'Day Name'
+		dataType: string
+		lineageTag: 1b8cafab-2b11-47e1-8a9f-0b88cdc529f5
+		summarizeBy: none
+		sourceColumn: Day Name
+		sortByColumn: 'Day of Week Number'
+
+	column 'Day Short'
+		dataType: string
+		lineageTag: bb017c4b-65b2-4766-998e-a401f5eea9b9
+		summarizeBy: none
+		sourceColumn: Day Short
+		sortByColumn: 'Day of Week Number'
+
+	column 'Is Weekend'
+		dataType: boolean
+		lineageTag: 5607a0b7-0ac5-4de0-9e8f-2944de37fc1e
+		summarizeBy: none
+		sourceColumn: Is Weekend
+
+	partition Dim_Date = m
+		mode: import
+		source =
+				let
+				    StartDate = #date(2023, 1, 1),
+				    EndDate   = #date(2025, 12, 31),
+				    NumDays   = Duration.Days(EndDate - StartDate) + 1,
+				    DateList  = List.Dates(StartDate, NumDays, #duration(1, 0, 0, 0)),
+				    Source    = Table.FromList(DateList, Splitter.SplitByNothing(), type table [Date = date]),
+				    AddDateKey        = Table.AddColumn(Source,         "Date Key",            each Date.Year([Date]) * 10000 + Date.Month([Date]) * 100 + Date.Day([Date]),             Int64.Type),
+				    AddYear           = Table.AddColumn(AddDateKey,     "Year",                each Date.Year([Date]),                                                                   Int64.Type),
+				    AddQuarterNum     = Table.AddColumn(AddYear,        "Quarter Number",      each Date.QuarterOfYear([Date]),                                                          Int64.Type),
+				    AddQuarter        = Table.AddColumn(AddQuarterNum,  "Quarter",             each "Q" & Text.From(Date.QuarterOfYear([Date])),                                          type text),
+				    AddMonthNum       = Table.AddColumn(AddQuarter,     "Month Number",        each Date.Month([Date]),                                                                  Int64.Type),
+				    AddMonthName      = Table.AddColumn(AddMonthNum,    "Month Name",          each Text.Proper(Date.ToText([Date], "MMMM", "en-GB")),                                    type text),
+				    AddMonthShort     = Table.AddColumn(AddMonthName,   "Month Short",         each Text.Proper(Date.ToText([Date], "MMM",  "en-GB")),                                    type text),
+				    AddWeekNum        = Table.AddColumn(AddMonthShort,  "Week Number",         each Date.WeekOfYear([Date]),                                                             Int64.Type),
+				    AddDayOfWeekNum   = Table.AddColumn(AddWeekNum,     "Day of Week Number",  each Date.DayOfWeek([Date], Day.Monday) + 1,                                              Int64.Type),
+				    AddDayName        = Table.AddColumn(AddDayOfWeekNum,"Day Name",            each Text.Proper(Date.ToText([Date], "dddd", "en-GB")),                                    type text),
+				    AddDayShort       = Table.AddColumn(AddDayName,     "Day Short",           each Text.Proper(Date.ToText([Date], "ddd",  "en-GB")),                                    type text),
+				    AddIsWeekend      = Table.AddColumn(AddDayShort,    "Is Weekend",          each Date.DayOfWeek([Date], Day.Monday) >= 5,                                             type logical),
+				    ReorderCols = Table.ReorderColumns(AddIsWeekend, {
+				        "Date Key", "Date", "Year", "Quarter Number", "Quarter",
+				        "Month Number", "Month Name", "Month Short",
+				        "Week Number", "Day of Week Number", "Day Name", "Day Short", "Is Weekend"
+				    })
+				in
+				    ReorderCols
+

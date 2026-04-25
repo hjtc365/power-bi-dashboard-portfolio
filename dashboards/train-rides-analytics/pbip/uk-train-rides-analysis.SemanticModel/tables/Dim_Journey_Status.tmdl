@@ -1,0 +1,56 @@
+/// Journey status dimension. Captures unique combinations of Journey Status and Reason for Delay.
+table Dim_Journey_Status
+	lineageTag: 9128f975-f3fe-45b5-b682-7453d455d472
+
+	/// Integer surrogate PK
+	column 'Journey Status Key'
+		dataType: int64
+		lineageTag: 4a5c1645-22e5-486b-ab27-0b2fa5d8db5e
+		summarizeBy: none
+		sourceColumn: Journey Status Key
+
+	/// On Time, Delayed, or Cancelled
+	column 'Journey Status'
+		dataType: string
+		lineageTag: 745d433b-8775-4b58-9929-0d016e1a0ad3
+		summarizeBy: none
+		sourceColumn: Journey Status
+
+	/// Reason for delay or cancellation; null for on-time journeys
+	column 'Reason for Delay'
+		dataType: string
+		lineageTag: 63048683-f9f5-4baf-8ad0-361814ff0ab1
+		summarizeBy: none
+		sourceColumn: Reason for Delay
+
+	/// True when journey was delayed
+	column 'Is Delayed'
+		dataType: boolean
+		lineageTag: 6e764ade-d4c0-4600-a3fe-290852ed1821
+		summarizeBy: none
+		sourceColumn: Is Delayed
+
+	/// True when journey was cancelled
+	column 'Is Cancelled'
+		dataType: boolean
+		lineageTag: 9399133a-e144-4491-a397-624dc91a6b81
+		summarizeBy: none
+		sourceColumn: Is Cancelled
+
+	partition Dim_Journey_Status = m
+		mode: import
+		source =
+				let
+				    Source       = RailwayData,
+				    SelectCols   = Table.SelectColumns(Source, {"Journey Status", "Reason for Delay"}),
+				    Distinct     = Table.Distinct(SelectCols),
+				    Sorted       = Table.Sort(Distinct, {{"Journey Status", Order.Ascending}, {"Reason for Delay", Order.Ascending}}),
+				    AddDelayed   = Table.AddColumn(Sorted, "Is Delayed",   each [Journey Status] = "Delayed",   type logical),
+				    AddCancelled = Table.AddColumn(AddDelayed, "Is Cancelled", each [Journey Status] = "Cancelled", type logical),
+				    AddKey       = Table.AddIndexColumn(AddCancelled, "Journey Status Key", 1, 1, Int64.Type),
+				    Reorder      = Table.ReorderColumns(AddKey, {
+				        "Journey Status Key", "Journey Status", "Reason for Delay", "Is Delayed", "Is Cancelled"
+				    })
+				in
+				    Reorder
+

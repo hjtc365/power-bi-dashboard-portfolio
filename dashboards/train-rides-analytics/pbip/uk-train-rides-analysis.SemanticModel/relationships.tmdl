@@ -1,0 +1,30 @@
+relationship Fact_Transactions_PurchaseDate_Dim_Date
+	fromColumn: Fact_Transactions.'Purchase Date Key'
+	toColumn: Dim_Date.'Date Key'
+
+relationship Fact_Transactions_JourneyDate_Dim_Date
+	isActive: false
+	fromColumn: Fact_Transactions.'Journey Date Key'
+	toColumn: Dim_Date.'Date Key'
+
+relationship Fact_Transactions_DepStation_Dim_Station
+	fromColumn: Fact_Transactions.'Departure Station Key'
+	toColumn: Dim_Station.'Station Key'
+
+relationship Fact_Transactions_ArrStation_Dim_Station
+	isActive: false
+	fromColumn: Fact_Transactions.'Arrival Station Key'
+	toColumn: Dim_Station.'Station Key'
+
+relationship Fact_Transactions_Ticket_Dim_Ticket
+	fromColumn: Fact_Transactions.'Ticket Key'
+	toColumn: Dim_Ticket.'Ticket Key'
+
+relationship Fact_Transactions_Payment_Dim_Payment
+	fromColumn: Fact_Transactions.'Payment Key'
+	toColumn: Dim_Payment.'Payment Key'
+
+relationship Fact_Transactions_Status_Dim_Journey_Status
+	fromColumn: Fact_Transactions.'Journey Status Key'
+	toColumn: Dim_Journey_Status.'Journey Status Key'
+

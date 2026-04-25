@@ -1,0 +1,55 @@
+/// Ticket attribute dimension. Captures the cross-product of Ticket Class, Ticket Type, and Railcard.
+table Dim_Ticket
+	lineageTag: df505ca8-f8e3-4a24-9af4-ab227e8dfcaf
+
+	/// Integer surrogate PK
+	column 'Ticket Key'
+		dataType: int64
+		lineageTag: fbe15bba-0699-4808-b882-6c4b9aa5bd28
+		summarizeBy: none
+		sourceColumn: Ticket Key
+
+	/// Standard or First Class
+	column 'Ticket Class'
+		dataType: string
+		lineageTag: 6a72dbef-d647-43e2-9e2e-5ca8064d926b
+		summarizeBy: none
+		sourceColumn: Ticket Class
+
+	/// Advance, Off-Peak, or Anytime
+	column 'Ticket Type'
+		dataType: string
+		lineageTag: 3f5c9f44-789b-464d-a087-a39d031192ec
+		summarizeBy: none
+		sourceColumn: Ticket Type
+
+	/// Railcard type: Adult, Senior, Disabled, or None
+	column Railcard
+		dataType: string
+		lineageTag: db6fa363-c817-453b-bb13-4672b135b6d6
+		summarizeBy: none
+		sourceColumn: Railcard
+
+	/// True when passenger holds any railcard
+	column 'Has Railcard'
+		dataType: boolean
+		lineageTag: fd070dbe-60ba-42da-95c4-9a20ec3df169
+		summarizeBy: none
+		sourceColumn: Has Railcard
+
+	partition Dim_Ticket = m
+		mode: import
+		source =
+				let
+				    Source       = RailwayData,
+				    SelectCols   = Table.SelectColumns(Source, {"Ticket Class", "Ticket Type", "Railcard"}),
+				    Distinct     = Table.Distinct(SelectCols),
+				    Sorted       = Table.Sort(Distinct, {{"Ticket Class", Order.Ascending}, {"Ticket Type", Order.Ascending}, {"Railcard", Order.Ascending}}),
+				    AddHasCard   = Table.AddColumn(Sorted, "Has Railcard", each [Railcard] <> "None", type logical),
+				    AddKey       = Table.AddIndexColumn(AddHasCard, "Ticket Key", 1, 1, Int64.Type),
+				    Reorder      = Table.ReorderColumns(AddKey, {"Ticket Key", "Ticket Class", "Ticket Type", "Railcard", "Has Railcard"})
+				in
+				    Reorder
+
+	annotation PBI_ResultType = Table
+

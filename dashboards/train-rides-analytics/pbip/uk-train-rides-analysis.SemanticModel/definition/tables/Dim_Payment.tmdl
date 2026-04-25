@@ -1,0 +1,40 @@
+/// Payment attribute dimension. Captures unique combinations of Purchase Type and Payment Method.
+table Dim_Payment
+	lineageTag: 63dee6e6-32f9-4dcb-a5ba-3114a5eee14b
+
+	/// Integer surrogate PK
+	column 'Payment Key'
+		dataType: int64
+		lineageTag: c5bbee22-655f-49c8-8abe-fecb16a2075f
+		summarizeBy: none
+		sourceColumn: Payment Key
+
+	/// Online or Station
+	column 'Purchase Type'
+		dataType: string
+		lineageTag: aade2457-eb49-4d71-8d0e-f71ea2377c92
+		summarizeBy: none
+		sourceColumn: Purchase Type
+
+	/// Contactless, Credit Card, or Debit Card
+	column 'Payment Method'
+		dataType: string
+		lineageTag: adcc1ba9-c5f3-4d81-a8c9-926ecc106d0e
+		summarizeBy: none
+		sourceColumn: Payment Method
+
+	partition Dim_Payment = m
+		mode: import
+		source =
+				let
+				    Source     = RailwayData,
+				    SelectCols = Table.SelectColumns(Source, {"Payment Method", "Purchase Type"}),
+				    Distinct   = Table.Distinct(SelectCols),
+				    Sorted     = Table.Sort(Distinct, {{"Purchase Type", Order.Ascending}, {"Payment Method", Order.Ascending}}),
+				    AddKey     = Table.AddIndexColumn(Sorted, "Payment Key", 1, 1, Int64.Type),
+				    Reorder    = Table.ReorderColumns(AddKey, {"Payment Key", "Purchase Type", "Payment Method"})
+				in
+				    Reorder
+
+	annotation PBI_ResultType = Table
+

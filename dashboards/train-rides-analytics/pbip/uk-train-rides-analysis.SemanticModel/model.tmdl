@@ -10,8 +10,6 @@ annotation __PBI_TimeIntelligenceEnabled = 0
 
 annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling"]
 
-annotation PBI_QueryOrder = ["Dim_Date","Dim_Station","Dim_Ticket","Dim_Payment","Dim_Journey_Status","Fact_Transactions","RailwayData"]
-
 ref table Dim_Date
 ref table Dim_Station
 ref table Dim_Ticket
