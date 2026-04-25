@@ -98,6 +98,58 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1388.4763684426716,
+            "y": 341.00828714758484
+          },
+          "nodeIndex": "Delay Threshold Minutes",
+          "nodeLineageTag": "85329e14-9332-4521-a979-31b7bf630784",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1672.4763684426716,
+            "y": 377.00828714758484
+          },
+          "nodeIndex": "Metric Selector",
+          "nodeLineageTag": "b9e90f9c-d2ef-44f5-ad0c-f563ea0f1fa9",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1956.4763684426716,
+            "y": 341.00828714758484
+          },
+          "nodeIndex": "Price Adjustment %",
+          "nodeLineageTag": "e03b7d9f-f833-4ebe-b0ae-2cab64ba296c",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2240.4763684426716,
+            "y": 377.00828714758484
+          },
+          "nodeIndex": "Time Dimension",
+          "nodeLineageTag": "6f04f705-efa2-442a-89b5-dc7caa5f5da9",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

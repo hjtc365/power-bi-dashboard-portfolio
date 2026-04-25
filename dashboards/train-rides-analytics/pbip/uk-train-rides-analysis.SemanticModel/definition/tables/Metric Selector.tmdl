@@ -3,10 +3,12 @@ table 'Metric Selector'
 	lineageTag: b9e90f9c-d2ef-44f5-ad0c-f563ea0f1fa9
 
 	column 'Metric Name'
+		lineageTag: eb208a29-3c3d-40f0-944c-6d419bcadc8b
 		isNameInferred
 		sourceColumn: [Metric Name]
 
 	column 'Sort Order'
+		lineageTag: be415530-fb9f-408c-8fa2-bfddba046cf9
 		isNameInferred
 		sourceColumn: [Sort Order]
 

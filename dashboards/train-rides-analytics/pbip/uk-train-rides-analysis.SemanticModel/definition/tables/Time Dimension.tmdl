@@ -3,10 +3,12 @@ table 'Time Dimension'
 	lineageTag: 6f04f705-efa2-442a-89b5-dc7caa5f5da9
 
 	column 'Dimension Name'
+		lineageTag: c65a632e-e3ac-4f1b-82b3-8b0abf37e37f
 		isNameInferred
 		sourceColumn: [Dimension Name]
 
 	column 'Sort Order'
+		lineageTag: 68c869c7-3105-4daf-9485-5210f52392ed
 		isNameInferred
 		sourceColumn: [Sort Order]
 

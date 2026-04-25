@@ -3,6 +3,7 @@ table 'Delay Threshold Minutes'
 	lineageTag: 85329e14-9332-4521-a979-31b7bf630784
 
 	column Value
+		lineageTag: 0ad79ed0-62b4-4624-9d70-61d4ca6dfa8a
 		isNameInferred
 		sourceColumn: [Value]
 

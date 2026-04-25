@@ -3,6 +3,7 @@ table 'Price Adjustment %'
 	lineageTag: e03b7d9f-f833-4ebe-b0ae-2cab64ba296c
 
 	column Value
+		lineageTag: c6263843-ded2-42b8-bc51-9d99965ba45d
 		isNameInferred
 		sourceColumn: [Value]
 
