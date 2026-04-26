@@ -40,7 +40,7 @@ table _Measures
 
 	/// Percentage of journeys that arrived on time
 	measure 'On Time Rate %' = DIVIDE([On Time Journeys], [Total Transactions])
-		formatString: 0.0%
+		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Rates
 		lineageTag: dc60e1d8-383b-49ed-8cf6-74047abc529c
 
@@ -64,7 +64,7 @@ table _Measures
 
 	/// Average ticket price across all transactions (GBP)
 	measure 'Avg Ticket Price' = AVERAGE(Fact_Transactions[Price])
-		formatString: £#,##0.00
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		displayFolder: Revenue
 		lineageTag: 64846168-3476-4352-a30c-e565c73e6366
 
@@ -484,11 +484,11 @@ table _Measures
 	measure 'Dynamic KPI Label' =
 			SWITCH(
 			    [Selected Metric],
-			    "Net Revenue",      FORMAT([Total Revenue],      "\u00a3#,##0"),
+			    "Net Revenue",      FORMAT([Total Revenue],      "£#,##0"),
 			    "On-Time Rate %",   FORMAT([On Time Rate %],     "0.0%"),
 			    "Delay Rate %",     FORMAT([Delay Rate %],       "0.0%"),
 			    "Cancel Rate %",    FORMAT([Cancel Rate %],      "0.0%"),
-			    "Avg Ticket Price", FORMAT([Avg Ticket Price],   "\u00a3#,##0.00"),
+			    "Avg Ticket Price", FORMAT([Avg Ticket Price],   "£#,##0.00"),
 			    FORMAT([Total Transactions (Journey Date)], "#,##0")
 			)
 		displayFolder: Dynamic Selectors
@@ -508,7 +508,10 @@ table _Measures
 	measure 'Journeys Above Threshold' =
 			CALCULATE(
 			    COUNTROWS(Fact_Transactions),
-			    Fact_Transactions[Delay Minutes] > [Selected Delay Threshold]
+			    FILTER(
+			        Fact_Transactions,
+			        Fact_Transactions[Delay Minutes] > [Selected Delay Threshold]
+			    )
 			)
 		formatString: #,##0
 		displayFolder: What-If
@@ -518,8 +521,11 @@ table _Measures
 	measure 'Refund Exposure Above Threshold' =
 			CALCULATE(
 			    [Total Revenue],
-			    Fact_Transactions[Refund Request] = TRUE(),
-			    Fact_Transactions[Delay Minutes] > [Selected Delay Threshold]
+			    FILTER(
+			        Fact_Transactions,
+			        Fact_Transactions[Refund Request] = TRUE()
+			            && Fact_Transactions[Delay Minutes] > [Selected Delay Threshold]
+			    )
 			)
 		formatString: £#,##0
 		displayFolder: What-If
@@ -529,9 +535,12 @@ table _Measures
 	measure 'Refund Policy Saving' =
 			CALCULATE(
 			    [Total Revenue],
-			    Fact_Transactions[Refund Request] = TRUE(),
-			    Fact_Transactions[Delay Minutes] <= [Selected Delay Threshold],
-			    Fact_Transactions[Delay Minutes] > 0
+			    FILTER(
+			        Fact_Transactions,
+			        Fact_Transactions[Refund Request] = TRUE()
+			            && Fact_Transactions[Delay Minutes] <= [Selected Delay Threshold]
+			            && Fact_Transactions[Delay Minutes] > 0
+			    )
 			)
 		formatString: £#,##0
 		displayFolder: What-If

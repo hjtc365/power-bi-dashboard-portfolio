@@ -20,7 +20,7 @@
                 "name": {
                   "expr": {
                     "Literal": {
-                      "Value": "'icon-overview.svg'"
+                      "Value": "'icon-simulator.svg'"
                     }
                   }
                 },
@@ -29,7 +29,7 @@
                     "ResourcePackageItem": {
                       "PackageName": "RegisteredResources",
                       "PackageType": 1,
-                      "ItemName": "icon-overview5752913731475725.svg"
+                      "ItemName": "icon-simulator8101068853645642.svg"
                     }
                   }
                 },

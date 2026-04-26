@@ -1,0 +1,3423 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>dashboard-build-guide.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="uk-national-rail-dashboard--complete-build-guide">UK National Rail Dashboard — Complete Build Guide</h1>
+<blockquote>
+<p><strong>Who is this for?</strong> Junior Power BI developers building their first professional multi-page report.
+<strong>What you'll build:</strong> A 7-page interactive dashboard analysing National Rail UK performance
+(Jan–Apr 2024) — routes, peak travel, revenue, on-time performance — styled with the
+<strong>Office Slipstream</strong> colour palette.</p>
+</blockquote>
+<hr>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#1-prerequisites--setup">Prerequisites &amp; Setup</a></li>
+<li><a href="#2-apply-the-custom-theme">Apply the Custom Theme</a></li>
+<li><a href="#3-page-layout-system">Page Layout System</a></li>
+<li><a href="#4-page-0--cover--landing-page">Page 0 — Cover / Landing Page</a></li>
+<li><a href="#5-page-1--executive-overview">Page 1 — Executive Overview</a></li>
+<li><a href="#6-page-2--passenger-usage--peak-travel">Page 2 — Passenger Usage &amp; Peak Travel</a></li>
+<li><a href="#7-page-3--sales--revenue">Page 3 — Sales &amp; Revenue</a></li>
+<li><a href="#8-page-4--railway-performance">Page 4 — Railway Performance</a></li>
+<li><a href="#9-page-5--route-analysis">Page 5 — Route Analysis</a></li>
+<li><a href="#10-page-6--scenario-simulator">Page 6 — Scenario Simulator</a></li>
+<li><a href="#11-navigation-buttons">Navigation Buttons</a></li>
+<li><a href="#12-sync-slicers-across-pages">Sync Slicers Across Pages</a></li>
+<li><a href="#13-conditional-formatting-on-kpi-cards">Conditional Formatting on KPI Cards</a></li>
+<li><a href="#14-tooltip-pages">Tooltip Pages</a></li>
+<li><a href="#15-final-polish-checklist">Final Polish Checklist</a></li>
+<li><a href="#16-field-parameters--dynamic-metric-switching">Field Parameters &amp; Dynamic Metric Switching</a></li>
+<li><a href="#17-button-slicers-setup">Button Slicers Setup</a></li>
+<li><a href="#18-what-if-parameters-numeric-sliders">What-If Parameters (Numeric Sliders)</a></li>
+</ol>
+<hr>
+<h2 id="colour-reference-slipstream-palette">Colour Reference (Slipstream Palette)</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Hex</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dark Navy</strong></td>
+<td><code>#1F3864</code></td>
+<td>Header bars, nav sidebar, column headers</td>
+</tr>
+<tr>
+<td><strong>Medium Blue</strong></td>
+<td><code>#4059AC</code></td>
+<td>Secondary headings, category labels</td>
+</tr>
+<tr>
+<td><strong>Bright Cyan</strong></td>
+<td><code>#00B0F0</code></td>
+<td>Primary data colour, highlight bars</td>
+</tr>
+<tr>
+<td><strong>Light Blue</strong></td>
+<td><code>#9DC3E6</code></td>
+<td>Card borders, slicer backgrounds</td>
+</tr>
+<tr>
+<td><strong>Very Light Blue</strong></td>
+<td><code>#EBF3FB</code></td>
+<td>Card &amp; slicer fill, alternate row colour</td>
+</tr>
+<tr>
+<td><strong>Page Background</strong></td>
+<td><code>#F0F5FB</code></td>
+<td>Canvas background</td>
+</tr>
+<tr>
+<td><strong>Lime Green</strong></td>
+<td><code>#92D050</code></td>
+<td>&quot;Good&quot; / on-time indicators</td>
+</tr>
+<tr>
+<td><strong>Teal</strong></td>
+<td><code>#29AB87</code></td>
+<td>Secondary positive metric</td>
+</tr>
+<tr>
+<td><strong>Orange</strong></td>
+<td><code>#F4A442</code></td>
+<td>&quot;Neutral&quot; / warning indicators</td>
+</tr>
+<tr>
+<td><strong>Red-Orange</strong></td>
+<td><code>#E74C3C</code></td>
+<td>&quot;Bad&quot; / cancelled / delay indicators</td>
+</tr>
+<tr>
+<td><strong>Text Dark</strong></td>
+<td><code>#2C3E50</code></td>
+<td>Body text, axis labels</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="1-prerequisites--setup">1. Prerequisites &amp; Setup</h2>
+<h3 id="11-open-the-pbip-project">1.1 Open the PBIP project</h3>
+<ol>
+<li>In <strong>File Explorer</strong>, navigate to:<pre class="hljs"><code><div>dashboards/train-rides-analytics/pbip/
+</div></code></pre>
+</li>
+<li>Double-click <code>uk-train-rides-analysis.pbip</code> to open it in Power BI Desktop.</li>
+<li>When prompted about privacy levels, select <strong>Ignore Privacy Levels</strong> and click <strong>Save</strong>.</li>
+<li>Click <strong>Refresh</strong> in the <strong>Home</strong> ribbon to load all data.</li>
+<li>Verify all tables loaded: in the <strong>Data</strong> pane you should see:
+<ul>
+<li><code>Dim_Date</code>, <code>Dim_Journey_Status</code>, <code>Dim_Payment</code>, <code>Dim_Station</code>, <code>Dim_Ticket</code></li>
+<li><code>Fact_Transactions</code>, <code>_Measures</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="12-set-canvas-size-169-widescreen">1.2 Set canvas size (16:9 widescreen)</h3>
+<ol>
+<li>Click on an empty area of the canvas.</li>
+<li>In the <strong>Format</strong> pane → <strong>Page information</strong> → set <strong>Name</strong> = <code>Overview</code>.</li>
+<li>Go to <strong>View</strong> ribbon → <strong>Page view</strong> → select <strong>Fit to page</strong>.</li>
+<li>Go to <strong>View</strong> → <strong>Canvas settings</strong>:
+<ul>
+<li>Type: <strong>Custom</strong></li>
+<li>Width: <strong>1280</strong></li>
+<li>Height: <strong>720</strong></li>
+</ul>
+</li>
+<li>Repeat for every new page you create.</li>
+</ol>
+<blockquote>
+<p><strong>Tip:</strong> 1280 × 720 is standard HD (16:9). It looks great on both laptops and large monitors.</p>
+</blockquote>
+<hr>
+<h2 id="2-apply-the-custom-theme">2. Apply the Custom Theme</h2>
+<ol>
+<li>In the <strong>View</strong> ribbon, click <strong>Themes</strong> → <strong>Browse for themes</strong>.</li>
+<li>Navigate to:<pre class="hljs"><code><div>dashboards/train-rides-analytics/assets/Slipstream-Theme.json
+</div></code></pre>
+</li>
+<li>Click <strong>Open</strong>. Power BI will apply the Slipstream theme immediately.</li>
+<li>Click <strong>Apply anyway</strong> if prompted about existing formatting.</li>
+</ol>
+<p>The theme sets:</p>
+<ul>
+<li>Page background to soft blue-grey <code>#F0F5FB</code></li>
+<li>All visual titles to dark navy <code>#1F3864</code> Segoe UI Bold</li>
+<li>Card backgrounds to light blue <code>#EBF3FB</code></li>
+<li>Table/matrix headers to dark navy with white text</li>
+<li>Data colour cycle: Cyan → Orange → Lime Green → Teal → Blue → Red</li>
+</ul>
+<hr>
+<h2 id="3-page-layout-system">3. Page Layout System</h2>
+<p>Every page uses the <strong>same three-zone layout</strong>. Set it up once and duplicate it.</p>
+<pre class="hljs"><code><div>┌─────────────────────────────────────────────────────────────────────────┐
+│  HEADER BANNER  (1280 × 60 px, Dark Navy #1F3864)                       │
+│  Page Icon  │  PAGE TITLE (white, Segoe UI 18pt Bold)     │ Date Slicer  │
+├──────┬──────────────────────────────────────────────────────────────────┤
+│ NAV  │                                                                   │
+│ BAR  │                  MAIN CONTENT AREA                               │
+│ 160  │                  (1120 × 620 px)                                 │
+│  px  │                                                                   │
+│      │                                                                   │
+│(Dark │                                                                   │
+│Navy) │                                                                   │
+└──────┴──────────────────────────────────────────────────────────────────┘
+</div></code></pre>
+<h3 id="31-create-the-header-banner">3.1 Create the Header Banner</h3>
+<ol>
+<li>Insert <strong>Rectangle</strong> shape: <code>Insert</code> → <code>Shapes</code> → <code>Rectangle</code></li>
+<li><strong>Position:</strong> X = 0, Y = 0 · <strong>Size:</strong> W = 1280, H = 60</li>
+<li><strong>Format Shape:</strong>
+<ul>
+<li>Fill: <code>#1F3864</code> (Dark Navy), 100% opacity</li>
+<li>Border: off</li>
+</ul>
+</li>
+</ol>
+<h4 id="step-2--add-the-page-icon">Step 2 — Add the page icon</h4>
+<p>Each analysis page has a matching icon in <code>assets/</code>. The icon sits in the left portion of the header bar, vertically centred.</p>
+<table>
+<thead>
+<tr>
+<th>Page</th>
+<th>Icon file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Page 1 — Executive Overview</td>
+<td><code>icon-overview.svg</code></td>
+</tr>
+<tr>
+<td>Page 2 — Passenger Usage</td>
+<td><code>icon-passengers.svg</code></td>
+</tr>
+<tr>
+<td>Page 3 — Sales &amp; Revenue</td>
+<td><code>icon-revenue.svg</code></td>
+</tr>
+<tr>
+<td>Page 4 — Railway Performance</td>
+<td><code>icon-performance.svg</code></td>
+</tr>
+<tr>
+<td>Page 5 — Route Analysis</td>
+<td><code>icon-route.svg</code></td>
+</tr>
+<tr>
+<td>Page 6 — Scenario Simulator</td>
+<td><code>icon-simulator.svg</code></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><strong>Insert</strong> → <strong>Image</strong> → navigate to <code>dashboards/train-rides-analytics/assets/</code> → select the matching icon file for this page.</li>
+<li>In <strong>Format visual</strong> → <strong>Image</strong> → Image fit: <strong>Fit</strong> (preserves the circular shape).</li>
+<li>Set exact size and position:
+<ul>
+<li><strong>W = 44, H = 44</strong></li>
+<li><strong>X = 8, Y = 8</strong> (8px from the left edge, 8px from the top — perfectly centres the 44px icon in the 60px banner height)</li>
+</ul>
+</li>
+<li>Right-click the icon image → <strong>Send to back</strong> (then bring it forward one step above the banner rectangle, so it sits on top of the rectangle but below any text).</li>
+</ol>
+<blockquote>
+<p><strong>Why these coordinates?</strong> The banner is 60px tall. A 44px icon centred vertically: (60 − 44) ÷ 2 = 8px top offset. The larger 44px size makes the icon clearly visible without overflowing the banner.</p>
+</blockquote>
+<h4 id="step-3--add-the-page-title-text-box">Step 3 — Add the page title text box</h4>
+<ol start="4">
+<li>Add a <strong>Text Box</strong> on top of the banner:
+<ul>
+<li>Text: your page title in ALL CAPS, e.g. <strong>&quot;EXECUTIVE OVERVIEW&quot;</strong></li>
+<li>Font: Segoe UI, 18pt, <strong>Bold</strong>, White (<code>#FFFFFF</code>)</li>
+<li><strong>Position:</strong> X = 60, Y = 18 (immediately right of the icon, vertically centred)</li>
+<li><strong>Size:</strong> W = 700, H = 28</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>X = 60</strong> = icon X (8) + icon width (44) + 8px gap. <strong>Y = 18</strong> centres the 24px-tall 18pt text in the 60px banner: (60 − 24) ÷ 2 = 18.</p>
+</blockquote>
+<h3 id="32-create-the-navigation-sidebar">3.2 Create the Navigation Sidebar</h3>
+<ol>
+<li>Insert <strong>Rectangle</strong> shape:
+<ul>
+<li><strong>Position:</strong> X = 0, Y = 60 · <strong>Size:</strong> W = 160, H = 660</li>
+<li>Fill: <code>#1F3864</code>, no border</li>
+</ul>
+</li>
+<li>Add <strong>Text Box</strong> for the report branding:
+<ul>
+<li>Text: <code>🚆 UK Rail</code></li>
+<li>Font: Segoe UI, 13pt, Bold, White</li>
+<li>Position: X = 5, Y = 65</li>
+</ul>
+</li>
+<li>Leave space for navigation buttons (added in <a href="#10-navigation-buttons">Section 10</a>).</li>
+</ol>
+<h3 id="33-save-as-a-template-page">3.3 Save as a template page</h3>
+<p>After creating the layout on Page 1:</p>
+<ol>
+<li>Right-click the page tab → <strong>Duplicate Page</strong>.</li>
+<li>Use this duplicate as the starting point for every new page.</li>
+</ol>
+<hr>
+<h2 id="4-page-0--cover--landing-page">4. Page 0 — Cover / Landing Page</h2>
+<blockquote>
+<p><strong>Purpose:</strong> A professional title screen that makes a great first impression and provides one-click navigation to each analysis page.</p>
+</blockquote>
+<pre class="hljs"><code><div>Canvas: 1280 × 720  ·  no sidebar on the Cover page
+┌──────────────────────────────────────────────────────────────────────────┐ ← Y = 0
+│                  COVER BANNER SVG  (1280 × 400 px)                       │
+│        [title, subtitle, date pill, tagline — all embedded in SVG]       │
+│                   [🚆 icon straddles seam at Y = 368]                    │
+├──────────────────────────────────────────────────────────────────────────┤ ← Y = 400
+│                        dark zone  (#0D1E38)                               │
+│                                                                           │
+│  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌───────┐ │ ← Y = 504
+│  │ [icon]  │ │ [icon]  │ │ [icon]  │ │ [icon]  │ │ [icon]  │ │[icon] │ │
+│  │Overview │ │Passenger│ │Revenue  │ │Perf.    │ │Routes   │ │Simultr│ │
+│  └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘ └───────┘ │ ← Y = 604
+│                  205 × 100 px each  ·  6 tiles total                     │
+├───────────────── footer strip (13 px, #00B0F0) ──────────────────────────┤ ← Y = 707
+└──────────────────────────────────────────────────────────────────────────┘ ← Y = 720
+</div></code></pre>
+<h3 id="41-page-setup">4.1 Page Setup</h3>
+<ol>
+<li><strong>Rename</strong> the first page tab: right-click → <strong>Rename</strong> → <code>Cover</code>.</li>
+<li>Set canvas to 1280 × 720 (see Section 3 if not already done).</li>
+<li>Format pane → <strong>Canvas background</strong> → Colour: <code>#0D1E38</code> (deep navy — fills the visible gap below the banner).</li>
+</ol>
+<h3 id="42-insert-the-cover-banner">4.2 Insert the Cover Banner</h3>
+<p>The file <code>assets/cover-banner.svg</code> is a <strong>1280 × 400 px</strong> pre-built hero image. It contains the train silhouette, perspective track, typography hierarchy, and Slipstream colour scheme — you do <strong>not</strong> need to add any text on top of it.</p>
+<blockquote>
+<p><strong>Why 400 px and not 720?</strong> This is intentional. The banner fills the top 55% of the canvas (0–400px), leaving the bottom 320px as a clean dark zone for your navigation tiles. This is a standard app-cover pattern: hero image on top, action grid below.</p>
+</blockquote>
+<ol>
+<li><strong>Insert</strong> → <strong>Image</strong> → navigate to <code>dashboards/train-rides-analytics/assets/cover-banner.svg</code>.</li>
+<li>In <strong>Format visual</strong> → <strong>Image</strong> → Image fit: <strong>Fill</strong>.</li>
+<li>Set exact size and position:
+<ul>
+<li><strong>X = 0, Y = 0, W = 1280, H = 400</strong></li>
+</ul>
+</li>
+<li>Right-click the image → <strong>Send to back</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Do not add any text boxes over the banner.</strong> All title text (&quot;UK NATIONAL RAIL&quot;, &quot;Performance Dashboard&quot;, the date pill, and the tagline) is already embedded in the SVG.</p>
+</blockquote>
+<h3 id="43-train-icon-accent-optional">4.3 Train Icon Accent (optional)</h3>
+<p>For a subtle branding flourish at the join between banner and nav zone:</p>
+<ol>
+<li><strong>Insert</strong> → <strong>Image</strong> → select <code>assets/icon-train.svg</code>.</li>
+<li>Size: <strong>W = 64, H = 64</strong>. Position: <strong>X = 86, Y = 368</strong> (overlapping the bottom edge of the banner, half in / half out).</li>
+<li>This creates the visual effect of the train &quot;entering&quot; the page.</li>
+</ol>
+<h3 id="44-navigation-tile-grid">4.4 Navigation Tile Grid</h3>
+<p>The bottom zone (Y = 415 to Y = 690) holds 6 launch tiles for the analysis pages. Each tile contains three layers: a background rectangle, an SVG icon, and a text label.</p>
+<h4 id="tile-icon-reference">Tile icon reference</h4>
+<p>Each tile has a dedicated SVG icon in the <code>assets/</code> folder:</p>
+<table>
+<thead>
+<tr>
+<th>Tile</th>
+<th>Icon File</th>
+<th>Icon colour theme</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Executive Overview</td>
+<td><code>icon-overview.svg</code></td>
+<td>Dark Navy + Cyan bars + Green trend</td>
+</tr>
+<tr>
+<td>Passenger Usage</td>
+<td><code>icon-passengers.svg</code></td>
+<td>Medium Blue + white people</td>
+</tr>
+<tr>
+<td>Sales &amp; Revenue</td>
+<td><code>icon-revenue.svg</code></td>
+<td>Dark Navy + Cyan £ symbol</td>
+</tr>
+<tr>
+<td>Railway Performance</td>
+<td><code>icon-performance.svg</code></td>
+<td>Cyan gauge with needle</td>
+</tr>
+<tr>
+<td>Route Analysis</td>
+<td><code>icon-route.svg</code></td>
+<td>Teal + departure/arrival pins</td>
+</tr>
+<tr>
+<td>Scenario Simulator</td>
+<td><code>icon-simulator.svg</code></td>
+<td>Teal + two sliders + delta arrow</td>
+</tr>
+</tbody>
+</table>
+<h4 id="step-1--build-the-background-rectangle-tile-template">Step 1 — Build the background rectangle (tile template)</h4>
+<ol>
+<li><strong>Insert</strong> → <strong>Shapes</strong> → <strong>Rectangle</strong>.</li>
+<li>Size: <strong>W = 205, H = 100</strong>. Rounded corners: 10px.</li>
+<li>Fill: <code>#1F3864</code> at 55% opacity. Border: <code>#00B0F0</code>, 2px.
+<blockquote>
+<p><strong>Why 55% opacity?</strong> The cover canvas is deep navy <code>#0D1E38</code>. At 8% white the tile was invisible — white text had no anchor. At 55% navy the tile reads as a clear frosted-glass card while the border and icon still pop.</p>
+</blockquote>
+</li>
+<li>Select the rectangle → <strong>Format visual</strong> → <strong>Action</strong> → toggle <strong>ON</strong>:
+<ul>
+<li>Type: <strong>Page navigation</strong> · Destination: <em>(set per tile — see table below)</em></li>
+</ul>
+</li>
+</ol>
+<h4 id="step-2--add-the-icon-image-to-each-tile">Step 2 — Add the icon image to each tile</h4>
+<p>Each icon sits in the <strong>left third</strong> of the tile, vertically centred.</p>
+<ol>
+<li>With the rectangle placed, go to <strong>Insert</strong> → <strong>Image</strong> → select the matching icon file.</li>
+<li>Set Image fit: <strong>Fit</strong> (preserves the circle shape).</li>
+<li>Set size: <strong>W = 44, H = 44</strong>.</li>
+<li>Position the icon at: <code>tile_X + 10</code>, <code>tile_Y + 28</code> (10px from left edge, 28px from top — centres the 44px icon inside the 100px tile height: (100 − 44) ÷ 2 = 28).</li>
+</ol>
+<h4 id="step-3--add-the-text-label">Step 3 — Add the text label</h4>
+<ol>
+<li><strong>Insert</strong> → <strong>Text box</strong>.</li>
+<li>Font: Segoe UI <strong>11pt</strong> Bold, colour <code>#EBF3FB</code> (very light blue — sharper against the navy tile than pure white).</li>
+<li>Size: <strong>W = 125, H = 44</strong>.</li>
+<li>Position: <code>tile_X + 62</code>, <code>tile_Y + 28</code> (immediately right of the icon with 8px gap, vertically aligned with the icon).</li>
+<li>Type the label text (see table below).</li>
+</ol>
+<h4 id="tile-positions-icons-and-labels">Tile positions, icons, and labels</h4>
+<table>
+<thead>
+<tr>
+<th>Tile</th>
+<th>Rect X</th>
+<th>Rect Y</th>
+<th>Icon file</th>
+<th>Label text</th>
+<th>Target page</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>504</td>
+<td><code>icon-overview.svg</code></td>
+<td>Executive Overview</td>
+<td>Page 1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>214</td>
+<td>504</td>
+<td><code>icon-passengers.svg</code></td>
+<td>Passenger Usage</td>
+<td>Page 2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>427</td>
+<td>504</td>
+<td><code>icon-revenue.svg</code></td>
+<td>Sales &amp; Revenue</td>
+<td>Page 3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>640</td>
+<td>504</td>
+<td><code>icon-performance.svg</code></td>
+<td>Railway Performance</td>
+<td>Page 4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>853</td>
+<td>504</td>
+<td><code>icon-route.svg</code></td>
+<td>Route Analysis</td>
+<td>Page 5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1066</td>
+<td>504</td>
+<td><code>icon-simulator.svg</code></td>
+<td>Scenario Simulator</td>
+<td>Page 6</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Efficient workflow:</strong> Build Tile 1 completely (rectangle + icon + text box). Select all three → right-click → <strong>Group</strong>. Then Ctrl+D five times to duplicate. On each copy, update: (a) the rectangle's page navigation destination, (b) the icon image file, (c) the text label. Move each copy to its correct X position — Y stays at 504 for all six.</p>
+</blockquote>
+<h4 id="step-4--group-and-lock-each-tile">Step 4 — Group and lock each tile</h4>
+<ol>
+<li>Select the rectangle, icon image, and text box for a tile.</li>
+<li>Right-click → <strong>Group</strong> (or Format → Group).</li>
+<li>Right-click the group → <strong>Lock</strong> so you don't accidentally move it while building page content.</li>
+</ol>
+<h4 id="step-5--hover-style">Step 5 — Hover style</h4>
+<ol>
+<li>Select the rectangle within a group → Format visual → <strong>On hover</strong> state.</li>
+<li>Fill: <code>#00B0F0</code> at 25% opacity. This gives a subtle cyan glow on mouse-over.</li>
+<li>The Scenario Simulator tile (Tile 6) gets a different hover: <code>#29AB87</code> (teal) at 30% — a visual signal that it's a different type of page.</li>
+</ol>
+<h3 id="45-footer">4.5 Footer</h3>
+<ol>
+<li>Insert a <strong>Rectangle</strong>: X = 0, Y = 707, W = 1280, H = 13.</li>
+<li>Fill: left third <code>#29AB87</code> (teal), middle <code>#4059AC</code> (blue), right <code>#00B0F0</code> (cyan).
+<ul>
+<li>Simplest approach: three separate thin rectangles at W = 427 each, side by side, all at Y = 707.</li>
+</ul>
+</li>
+<li>This mirrors the three-colour accent strip in the bottom of the banner SVG, creating a visual echo.</li>
+</ol>
+<hr>
+<h2 id="5-page-1--executive-overview">5. Page 1 — Executive Overview</h2>
+<blockquote>
+<p><strong>Purpose:</strong> One-screen summary. A busy exec can see total journeys, revenue, on-time %, and key trends without clicking anything.</p>
+</blockquote>
+<pre class="hljs"><code><div>Canvas: 1280 × 720
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│ [icon] EXECUTIVE OVERVIEW                         [Month ▼]  [Ticket Class ▼]   │ ← Y = 0–60
+├────────┬─────────────────────────────────────────────────────────────────────────┤
+│        │  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐          │ ← Y = 80
+│  NAV   │  │Journeys │ │Revenue  │ │On-Time% │ │Disruptns│ │Refund £ │          │
+│  160px │  └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘          │ ← Y = 180
+│        ├───────────────────────────────────────┬─────────────────────────────────┤
+│  UK    │  Monthly Journey Trend                │  Journey Status Split           │ ← Y = 200
+│  Rail  │  (line + MoM % secondary axis)        │  (donut)                        │
+│        │  X=168, W=540, H=220                  │  X=720, W=250, H=220            │
+│        │                                       │                                 │ ← Y = 420
+│        ├───────────────────────────────────────┴─────────────────────────────────┤
+│        │  Revenue by Month, Ticket Class           Top 5 Routes by Journeys      │ ← Y = 440
+│        │  (stacked column)  X=168, W=540, H=230    (h-bar)  X=720, W=540, H=230  │
+│        │  ─────────────────────────────────────────────────────────────────────  │
+│        │  §5.7: replace bottom row → [Metric Selector tiles]                     │ ← Y = 460
+│        │  + Dynamic KPI bar (X=168, W=800, H=190) + KPI Label card (X=980)      │ ← Y = 670
+└────────┴─────────────────────────────────────────────────────────────────────────┘
+</div></code></pre>
+<h3 id="51-kpi-cards-row-top-of-content-area">5.1 KPI Cards Row (top of content area)</h3>
+<p>Place <strong>5 Card visuals</strong> in a single row at Y = 80, each 196 × 100 px, spaced 8 px apart.
+Start at X = 168.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Measure</th>
+<th>Card Label</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>Total Transactions (Journey Date)</code></td>
+<td>Total Journeys</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>Total Revenue</code></td>
+<td>Net Revenue</td>
+<td>Format: £#,##0</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>On Time Rate %</code></td>
+<td>On-Time Rate</td>
+<td>Format: 0.0%</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>Total Disruptions</code></td>
+<td>Disruptions</td>
+<td>Delayed + Cancelled</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>Refund Exposure</code></td>
+<td>Refund Exposure</td>
+<td>Format: £#,##0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Card formatting (applies to all 5):</strong></p>
+<ol>
+<li>Select a card → <strong>Format Visual</strong> pane:</li>
+<li><strong>Callout value</strong> → Font: Segoe UI 26pt Bold, Color: <code>#1F3864</code></li>
+<li><strong>Category label</strong> → Font: Segoe UI 11pt, Color: <code>#4059AC</code>, show: ON</li>
+<li><strong>Visual background</strong> → Color: <code>#EBF3FB</code>, Transparency: 0%</li>
+<li><strong>Border</strong> → Color: <code>#9DC3E6</code>, Rounded corners: 8px, Width: 1px</li>
+<li><strong>Shadow</strong> → ON (outer, top-right)</li>
+</ol>
+<h3 id="52-monthly-journey-trend--line-chart">5.2 Monthly Journey Trend — Line Chart</h3>
+<p><strong>Position:</strong> X = 168, Y = 200 · <strong>Size:</strong> W = 540, H = 220</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X-axis</td>
+<td><code>Dim_Date[Month Name]</code> (sorted by <code>Month Number</code>)</td>
+</tr>
+<tr>
+<td>Y-axis</td>
+<td><code>Total Transactions (Journey Date)</code></td>
+</tr>
+<tr>
+<td>Line</td>
+<td>Add second Y line: <code>Journeys MoM %</code> (secondary axis)</td>
+</tr>
+<tr>
+<td>Tooltip</td>
+<td><code>On Time Rate %</code>, <code>Delay Rate %</code>, <code>Cancel Rate %</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Formatting:</strong></p>
+<ul>
+<li>Line colour: <code>#00B0F0</code> (primary), <code>#F4A442</code> (MoM % secondary)</li>
+<li>Stroke width: 3px</li>
+<li>Show markers: ON, filled circles</li>
+<li>Data labels: ON for the primary series</li>
+<li>Title: <code>Monthly Journey Trend</code></li>
+<li>Add a <strong>constant line</strong> at the 4-month average for reference</li>
+</ul>
+<h3 id="53-journey-status-donut">5.3 Journey Status Donut</h3>
+<p><strong>Position:</strong> X = 720, Y = 200 · <strong>Size:</strong> W = 250, H = 220</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Legend</td>
+<td><code>Dim_Journey_Status[Journey Status]</code></td>
+</tr>
+<tr>
+<td>Values</td>
+<td><code>Total Transactions (Journey Date)</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Formatting:</strong></p>
+<ul>
+<li>Inner radius: 55% (so it looks like a donut, not a pie)</li>
+<li>Data colours: On Time = <code>#92D050</code>, Delayed = <code>#F4A442</code>, Cancelled = <code>#E74C3C</code></li>
+<li>Legend: Bottom, 10pt Segoe UI, color <code>#4D5F7A</code></li>
+<li>Detail labels: Category + percent, 10pt</li>
+<li>Title: <code>Journey Status Split</code></li>
+<li><strong>Detail label:</strong> <code>On Time Rate %</code> displayed in the donut hole using a <strong>Card</strong> visual
+(W = 100 × H = 50 placed over the donut centre; label text &quot;On-Time&quot;; no background)</li>
+</ul>
+<h3 id="54-revenue-by-month--clustered-column-chart">5.4 Revenue by Month — Clustered Column Chart</h3>
+<p><strong>Position:</strong> X = 168, Y = 440 · <strong>Size:</strong> W = 540, H = 230</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X-axis</td>
+<td><code>Dim_Date[Month Name]</code> (sorted by Month Number)</td>
+</tr>
+<tr>
+<td>Y-axis</td>
+<td><code>Total Revenue</code></td>
+</tr>
+<tr>
+<td>Legend</td>
+<td><code>Dim_Ticket[Ticket Class]</code></td>
+</tr>
+</tbody>
+</table>
+<p>Use <strong>Stacked Column</strong> sub-type so Standard vs First Class are visible per month.</p>
+<p><strong>Formatting:</strong></p>
+<ul>
+<li>Standard Class: <code>#00B0F0</code>, First Class: <code>#4059AC</code></li>
+<li>Data labels: ON (show total per bar)</li>
+<li>Y-axis format: <code>£#,##0</code></li>
+<li>Title: <code>Monthly Revenue by Ticket Class</code></li>
+<li>Add <strong>constant line</strong> at average monthly revenue</li>
+</ul>
+<h3 id="55-top-5-routes--horizontal-bar-chart">5.5 Top 5 Routes — Horizontal Bar Chart</h3>
+<p><strong>Position:</strong> X = 720, Y = 440 · <strong>Size:</strong> W = 540, H = 230</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Y-axis</td>
+<td><code>Fact_Transactions[Route]</code></td>
+</tr>
+<tr>
+<td>X-axis</td>
+<td><code>Total Transactions (Journey Date)</code></td>
+</tr>
+<tr>
+<td>Tooltip</td>
+<td><code>Total Revenue (Journey Date)</code>, <code>On Time Rate %</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Formatting:</strong></p>
+<ul>
+<li>Sort: <strong>Descending</strong> by <code>Total Transactions (Journey Date)</code></li>
+<li>Show top 5 only: In <strong>Filters</strong> pane → <code>Route</code> filter → <strong>Top N</strong> → Top 5 by <code>Total Transactions (Journey Date)</code></li>
+<li>Bar colour: <code>#00B0F0</code></li>
+<li>Data labels: ON (end of bar)</li>
+<li>Title: <code>Top 5 Routes by Journeys</code></li>
+<li>Gridlines: Vertical off, Horizontal <code>#E8EEF7</code></li>
+</ul>
+<h3 id="56-slicers">5.6 Slicers</h3>
+<p>Add <strong>2 slicers</strong> in the header area (Y = 15, right-aligned):</p>
+<table>
+<thead>
+<tr>
+<th>Slicer</th>
+<th>Field</th>
+<th>Style</th>
+<th>Position</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Month</td>
+<td><code>Dim_Date[Month Name]</code></td>
+<td>Dropdown</td>
+<td>X = 950, Y = 10, W = 160, H = 40</td>
+</tr>
+<tr>
+<td>Ticket Class</td>
+<td><code>Dim_Ticket[Ticket Class]</code></td>
+<td>Dropdown</td>
+<td>X = 1115, Y = 10, W = 155, H = 40</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Slicer formatting:</strong></p>
+<ul>
+<li>Background: <code>#FFFFFF</code> · Border: <code>#9DC3E6</code> · Radius: 6px</li>
+<li>Header: hidden (use text box above as label)</li>
+<li>Items font: Segoe UI 10pt <code>#2C3E50</code></li>
+</ul>
+<h3 id="57-dynamic-kpi-trend--metric-selector">5.7 Dynamic KPI Trend — Metric Selector</h3>
+<blockquote>
+<p><strong>Design principle:</strong> One chart that becomes six different charts based on a button click. This is the signature interactive element of the Overview page — it replaces six separate cluttered visuals and makes the report feel genuinely alive.</p>
+</blockquote>
+<p><strong>Components:</strong> 1 button-tile slicer + 1 bar chart + 1 KPI summary card</p>
+<h4 id="step-1-add-the-metric-selector-button-slicer">Step 1: Add the Metric Selector button slicer</h4>
+<p><strong>Position:</strong> X = 168, Y = 460 · <strong>Size:</strong> W = 800, H = 40</p>
+<ol>
+<li><strong>Insert</strong> → <strong>Slicer</strong> · Drag <code>Metric Selector[Metric Name]</code> onto the field well.</li>
+<li>Format → Slicer settings → Options → Style: <strong>Tile</strong>.</li>
+<li>Turn off the <strong>Slicer header</strong>.</li>
+<li>Apply Slipstream button styling:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Fill</th>
+<th>Font Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default</td>
+<td><code>#EBF3FB</code></td>
+<td><code>#1F3864</code> Bold</td>
+</tr>
+<tr>
+<td>Selected</td>
+<td><code>#00B0F0</code></td>
+<td><code>#FFFFFF</code> Bold</td>
+</tr>
+<tr>
+<td>Hover</td>
+<td><code>#9DC3E6</code></td>
+<td><code>#1F3864</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="5">
+<li>Right-click slicer → <strong>Sort by</strong> → <code>Sort Order</code> → Ascending (so buttons read: Journeys → Revenue → On-Time → Delay → Cancel → Avg Price).</li>
+<li>With the slicer selected, go to <strong>Format</strong> → <strong>Edit interactions</strong> → click <strong>None</strong> for all existing KPI cards above (so clicking a metric button doesn't cross-filter the static summary cards).</li>
+</ol>
+<h4 id="step-2-add-the-dynamic-kpi-bar-chart">Step 2: Add the Dynamic KPI bar chart</h4>
+<p><strong>Position:</strong> X = 168, Y = 510 · <strong>Size:</strong> W = 800, H = 190</p>
+<ol>
+<li>Insert a <strong>Clustered Bar Chart</strong> (horizontal).</li>
+<li>Configure fields:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Y-axis</td>
+<td><code>Dim_Date[Month Name]</code></td>
+</tr>
+<tr>
+<td>X-axis</td>
+<td><code>[Dynamic KPI]</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="3">
+<li>Bar colour: <code>#00B0F0</code> · Data labels: ON · Title: <code>Monthly KPI Breakdown</code></li>
+<li>Sort: by <code>Dim_Date[Month Number]</code> to keep months in chronological order (not alphabetical).</li>
+</ol>
+<h4 id="step-3-add-a-dynamic-kpi-label-summary-card">Step 3: Add a Dynamic KPI Label summary card</h4>
+<p><strong>Position:</strong> X = 980, Y = 460 · <strong>Size:</strong> W = 278, H = 60</p>
+<ol>
+<li>Insert a <strong>New Card</strong> · Field: <code>[Dynamic KPI Label]</code></li>
+<li>Category label: <code>Selected KPI Total</code></li>
+<li>Card fill: <code>#EBF3FB</code> · Border: <code>#9DC3E6</code> 1px, radius 6px</li>
+</ol>
+<blockquote>
+<p><strong>How it works:</strong> Click &quot;Net Revenue&quot; → the bar chart redraws to show revenue by month, the card shows <code>£741,921</code>. Click &quot;Delay Rate %&quot; → both update instantly. All DAX-driven — no bookmarks, no page navigation, no duplicated visuals.</p>
+</blockquote>
+<hr>
+<h2 id="6-page-2--passenger-usage--peak-travel">6. Page 2 — Passenger Usage &amp; Peak Travel</h2>
+<blockquote>
+<p><strong>Purpose:</strong> Show when people travel, what type of ticket they use, and railcard adoption.</p>
+</blockquote>
+<pre class="hljs"><code><div>Canvas: 1280 × 720
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│ [icon] PASSENGER USAGE &amp; PEAK TRAVEL              [Month ▼]  [Ticket Class ▼]   │ ← Y = 0–60
+├────────┬─────────────────────────────────────────────────────────────────────────┤
+│        │  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐          │ ← Y = 80
+│  NAV   │  │Journeys │ │Peak Jrny│ │Peak Rate│ │Railcard │ │Railcd % │          │
+│  160px │  └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘          │ ← Y = 180
+│        ├──────────────────────────────────────────────────┬──────────────────────┤
+│  UK    │  Journeys by Hour — &quot;Heartbeat&quot;                  │  Journeys by         │ ← Y = 200
+│  Rail  │  (col chart, peak hours highlighted cyan)        │  Day of Week         │
+│        │  X=168, W=740, H=250                             │  (col chart)         │
+│        │                                                  │  X=920, W=350, H=250 │
+│        ├──────────────────────┬───────────────────────────┴──────────────────────┤ ← Y = 450
+│        │  Time Band           │  Railcard Split       │  Ticket Type Mix         │ ← Y = 470
+│        │  (donut)             │  (donut)              │  (stacked h-bar)         │
+│        │  X=168, W=280, H=220 │  X=460, W=280, H=220  │  X=752, W=520, H=220     │
+│        │  ── §6.8: replace bottom-left+mid with [Month|Day|Band|Hour] tiles ─── │ ← Y = 690
+└────────┴──────────────────────┴───────────────────────────────────────────────────┘
+</div></code></pre>
+<h3 id="61-kpi-cards-row">6.1 KPI Cards Row</h3>
+<p>Same row layout as Page 1 (5 cards, Y = 80):</p>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Total Transactions (Journey Date)</code></td>
+<td>Total Journeys</td>
+</tr>
+<tr>
+<td><code>Total Peak Journeys</code></td>
+<td>Peak Journeys</td>
+</tr>
+<tr>
+<td><code>Peak Journey Rate %</code></td>
+<td>Peak Rate</td>
+</tr>
+<tr>
+<td><code>Railcard Transactions</code></td>
+<td>Railcard Users</td>
+</tr>
+<tr>
+<td><code>Railcard Usage Rate %</code></td>
+<td>Railcard Rate</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-journeys-by-hour--column-chart-heartbeat-chart">6.2 Journeys by Hour — Column Chart (&quot;Heartbeat Chart&quot;)</h3>
+<blockquote>
+<p>This is the signature visual for this page — a dramatic bar chart showing the twin peaks of commuter travel.</p>
+</blockquote>
+<p><strong>Position:</strong> X = 168, Y = 200 · <strong>Size:</strong> W = 740, H = 250</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X-axis</td>
+<td><code>Fact_Transactions[Departure Hour]</code></td>
+</tr>
+<tr>
+<td>Y-axis</td>
+<td><code>Total Transactions (Journey Date)</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Formatting:</strong></p>
+<ul>
+<li>Default bar colour: <code>#9DC3E6</code> (light blue)</li>
+<li><strong>Conditional formatting on data colours:</strong>
+<ul>
+<li>Create a measure:<pre class="hljs"><code><div>Hour Color Flag =
+VAR h = SELECTEDVALUE(Fact_Transactions[Departure Hour])
+RETURN IF(
+    (h &gt;= 6 &amp;&amp; h &lt;= 8) || (h &gt;= 16 &amp;&amp; h &lt;= 18),
+    &quot;#00B0F0&quot;,
+    &quot;#9DC3E6&quot;
+)
+</div></code></pre>
+</li>
+<li>Apply this measure as the conditional colour on the bars</li>
+</ul>
+</li>
+<li>This makes the peak hours stand out in bright cyan while off-peak is light blue</li>
+<li>Add <strong>Reference Lines:</strong>
+<ul>
+<li>Line 1: X = 6, Label = &quot;Morning Peak&quot;, Colour <code>#1F3864</code>, dashed</li>
+<li>Line 2: X = 16, Label = &quot;Afternoon Peak&quot;, Colour <code>#1F3864</code>, dashed</li>
+</ul>
+</li>
+<li>X-axis: show 0–23 with label every 2 hours</li>
+<li>Data labels: ON (rotate 90° to fit)</li>
+<li>Title: <code>Journeys by Departure Hour</code></li>
+</ul>
+<h3 id="63-journeys-by-day-of-week--column-chart">6.3 Journeys by Day of Week — Column Chart</h3>
+<p><strong>Position:</strong> X = 920, Y = 200 · <strong>Size:</strong> W = 350, H = 250</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X-axis</td>
+<td><code>Dim_Date[Day Short]</code> (sorted by <code>Day of Week Number</code>)</td>
+</tr>
+<tr>
+<td>Y-axis</td>
+<td><code>Total Transactions (Journey Date)</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Formatting:</strong></p>
+<ul>
+<li>Weekend bars: <code>#F4A442</code> (orange), weekday bars: <code>#00B0F0</code> (cyan)
+<ul>
+<li>Use conditional colour measure based on <code>Dim_Date[Is Weekend]</code></li>
+</ul>
+</li>
+<li>Title: <code>Journeys by Day of Week</code></li>
+<li>Data labels: ON</li>
+</ul>
+<h3 id="64-journeys-by-time-band--donut-chart">6.4 Journeys by Time Band — Donut Chart</h3>
+<p><strong>Position:</strong> X = 168, Y = 470 · <strong>Size:</strong> W = 280, H = 220</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Legend</td>
+<td><code>Fact_Transactions[Time Band]</code></td>
+</tr>
+<tr>
+<td>Values</td>
+<td><code>Total Transactions (Journey Date)</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Data colours:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Time Band</th>
+<th>Colour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Morning Peak</td>
+<td><code>#00B0F0</code></td>
+</tr>
+<tr>
+<td>Afternoon Peak</td>
+<td><code>#4059AC</code></td>
+</tr>
+<tr>
+<td>Daytime Off-Peak</td>
+<td><code>#9DC3E6</code></td>
+</tr>
+<tr>
+<td>Evening</td>
+<td><code>#29AB87</code></td>
+</tr>
+<tr>
+<td>Night / Early Morning</td>
+<td><code>#EBF3FB</code> (with dark border)</td>
+</tr>
+</tbody>
+</table>
+<p>Title: <code>Journeys by Time Band</code></p>
+<h3 id="65-railcard-usage--donut-chart">6.5 Railcard Usage — Donut Chart</h3>
+<p><strong>Position:</strong> X = 460, Y = 470 · <strong>Size:</strong> W = 280, H = 220</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Legend</td>
+<td><code>Dim_Ticket[Railcard]</code></td>
+</tr>
+<tr>
+<td>Values</td>
+<td><code>Total Transactions</code></td>
+</tr>
+</tbody>
+</table>
+<p>Data colours: None = <code>#9DC3E6</code>, Adult = <code>#00B0F0</code>, Senior = <code>#29AB87</code>, Disabled = <code>#F4A442</code>
+Title: <code>Railcard Holder Split</code></p>
+<h3 id="66-ticket-type-mix--stacked-bar-chart">6.6 Ticket Type Mix — Stacked Bar Chart</h3>
+<p><strong>Position:</strong> X = 752, Y = 470 · <strong>Size:</strong> W = 520, H = 220</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Y-axis</td>
+<td><code>Dim_Date[Month Name]</code></td>
+</tr>
+<tr>
+<td>X-axis</td>
+<td><code>Total Transactions (Journey Date)</code></td>
+</tr>
+<tr>
+<td>Legend</td>
+<td><code>Dim_Ticket[Ticket Type]</code></td>
+</tr>
+</tbody>
+</table>
+<p>Ticket Type colours: Advance = <code>#00B0F0</code>, Off-Peak = <code>#29AB87</code>, Anytime = <code>#F4A442</code>
+Title: <code>Monthly Ticket Type Mix</code>
+Sort: Month chronological</p>
+<h3 id="67-slicer--purchase-type">6.7 Slicer — Purchase Type</h3>
+<p>Add a <strong>Button slicer</strong> for <code>Dim_Payment[Purchase Type]</code>:</p>
+<ul>
+<li>Position: X = 168, Y = 10 (header area) · W = 200, H = 38</li>
+<li>Style: Dropdown</li>
+<li>Background: <code>#FFFFFF</code>, border <code>#9DC3E6</code></li>
+</ul>
+<h3 id="68-dynamic-time-breakdown--time-dimension-selector">6.8 Dynamic Time Breakdown — Time Dimension Selector</h3>
+<blockquote>
+<p><strong>Design principle:</strong> Replace four separate static charts (Hour / Day of Week / Time Band / Month) with one chart whose X-axis the user can switch via a button. This is the feature that separates a junior layout from a professional interactive report.</p>
+</blockquote>
+<h4 id="option-a--native-field-parameters-recommended">Option A — Native Field Parameters (recommended)</h4>
+<ol>
+<li><strong>File</strong> → <strong>Options and settings</strong> → <strong>Options</strong> → <strong>Preview features</strong> → enable <strong>Field parameters</strong> → restart Power BI Desktop.</li>
+<li><strong>Modelling</strong> tab → <strong>New parameter</strong> → <strong>Fields</strong>. Name it <code>Time Axis</code>.</li>
+<li>Add these fields and rename each:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Source Field</th>
+<th>Display Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Dim_Date[Month Name]</code></td>
+<td>Month</td>
+</tr>
+<tr>
+<td><code>Dim_Date[Day Short]</code></td>
+<td>Day of Week</td>
+</tr>
+<tr>
+<td><code>Fact_Transactions[Time Band]</code></td>
+<td>Time Band</td>
+</tr>
+<tr>
+<td><code>Fact_Transactions[Departure Hour]</code></td>
+<td>Hour</td>
+</tr>
+</tbody>
+</table>
+<ol start="4">
+<li>Power BI auto-generates a parameter table and a slicer. Dismiss the auto-placed slicer.</li>
+<li>Place the slicer at <strong>X = 168, Y = 460, W = 480, H = 40</strong> · Style: <strong>Tile</strong> · Same Slipstream button styling as §5.7 Step 1.</li>
+<li>Insert a <strong>Column Chart</strong> at <strong>X = 168, Y = 510, W = 480, H = 185</strong>:
+<ul>
+<li>X-axis: <code>Time Axis</code> (the generated parameter field)</li>
+<li>Y-axis: <code>Total Transactions (Journey Date)</code></li>
+<li>Bar colour: <code>#00B0F0</code> · Title: <code>Journeys by Time Dimension</code></li>
+</ul>
+</li>
+</ol>
+<h4 id="option-b--bookmark-approach-no-preview-feature-required">Option B — Bookmark approach (no preview feature required)</h4>
+<ol>
+<li>Create 4 <strong>Column Charts</strong> all at the same position (X = 168, Y = 510, W = 480, H = 185). Stack them exactly on top of each other:
+<ul>
+<li>Chart A · X-axis: <code>Dim_Date[Month Name]</code></li>
+<li>Chart B · X-axis: <code>Dim_Date[Day Short]</code> (sort by <code>Dim_Date[Day of Week Number]</code>)</li>
+<li>Chart C · X-axis: <code>Fact_Transactions[Time Band]</code></li>
+<li>Chart D · X-axis: <code>Fact_Transactions[Departure Hour]</code></li>
+</ul>
+</li>
+<li>All charts: Y-axis = <code>Total Transactions (Journey Date)</code> · Bar colour <code>#00B0F0</code></li>
+<li>Go to <strong>View</strong> → <strong>Bookmarks</strong> → create 4 bookmarks. For each, hide the other 3 charts then capture:
+<ul>
+<li><code>TD_Month</code> — Chart A only</li>
+<li><code>TD_DayOfWeek</code> — Chart B only</li>
+<li><code>TD_TimeBand</code> — Chart C only</li>
+<li><code>TD_Hour</code> — Chart D only</li>
+</ul>
+</li>
+<li>Add 4 <strong>Buttons</strong> at X = 168, Y = 460, each W = 114, H = 40 with 6px gap:
+<ul>
+<li>Labels: <code>Month</code> · <code>Day of Week</code> · <code>Time Band</code> · <code>Hour</code></li>
+<li>Action → Type: <strong>Bookmark</strong> → select matching bookmark</li>
+<li>Style: same Slipstream tile buttons as §5.7 Step 1</li>
+</ul>
+</li>
+<li>Set <code>TD_Month</code> as the default state (Chart A visible, B/C/D hidden).</li>
+</ol>
+<blockquote>
+<p><strong>Pro tip (Option B):</strong> Right-click each bookmark → edit → keep only <strong>Display</strong> checked (uncheck Data and Filters). This prevents the bookmark from freezing page-level slicer selections.</p>
+</blockquote>
+<hr>
+<h2 id="7-page-3--sales--revenue">7. Page 3 — Sales &amp; Revenue</h2>
+<blockquote>
+<p><strong>Purpose:</strong> Detailed breakdown of where money comes from by ticket class, type, payment method, and month.</p>
+</blockquote>
+<pre class="hljs"><code><div>Canvas: 1280 × 720
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│ [icon] SALES &amp; REVENUE                            [Month ▼]  [Ticket Class ▼]   │ ← Y = 0–60
+├────────┬─────────────────────────────────────────────────────────────────────────┤
+│        │  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐          │ ← Y = 80
+│  NAV   │  │Revenue  │ │Avg Price│ │1st Cl % │ │Advance £│ │Rev/Jrny │          │
+│  160px │  └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘          │ ← Y = 180
+│        ├────────────────────────────────────────────────┬─────────────────────────┤
+│  UK    │  Revenue by Month &amp; Ticket Type                │  Revenue vs Avg Price   │ ← Y = 200
+│  Rail  │  (line + stacked col combo)                    │  (scatter chart)        │
+│        │  X=168, W=700, H=250                           │  X=880, W=390, H=250    │
+│        │                                                │                         │ ← Y = 450
+│        ├──────────────────┬─────────────────────────────┼─────────────────────────┤
+│        │  Rev by Ticket   │  Avg Ticket Price            │  Revenue by Payment     │ ← Y = 466
+│        │  Class (donut)   │  Comparison (clustered bar)  │  Method (h-bar)         │
+│        │  X=168, W=260    │  X=440, W=380                │  X=832, W=438           │
+│        │                  │                              │                         │ ← Y = 686
+└────────┴──────────────────┴──────────────────────────────┴─────────────────────────┘
+</div></code></pre>
+<h3 id="71-kpi-cards-row-5-cards">7.1 KPI Cards Row (5 cards)</h3>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Total Revenue</code></td>
+<td>Net Revenue</td>
+</tr>
+<tr>
+<td><code>Avg Ticket Price</code></td>
+<td>Avg Ticket Price</td>
+</tr>
+<tr>
+<td><code>First Class Revenue %</code></td>
+<td>First Class Share</td>
+</tr>
+<tr>
+<td><code>Advance Revenue</code></td>
+<td>Advance Revenue</td>
+</tr>
+<tr>
+<td><code>Revenue per Journey</code></td>
+<td>Revenue/Journey</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-revenue-by-month--ticket-type--combo-chart">7.2 Revenue by Month &amp; Ticket Type — Combo Chart</h3>
+<p><strong>Position:</strong> X = 168, Y = 200 · <strong>Size:</strong> W = 700, H = 250</p>
+<p>Use a <strong>Line and Stacked Column Chart</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X-axis</td>
+<td><code>Dim_Date[Month Name]</code></td>
+</tr>
+<tr>
+<td>Column Y-axis</td>
+<td><code>Advance Revenue</code>, <code>Off-Peak Revenue</code>, <code>Anytime Revenue</code></td>
+</tr>
+<tr>
+<td>Line Y-axis</td>
+<td><code>Total Revenue</code></td>
+</tr>
+</tbody>
+</table>
+<p>Column colours: Advance <code>#00B0F0</code>, Off-Peak <code>#29AB87</code>, Anytime <code>#F4A442</code>
+Line colour: <code>#1F3864</code> (dark navy), width 3px
+Title: <code>Monthly Revenue by Ticket Type</code>
+Legend: Bottom</p>
+<h3 id="73-revenue-vs-average-price--scatter-chart">7.3 Revenue vs Average Price — Scatter Chart</h3>
+<p><strong>Position:</strong> X = 880, Y = 200 · <strong>Size:</strong> W = 390, H = 250</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X-axis</td>
+<td><code>Avg Ticket Price</code></td>
+</tr>
+<tr>
+<td>Y-axis</td>
+<td><code>Total Revenue</code></td>
+</tr>
+<tr>
+<td>Legend</td>
+<td><code>Dim_Ticket[Ticket Class]</code></td>
+</tr>
+<tr>
+<td>Details</td>
+<td><code>Dim_Ticket[Ticket Type]</code></td>
+</tr>
+<tr>
+<td>Size</td>
+<td><code>Total Transactions</code></td>
+</tr>
+</tbody>
+</table>
+<p>This shows which ticket combinations generate the most money and at what price point.
+Colours: Standard <code>#00B0F0</code>, First Class <code>#4059AC</code>
+Title: <code>Revenue vs Avg Price by Ticket Type</code></p>
+<h3 id="74-revenue-by-ticket-class--donut-chart">7.4 Revenue by Ticket Class — Donut Chart</h3>
+<p><strong>Position:</strong> X = 168, Y = 466 · <strong>Size:</strong> W = 260, H = 220</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Legend</td>
+<td><code>Dim_Ticket[Ticket Class]</code></td>
+</tr>
+<tr>
+<td>Values</td>
+<td><code>Total Revenue</code></td>
+</tr>
+</tbody>
+</table>
+<p>Standard = <code>#00B0F0</code>, First Class = <code>#4059AC</code>
+Inner label: card with <code>Standard Class %</code> over the hole
+Title: <code>Revenue by Ticket Class</code></p>
+<h3 id="75-average-price-comparison--clustered-bar-chart">7.5 Average Price Comparison — Clustered Bar Chart</h3>
+<p><strong>Position:</strong> X = 440, Y = 466 · <strong>Size:</strong> W = 380, H = 220</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Y-axis</td>
+<td><code>Dim_Ticket[Ticket Type]</code></td>
+</tr>
+<tr>
+<td>X-axis</td>
+<td><code>Avg Price Advance</code>, <code>Avg Price Off-Peak</code>, <code>Avg Price Anytime</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>How to do this:</strong> Create a small <strong>unpivot table</strong> in a new page (hidden) or use a matrix visual:</p>
+<p>Alternatively, use a <strong>Matrix</strong> with:</p>
+<ul>
+<li>Rows: <code>Dim_Ticket[Ticket Class]</code></li>
+<li>Columns: <code>Dim_Ticket[Ticket Type]</code></li>
+<li>Values: <code>Avg Ticket Price</code></li>
+<li>Apply data bars in Format → Cell elements → Data bars → on</li>
+</ul>
+</blockquote>
+<p>Colours: Advance <code>#00B0F0</code>, Off-Peak <code>#29AB87</code>, Anytime <code>#F4A442</code>
+Title: <code>Avg Ticket Price by Type</code></p>
+<h3 id="76-payment-method-revenue--horizontal-bar">7.6 Payment Method Revenue — Horizontal Bar</h3>
+<p><strong>Position:</strong> X = 832, Y = 466 · <strong>Size:</strong> W = 438, H = 220</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Y-axis</td>
+<td><code>Dim_Payment[Payment Method]</code></td>
+</tr>
+<tr>
+<td>X-axis</td>
+<td><code>Total Revenue</code></td>
+</tr>
+<tr>
+<td>Small multiples</td>
+<td><code>Dim_Payment[Purchase Type]</code></td>
+</tr>
+</tbody>
+</table>
+<p>Colours: Contactless <code>#00B0F0</code>, Credit Card <code>#4059AC</code>, Debit Card <code>#29AB87</code>
+Title: <code>Revenue by Payment Method</code></p>
+<h3 id="77-revenue-by-journey-status--kpi-style-cards">7.7 Revenue by Journey Status — KPI-style cards</h3>
+<p>Add 3 small cards showing revenue by journey status:</p>
+<ul>
+<li><code>CALCULATE([Total Revenue], Dim_Journey_Status[Journey Status]=&quot;On Time&quot;)</code> → <code>On-Time Revenue</code></li>
+<li><code>CALCULATE([Total Revenue], Dim_Journey_Status[Journey Status]=&quot;Delayed&quot;)</code> → <code>Delayed Revenue</code></li>
+<li><code>CALCULATE([Total Revenue], Dim_Journey_Status[Journey Status]=&quot;Cancelled&quot;)</code> → <code>Cancelled Revenue</code></li>
+</ul>
+<p>Position them as a small row at the bottom right of the page.</p>
+<hr>
+<h2 id="8-page-4--railway-performance">8. Page 4 — Railway Performance</h2>
+<blockquote>
+<p><strong>Purpose:</strong> Deep-dive into on-time performance, delay causes, refund patterns, and the impact of disruptions.</p>
+</blockquote>
+<pre class="hljs"><code><div>Canvas: 1280 × 720
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│ [icon] RAILWAY PERFORMANCE                        [Month ▼]  [Ticket Class ▼]   │ ← Y = 0–60
+├────────┬─────────────────────────────────────────────────────────────────────────┤
+│        │  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐          │ ← Y = 80
+│  NAV   │  │On-Time% │ │Delay %  │ │Cancel % │ │Avg Delay│ │Refund £ │          │
+│  160px │  └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘          │ ← Y = 180
+│        ├────────────────────────────────────────┬────────────────────────────────┤
+│  UK    │  Journey Status by Month               │  Disruptions by Reason         │ ← Y = 200
+│  Rail  │  (100% stacked col + raw col pair)     │  (h-bar, reason not blank)     │
+│        │  X=168, W=560, H=230                   │  X=740, W=530, H=230           │
+│        │                                        │                                │ ← Y = 430
+│        ├──────────────────────┬─────────────────┼────────────────────────────────┤
+│        │  Disruptions vs      │  Delays &gt;15 min │  Refund Rate by                │ ← Y = 446
+│        │  Refund Requests     │  (gauge)        │  Delay Reason                  │
+│        │  (clustered h-bar)   │  X=720, W=260   │  (matrix + conditional fmt)    │
+│        │  X=168, W=540, H=240 │  H=240          │  X=992, W=278, H=240           │ ← Y = 686
+└────────┴──────────────────────┴─────────────────┴────────────────────────────────┘
+</div></code></pre>
+<h3 id="81-kpi-cards-row-5-cards">8.1 KPI Cards Row (5 cards)</h3>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>On Time Rate %</code></td>
+<td>On-Time Rate</td>
+</tr>
+<tr>
+<td><code>Delay Rate %</code></td>
+<td>Delay Rate</td>
+</tr>
+<tr>
+<td><code>Cancel Rate %</code></td>
+<td>Cancel Rate</td>
+</tr>
+<tr>
+<td><code>Avg Delay Minutes</code></td>
+<td>Avg Delay (min)</td>
+</tr>
+<tr>
+<td><code>Refund Exposure</code></td>
+<td>Refund Exposure</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conditional formatting on these cards:</strong></p>
+<ul>
+<li><code>On Time Rate %</code>: background <code>#EBF3FB</code> if &gt; 85%, <code>#FFF3CD</code> if 75-85%, <code>#FDEDEC</code> if &lt; 75%</li>
+<li><code>Delay Rate %</code> and <code>Cancel Rate %</code>: background <code>#FDEDEC</code> if above average</li>
+</ul>
+<h3 id="82-journey-status-by-month--stacked-column-chart">8.2 Journey Status by Month — Stacked Column Chart</h3>
+<p><strong>Position:</strong> X = 168, Y = 200 · <strong>Size:</strong> W = 560, H = 230</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X-axis</td>
+<td><code>Dim_Date[Month Name]</code> (sorted)</td>
+</tr>
+<tr>
+<td>Y-axis</td>
+<td><code>On Time Journeys</code>, <code>Delayed Journeys</code>, <code>Cancelled Journeys</code></td>
+</tr>
+</tbody>
+</table>
+<p>Colours: On Time <code>#92D050</code>, Delayed <code>#F4A442</code>, Cancelled <code>#E74C3C</code>
+Chart type: <strong>100% Stacked Column</strong> (shows proportion, not raw numbers)
+Title: <code>Journey Status by Month (% Share)</code>
+Add second chart alongside as clustered column showing raw numbers.</p>
+<h3 id="83-delay-reasons--horizontal-bar-chart">8.3 Delay Reasons — Horizontal Bar Chart</h3>
+<p><strong>Position:</strong> X = 740, Y = 200 · <strong>Size:</strong> W = 530, H = 230</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Y-axis</td>
+<td><code>Dim_Journey_Status[Reason for Delay]</code></td>
+</tr>
+<tr>
+<td>X-axis</td>
+<td><code>Total Disruptions</code></td>
+</tr>
+<tr>
+<td>Tooltip</td>
+<td><code>Delay Refund Rate %</code>, <code>Avg Delay Minutes</code></td>
+</tr>
+</tbody>
+</table>
+<p>Sort: Descending by <code>Total Disruptions</code>
+Filter: Exclude blank reason (on-time journeys) — add visual-level filter: <code>Reason for Delay is not blank</code>
+Bar colour: <code>#E74C3C</code>
+Title: <code>Disruptions by Reason</code></p>
+<p><strong>Pro tip:</strong> Add a second value to show refund rate as data labels:</p>
+<ul>
+<li>Enable data labels → customise to show <code>Delay Refund Rate %</code></li>
+</ul>
+<h3 id="84-delay-reasons--refund-rate--clustered-bar-comparison">8.4 Delay Reasons × Refund Rate — Clustered Bar (comparison)</h3>
+<p><strong>Position:</strong> X = 168, Y = 446 · <strong>Size:</strong> W = 540, H = 240</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Y-axis</td>
+<td><code>Dim_Journey_Status[Reason for Delay]</code></td>
+</tr>
+<tr>
+<td>X-axis (bar 1)</td>
+<td><code>Total Disruptions</code></td>
+</tr>
+<tr>
+<td>X-axis (bar 2)</td>
+<td><code>Refund Requests</code></td>
+</tr>
+</tbody>
+</table>
+<p>Use <strong>Clustered Bar</strong> chart
+Filter: Reason not blank
+Bar colours: Disruptions <code>#E74C3C</code>, Refund Requests <code>#F4A442</code>
+Title: <code>Disruptions vs Refund Requests by Reason</code></p>
+<h3 id="85-delays-over-15-min--gauge-or-kpi-visual">8.5 Delays Over 15 Min — Gauge or KPI Visual</h3>
+<p><strong>Position:</strong> X = 720, Y = 446 · <strong>Size:</strong> W = 260, H = 240</p>
+<p>Use a <strong>Gauge</strong> visual:</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Value</td>
+<td><code>Delays Over 15 Min</code></td>
+</tr>
+<tr>
+<td>Maximum value</td>
+<td><code>Delayed Journeys</code></td>
+</tr>
+<tr>
+<td>Target</td>
+<td>(50% of delayed as a benchmark)</td>
+</tr>
+</tbody>
+</table>
+<p>Gauge needle colour: <code>#E74C3C</code>
+Call-out text below gauge: <code>Delays Over 15 Min %</code> formatted as percentage
+Title: <code>Delays &gt; 15 Minutes</code></p>
+<h3 id="86-refund-analysis--matrix">8.6 Refund Analysis — Matrix</h3>
+<p><strong>Position:</strong> X = 992, Y = 446 · <strong>Size:</strong> W = 278, H = 240</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rows</td>
+<td><code>Dim_Journey_Status[Reason for Delay]</code></td>
+</tr>
+<tr>
+<td>Values</td>
+<td><code>Total Disruptions</code>, <code>Refund Requests</code>, <code>Delay Refund Rate %</code></td>
+</tr>
+</tbody>
+</table>
+<p>Format:</p>
+<ul>
+<li>Column headers: Dark Navy background, white text</li>
+<li>Apply <strong>data bars</strong> on <code>Total Disruptions</code> column</li>
+<li>Apply <strong>conditional formatting</strong> (background colour) on <code>Delay Refund Rate %</code>:
+<ul>
+<li>Red scale: 0% = white → 100% = <code>#E74C3C</code></li>
+</ul>
+</li>
+<li>Filter: Reason not blank</li>
+<li>Title: <code>Refund Rate by Delay Reason</code></li>
+</ul>
+<hr>
+<h2 id="9-page-5--route-analysis">9. Page 5 — Route Analysis</h2>
+<blockquote>
+<p><strong>Purpose:</strong> Identify the most popular and most profitable routes, and where delays concentrate.</p>
+</blockquote>
+<pre class="hljs"><code><div>Canvas: 1280 × 720
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│ [icon] ROUTE ANALYSIS                             [Month ▼]  [Ticket Class ▼]   │ ← Y = 0–60
+├────────┬─────────────────────────────────────────────────────────────────────────┤
+│        │  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐       │ ← Y = 80
+│  NAV   │  │Total Routes │ │Total Journys│ │Total Revenue│ │Top Rt Jrnys │       │
+│  160px │  └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘       │ ← Y = 180
+│        ├──────────────────────────────────────────┬─────────────────────────────┤
+│  UK    │  Top 10 Routes by Journeys               │  Top 10 Routes by Revenue    │ ← Y = 200
+│  Rail  │  (h-bar, top-N filter, descending)       │  (h-bar, gradient colour)    │
+│        │  X=168, W=530, H=480                     │  X=710, W=560, H=480         │
+│        │                                          │                              │
+│        │  Both charts span full content height    │                              │
+│        │  — intentionally tall for readability    │                              │ ← Y = 680
+└────────┴──────────────────────────────────────────┴─────────────────────────────┘
+</div></code></pre>
+<h3 id="91-kpi-cards-row-4-cards">9.1 KPI Cards Row (4 cards)</h3>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Unique Routes</code></td>
+<td>Total Routes</td>
+</tr>
+<tr>
+<td><code>Total Transactions (Journey Date)</code></td>
+<td>Total Journeys</td>
+</tr>
+<tr>
+<td><code>Total Revenue (Journey Date)</code></td>
+<td>Total Revenue</td>
+</tr>
+<tr>
+<td><code>Top Route Journeys</code></td>
+<td>Top Route Journeys</td>
+</tr>
+</tbody>
+</table>
+<h3 id="92-top-10-routes-by-journeys--horizontal-bar-chart">9.2 Top 10 Routes by Journeys — Horizontal Bar Chart</h3>
+<p><strong>Position:</strong> X = 168, Y = 200 · <strong>Size:</strong> W = 530, H = 480</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Y-axis</td>
+<td><code>Fact_Transactions[Route]</code></td>
+</tr>
+<tr>
+<td>X-axis</td>
+<td><code>Total Transactions (Journey Date)</code></td>
+</tr>
+<tr>
+<td>Tooltip</td>
+<td><code>Total Revenue (Journey Date)</code>, <code>On Time Rate %</code>, <code>Delay Rate %</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Filter (visual level): Top N = 10 by <code>Total Transactions (Journey Date)</code></li>
+<li>Sort: Descending</li>
+<li>Bar colour: <code>#00B0F0</code></li>
+<li>Data labels: ON</li>
+<li>Title: <code>Top 10 Routes by Journeys</code></li>
+</ul>
+<h3 id="93-top-10-routes-by-revenue--horizontal-bar-chart">9.3 Top 10 Routes by Revenue — Horizontal Bar Chart</h3>
+<p><strong>Position:</strong> X = 710, Y = 200 · <strong>Size:</strong> W = 560, H = 480</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Y-axis</td>
+<td><code>Fact_Transactions[Route]</code></td>
+</tr>
+<tr>
+<td>X-axis</td>
+<td><code>Total Revenue (Journey Date)</code></td>
+</tr>
+<tr>
+<td>Tooltip</td>
+<td><code>Total Transactions (Journey Date)</code>, <code>Avg Ticket Price</code>, <code>On Time Rate %</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Filter: Top 10 by <code>Total Revenue (Journey Date)</code></li>
+<li>Sort: Descending</li>
+<li>Bar colour: gradient: low = <code>#9DC3E6</code>, high = <code>#4059AC</code>
+<ul>
+<li>Enable: Format → Data colours → <strong>Conditional formatting</strong> → Gradient → Min colour <code>#9DC3E6</code>, Max colour <code>#4059AC</code></li>
+</ul>
+</li>
+<li>Data labels: ON (formatted as £#,##0)</li>
+<li>Title: <code>Top 10 Routes by Revenue</code></li>
+</ul>
+<h3 id="94-route-on-time-performance--matrix">9.4 Route On-Time Performance — Matrix</h3>
+<p>Place a <strong>Matrix</strong> visual on a second row (if space allows on this page, or add it as a drill-through destination):</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rows</td>
+<td><code>Fact_Transactions[Route]</code></td>
+</tr>
+<tr>
+<td>Values</td>
+<td><code>Total Transactions (Journey Date)</code>, <code>On Time Rate %</code>, <code>Delay Rate %</code>, <code>Cancel Rate %</code>, <code>Total Revenue (Journey Date)</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Filter: Top 15 routes by journeys</li>
+<li>Conditional formatting:
+<ul>
+<li><code>On Time Rate %</code>: Green scale (low <code>#FDEDEC</code> → high <code>#92D050</code>)</li>
+<li><code>Delay Rate %</code>: Red scale (low white → high <code>#E74C3C</code>)</li>
+</ul>
+</li>
+<li>Column headers: Dark Navy, white text</li>
+<li>Title: <code>Route Performance Summary</code></li>
+</ul>
+<hr>
+<h2 id="10-page-6--scenario-simulator">10. Page 6 — Scenario Simulator</h2>
+<blockquote>
+<p><strong>Purpose:</strong> A dedicated &quot;what could happen&quot; page for live scenario modelling. Users drag two sliders to model different refund eligibility thresholds and ticket price adjustments — watching key metrics update in real time.</p>
+<p><strong>Why a separate page?</strong> Field Parameters (§16) enhance existing charts in-place — they are UI polish. What-If sliders change the mathematical <em>assumptions</em> of the model. Mixing descriptive analytics (&quot;what happened&quot;) with prescriptive modelling (&quot;what if&quot;) on the same page creates cognitive confusion. A dedicated Scenario page signals clearly: you have left the historical record and entered the simulator.</p>
+</blockquote>
+<pre class="hljs"><code><div>Canvas: 1280 × 720
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│ [icon] SCENARIO SIMULATOR  ·  subtitle: operational impact modelling             │ ← Y = 0–55
+├──────────────────────────────────────────────────────────────────────────────────┤
+│ Readout: Delay Threshold: [card]  │  Price Adjustment: [card]  (live values)    │ ← Y = 55–87
+├────────┬────────────────────────────────────────┬───────────────────────────────┤
+│        │   REFUND POLICY SIMULATOR              │   PRICE SCENARIO SIMULATOR    │ ← Y = 90
+│  NAV   │   ──────────────────────────────       │   ─────────────────────────   │
+│  160px │  [ Delay Threshold slider ]            │  [ Price Adjustment slider ]  │ ← Y = 140
+│        │                                        │                               │
+│  UK    │  ┌───────┐  ┌────────┐  ┌────────┐    │  ┌─────┐┌─────┐┌─────┐┌─────┐│ ← Y = 215
+│  Rail  │  │ Jrnys │  │Refund  │  │Policy  │    │  │Actl ││Siml.││ Δ £ ││ Δ % ││
+│        │  │ Above │  │Exposre │  │Saving  │    │  │ Rev ││ Rev ││     ││     ││ ← Y = 305
+│        │  └───────┘  └────────┘  └────────┘    │  └─────┘└─────┘└─────┘└─────┘│
+│        │                                        │                               │ ← Y = 336
+│        │  Affected Journeys vs Total            │  Actual vs Simulated Revenue  │
+│        │  (line + col combo chart)              │  (line + col combo chart)     │
+│        │  X=178, W=516, H=370                   │  X=730, W=530, H=354          │ ← Y = 710
+└────────┴────────────────────────────────────────┴───────────────────────────────┘
+</div></code></pre>
+<h3 id="101-page-setup">10.1 Page Setup</h3>
+<ol>
+<li>Right-click any page tab → <strong>Add page</strong> → rename it <code>Scenario Simulator</code>.</li>
+<li>Set canvas: W = 1280, H = 720.</li>
+<li>Background: <code>#F0F5FB</code>.</li>
+</ol>
+<h3 id="102-page-header">10.2 Page Header</h3>
+<ol>
+<li>Insert a <strong>Rectangle</strong>: X = 0, Y = 0, W = 1280, H = 55, fill <code>#1F3864</code>, no border.</li>
+<li>Insert a <strong>Text box</strong> on top: X = 168, Y = 8, W = 850, H = 26.
+<ul>
+<li>Text: <code>SCENARIO SIMULATOR</code> · Segoe UI Bold · 20pt · White</li>
+</ul>
+</li>
+<li>Insert a subtitle text box: X = 168, Y = 32, W = 850, H = 18.
+<ul>
+<li>Text: <code>Model the revenue and policy impact of key operational decisions</code></li>
+<li>Segoe UI Light · 10pt · <code>#9DC3E6</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="103-active-scenario-readout-bar">10.3 Active Scenario Readout Bar</h3>
+<p>This thin strip immediately below the header shows the user exactly which slider values are active — critical UX when the sliders are positioned lower on the page and the user has scrolled or navigated away from them.</p>
+<ol>
+<li>Insert a <strong>Rectangle</strong>: X = 168, Y = 57, W = 1102, H = 30, fill <code>#EBF3FB</code>, border <code>#9DC3E6</code> 1px.</li>
+<li>Insert a <strong>Text box</strong>: X = 178, Y = 61, W = 180, H = 20.
+<ul>
+<li>Text: <code>Delay Threshold (mins):</code> · Segoe UI · 10pt · <code>#4059AC</code></li>
+</ul>
+</li>
+<li>Insert a <strong>Card</strong> visual (transparent fill, no border): X = 360, Y = 57, W = 60, H = 30.
+<ul>
+<li>Field: <code>[Selected Delay Threshold]</code> · Category label: hidden · Value: Segoe UI Bold 12pt <code>#1F3864</code></li>
+</ul>
+</li>
+<li>Insert a separator text box: X = 428, Y = 61 · Text: <code>│</code> · <code>#9DC3E6</code></li>
+<li>Insert a <strong>Text box</strong>: X = 444, Y = 61, W = 180, H = 20.
+<ul>
+<li>Text: <code>Price Adjustment (%):</code> · Segoe UI · 10pt · <code>#4059AC</code></li>
+</ul>
+</li>
+<li>Insert a <strong>Card</strong> visual: X = 626, Y = 57, W = 60, H = 30.
+<ul>
+<li>Field: <code>[Selected Price Adjustment]</code> · Category label: hidden · Value: Segoe UI Bold 12pt <code>#1F3864</code></li>
+</ul>
+</li>
+<li>Insert a text box at the right edge: X = 900, Y = 61, W = 360, H = 20.
+<ul>
+<li>Text: <code>Drag the sliders below — all visuals update in real time</code></li>
+<li>Segoe UI Italic · 9pt · <code>#4D5F7A</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="104-panel-divider">10.4 Panel Divider</h3>
+<ol>
+<li>Insert a <strong>Line</strong> shape: X = 712, Y = 90, H = 620.</li>
+<li>Colour: <code>#9DC3E6</code>, weight: 1.5px.</li>
+<li>This cleanly divides the canvas into the two scenario panels.</li>
+</ol>
+<h3 id="105-left-panel--refund-policy-simulator">10.5 Left Panel — Refund Policy Simulator</h3>
+<p><strong>Panel area:</strong> X = 168 · Y = 90 · W = 536 · H = 620</p>
+<h4 id="panel-header-strip">Panel header strip</h4>
+<ol>
+<li>Insert a <strong>Rectangle</strong>: X = 168, Y = 90, W = 536, H = 36, fill <code>#4059AC</code>, no border.</li>
+<li>Insert a <strong>Text box</strong>: X = 178, Y = 96, W = 516, H = 24.
+<ul>
+<li>Text: <code>REFUND POLICY SIMULATOR</code> · Segoe UI Bold · 12pt · White</li>
+</ul>
+</li>
+</ol>
+<h4 id="delay-threshold-slider">Delay Threshold slider</h4>
+<p><strong>Position:</strong> X = 178, Y = 140 · <strong>Size:</strong> W = 516, H = 58</p>
+<ol>
+<li><strong>Insert</strong> → <strong>Slicer</strong> · Drag <code>Delay Threshold Minutes[Value]</code> onto the field.</li>
+<li>Format → Slicer settings → Options → Style: <strong>Between</strong>.</li>
+<li>Slicer header: <code>Delay Eligibility Threshold (minutes)</code> · Segoe UI Bold · 11pt · <code>#1F3864</code></li>
+<li>Slider fill: <code>#00B0F0</code> · Values font: Segoe UI 10pt <code>#4059AC</code>.</li>
+</ol>
+<h4 id="kpi-cards-row--3-cards">KPI Cards row — 3 cards</h4>
+<p><strong>Row position:</strong> Y = 215 · Each card W = 165, H = 90 · 6px gap between cards</p>
+<table>
+<thead>
+<tr>
+<th>Card</th>
+<th>X</th>
+<th>Measure</th>
+<th>Category Label</th>
+<th>Accent Border</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>178</td>
+<td><code>[Journeys Above Threshold]</code></td>
+<td>Journeys Above Threshold</td>
+<td><code>#F4A442</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>349</td>
+<td><code>[Refund Exposure Above Threshold]</code></td>
+<td>Refund Exposure</td>
+<td><code>#E74C3C</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>520</td>
+<td><code>[Refund Policy Saving]</code></td>
+<td>Policy Saving</td>
+<td><code>#92D050</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Card fill: <code>#FFFFFF</code> · Value: Segoe UI Bold 20pt <code>#1F3864</code></li>
+<li><strong>Conditional background on Card 2</strong> (<code>[Refund Exposure Above Threshold]</code>):
+<ul>
+<li>≥ 10000 → <code>#FDEDEC</code> | ≥ 5000 → <code>#FEF9E7</code> | &lt; 5000 → <code>#EAFAF1</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="trend-chart--affected-journeys-vs-total-by-month">Trend chart — Affected Journeys vs Total by Month</h4>
+<p><strong>Position:</strong> X = 178, Y = 320 · <strong>Size:</strong> W = 516, H = 370</p>
+<p>Use a <strong>Line and Clustered Column Chart</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X-axis</td>
+<td><code>Dim_Date[Month Name]</code></td>
+</tr>
+<tr>
+<td>Column Y-axis</td>
+<td><code>[Total Transactions (Journey Date)]</code></td>
+</tr>
+<tr>
+<td>Line Y-axis</td>
+<td><code>[Journeys Above Threshold]</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Columns: <code>#9DC3E6</code> at 50% opacity (context — total journey count stays fixed)</li>
+<li>Line: <code>#E74C3C</code> dashed, weight 2.5px (the affected count — eye goes here first)</li>
+<li>Data labels: ON for line only</li>
+<li>Title: <code>Affected Journeys vs Total — by Month</code></li>
+<li>Legend: ON (bottom)</li>
+</ul>
+<blockquote>
+<p><strong>Reading this chart:</strong> Drag the threshold slider right (stricter policy) and the red line drops — fewer journeys qualify for a refund. Drag it left (lenient policy) and it rises. The grey columns stay constant, providing a reference baseline.</p>
+</blockquote>
+<h3 id="106-right-panel--price-scenario-simulator">10.6 Right Panel — Price Scenario Simulator</h3>
+<p><strong>Panel area:</strong> X = 720 · Y = 90 · W = 550 · H = 620</p>
+<h4 id="panel-header-strip-1">Panel header strip</h4>
+<ol>
+<li>Insert a <strong>Rectangle</strong>: X = 720, Y = 90, W = 550, H = 36, fill <code>#4059AC</code>, no border.</li>
+<li>Insert a <strong>Text box</strong>: X = 730, Y = 96, W = 530, H = 24.
+<ul>
+<li>Text: <code>PRICE SCENARIO SIMULATOR</code> · Segoe UI Bold · 12pt · White</li>
+</ul>
+</li>
+</ol>
+<h4 id="price-adjustment-slider">Price Adjustment slider</h4>
+<p><strong>Position:</strong> X = 730, Y = 140 · <strong>Size:</strong> W = 530, H = 58</p>
+<ol>
+<li><strong>Insert</strong> → <strong>Slicer</strong> · Drag <code>Price Adjustment %[Value]</code> onto the field.</li>
+<li>Format → Slicer settings → Options → Style: <strong>Between</strong>.</li>
+<li>Slicer header: <code>Price Adjustment Scenario (%)</code> · Segoe UI Bold · 11pt · <code>#1F3864</code></li>
+<li>Slider fill: <code>#00B0F0</code> · Values font: Segoe UI 10pt <code>#4059AC</code>.</li>
+<li>Add a note text box: X = 730, Y = 200, W = 530, H = 16.
+<ul>
+<li>Text: <code>0 = baseline  ·  Positive = price increase  ·  Negative = discount scenario</code></li>
+<li>Segoe UI Italic · 9pt · <code>#4D5F7A</code></li>
+</ul>
+</li>
+</ol>
+<h4 id="kpi-cards-row--4-cards">KPI Cards row — 4 cards</h4>
+<p><strong>Row position:</strong> Y = 230 · Each card W = 124, H = 90 · 6px gap</p>
+<table>
+<thead>
+<tr>
+<th>Card</th>
+<th>X</th>
+<th>Measure</th>
+<th>Category Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>730</td>
+<td><code>[Total Revenue]</code></td>
+<td>Actual Revenue</td>
+</tr>
+<tr>
+<td>2</td>
+<td>860</td>
+<td><code>[Simulated Revenue]</code></td>
+<td>Simulated Revenue</td>
+</tr>
+<tr>
+<td>3</td>
+<td>990</td>
+<td><code>[Revenue Delta]</code></td>
+<td>Delta (£)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1120</td>
+<td><code>[Revenue Delta %]</code></td>
+<td>Delta (%)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Cards fill: <code>#FFFFFF</code> · Value: Segoe UI Bold 18pt <code>#1F3864</code></li>
+<li>Card 1 border: <code>#9DC3E6</code> · Card 2 border: <code>#00B0F0</code> (highlights the scenario value)</li>
+<li><strong>Conditional font colour on Cards 3 and 4:</strong>
+<ul>
+<li>Value &gt; 0 → <code>#27AE60</code> (green) | Value &lt; 0 → <code>#E74C3C</code> (red) | Value = 0 → <code>#4059AC</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="combo-chart--actual-vs-simulated-revenue-by-month">Combo chart — Actual vs Simulated Revenue by Month</h4>
+<p><strong>Position:</strong> X = 730, Y = 336 · <strong>Size:</strong> W = 530, H = 354</p>
+<p>Use a <strong>Line and Clustered Column Chart</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Field Well</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X-axis</td>
+<td><code>Dim_Date[Month Name]</code></td>
+</tr>
+<tr>
+<td>Column Y-axis</td>
+<td><code>[Total Revenue]</code></td>
+</tr>
+<tr>
+<td>Line Y-axis</td>
+<td><code>[Simulated Revenue]</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Columns: <code>#4059AC</code> (actual — authoritative, solid)</li>
+<li>Line: <code>#92D050</code> dashed, weight 2.5px (simulated — the &quot;could be&quot; line)</li>
+<li>Data labels: ON for both</li>
+<li>Tooltip: add <code>[Revenue Delta]</code>, <code>[Revenue Delta %]</code></li>
+<li>Title: <code>Actual vs Simulated Revenue — by Month</code></li>
+<li>Legend: ON (bottom)</li>
+</ul>
+<blockquote>
+<p><strong>Reading this chart:</strong> At 0% the green line sits exactly on the blue bars. Move to +10% and the line floats above — you see the potential uplift month by month. Move to −15% and it dips below — the cost of a discount strategy made visible before you commit to it.</p>
+</blockquote>
+<h3 id="107-navigation">10.7 Navigation</h3>
+<p>Add the Simulator nav button to every page's sidebar — see Section 11 for button creation steps. Suggested label: <code>📈 Simulator</code>. Apply a <strong>teal</strong> (<code>#29AB87</code>) hover fill instead of the standard cyan — this small difference signals visually that Simulator is a different type of page from the descriptive analysis pages.</p>
+<hr>
+<h2 id="11-navigation-buttons">11. Navigation Buttons</h2>
+<p>Add consistent page-navigation buttons on the <strong>sidebar</strong> of every page (except Cover).</p>
+<h3 id="111-create-a-button">11.1 Create a button</h3>
+<ol>
+<li>Go to <strong>Insert</strong> → <strong>Buttons</strong> → <strong>Blank</strong>.</li>
+<li>Set size: W = 140, H = 42.</li>
+<li>Position in the left sidebar (X = 10), stacked vertically starting at Y = 120, with 8px gap.</li>
+</ol>
+<h3 id="112-style-the-button">11.2 Style the button</h3>
+<p>In <strong>Format Visual</strong> → <strong>Button</strong>:</p>
+<ul>
+<li><strong>Shape:</strong> Rounded corner (radius 6px)</li>
+<li><strong>Default state:</strong>
+<ul>
+<li>Fill: <code>#2A4A7F</code> (slightly lighter than sidebar)</li>
+<li>Font: Segoe UI 10pt, White, Bold OFF</li>
+<li>Border: off</li>
+</ul>
+</li>
+<li><strong>On hover state:</strong>
+<ul>
+<li>Fill: <code>#00B0F0</code> (cyan)</li>
+<li>Font: White, Bold ON</li>
+</ul>
+</li>
+</ul>
+<h3 id="113-add-page-navigation-action">11.3 Add page navigation action</h3>
+<ol>
+<li>Select the button.</li>
+<li>In <strong>Format Visual</strong> → <strong>Action</strong>: toggle ON.</li>
+<li>Type: <strong>Page navigation</strong>.</li>
+<li>Destination: select the target page.</li>
+</ol>
+<h3 id="114-button-labels-with-icons">11.4 Button labels (with icons)</h3>
+<p>Create one button per page with these labels:</p>
+<pre class="hljs"><code><div>📊 Overview
+🧑 Passengers
+💰 Revenue
+🚦 Performance
+🗺️ Routes
+📈 Simulator
+</div></code></pre>
+<blockquote>
+<p><strong>Tip:</strong> Copy the button 6 times (Ctrl+D), then change the text and destination on each copy. For the Simulator button, change the <strong>hover fill</strong> to <code>#29AB87</code> (teal) to visually distinguish it from the analytical pages.</p>
+</blockquote>
+<h3 id="115-active-page-indicator">11.5 Active page indicator</h3>
+<p>Power BI button borders apply uniformly to all four sides — use this to add a cyan outline to the active page's button.</p>
+<h4 id="active-vs-inactive-button-styles">Active vs inactive button styles</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Active (current page)</th>
+<th>Inactive (other pages)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fill</td>
+<td><code>#1F3864</code> (dark navy)</td>
+<td><code>#2A4A7F</code> (mid navy)</td>
+</tr>
+<tr>
+<td>Border</td>
+<td><code>#00B0F0</code>, 2px, all sides</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Font weight</td>
+<td>Bold ON</td>
+<td>Bold OFF</td>
+</tr>
+</tbody>
+</table>
+<h4 id="step-by-step">Step-by-step</h4>
+<p><strong>On each analysis page, style the active button's Default state:</strong></p>
+<ol>
+<li>Select the nav button for the current page.</li>
+<li><strong>Format Visual</strong> → <strong>Button</strong> → <strong>Default</strong> state:
+<ul>
+<li>Fill: <code>#1F3864</code></li>
+<li>Border: ON · Colour <code>#00B0F0</code> · Width: <strong>2px</strong></li>
+<li>Font: Bold ON</li>
+</ul>
+</li>
+<li>Leave all other nav buttons at the standard inactive Default style (no border).</li>
+<li>Repeat on every page — one button per page gets the active border style.</li>
+</ol>
+<blockquote>
+<p><strong>Why not the native Selected state?</strong> Power BI's Selected format is designed for within-page toggle groups. It does not survive cross-page navigation — the border approach baked into Default state is the correct method.</p>
+</blockquote>
+<hr>
+<h2 id="12-sync-slicers-across-pages">12. Sync Slicers Across Pages</h2>
+<p>The <strong>Month</strong> and <strong>Ticket Class</strong> slicers should filter all pages simultaneously.</p>
+<ol>
+<li>Go to <strong>View</strong> → <strong>Sync Slicers</strong>.</li>
+<li>Select the <strong>Month slicer</strong> on Page 1.</li>
+<li>In the Sync Slicers panel, tick the <strong>Sync</strong> checkbox for Pages 1, 2, 3, 4, 5, and 6 (Scenario Simulator).</li>
+<li>Tick the <strong>Visible</strong> checkbox for Pages 1–6 (show the slicer on all content pages including Simulator — month context makes the scenario trend charts more insightful).</li>
+<li>Repeat for the <strong>Ticket Class</strong> slicer (Pages 1–5 only — the Simulator works best unfiltered by class so users see the aggregate).</li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong> The Cover page should NOT be synced since it has no data visuals. The <code>Metric Selector</code> and <code>Time Dimension</code> slicers on Pages 1 and 2 are <strong>not</strong> synced globally — they are page-specific controls.</p>
+</blockquote>
+<hr>
+<h2 id="13-conditional-formatting-on-kpi-cards">13. Conditional Formatting on KPI Cards</h2>
+<p>Make cards change colour based on performance thresholds.</p>
+<h3 id="121-on-time-rate-card">12.1 On-Time Rate card</h3>
+<ol>
+<li>Select the <strong>On Time Rate %</strong> card.</li>
+<li>In <strong>Format</strong> pane → <strong>Callout value</strong> → Font colour → <strong>Conditional formatting</strong> (fx button).</li>
+<li>Set rules:
+<ul>
+<li>If value ≥ 0.85 → Colour <code>#27AE60</code> (green)</li>
+<li>If value ≥ 0.75 and &lt; 0.85 → Colour <code>#F4A442</code> (orange)</li>
+<li>If value &lt; 0.75 → Colour <code>#E74C3C</code> (red)</li>
+</ul>
+</li>
+</ol>
+<h3 id="122-mom-change-cards">12.2 MoM change cards</h3>
+<p>For the <code>Revenue MoM %</code> card:</p>
+<ol>
+<li>Background conditional format:
+<ul>
+<li>Value &gt; 0 → <code>#E8F8F0</code> (light green tint)</li>
+<li>Value &lt; 0 → <code>#FDEDEC</code> (light red tint)</li>
+</ul>
+</li>
+<li>Font colour:
+<ul>
+<li>Value &gt; 0 → <code>#27AE60</code></li>
+<li>Value &lt; 0 → <code>#E74C3C</code></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="14-tooltip-pages">14. Tooltip Pages</h2>
+<p>Tooltip pages appear when you hover over a data point and show extra detail.</p>
+<h3 id="131-create-a-route-tooltip-page">13.1 Create a Route Tooltip page</h3>
+<ol>
+<li>
+<p><strong>Right-click</strong> any page tab → <strong>Add page</strong>.</p>
+</li>
+<li>
+<p>Rename it <code>Tooltip_Route</code>.</p>
+</li>
+<li>
+<p>In <strong>Format</strong> pane → <strong>Page information</strong>:</p>
+<ul>
+<li>Allow use as tooltip: <strong>ON</strong></li>
+<li>Canvas size: <strong>Tooltip</strong> (320 × 240)</li>
+<li>Background: <code>#1F3864</code> (dark navy)</li>
+</ul>
+</li>
+<li>
+<p>Add these visuals (small, compact):</p>
+<ul>
+<li>Card: <code>Total Transactions (Journey Date)</code> — white font</li>
+<li>Card: <code>Total Revenue (Journey Date)</code> — white font</li>
+<li>Card: <code>On Time Rate %</code> — conditional font colour</li>
+<li>Mini bar: <code>Dim_Journey_Status[Journey Status]</code> × <code>Total Transactions</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Apply the tooltip</strong> to the Route bar charts:</p>
+<ul>
+<li>Select the Route bar chart visual</li>
+<li>Format → <strong>Tooltip</strong> → Type: <strong>Report page</strong> → Page: <code>Tooltip_Route</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="132-create-a-delay-reason-tooltip-page">13.2 Create a Delay Reason Tooltip page</h3>
+<p>Repeat the process with page name <code>Tooltip_Delay</code>:</p>
+<ul>
+<li>Cards: <code>Total Disruptions</code>, <code>Delay Refund Rate %</code>, <code>Avg Delay Minutes</code></li>
+<li>Mini bar: monthly trend of that specific delay reason</li>
+</ul>
+<hr>
+<h2 id="15-final-polish-checklist">15. Final Polish Checklist</h2>
+<p>Work through this list before publishing or sharing your report.</p>
+<h3 id="typography">Typography</h3>
+<ul>
+<li><input type="checkbox" id="checkbox0"><label for="checkbox0">All visual titles: Segoe UI, 12pt, Bold, <code>#1F3864</code></label></li>
+<li><input type="checkbox" id="checkbox1"><label for="checkbox1">All axis labels: Segoe UI, 10pt, <code>#4D5F7A</code></label></li>
+<li><input type="checkbox" id="checkbox2"><label for="checkbox2">All data labels: Segoe UI, 9pt, <code>#2C3E50</code></label></li>
+<li><input type="checkbox" id="checkbox3"><label for="checkbox3">All card category labels: Segoe UI, 11pt, <code>#4059AC</code></label></li>
+<li><input type="checkbox" id="checkbox4"><label for="checkbox4">All card values: Segoe UI, 26pt, Bold, <code>#1F3864</code></label></li>
+</ul>
+<h3 id="alignment">Alignment</h3>
+<ul>
+<li><input type="checkbox" id="checkbox5"><label for="checkbox5">Use <strong>Format</strong> → <strong>Align</strong> to align all cards in a row to their top edges</label></li>
+<li><input type="checkbox" id="checkbox6"><label for="checkbox6">Use equal <strong>Distribute horizontally</strong> spacing between cards</label></li>
+<li><input type="checkbox" id="checkbox7"><label for="checkbox7">All charts within a row should share the same top Y position and height</label></li>
+<li><input type="checkbox" id="checkbox8"><label for="checkbox8">All sidebar buttons are evenly spaced vertically</label></li>
+</ul>
+<h3 id="accessibility">Accessibility</h3>
+<ul>
+<li><input type="checkbox" id="checkbox9"><label for="checkbox9">All visuals have descriptive <strong>Alt text</strong> (Format → General → Alt text)</label></li>
+<li><input type="checkbox" id="checkbox10"><label for="checkbox10">Colour-only differences always have a second indicator (shape, pattern, or label)</label></li>
+<li><input type="checkbox" id="checkbox11"><label for="checkbox11">Tab order set via <strong>View</strong> → <strong>Tab order</strong> for screen-reader friendliness</label></li>
+</ul>
+<h3 id="interactivity">Interactivity</h3>
+<ul>
+<li><input type="checkbox" id="checkbox12"><label for="checkbox12">Cross-filtering tested: clicking a bar on one chart filters the others</label></li>
+<li><input type="checkbox" id="checkbox13"><label for="checkbox13">All slicers synced across pages (Section 11)</label></li>
+<li><input type="checkbox" id="checkbox14"><label for="checkbox14">All navigation buttons tested</label></li>
+<li><input type="checkbox" id="checkbox15"><label for="checkbox15">Tooltip pages appear correctly on hover</label></li>
+</ul>
+<h3 id="performance">Performance</h3>
+<ul>
+<li><input type="checkbox" id="checkbox16"><label for="checkbox16">Hidden the <code>_Placeholder</code> column in <code>_Measures</code> table (right-click → Hide)</label></li>
+<li><input type="checkbox" id="checkbox17"><label for="checkbox17">Set all key columns used for filtering to <strong>Don't summarise</strong> (not Sum/Count)</label></li>
+<li><input type="checkbox" id="checkbox18"><label for="checkbox18">Unnecessary columns hidden from Report view: all FK integer keys in <code>Fact_Transactions</code></label>
+<ul>
+<li>Right-click each key column in Data pane → <strong>Hide in report view</strong>:
+<code>Transaction SK</code>, <code>Purchase Date Key</code>, <code>Journey Date Key</code>, <code>Departure Station Key</code>,
+<code>Arrival Station Key</code>, <code>Ticket Key</code>, <code>Payment Key</code>, <code>Journey Status Key</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="final-steps">Final Steps</h3>
+<ul>
+<li><input type="checkbox" id="checkbox19"><label for="checkbox19">Save the file (Ctrl + S)</label></li>
+<li><input type="checkbox" id="checkbox20"><label for="checkbox20">Export TMDL folder (via MCP server or File → Save)</label></li>
+<li><input type="checkbox" id="checkbox21"><label for="checkbox21">Add report-level filter if needed (e.g. filter to Jan–Apr 2024 only)</label></li>
+<li><input type="checkbox" id="checkbox22"><label for="checkbox22">Test on a smaller screen (set canvas view to 100% and resize browser)</label></li>
+<li><input type="checkbox" id="checkbox23"><label for="checkbox23">Take a screenshot of each page for portfolio/README</label></li>
+</ul>
+<hr>
+<h2 id="quick-reference--all-measures">Quick Reference — All Measures</h2>
+<table>
+<thead>
+<tr>
+<th>Folder</th>
+<th>Measure</th>
+<th>Typical Visual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Volume</strong></td>
+<td><code>Total Transactions (Journey Date)</code></td>
+<td>Card, Line Chart axis</td>
+</tr>
+<tr>
+<td><strong>Volume</strong></td>
+<td><code>On Time Journeys</code></td>
+<td>Card, Stacked Col</td>
+</tr>
+<tr>
+<td><strong>Volume</strong></td>
+<td><code>Delayed Journeys</code></td>
+<td>Card, Stacked Col</td>
+</tr>
+<tr>
+<td><strong>Volume</strong></td>
+<td><code>Cancelled Journeys</code></td>
+<td>Card, Stacked Col</td>
+</tr>
+<tr>
+<td><strong>Volume</strong></td>
+<td><code>Total Peak Journeys</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>Volume</strong></td>
+<td><code>Morning Peak Journeys</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>Volume</strong></td>
+<td><code>Afternoon Peak Journeys</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>Volume</strong></td>
+<td><code>Railcard Transactions</code></td>
+<td>Card, Donut</td>
+</tr>
+<tr>
+<td><strong>Volume</strong></td>
+<td><code>Standard Transactions</code></td>
+<td>Donut</td>
+</tr>
+<tr>
+<td><strong>Volume</strong></td>
+<td><code>First Class Transactions</code></td>
+<td>Donut</td>
+</tr>
+<tr>
+<td><strong>Volume</strong></td>
+<td><code>Total Disruptions</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>Volume</strong></td>
+<td><code>Online Transactions</code></td>
+<td>Bar chart</td>
+</tr>
+<tr>
+<td><strong>Rates</strong></td>
+<td><code>On Time Rate %</code></td>
+<td>Card, Gauge</td>
+</tr>
+<tr>
+<td><strong>Rates</strong></td>
+<td><code>Delay Rate %</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>Rates</strong></td>
+<td><code>Cancel Rate %</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>Rates</strong></td>
+<td><code>Peak Journey Rate %</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>Rates</strong></td>
+<td><code>Railcard Usage Rate %</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>Rates</strong></td>
+<td><code>Standard Class %</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>Rates</strong></td>
+<td><code>Online Purchase Rate %</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>Revenue</strong></td>
+<td><code>Total Revenue</code></td>
+<td>Card, Column Chart</td>
+</tr>
+<tr>
+<td><strong>Revenue</strong></td>
+<td><code>Avg Ticket Price</code></td>
+<td>Card, Scatter</td>
+</tr>
+<tr>
+<td><strong>Revenue</strong></td>
+<td><code>Revenue per Journey</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>Revenue</strong></td>
+<td><code>Total Revenue (Journey Date)</code></td>
+<td>Line Chart</td>
+</tr>
+<tr>
+<td><strong>Revenue</strong></td>
+<td><code>Total Revenue (Arrival Station)</code></td>
+<td>Bar Chart</td>
+</tr>
+<tr>
+<td><strong>Revenue</strong></td>
+<td><code>First Class Revenue</code></td>
+<td>Donut</td>
+</tr>
+<tr>
+<td><strong>Revenue</strong></td>
+<td><code>Standard Revenue</code></td>
+<td>Donut</td>
+</tr>
+<tr>
+<td><strong>Revenue</strong></td>
+<td><code>First Class Revenue %</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>Revenue</strong></td>
+<td><code>Advance Revenue</code></td>
+<td>Stacked Col</td>
+</tr>
+<tr>
+<td><strong>Revenue</strong></td>
+<td><code>Off-Peak Revenue</code></td>
+<td>Stacked Col</td>
+</tr>
+<tr>
+<td><strong>Revenue</strong></td>
+<td><code>Anytime Revenue</code></td>
+<td>Stacked Col</td>
+</tr>
+<tr>
+<td><strong>Revenue</strong></td>
+<td><code>Avg Price First Class</code></td>
+<td>Bar, Matrix</td>
+</tr>
+<tr>
+<td><strong>Revenue</strong></td>
+<td><code>Avg Price Standard</code></td>
+<td>Bar, Matrix</td>
+</tr>
+<tr>
+<td><strong>Revenue</strong></td>
+<td><code>Revenue MoM %</code></td>
+<td>Card (with CF)</td>
+</tr>
+<tr>
+<td><strong>Refunds</strong></td>
+<td><code>Refund Requests</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>Refunds</strong></td>
+<td><code>Refund Request Rate %</code></td>
+<td>Card, Matrix</td>
+</tr>
+<tr>
+<td><strong>Refunds</strong></td>
+<td><code>Refund Exposure</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>On-Time Performance</strong></td>
+<td><code>Avg Delay Minutes</code></td>
+<td>Card, Gauge</td>
+</tr>
+<tr>
+<td><strong>On-Time Performance</strong></td>
+<td><code>Max Delay Minutes</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>On-Time Performance</strong></td>
+<td><code>Delays Over 15 Min</code></td>
+<td>Card, Gauge</td>
+</tr>
+<tr>
+<td><strong>On-Time Performance</strong></td>
+<td><code>Delays Over 15 Min %</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>On-Time Performance</strong></td>
+<td><code>Delay Refund Rate %</code></td>
+<td>Matrix, Bar</td>
+</tr>
+<tr>
+<td><strong>On-Time Performance</strong></td>
+<td><code>Signal Failure Disruptions</code></td>
+<td>Bar</td>
+</tr>
+<tr>
+<td><strong>On-Time Performance</strong></td>
+<td><code>Weather Disruptions</code></td>
+<td>Bar</td>
+</tr>
+<tr>
+<td><strong>On-Time Performance</strong></td>
+<td><code>Technical Issue Disruptions</code></td>
+<td>Bar</td>
+</tr>
+<tr>
+<td><strong>On-Time Performance</strong></td>
+<td><code>Staffing Disruptions</code></td>
+<td>Bar</td>
+</tr>
+<tr>
+<td><strong>Routes</strong></td>
+<td><code>Unique Routes</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>Routes</strong></td>
+<td><code>Top Route Journeys</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>Routes</strong></td>
+<td><code>Top Route Revenue</code></td>
+<td>Card</td>
+</tr>
+<tr>
+<td><strong>Peak Travel</strong></td>
+<td><code>Peak Revenue</code></td>
+<td>Card</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><em>Happy building! The key to a great dashboard is consistent spacing, a restrained colour palette,
+and telling a clear story. Every visual should answer one specific question — if it doesn't,
+consider removing it.</em></p>
+<hr>
+<h2 id="16-field-parameters--dynamic-metric-switching">16. Field Parameters &amp; Dynamic Metric Switching</h2>
+<blockquote>
+<p><strong>Where these live in the report:</strong></p>
+<ul>
+<li><code>Metric Selector</code> button slicer + <code>[Dynamic KPI]</code> chart → built directly inside <strong>Section 5.7</strong> on the <strong>Executive Overview</strong> page (Page 1)</li>
+<li><code>Time Dimension</code> switcher → built directly inside <strong>Section 6.8</strong> on the <strong>Passenger Usage</strong> page (Page 2)</li>
+</ul>
+<p>Field Parameters are UI enhancers. They live <em>inside</em> the pages they improve and make those pages interactive. They do <strong>not</strong> need their own page — that would separate the control from its context, which is bad UX.</p>
+</blockquote>
+<p>Field Parameters let a single chart display <strong>different measures</strong> depending on which button the
+user clicks — no duplicated visuals required.</p>
+<p>This report uses two disconnected selector tables as pseudo Field Parameters:</p>
+<ul>
+<li><strong><code>Metric Selector</code></strong> — switches between 6 KPIs in one chart (Total Journeys, Net Revenue,
+On-Time Rate %, Delay Rate %, Cancel Rate %, Avg Ticket Price)</li>
+<li><strong><code>Time Dimension</code></strong> — switches between time-axis breakdowns (Month, Day of Week, Time Band,
+Departure Hour)</li>
+</ul>
+<h3 id="151-how-the-pattern-works">15.1 How the pattern works</h3>
+<pre class="hljs"><code><div> Slicer (Button style)
+  └─ Field: Metric Selector[Metric Name]
+        │
+        │  User clicks &quot;Net Revenue&quot;
+        ▼
+ SELECTEDVALUE('Metric Selector'[Metric Name], &quot;Total Journeys&quot;)
+        │  Returns &quot;Net Revenue&quot;
+        ▼
+ SWITCH([Selected Metric], ...) = [Total Revenue]
+        │
+        ▼
+  Chart Y-axis: [Dynamic KPI]
+</div></code></pre>
+<p>The chart axis never changes — only the underlying measure returned by <code>[Dynamic KPI]</code> changes.</p>
+<h3 id="152-adding-the-metric-selector-button-slicer">15.2 Adding the Metric Selector button slicer</h3>
+<ol>
+<li>On the <strong>Executive Overview</strong> page (Page 1), click <strong>Insert</strong> → <strong>Slicer</strong>.</li>
+<li>In the <strong>Field</strong> well, drag <code>Metric Selector[Metric Name]</code> onto the slicer.</li>
+<li>Open <strong>Format visual</strong> → <strong>Slicer settings</strong> → <strong>Options</strong> → <strong>Style</strong> → choose <strong>Tile</strong>.</li>
+<li>In <strong>Format visual</strong> → <strong>Slicer header</strong>, turn <strong>Off</strong> (remove the header to save space).</li>
+<li>Resize the slicer to be a single horizontal row of 6 buttons.</li>
+<li>Apply button styling:
+<ul>
+<li><strong>Values</strong> → Background color: <code>#EBF3FB</code> | Font color: <code>#1F3864</code> | Bold: On</li>
+<li><strong>Selected state</strong> → Background: <code>#00B0F0</code> | Font color: <code>#FFFFFF</code></li>
+<li><strong>Hover state</strong> → Background: <code>#9DC3E6</code></li>
+<li>Border: <code>#9DC3E6</code>, 1 px</li>
+</ul>
+</li>
+<li>Sort the slicer by <code>Sort Order</code> (right-click the slicer → Sort by → Sort Order → Ascending).</li>
+</ol>
+<h3 id="153-connecting-a-chart-to-dynamic-kpi">15.3 Connecting a chart to Dynamic KPI</h3>
+<ol>
+<li>Insert a <strong>Clustered Bar Chart</strong> or <strong>Line Chart</strong> on Page 1.</li>
+<li>In the <strong>Y-axis</strong> field well, place <code>[Dynamic KPI]</code> (from <code>_Measures</code>).</li>
+<li>In the <strong>X-axis</strong>, place <code>Dim_Date[Month Name]</code> (or another dimension).</li>
+<li>Set the chart title to: <code>_Measures[Selected Metric]</code> — Power BI will dynamically update
+the title as the user changes selection.
+<ul>
+<li>Format visual → General → Title → Title text: enter the measure reference manually or
+type a static title like <em>&quot;Selected Metric Trend&quot;</em>.</li>
+</ul>
+</li>
+<li>Add a data label format that matches the selected metric. Use <code>[Dynamic KPI Label]</code> in a
+<strong>Card</strong> visual beside the chart to always show the correct formatted total.</li>
+</ol>
+<h3 id="154-using-time-dimension-for-axis-switching">15.4 Using Time Dimension for axis switching</h3>
+<p>Because Power BI cannot swap axis fields dynamically without native Field Parameters (which
+require enabling the Preview feature), use a <strong>bookmark + button</strong> approach:</p>
+<ol>
+<li>Create 4 duplicate charts — one per time breakdown (Month / Day of Week / Time Band / Hour).</li>
+<li>Layer them on top of each other (same position and size).</li>
+<li>Create 4 Bookmarks (View → Bookmarks) — one per chart showing only that chart.</li>
+<li>Add a <strong>Time Dimension</strong> Button Slicer (same steps as 15.2).</li>
+<li>Assign each bookmark to the corresponding slicer button via <strong>Button</strong> → <strong>Action</strong> →
+<strong>Type: Bookmark</strong> → select the matching bookmark.</li>
+</ol>
+<blockquote>
+<p><strong>Tip:</strong> Name your bookmarks clearly: <code>TD_Month</code>, <code>TD_DayOfWeek</code>, <code>TD_TimeBand</code>, <code>TD_Hour</code>.</p>
+</blockquote>
+<h3 id="155-using-native-field-parameters-preview-feature">15.5 Using native Field Parameters (Preview feature)</h3>
+<p>If you want to use Power BI's built-in <strong>Field Parameters</strong> feature:</p>
+<ol>
+<li>In Power BI Desktop, go to <strong>File</strong> → <strong>Options and settings</strong> → <strong>Options</strong> →
+<strong>Preview features</strong> → enable <strong>Field parameters</strong> → restart Power BI Desktop.</li>
+<li>On the Modelling tab, click <strong>New parameter</strong> → <strong>Fields</strong>.</li>
+<li>Name it <code>Metric Selector Fields</code> and add these measures:
+<ul>
+<li><code>[Total Transactions (Journey Date)]</code>, <code>[Total Revenue]</code>, <code>[On Time Rate %]</code>,
+<code>[Delay Rate %]</code>, <code>[Cancel Rate %]</code>, <code>[Avg Ticket Price]</code></li>
+</ul>
+</li>
+<li>Power BI creates the parameter table and slicer automatically.</li>
+<li>Drop the generated <code>Metric Selector Fields</code> field onto the Y-axis of your chart.</li>
+<li>The slicer now controls which measure the chart plots — no DAX SWITCH required.</li>
+</ol>
+<hr>
+<h2 id="17-button-slicers-setup">17. Button Slicers Setup</h2>
+<p>Button Slicers transform standard list slicers into clickable pill/tile buttons that match the
+Slipstream design system.</p>
+<h3 id="161-general-setup-steps-applies-to-all-button-slicers">16.1 General setup steps (applies to all button slicers)</h3>
+<ol>
+<li><strong>Insert</strong> → <strong>Slicer</strong> → drag the desired field onto the slicer.</li>
+<li><strong>Format visual</strong> → <strong>Slicer settings</strong> → <strong>Options</strong> → <strong>Style</strong> → <strong>Tile</strong> (for pills) or
+<strong>Dropdown</strong> for compact space. For navigation-style selectors use <strong>Tile</strong>.</li>
+<li>Set orientation:
+<ul>
+<li><strong>Single row</strong> (horizontal): Resize to short height (~40 px), wide width.</li>
+<li><strong>Single column</strong> (vertical): Narrow width (~180 px), tall height.</li>
+</ul>
+</li>
+<li>Turn off the <strong>Slicer header</strong> (Format → Slicer header → Off) for a cleaner look.</li>
+<li>Apply Slipstream button styling:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Fill</th>
+<th>Font Color</th>
+<th>Border</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default</td>
+<td><code>#EBF3FB</code></td>
+<td><code>#1F3864</code></td>
+<td><code>#9DC3E6</code> 1px</td>
+</tr>
+<tr>
+<td>Selected</td>
+<td><code>#00B0F0</code></td>
+<td><code>#FFFFFF</code></td>
+<td><code>#00B0F0</code> 1px</td>
+</tr>
+<tr>
+<td>Hover</td>
+<td><code>#9DC3E6</code></td>
+<td><code>#1F3864</code></td>
+<td><code>#9DC3E6</code> 1px</td>
+</tr>
+</tbody>
+</table>
+<h3 id="162-slicers-used-in-this-dashboard">16.2 Slicers used in this dashboard</h3>
+<table>
+<thead>
+<tr>
+<th>Slicer</th>
+<th>Field</th>
+<th>Page</th>
+<th>Layout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Month slicer</td>
+<td><code>Dim_Date[Month Name]</code></td>
+<td>All pages</td>
+<td>Horizontal tile row</td>
+</tr>
+<tr>
+<td>Ticket class</td>
+<td><code>Dim_Ticket[Ticket Class]</code></td>
+<td>Revenue</td>
+<td>Horizontal tile</td>
+</tr>
+<tr>
+<td>Journey status</td>
+<td><code>Dim_Journey_Status[Journey Status]</code></td>
+<td>Performance</td>
+<td>Horizontal tile</td>
+</tr>
+<tr>
+<td>Metric Selector</td>
+<td><code>Metric Selector[Metric Name]</code></td>
+<td>Overview</td>
+<td>Horizontal tile</td>
+</tr>
+<tr>
+<td>Time Dimension</td>
+<td><code>Time Dimension[Dimension Name]</code></td>
+<td>Passenger Usage</td>
+<td>Horizontal tile</td>
+</tr>
+<tr>
+<td>Delay threshold</td>
+<td><code>Delay Threshold Minutes[Value]</code></td>
+<td>Performance</td>
+<td>Slider (see §17)</td>
+</tr>
+<tr>
+<td>Price adjustment</td>
+<td><code>Price Adjustment %[Value]</code></td>
+<td>Revenue</td>
+<td>Slider (see §17)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="163-sync-slicers-across-pages">16.3 Sync slicers across pages</h3>
+<ol>
+<li>Select the <strong>Month slicer</strong> (or any slicer that should apply to all pages).</li>
+<li>Go to <strong>View</strong> → <strong>Sync slicers</strong>.</li>
+<li>In the <strong>Sync slicers</strong> pane, check ✅ both columns (sync + visible) for every page where
+the slicer should operate.</li>
+<li>Hide the slicer on pages where it should filter silently but not be shown (check <strong>Sync</strong> only).</li>
+</ol>
+<blockquote>
+<p><strong>Important:</strong> The <code>Metric Selector</code> and <code>Time Dimension</code> slicers are <strong>page-specific</strong> — do NOT
+sync them globally or they will interfere with other pages.</p>
+</blockquote>
+<h3 id="164-using-select-all--multi-select">16.4 Using Select All / multi-select</h3>
+<ul>
+<li>For month/status slicers: Format → Slicer settings → Selection → enable <strong>Multi-select with Ctrl</strong>
+or <strong>Select all</strong> as needed.</li>
+<li>For <code>Metric Selector</code> and <code>Time Dimension</code>: Force <strong>single select</strong> (leave Multi-select off) so
+only one dimension is active at a time.</li>
+</ul>
+<hr>
+<h2 id="18-what-if-parameters-numeric-sliders">18. What-If Parameters (Numeric Sliders)</h2>
+<blockquote>
+<p><strong>Where these live in the report:</strong>
+Both What-If scenario panels are built on <strong>Page 6 — Scenario Simulator</strong> (Section 10). They are deliberately <strong>not</strong> placed on the Revenue or Performance pages because they represent a different analytical mode: modelling <em>future possibilities</em> rather than describing <em>historical facts</em>. Mixing them into the analytical pages would dilute the clean narrative of those pages and confuse viewers about whether they are looking at actuals or projections.</p>
+<p>The sections below provide the slider and visual build instructions you will follow when constructing Page 6.</p>
+</blockquote>
+<p>The model includes two What-If sliders that let viewers run live scenarios without editing any data.</p>
+<h3 id="171-what-if-tables-in-the-model">17.1 What-If tables in the model</h3>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Range</th>
+<th>Step</th>
+<th>Column name</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Delay Threshold Minutes</code></td>
+<td>0 – 60</td>
+<td>5 min</td>
+<td><code>[Value]</code></td>
+<td>15</td>
+</tr>
+<tr>
+<td><code>Price Adjustment %</code></td>
+<td>−30 – +30</td>
+<td>5%</td>
+<td><code>[Value]</code></td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="172-converting-the-slicer-to-a-slider-style">17.2 Converting the slicer to a Slider style</h3>
+<ol>
+<li><strong>Insert</strong> → <strong>Slicer</strong> → drag <code>Delay Threshold Minutes[Value]</code> onto the slicer.</li>
+<li><strong>Format visual</strong> → <strong>Slicer settings</strong> → <strong>Options</strong> → <strong>Style</strong> → <strong>Between</strong> (this gives
+a min/max range slider) — or choose <strong>Slider</strong> if available in your PBI version.</li>
+<li>Resize to a narrow horizontal strip (~400 px wide, ~50 px tall).</li>
+<li>Apply styling:
+<ul>
+<li><strong>Slicer header</strong>: &quot;Refund Eligibility Threshold (mins)&quot; — Segoe UI, 11pt, Bold, <code>#1F3864</code></li>
+<li><strong>Values</strong>: Segoe UI, 10pt, <code>#4059AC</code></li>
+<li><strong>Slider bar fill</strong>: <code>#00B0F0</code></li>
+</ul>
+</li>
+<li>Repeat for <code>Price Adjustment %[Value]</code> with header &quot;Price Adjustment Scenario (%)&quot;.</li>
+</ol>
+<h3 id="173-delay-threshold-scenario-panel">17.3 Delay Threshold scenario panel</h3>
+<p>Build a scenario panel on the <strong>Railway Performance</strong> page (Page 4):</p>
+<pre class="hljs"><code><div>┌──────────────────────────────────────────────────────┐
+│  REFUND POLICY SCENARIO                              │
+│  ──────────────────────────────────────────────────  │
+│  Refund Eligibility Threshold (mins)                 │
+│  [═══════●══════════════════════] 15                 │
+│                                                      │
+│  ┌─────────────────┐  ┌─────────────────┐           │
+│  │ Journeys Above  │  │ Refund Exposure │           │
+│  │    Threshold    │  │  Above Threshold│           │
+│  │     1,234       │  │    £12,450      │           │
+│  └─────────────────┘  └─────────────────┘           │
+│                                                      │
+│  ┌─────────────────────────────────────┐            │
+│  │ Refund Policy Saving                │            │
+│  │ (Refunds paid below threshold)      │            │
+│  │             £3,210                  │            │
+│  └─────────────────────────────────────┘            │
+└──────────────────────────────────────────────────────┘
+</div></code></pre>
+<p><strong>Step-by-step:</strong></p>
+<ol>
+<li>Draw a <strong>Rectangle</strong> shape: fill <code>#EBF3FB</code>, border <code>#9DC3E6</code> 1px, corner radius 6px.</li>
+<li>Add a <strong>Text box</strong> inside: &quot;REFUND POLICY SCENARIO&quot;, Segoe UI Bold 12pt <code>#1F3864</code>.</li>
+<li>Insert the <code>Delay Threshold Minutes</code> slider (§17.2) inside the rectangle.</li>
+<li>Insert 3 <strong>New Card</strong> visuals:
+<ul>
+<li>Card 1: <code>[Journeys Above Threshold]</code> — Category label: &quot;Journeys Above Threshold&quot;</li>
+<li>Card 2: <code>[Refund Exposure Above Threshold]</code> — Category label: &quot;Refund Exposure&quot;</li>
+<li>Card 3: <code>[Refund Policy Saving]</code> — Category label: &quot;Saving (Below Threshold)&quot;</li>
+</ul>
+</li>
+<li>Apply conditional formatting to Card 2 (<code>Refund Exposure Above Threshold</code>):
+<ul>
+<li>Background → Rules: value &gt; 10000 = <code>#E74C3C</code> opacity 20%; value &gt; 5000 = <code>#F4A442</code> 20%</li>
+</ul>
+</li>
+</ol>
+<h3 id="174-price-adjustment-scenario-panel">17.4 Price Adjustment scenario panel</h3>
+<p>Build on the <strong>Sales &amp; Revenue</strong> page (Page 3):</p>
+<pre class="hljs"><code><div>┌──────────────────────────────────────────────────────┐
+│  PRICE SIMULATION                                    │
+│  ──────────────────────────────────────────────────  │
+│  Price Adjustment (%)                                │
+│  [══════════●════════════════════] 0%               │
+│                                                      │
+│  ┌──────────────┐  ┌──────────────┐  ┌───────────┐ │
+│  │ Actual       │  │ Simulated    │  │  Delta    │ │
+│  │ Revenue      │  │ Revenue      │  │           │ │
+│  │  £741,921    │  │  £741,921    │  │  £0       │ │
+│  └──────────────┘  └──────────────┘  └───────────┘ │
+└──────────────────────────────────────────────────────┘
+</div></code></pre>
+<p><strong>Step-by-step:</strong></p>
+<ol>
+<li>Draw a <strong>Rectangle</strong> shape same as §17.3.</li>
+<li>Add header text box: &quot;PRICE SIMULATION&quot;.</li>
+<li>Insert the <code>Price Adjustment %</code> slider (§17.2).</li>
+<li>Insert 3 <strong>New Card</strong> visuals:
+<ul>
+<li>Card 1: <code>[Total Revenue]</code> — Category label: &quot;Actual Revenue&quot;</li>
+<li>Card 2: <code>[Simulated Revenue]</code> — Category label: &quot;Simulated Revenue&quot;</li>
+<li>Card 3: <code>[Revenue Delta]</code> — Category label: &quot;Δ Revenue&quot;</li>
+</ul>
+</li>
+<li>Apply conditional formatting to Card 3 (<code>Revenue Delta</code>):
+<ul>
+<li><strong>Font color</strong> rules:
+<ul>
+<li>If value &gt; 0 → <code>#92D050</code> (green)</li>
+<li>If value &lt; 0 → <code>#E74C3C</code> (red)</li>
+<li>If value = 0 → <code>#4059AC</code> (blue)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Add an optional <strong>Line &amp; Stacked Column</strong> combo chart below the cards:
+<ul>
+<li>Columns: <code>Dim_Date[Month Name]</code> on X-axis, <code>[Total Revenue]</code> as column</li>
+<li>Line: <code>[Simulated Revenue]</code></li>
+<li>This lets viewers see month-by-month how the simulation plays out.</li>
+</ul>
+</li>
+</ol>
+<h3 id="175-measures-reference-for-what-if-scenarios">17.5 Measures reference for What-If scenarios</h3>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Table</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Selected Delay Threshold</code></td>
+<td><code>_Measures</code></td>
+<td>Current slider value (default 15)</td>
+</tr>
+<tr>
+<td><code>Journeys Above Threshold</code></td>
+<td><code>_Measures</code></td>
+<td>Count where Delay Minutes &gt; threshold</td>
+</tr>
+<tr>
+<td><code>Refund Exposure Above Threshold</code></td>
+<td><code>_Measures</code></td>
+<td>Revenue where refund request &amp; above threshold</td>
+</tr>
+<tr>
+<td><code>Refund Policy Saving</code></td>
+<td><code>_Measures</code></td>
+<td>Revenue saved by NOT paying refunds below threshold</td>
+</tr>
+<tr>
+<td><code>Selected Price Adjustment</code></td>
+<td><code>_Measures</code></td>
+<td>Current % slider value (default 0)</td>
+</tr>
+<tr>
+<td><code>Simulated Revenue</code></td>
+<td><code>_Measures</code></td>
+<td>Total Revenue × (1 + adjustment/100)</td>
+</tr>
+<tr>
+<td><code>Revenue Delta</code></td>
+<td><code>_Measures</code></td>
+<td>Simulated − Actual revenue</td>
+</tr>
+<tr>
+<td><code>Revenue Delta %</code></td>
+<td><code>_Measures</code></td>
+<td>Delta as % of actual revenue</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="quick-reference--dynamic--what-if-measures">Quick Reference — Dynamic &amp; What-If Measures</h2>
+<table>
+<thead>
+<tr>
+<th>Folder</th>
+<th>Measure</th>
+<th>Typical Visual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dynamic Selectors</strong></td>
+<td><code>Selected Metric</code></td>
+<td>Used internally by Dynamic KPI</td>
+</tr>
+<tr>
+<td><strong>Dynamic Selectors</strong></td>
+<td><code>Dynamic KPI</code></td>
+<td>Chart Y-axis (driven by Metric Selector slicer)</td>
+</tr>
+<tr>
+<td><strong>Dynamic Selectors</strong></td>
+<td><code>Dynamic KPI Label</code></td>
+<td>Card (formatted value for selected metric)</td>
+</tr>
+<tr>
+<td><strong>Dynamic Selectors</strong></td>
+<td><code>Selected Time Dimension</code></td>
+<td>Used in bookmark logic</td>
+</tr>
+<tr>
+<td><strong>What-If</strong></td>
+<td><code>Selected Delay Threshold</code></td>
+<td>Used internally; display on slider card</td>
+</tr>
+<tr>
+<td><strong>What-If</strong></td>
+<td><code>Journeys Above Threshold</code></td>
+<td>Card in scenario panel</td>
+</tr>
+<tr>
+<td><strong>What-If</strong></td>
+<td><code>Refund Exposure Above Threshold</code></td>
+<td>Card in scenario panel</td>
+</tr>
+<tr>
+<td><strong>What-If</strong></td>
+<td><code>Refund Policy Saving</code></td>
+<td>Card in scenario panel</td>
+</tr>
+<tr>
+<td><strong>What-If</strong></td>
+<td><code>Selected Price Adjustment</code></td>
+<td>Used internally; display on slider card</td>
+</tr>
+<tr>
+<td><strong>What-If</strong></td>
+<td><code>Simulated Revenue</code></td>
+<td>Card + combo chart</td>
+</tr>
+<tr>
+<td><strong>What-If</strong></td>
+<td><code>Revenue Delta</code></td>
+<td>Card with conditional font color</td>
+</tr>
+<tr>
+<td><strong>What-If</strong></td>
+<td><code>Revenue Delta %</code></td>
+<td>Card (alternative to absolute delta)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="svg-image-assets">SVG Image Assets</h2>
+<p>All SVG files are pre-built and located in <code>dashboards/train-rides-analytics/assets/</code>. Detailed placement instructions for each file are given in the relevant page section of this guide. The table below is your quick reference.</p>
+<h3 id="file-reference">File reference</h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Dimensions</th>
+<th>Where used</th>
+<th>Guide section</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cover-banner.svg</code></td>
+<td>1280×400</td>
+<td>Cover page — full-width hero image</td>
+<td>§4.2</td>
+</tr>
+<tr>
+<td><code>icon-train.svg</code></td>
+<td>80×80</td>
+<td>Cover page accent, bridging banner and nav zone</td>
+<td>§4.3</td>
+</tr>
+<tr>
+<td><code>icon-overview.svg</code></td>
+<td>64×64</td>
+<td>Executive Overview nav tile (Cover page)</td>
+<td>§4.4</td>
+</tr>
+<tr>
+<td><code>icon-passengers.svg</code></td>
+<td>64×64</td>
+<td>Passenger Usage nav tile + Page 2 section header</td>
+<td>§4.4, §6</td>
+</tr>
+<tr>
+<td><code>icon-revenue.svg</code></td>
+<td>64×64</td>
+<td>Sales &amp; Revenue nav tile + Page 3 KPI card icon</td>
+<td>§4.4, §7</td>
+</tr>
+<tr>
+<td><code>icon-performance.svg</code></td>
+<td>64×64</td>
+<td>Railway Performance nav tile + Page 4 section header</td>
+<td>§4.4, §8</td>
+</tr>
+<tr>
+<td><code>icon-route.svg</code></td>
+<td>64×64</td>
+<td>Route Analysis nav tile + Page 5 section header</td>
+<td>§4.4, §9</td>
+</tr>
+<tr>
+<td><code>icon-simulator.svg</code></td>
+<td>64×64</td>
+<td>Scenario Simulator nav tile (Cover page)</td>
+<td>§4.4</td>
+</tr>
+<tr>
+<td><code>icon-ontime.svg</code></td>
+<td>64×64</td>
+<td>On-Time Rate % KPI card icon (Page 4)</td>
+<td>§8</td>
+</tr>
+<tr>
+<td><code>icon-delayed.svg</code></td>
+<td>64×64</td>
+<td>Delay Rate % KPI card icon (Page 4)</td>
+<td>§8</td>
+</tr>
+<tr>
+<td><code>icon-cancelled.svg</code></td>
+<td>64×64</td>
+<td>Cancel Rate % KPI card icon (Page 4)</td>
+<td>§8</td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-to-insert-any-svg-in-power-bi">How to insert any SVG in Power BI</h3>
+<ol>
+<li><strong>Insert</strong> → <strong>Image</strong> → navigate to the file in <code>assets/</code>.</li>
+<li><strong>Format visual</strong> → <strong>Image</strong> → Image fit:
+<ul>
+<li>Use <strong>Fill</strong> for the cover banner (fills the defined W/H exactly).</li>
+<li>Use <strong>Fit</strong> for icons (preserves the circle shape without cropping).</li>
+</ul>
+</li>
+<li>Type the exact position and size in <strong>Format visual → General → Properties</strong> (X, Y, W, H) for pixel-perfect placement.</li>
+</ol>
+<h3 id="how-to-place-an-icon-beside-a-kpi-card">How to place an icon beside a KPI card</h3>
+<blockquote>
+<p>Apply this pattern to any 64×64 icon on the analytical pages.</p>
+</blockquote>
+<ol>
+<li>Note the <strong>top-left X, Y</strong> of the KPI card you want to decorate.</li>
+<li>Insert the icon image. Set <strong>W = 44, H = 44</strong>.</li>
+<li>Position it at: <code>card_X − 52</code>, <code>card_Y + (card_H − 44) / 2</code> (vertically centred, 8px gap to the left of the card).</li>
+<li>Alternatively, place it <strong>inside the top-right corner</strong> of a wide card: <code>card_X + card_W − 52</code>, <code>card_Y + 8</code>.</li>
+</ol>
+<blockquote>
+<p><strong>Important:</strong> SVG images in Power BI are <strong>static</strong> — they do not respond to slicers, cross-filtering, or conditional formatting. Use them purely for decoration and visual hierarchy.</p>
+</blockquote>
+
+</body>
+</html>

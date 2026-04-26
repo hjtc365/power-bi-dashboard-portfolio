@@ -7,7 +7,7 @@
     "z": 4000,
     "height": 60,
     "width": 160,
-    "tabOrder": 4005
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "actionButton",
@@ -27,7 +27,7 @@
                 "name": {
                   "expr": {
                     "Literal": {
-                      "Value": "'icon-overview.svg'"
+                      "Value": "'icon-passengers.svg'"
                     }
                   }
                 },
@@ -36,7 +36,7 @@
                     "ResourcePackageItem": {
                       "PackageName": "RegisteredResources",
                       "PackageType": 1,
-                      "ItemName": "icon-overview9170753109528375.svg"
+                      "ItemName": "icon-passengers47807152602837144.svg"
                     }
                   }
                 },
@@ -199,6 +199,13 @@
               "expr": {
                 "Literal": {
                   "Value": "8L"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

@@ -4,10 +4,9 @@
   "position": {
     "x": 15,
     "y": 5,
-    "z": 1000,
+    "z": 4500,
     "height": 50.086956521739133,
-    "width": 50.086956521739133,
-    "tabOrder": 1000
+    "width": 50.086956521739133
   },
   "visual": {
     "visualType": "image",
@@ -127,9 +126,22 @@
             }
           }
         }
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'LogoIcon'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "0227c354130b60395e2e"
+  "parentGroupName": "2f864db506a15696586c"
 }

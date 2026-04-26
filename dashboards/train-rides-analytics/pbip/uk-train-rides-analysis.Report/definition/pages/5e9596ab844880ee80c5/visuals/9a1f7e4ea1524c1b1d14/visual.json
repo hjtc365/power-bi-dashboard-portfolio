@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
-  "name": "389dd48fe821307c1084",
+  "name": "9a1f7e4ea1524c1b1d14",
   "position": {
-    "x": 853,
-    "y": 707,
-    "z": 10000,
-    "height": 13,
-    "width": 427,
-    "tabOrder": 10000
+    "x": 11.336842105263173,
+    "y": 1.378947368421052,
+    "z": 0,
+    "height": 16,
+    "width": 1096,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "shape",
@@ -58,8 +58,9 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#29AB87'"
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": 0
                     }
                   }
                 }
@@ -68,7 +69,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "50D"
                 }
               }
             }
@@ -82,7 +83,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             }
@@ -158,18 +159,41 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#00B0F0'"
-                    }
-                  }
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
                 }
               }
             }
@@ -179,5 +203,6 @@
     },
     "drillFilterOtherVisuals": true
   },
+  "parentGroupName": "dbe9ed38ba009c08586e",
   "howCreated": "InsertVisualButton"
 }

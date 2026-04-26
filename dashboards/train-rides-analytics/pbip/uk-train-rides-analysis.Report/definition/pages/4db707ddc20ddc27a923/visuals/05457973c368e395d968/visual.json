@@ -156,6 +156,13 @@
                   "Value": "true"
                 }
               }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ImageHero'"
+                }
+              }
             }
           }
         }
@@ -239,5 +246,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "1a9808a528b85243e3e6"
 }

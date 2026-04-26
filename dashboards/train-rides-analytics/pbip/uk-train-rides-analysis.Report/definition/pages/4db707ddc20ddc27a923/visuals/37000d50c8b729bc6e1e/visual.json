@@ -2,9 +2,9 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "37000d50c8b729bc6e1e",
   "position": {
-    "x": 1063,
-    "y": 504,
-    "z": 3000,
+    "x": 1057,
+    "y": 0,
+    "z": 1000,
     "height": 100,
     "width": 205,
     "tabOrder": 3000
@@ -386,9 +386,23 @@
             }
           }
         }
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ScenarioSimulator'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
   },
+  "parentGroupName": "81c9933b557999dd0c05",
   "howCreated": "InsertVisualButton"
 }

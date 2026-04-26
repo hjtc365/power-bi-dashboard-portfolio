@@ -2,9 +2,9 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "20a888e2e4d82140153d",
   "position": {
-    "x": 428.8,
-    "y": 504,
-    "z": 5000,
+    "x": 422.8,
+    "y": 0,
+    "z": 3000,
     "height": 100,
     "width": 205,
     "tabOrder": 5000
@@ -428,6 +428,13 @@
                   "Value": "true"
                 }
               }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sales_Revenue'"
+                }
+              }
             }
           }
         }
@@ -482,5 +489,6 @@
     },
     "drillFilterOtherVisuals": true
   },
+  "parentGroupName": "81c9933b557999dd0c05",
   "howCreated": "InsertVisualButton"
 }

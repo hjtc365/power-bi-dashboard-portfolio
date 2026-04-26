@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 60,
     "width": 160,
-    "tabOrder": 4003
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "actionButton",
@@ -27,7 +27,7 @@
                 "name": {
                   "expr": {
                     "Literal": {
-                      "Value": "'icon-revenue.svg'"
+                      "Value": "'icon-overview.svg'"
                     }
                   }
                 },
@@ -36,7 +36,7 @@
                     "ResourcePackageItem": {
                       "PackageName": "RegisteredResources",
                       "PackageType": 1,
-                      "ItemName": "icon-revenue615908740642554.svg"
+                      "ItemName": "icon-overview7852569466638251.svg"
                     }
                   }
                 },

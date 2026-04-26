@@ -4,10 +4,9 @@
   "position": {
     "x": 65.3913043478261,
     "y": 0,
-    "z": 2000,
+    "z": 4000,
     "height": 59.826086956521742,
-    "width": 318.60869565217394,
-    "tabOrder": 2000
+    "width": 318.60869565217394
   },
   "visual": {
     "visualType": "shape",
@@ -206,10 +205,23 @@
             }
           }
         }
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'LogoText'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "0227c354130b60395e2e",
+  "parentGroupName": "2f864db506a15696586c",
   "howCreated": "InsertVisualButton"
 }

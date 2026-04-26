@@ -4,10 +4,9 @@
   "position": {
     "x": 0,
     "y": 0,
-    "z": 0,
+    "z": 500,
     "height": 61.217391304347828,
-    "width": 1280,
-    "tabOrder": 0
+    "width": 1280
   },
   "visual": {
     "visualType": "shape",
@@ -220,6 +219,13 @@
                   "Value": "true"
                 }
               }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Banner'"
+                }
+              }
             }
           }
         }
@@ -273,6 +279,6 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "0227c354130b60395e2e",
+  "parentGroupName": "2f864db506a15696586c",
   "howCreated": "InsertVisualButton"
 }

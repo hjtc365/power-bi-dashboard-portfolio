@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 60,
     "width": 160,
-    "tabOrder": 2003
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "actionButton",
@@ -27,7 +27,7 @@
                 "name": {
                   "expr": {
                     "Literal": {
-                      "Value": "'icon-passengers.svg'"
+                      "Value": "'icon-overview.svg'"
                     }
                   }
                 },
@@ -36,7 +36,7 @@
                     "ResourcePackageItem": {
                       "PackageName": "RegisteredResources",
                       "PackageType": 1,
-                      "ItemName": "icon-passengers053945335692373586.svg"
+                      "ItemName": "icon-overview7106183164225147.svg"
                     }
                   }
                 },

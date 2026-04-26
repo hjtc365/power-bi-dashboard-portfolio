@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4059AC"/>
+      <stop offset="100%" style="stop-color:#2A3D80"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer ring -->
+  <circle cx="32" cy="32" r="31" fill="url(#blueGrad)"/>
+
+  <!-- Left person (smaller, partial) -->
+  <circle cx="16" cy="23" r="5.5" fill="white" opacity="0.65"/>
+  <path d="M7,46 Q7,35 16,35 Q25,35 25,46" fill="white" opacity="0.65"/>
+
+  <!-- Right person (smaller, partial) -->
+  <circle cx="48" cy="23" r="5.5" fill="white" opacity="0.65"/>
+  <path d="M39,46 Q39,35 48,35 Q57,35 57,46" fill="white" opacity="0.65"/>
+
+  <!-- Centre person (full) -->
+  <circle cx="32" cy="21" r="7" fill="white"/>
+  <path d="M20,48 Q20,36 32,36 Q44,36 44,48" fill="white"/>
+</svg>
