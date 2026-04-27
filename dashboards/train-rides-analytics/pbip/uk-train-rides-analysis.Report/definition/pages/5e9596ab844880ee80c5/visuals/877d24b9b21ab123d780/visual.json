@@ -6,7 +6,8 @@
     "y": 10,
     "z": 3000,
     "height": 41,
-    "width": 187.49006622516555
+    "width": 187.49006622516555,
+    "tabOrder": 2000
   },
   "visualGroup": {
     "displayName": "MonthSlicer",

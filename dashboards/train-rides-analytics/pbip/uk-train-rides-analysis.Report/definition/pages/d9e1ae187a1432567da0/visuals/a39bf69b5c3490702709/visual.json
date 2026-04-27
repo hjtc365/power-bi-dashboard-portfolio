@@ -4,10 +4,10 @@
   "position": {
     "x": 0,
     "y": 59.130434782608631,
-    "z": 1000,
+    "z": 2000,
     "height": 660.86956521739137,
     "width": 160,
-    "tabOrder": 10001
+    "tabOrder": 9000
   },
   "visualGroup": {
     "displayName": "Sidebar",

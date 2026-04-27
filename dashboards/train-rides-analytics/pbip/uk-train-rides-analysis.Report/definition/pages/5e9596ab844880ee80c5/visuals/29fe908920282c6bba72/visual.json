@@ -6,7 +6,8 @@
     "y": 10,
     "z": 1000,
     "height": 41,
-    "width": 228
+    "width": 228,
+    "tabOrder": 1000
   },
   "visualGroup": {
     "displayName": "TicketClassSlicer",

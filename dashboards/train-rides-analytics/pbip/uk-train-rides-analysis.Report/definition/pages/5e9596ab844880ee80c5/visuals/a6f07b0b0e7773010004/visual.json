@@ -375,6 +375,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "66dc71a44093ec868cde",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Total Transactions (Journey Date)"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

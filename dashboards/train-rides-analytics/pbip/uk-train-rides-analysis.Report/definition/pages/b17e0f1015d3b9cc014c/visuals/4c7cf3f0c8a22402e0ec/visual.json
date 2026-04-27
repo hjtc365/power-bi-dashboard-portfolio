@@ -1,0 +1,189 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "4c7cf3f0c8a22402e0ec",
+  "position": {
+    "x": 623.29317269076307,
+    "y": 179.91967871485946,
+    "z": 1003,
+    "height": 209.47791164658636,
+    "width": 613.01204819277109,
+    "tabOrder": 7003
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Journey_Status"
+                    }
+                  },
+                  "Property": "Reason for Delay"
+                }
+              },
+              "queryRef": "Dim_Journey_Status.Reason for Delay",
+              "nativeQueryRef": "Reason for Delay",
+              "active": true
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Delay Minutes"
+                }
+              },
+              "queryRef": "_Measures.Avg Delay Minutes",
+              "nativeQueryRef": "Avg Delay Minutes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Delay Refund Rate %"
+                }
+              },
+              "queryRef": "_Measures.Delay Refund Rate %",
+              "nativeQueryRef": "Delay Refund Rate %"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Disruptions"
+                }
+              },
+              "queryRef": "_Measures.Total Disruptions",
+              "nativeQueryRef": "Total Disruptions"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Total Disruptions"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a5e41ba37616a4d02b04",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Journey_Status"
+              }
+            },
+            "Property": "Reason for Delay"
+          }
+        },
+        "type": "Categorical",
+        "objects": {
+          "general": [
+            {
+              "properties": {}
+            }
+          ]
+        }
+      },
+      {
+        "name": "fe664c23d4200839aac1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Total Disruptions"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9365073e8dc30629308d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Avg Delay Minutes"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "763000bd9930604eb388",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Delay Refund Rate %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

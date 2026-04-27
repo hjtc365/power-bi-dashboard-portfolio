@@ -23,6 +23,8 @@ ref table 'Delay Threshold Minutes'
 ref table 'Price Adjustment %'
 ref table 'Metric Selector'
 ref table 'Time Dimension'
+ref table 'Time Axis'
+ref table 'Ticket Axis'
 
 ref cultureInfo en-US
 

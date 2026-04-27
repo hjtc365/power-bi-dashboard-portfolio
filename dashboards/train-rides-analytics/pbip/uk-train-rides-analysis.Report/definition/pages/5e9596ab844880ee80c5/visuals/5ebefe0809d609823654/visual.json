@@ -366,6 +366,11 @@
         }
       ]
     },
+    "syncGroup": {
+      "groupName": "Metric Name",
+      "fieldChanges": true,
+      "filterChanges": true
+    },
     "drillFilterOtherVisuals": true
   },
   "parentGroupName": "a741e7c07321cac23ee4"

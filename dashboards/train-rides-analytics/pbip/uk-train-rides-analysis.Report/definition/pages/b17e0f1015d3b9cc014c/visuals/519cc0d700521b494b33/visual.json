@@ -1,0 +1,229 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "519cc0d700521b494b33",
+  "position": {
+    "x": 321.285140562249,
+    "y": 436.94779116465867,
+    "z": 1005,
+    "height": 244.17670682730926,
+    "width": 958.7148594377511,
+    "tabOrder": 7005
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Journey_Status"
+                    }
+                  },
+                  "Property": "Reason for Delay"
+                }
+              },
+              "queryRef": "Dim_Journey_Status.Reason for Delay",
+              "nativeQueryRef": "Reason for Delay",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Disruptions"
+                }
+              },
+              "queryRef": "_Measures.Total Disruptions",
+              "nativeQueryRef": "Total Disruptions"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Cancelled Journeys"
+                }
+              },
+              "queryRef": "_Measures.Cancelled Journeys",
+              "nativeQueryRef": "Cancelled Journeys"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Delayed Journeys"
+                }
+              },
+              "queryRef": "_Measures.Delayed Journeys",
+              "nativeQueryRef": "Delayed Journeys"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Refund Requests"
+                }
+              },
+              "queryRef": "_Measures.Refund Requests",
+              "nativeQueryRef": "Refund Requests"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Delayed with Refund"
+                }
+              },
+              "queryRef": "_Measures.Delayed with Refund",
+              "nativeQueryRef": "Delayed with Refund"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Delay Refund Rate %"
+                }
+              },
+              "queryRef": "_Measures.Delay Refund Rate %",
+              "nativeQueryRef": "Delay Refund Rate %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "808398b059a5b6e3c8d0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Journey_Status"
+              }
+            },
+            "Property": "Reason for Delay"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "809bef39ab5366d7a472",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Total Disruptions"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "88a4977575aba1eb4c1d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Cancelled Journeys"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a3775e0e6ad93028c545",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Delayed Journeys"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "aae503a6e7ab9596520b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Refund Requests"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1ed74770e10d86ac8631",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Delay Refund Rate %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0918a9cd786949326a02",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Delayed with Refund"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

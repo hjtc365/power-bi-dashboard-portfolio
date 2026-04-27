@@ -64,9 +64,11 @@ table _Measures
 
 	/// Average ticket price across all transactions (GBP)
 	measure 'Avg Ticket Price' = AVERAGE(Fact_Transactions[Price])
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: Revenue
 		lineageTag: 64846168-3476-4352-a30c-e565c73e6366
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	/// Number of transactions where a refund was requested
 	measure 'Refund Requests' =
@@ -499,32 +501,35 @@ table _Measures
 		displayFolder: Dynamic Selectors
 		lineageTag: d39cada8-5a42-4f6f-a474-6df4bd377edb
 
-	/// Returns the currently selected delay threshold in minutes from the What-If slider. Default = 15.
-	measure 'Selected Delay Threshold' = SELECTEDVALUE('Delay Threshold Minutes'[Value], 15)
+	/// Returns the currently selected delay threshold in minutes from the What-If slider. Uses MIN() so it works with a 'Greater than or equal to' slicer. Default = 15.
+	measure 'Selected Delay Threshold' = COALESCE(MIN('Delay Threshold Minutes'[Value]), 15)
 		displayFolder: What-If
 		lineageTag: 9088950a-8ce4-4806-8992-129341f59d46
 
-	/// Count of journeys delayed by MORE than the selected threshold — updates live with the slider.
+	/// Count of journeys delayed by AT LEAST the selected threshold — updates live with the slider. Excludes on-time journeys (Delay Minutes = 0).
 	measure 'Journeys Above Threshold' =
 			CALCULATE(
 			    COUNTROWS(Fact_Transactions),
 			    FILTER(
 			        Fact_Transactions,
-			        Fact_Transactions[Delay Minutes] > [Selected Delay Threshold]
-			    )
+			        Fact_Transactions[Delay Minutes] >= [Selected Delay Threshold]
+			            && Fact_Transactions[Delay Minutes] > 0
+			    ),
+			    USERELATIONSHIP(Fact_Transactions[Journey Date Key], Dim_Date[Date Key])
 			)
 		formatString: #,##0
 		displayFolder: What-If
 		lineageTag: f34486b7-ebc3-4d35-9b9e-67c0be156a57
 
-	/// Revenue at risk from refund claims on journeys that exceed the selected delay threshold.
+	/// Revenue at risk from refund claims on journeys delayed by AT LEAST the selected threshold. Excludes on-time journeys (Delay Minutes = 0).
 	measure 'Refund Exposure Above Threshold' =
 			CALCULATE(
 			    [Total Revenue],
 			    FILTER(
 			        Fact_Transactions,
 			        Fact_Transactions[Refund Request] = TRUE()
-			            && Fact_Transactions[Delay Minutes] > [Selected Delay Threshold]
+			            && Fact_Transactions[Delay Minutes] >= [Selected Delay Threshold]
+			            && Fact_Transactions[Delay Minutes] > 0
 			    )
 			)
 		formatString: £#,##0
@@ -538,7 +543,7 @@ table _Measures
 			    FILTER(
 			        Fact_Transactions,
 			        Fact_Transactions[Refund Request] = TRUE()
-			            && Fact_Transactions[Delay Minutes] <= [Selected Delay Threshold]
+			            && Fact_Transactions[Delay Minutes] < [Selected Delay Threshold]
 			            && Fact_Transactions[Delay Minutes] > 0
 			    )
 			)
@@ -546,8 +551,8 @@ table _Measures
 		displayFolder: What-If
 		lineageTag: 1ba978f2-e2b6-4206-bf57-7195b6ca3294
 
-	/// Returns selected price adjustment % from the What-If slider (e.g. 5 = +5%). Default = 0.
-	measure 'Selected Price Adjustment' = SELECTEDVALUE('Price Adjustment %'[Value], 0)
+	/// Returns selected price adjustment % from the What-If slider (e.g. 5 = +5%). Uses MIN() so it works with a 'Greater than or equal to' slicer. Default = 0.
+	measure 'Selected Price Adjustment' = COALESCE(MIN('Price Adjustment %'[Value]), 0)
 		displayFolder: What-If
 		lineageTag: a0b5c380-3e6f-4473-b252-3805cdc60731
 
@@ -568,6 +573,17 @@ table _Measures
 		formatString: +0.0%;-0.0%;0.0%
 		displayFolder: What-If
 		lineageTag: 87f83d17-0bed-45fa-ad8c-66498f58560a
+
+	measure 'Advance Revenue %' = DIVIDE([Advance Revenue], [Total Revenue])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Revenue
+		lineageTag: 12f1e7fb-1bc1-4130-9c17-39411910a675
+
+	measure 'Half of Delayed Journeys' = DIVIDE([Delayed Journeys], 2)
+		displayFolder: Volume
+		lineageTag: b5551ba0-5aba-40b9-81f6-7dbd296863c4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column _Placeholder
 		isHidden

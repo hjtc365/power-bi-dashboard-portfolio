@@ -1081,7 +1081,7 @@ This thin strip immediately below the header shows the user exactly which slider
 **Position:** X = 178, Y = 140 · **Size:** W = 516, H = 58
 
 1. **Insert** → **Slicer** · Drag `Delay Threshold Minutes[Value]` onto the field.
-2. Format → Slicer settings → Options → Style: **Between**.
+2. Format → Slicer settings → Options → Style: **Greater than or equal to**.
 3. Slicer header: `Delay Eligibility Threshold (minutes)` · Segoe UI Bold · 11pt · `#1F3864`
 4. Slider fill: `#00B0F0` · Values font: Segoe UI 10pt `#4059AC`.
 
@@ -1133,7 +1133,7 @@ Use a **Line and Clustered Column Chart**:
 **Position:** X = 730, Y = 140 · **Size:** W = 530, H = 58
 
 1. **Insert** → **Slicer** · Drag `Price Adjustment %[Value]` onto the field.
-2. Format → Slicer settings → Options → Style: **Between**.
+2. Format → Slicer settings → Options → Style: **Greater than or equal to**.
 3. Slicer header: `Price Adjustment Scenario (%)` · Segoe UI Bold · 11pt · `#1F3864`
 4. Slider fill: `#00B0F0` · Values font: Segoe UI 10pt `#4059AC`.
 5. Add a note text box: X = 730, Y = 200, W = 530, H = 16.

@@ -1,0 +1,141 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "02617d53240706b83bd0",
+  "position": {
+    "x": 170.92369477911649,
+    "y": 334.13654618473896,
+    "z": 1004,
+    "height": 357.26907630522089,
+    "width": 400.96385542168679,
+    "tabOrder": 7004
+  },
+  "visual": {
+    "visualType": "gauge",
+    "query": {
+      "queryState": {
+        "MaxValue": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Delayed Journeys"
+                }
+              },
+              "queryRef": "_Measures.Delayed Journeys",
+              "nativeQueryRef": "Delayed Journeys"
+            }
+          ]
+        },
+        "MinValue": {
+          "projections": []
+        },
+        "TargetValue": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Half of Delayed Journeys"
+                }
+              },
+              "queryRef": "_Measures.Half of Delayed Journeys",
+              "nativeQueryRef": "Half of Delayed Journeys"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Delays Over 15 Min"
+                }
+              },
+              "queryRef": "_Measures.Delays Over 15 Min",
+              "nativeQueryRef": "Delays Over 15 Min"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Delays Over 15 Min"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6d5d0dc2aae546923ab6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Delays Over 15 Min"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e1ef5bd290734004e81a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Delayed Journeys"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3faaf35a84c0757b0340",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Half of Delayed Journeys"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

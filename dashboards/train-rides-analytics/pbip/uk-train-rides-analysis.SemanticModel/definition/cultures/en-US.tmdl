@@ -400,6 +400,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.6
 			          }
+			        },
+			        {
+			          "Month": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -4574,6 +4584,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.461
 			          }
+			        },
+			        {
+			          "Hour": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -6014,6 +6034,16 @@ cultureInfo en-US
 			            "State": "Generated",
 			            "Weight": 0.75
 			          }
+			        },
+			        {
+			          "Actual": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -6038,7 +6068,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Total Journeys": {
+			          "Journeys": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -6048,7 +6078,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Journeys": {
+			          "Total Journeys": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -10532,6 +10562,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.492
 			          }
+			        },
+			        {
+			          "Delayed Journeys": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -11011,6 +11051,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "Simulated": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -12223,88 +12273,731 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "time_axis": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Time Axis"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "time axis": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "axis": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "duration axis": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "interval axis": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "moment axis": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "period axis": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "timetable axis": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "time_axis.time_axis": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Time Axis",
+			          "ConceptualProperty": "Time Axis"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "time axis": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "time axis name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "axis": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "duration axis": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "interval axis": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "moment axis": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "period axis": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "timetable axis": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ],
+			      "NameType": "Name"
+			    },
+			    "time_axis.time_axis_field": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Time Axis",
+			          "ConceptualProperty": "Time Axis Fields"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "time axis field": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "field": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "axis field": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "duration axis field": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "interval axis field": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "moment axis field": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "period axis field": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "timetable axis field": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "time axis arena": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "axis arena": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "time axis turf": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "time axis ground": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "time axis pitch": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        }
+			      ]
+			    },
+			    "time_axis.time_axis_order": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Time Axis",
+			          "ConceptualProperty": "Time Axis Order"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "time axis order": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "order": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "axis order": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "duration axis order": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "interval axis order": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "moment axis order": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "period axis order": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "timetable axis order": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "time axis instruction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "time axis direction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "time axis edict": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "axis instruction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "axis direction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        }
+			      ]
+			    },
+			    "ticket_axis": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Ticket Axis"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ticket axis": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "axis": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "ticket_axis.ticket_axis": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Ticket Axis",
+			          "ConceptualProperty": "Ticket Axis"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ticket axis": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ticket axis name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "axis": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ],
+			      "NameType": "Name"
+			    },
+			    "ticket_axis.ticket_axis_field": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Ticket Axis",
+			          "ConceptualProperty": "Ticket Axis Fields"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "ticket axis field": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "field": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "axis field": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "ticket axis arena": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "axis arena": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "ticket axis turf": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "ticket axis ground": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "ticket axis pitch": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "ticket axis park": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "arena": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "axis turf": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "axis ground": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "axis pitch": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "ticket_axis.ticket_axis_order": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Ticket Axis",
+			          "ConceptualProperty": "Ticket Axis Order"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "ticket axis order": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "order": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "axis order": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "ticket axis instruction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "ticket axis direction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "ticket axis edict": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "axis instruction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "axis direction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "axis edict": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "ticket axis command": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "ticket axis directive": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "ticket axis demand": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "ticket axis mandate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "time_dimension_has_dimension_name": {
-			      "Binding": {
-			        "ConceptualEntity": "Time Dimension"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "time_dimension": {
-			          "Target": {
-			            "Entity": "time_dimension"
-			          }
-			        },
-			        "time_dimension.dimension_name": {
-			          "Target": {
-			            "Entity": "time_dimension.dimension_name"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "time_dimension"
-			            },
-			            "Object": {
-			              "Role": "time_dimension.dimension_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "time_dimensions_have_dimension_names"
-			        },
-			        {
-			          "Name": {
-			            "Subject": {
-			              "Role": "time_dimension"
-			            },
-			            "Name": {
-			              "Role": "time_dimension.dimension_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dimension_names_are_names_IDs_of_time_dimensions"
-			        }
-			      ]
-			    },
-			    "metric_selector_has_sort_order": {
-			      "Binding": {
-			        "ConceptualEntity": "Metric Selector"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "metric_selector": {
-			          "Target": {
-			            "Entity": "metric_selector"
-			          }
-			        },
-			        "metric_selector.sort_order": {
-			          "Target": {
-			            "Entity": "metric_selector.sort_order"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "metric_selector"
-			            },
-			            "Object": {
-			              "Role": "metric_selector.sort_order"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "metric_selectors_have_sort_orders"
-			        }
-			      ]
-			    },
 			    "metric_selector_has_metric_name": {
 			      "Binding": {
 			        "ConceptualEntity": "Metric Selector"
@@ -12566,6 +13259,26 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "price_adjustment__have_simulated_revenue"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "price_adjustment_"
+			            },
+			            "Adjectives": [
+			              {
+			                "Simulated": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "entity__measure.simulated_revenue"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "simulated_revenue_indicates_how_Simulated_price_adjustment__are"
 			        }
 			      ]
 			    },
@@ -12599,6 +13312,26 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_transactions_have_simulated_revenue"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "fact_transaction"
+			            },
+			            "Adjectives": [
+			              {
+			                "Simulated": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "entity__measure.simulated_revenue"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "simulated_revenue_indicates_how_Simulated_fact_transactions_are"
 			        }
 			      ]
 			    },
@@ -12635,15 +13368,15 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "entity__measure_has_refund_policy_saving": {
+			    "fact_transaction_has_entity__measure_refund_policy_saving": {
 			      "Binding": {
-			        "ConceptualEntity": "_Measures"
+			        "ConceptualEntity": "Fact_Transactions"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "entity__measure": {
+			        "fact_transaction": {
 			          "Target": {
-			            "Entity": "entity__measure"
+			            "Entity": "fact_transaction"
 			          }
 			        },
 			        "entity__measure.refund_policy_saving": {
@@ -12656,7 +13389,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "entity__measure"
+			              "Role": "fact_transaction"
 			            },
 			            "Object": {
 			              "Role": "entity__measure.refund_policy_saving"
@@ -12664,19 +13397,19 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "Phrasing_measures_have_refund_policy_saving"
+			          "ID": "fact_transactions_have_refund_policy_saving"
 			        }
 			      ]
 			    },
-			    "entity__measure_has_refund_exposure_above_threshold": {
+			    "fact_transaction_has_entity__measure_refund_exposure_above_threshold": {
 			      "Binding": {
-			        "ConceptualEntity": "_Measures"
+			        "ConceptualEntity": "Fact_Transactions"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "entity__measure": {
+			        "fact_transaction": {
 			          "Target": {
-			            "Entity": "entity__measure"
+			            "Entity": "fact_transaction"
 			          }
 			        },
 			        "entity__measure.refund_exposure_above_threshold": {
@@ -12689,7 +13422,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "entity__measure"
+			              "Role": "fact_transaction"
 			            },
 			            "Object": {
 			              "Role": "entity__measure.refund_exposure_above_threshold"
@@ -12697,19 +13430,19 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "Phrasing_measures_have_refund_exposure_above_threshold"
+			          "ID": "fact_transactions_have_refund_exposure_above_threshold"
 			        }
 			      ]
 			    },
-			    "entity__measure_has_journeys_above_threshold": {
+			    "fact_transaction_has_entity__measure_journeys_above_threshold": {
 			      "Binding": {
-			        "ConceptualEntity": "_Measures"
+			        "ConceptualEntity": "Fact_Transactions"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "entity__measure": {
+			        "fact_transaction": {
 			          "Target": {
-			            "Entity": "entity__measure"
+			            "Entity": "fact_transaction"
 			          }
 			        },
 			        "entity__measure.journeys_above_threshold": {
@@ -12722,7 +13455,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "entity__measure"
+			              "Role": "fact_transaction"
 			            },
 			            "Object": {
 			              "Role": "entity__measure.journeys_above_threshold"
@@ -12730,7 +13463,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "Phrasing_measures_have_journeys_above_threshold"
+			          "ID": "fact_transactions_have_journeys_above_threshold"
 			        }
 			      ]
 			    },
@@ -16409,6 +17142,177 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.75,
 			          "ID": "metric_selectors_select"
+			        }
+			      ]
+			    },
+			    "ticket_axis_is_named_ticket_axis": {
+			      "Binding": {
+			        "ConceptualEntity": "Ticket Axis"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ticket_axis": {
+			          "Target": {
+			            "Entity": "ticket_axis"
+			          }
+			        },
+			        "ticket_axis.ticket_axis": {
+			          "Target": {
+			            "Entity": "ticket_axis.ticket_axis"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "ticket_axis"
+			            },
+			            "Name": {
+			              "Role": "ticket_axis.ticket_axis"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ticket_axes_are_names_IDs_of_ticket_axes"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ticket_axis"
+			            },
+			            "Object": {
+			              "Role": "ticket_axis.ticket_axis"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ticket_axes_have_ticket_axes"
+			        }
+			      ]
+			    },
+			    "time_axis_is_named_time_axis": {
+			      "Binding": {
+			        "ConceptualEntity": "Time Axis"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "time_axis": {
+			          "Target": {
+			            "Entity": "time_axis"
+			          }
+			        },
+			        "time_axis.time_axis": {
+			          "Target": {
+			            "Entity": "time_axis.time_axis"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "time_axis"
+			            },
+			            "Name": {
+			              "Role": "time_axis.time_axis"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "time_axes_are_names_IDs_of_time_axes"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "time_axis"
+			            },
+			            "Object": {
+			              "Role": "time_axis.time_axis"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "time_axes_have_time_axes"
+			        }
+			      ]
+			    },
+			    "time_dimension_is_named_dimension_name": {
+			      "Binding": {
+			        "ConceptualEntity": "Time Dimension"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "time_dimension": {
+			          "Target": {
+			            "Entity": "time_dimension"
+			          }
+			        },
+			        "time_dimension.dimension_name": {
+			          "Target": {
+			            "Entity": "time_dimension.dimension_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "time_dimension"
+			            },
+			            "Name": {
+			              "Role": "time_dimension.dimension_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dimension_names_are_names_IDs_of_time_dimensions"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "time_dimension"
+			            },
+			            "Object": {
+			              "Role": "time_dimension.dimension_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "time_dimensions_have_dimension_names"
+			        }
+			      ]
+			    },
+			    "metric_selector_has_sort_order": {
+			      "Binding": {
+			        "ConceptualEntity": "Metric Selector"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "metric_selector": {
+			          "Target": {
+			            "Entity": "metric_selector"
+			          }
+			        },
+			        "metric_selector.sort_order": {
+			          "Target": {
+			            "Entity": "metric_selector.sort_order"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "metric_selector"
+			            },
+			            "Object": {
+			              "Role": "metric_selector.sort_order"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "metric_selectors_have_sort_orders"
 			        }
 			      ]
 			    },

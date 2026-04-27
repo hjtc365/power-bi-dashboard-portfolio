@@ -1,0 +1,108 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "2ba284eee5ae7d1488c9",
+  "position": {
+    "x": 691.68384879725079,
+    "y": 365.085910652921,
+    "z": 6000,
+    "height": 334.29553264604812,
+    "width": 569.62199312714779,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Ticket"
+                    }
+                  },
+                  "Property": "Ticket Class"
+                }
+              },
+              "queryRef": "Dim_Ticket.Ticket Class",
+              "nativeQueryRef": "Ticket Class",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Ticket"
+                    }
+                  },
+                  "Property": "Ticket Type"
+                }
+              },
+              "queryRef": "Dim_Ticket.Ticket Type",
+              "nativeQueryRef": "Ticket Type"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Ticket Price"
+                }
+              },
+              "queryRef": "_Measures.Avg Ticket Price",
+              "nativeQueryRef": "Avg Ticket Price"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Avg Ticket Price"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

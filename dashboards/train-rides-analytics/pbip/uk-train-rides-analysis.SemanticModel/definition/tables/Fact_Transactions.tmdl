@@ -141,9 +141,9 @@ table Fact_Transactions
 			RETURN
 			    SWITCH(
 			        TRUE(),
-			        isWeekday && h >= 6  && h < 9,  "Morning Peak",
+			        isWeekday && h >= 6  && h < 8,  "Morning Peak",
 			        isWeekday && h >= 16 && h < 18, "Afternoon Peak",
-			        h >= 9  && h < 16,              "Daytime Off-Peak",
+			        h >= 8  && h < 16,              "Daytime Off-Peak",
 			        h >= 18 && h < 22,              "Evening",
 			        "Night / Early Morning"
 			    )
