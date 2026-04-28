@@ -1,0 +1,37 @@
+/// Station dimension. Role-playing: Departure Station and Arrival Station both relate to this table.
+table Dim_Station
+	lineageTag: 204dcf71-f616-4b9f-94b7-6bb0bb616218
+
+	/// Integer surrogate PK
+	column 'Station Key'
+		dataType: int64
+		lineageTag: 724a9ec1-220a-4c62-bac4-22e3fbc4afc5
+		summarizeBy: none
+		sourceColumn: Station Key
+
+	/// Station name as it appears in the source data
+	column 'Station Name'
+		dataType: string
+		lineageTag: 55a792cb-0824-4300-81e4-162c86e68375
+		summarizeBy: none
+		sourceColumn: Station Name
+
+	partition Dim_Station = m
+		mode: import
+		source =
+				let
+				    Source      = RailwayData,
+				    DepCols     = Table.SelectColumns(Source, {"Departure Station"}),
+				    RenDep      = Table.RenameColumns(DepCols,  {{"Departure Station",   "Station Name"}}),
+				    ArrCols     = Table.SelectColumns(Source, {"Arrival Destination"}),
+				    RenArr      = Table.RenameColumns(ArrCols,  {{"Arrival Destination", "Station Name"}}),
+				    AllStations = Table.Combine({RenDep, RenArr}),
+				    Distinct    = Table.Distinct(AllStations),
+				    Sorted      = Table.Sort(Distinct, {{"Station Name", Order.Ascending}}),
+				    AddKey      = Table.AddIndexColumn(Sorted, "Station Key", 1, 1, Int64.Type),
+				    Reorder     = Table.ReorderColumns(AddKey, {"Station Key", "Station Name"})
+				in
+				    Reorder
+
+	annotation PBI_ResultType = Table
+

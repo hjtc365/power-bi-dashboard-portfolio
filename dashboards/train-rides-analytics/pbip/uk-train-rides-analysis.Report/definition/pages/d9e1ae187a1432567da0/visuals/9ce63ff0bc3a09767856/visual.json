@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "9ce63ff0bc3a09767856",
+  "position": {
+    "x": 868.78740157480343,
+    "y": 0,
+    "z": 5000,
+    "height": 50,
+    "width": 237.85826771653544,
+    "tabOrder": 7000
+  },
+  "visualGroup": {
+    "displayName": "PriceAdjust",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "2d669da020e16e424004"
+}

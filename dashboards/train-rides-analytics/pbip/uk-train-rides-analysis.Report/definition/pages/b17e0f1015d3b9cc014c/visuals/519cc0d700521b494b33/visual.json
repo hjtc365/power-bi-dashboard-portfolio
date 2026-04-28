@@ -1,0 +1,275 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "519cc0d700521b494b33",
+  "position": {
+    "x": 170.66666666666666,
+    "y": 490.66666666666669,
+    "z": 7000,
+    "height": 216.88888888888889,
+    "width": 1097.4814814814815,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Journey_Status"
+                    }
+                  },
+                  "Property": "Reason for Delay"
+                }
+              },
+              "queryRef": "Dim_Journey_Status.Reason for Delay",
+              "nativeQueryRef": "Reason for Delay",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Disruptions"
+                }
+              },
+              "queryRef": "_Measures.Total Disruptions",
+              "nativeQueryRef": "Total Disruptions",
+              "displayName": "Total Disruptions"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Cancelled Journeys"
+                }
+              },
+              "queryRef": "_Measures.Cancelled Journeys",
+              "nativeQueryRef": "Cancelled Journeys",
+              "displayName": "Cancelled Journeys"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Delayed Journeys"
+                }
+              },
+              "queryRef": "_Measures.Delayed Journeys",
+              "nativeQueryRef": "Delayed Journeys",
+              "displayName": "Delayed Journeys"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Delay Minutes"
+                }
+              },
+              "queryRef": "_Measures.Avg Delay Minutes",
+              "nativeQueryRef": "Avg Delay Mins",
+              "displayName": "Avg Delay Mins"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Delays Over 15 Min"
+                }
+              },
+              "queryRef": "_Measures.Delays Over 15 Min",
+              "nativeQueryRef": "Delays Over 15 Mins",
+              "displayName": "Delays Over 15 Mins"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Delays Over 15 Min %"
+                }
+              },
+              "queryRef": "_Measures.Delays Over 15 Min %",
+              "nativeQueryRef": "Delays Over 15 Min %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Delay Refund Rate %"
+                }
+              },
+              "queryRef": "_Measures.Delay Refund Rate %",
+              "nativeQueryRef": "Delay Refund %",
+              "displayName": "Delay Refund %"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Total Disruptions"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "118.50331890331891D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Avg Delay Minutes"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "layout": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Tabular'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 6,
+                      "Percent": 0.4
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Default'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

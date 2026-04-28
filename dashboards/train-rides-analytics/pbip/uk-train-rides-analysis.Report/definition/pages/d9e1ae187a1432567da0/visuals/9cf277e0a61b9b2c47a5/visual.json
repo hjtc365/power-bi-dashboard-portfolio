@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "9cf277e0a61b9b2c47a5",
+  "position": {
+    "x": 25.196850393700771,
+    "y": 0,
+    "z": 7000,
+    "height": 50,
+    "width": 233.48148148148152,
+    "tabOrder": 6000
+  },
+  "visualGroup": {
+    "displayName": "DelayThreshold",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "2d669da020e16e424004"
+}

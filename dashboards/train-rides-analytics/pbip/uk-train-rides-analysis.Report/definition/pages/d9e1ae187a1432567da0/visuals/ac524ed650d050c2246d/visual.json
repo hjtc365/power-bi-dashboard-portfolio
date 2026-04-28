@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "ac524ed650d050c2246d",
+  "position": {
+    "x": 1052,
+    "y": 10,
+    "z": 1000,
+    "height": 41,
+    "width": 213,
+    "tabOrder": 4000
+  },
+  "visualGroup": {
+    "displayName": "TicketClassSlicer",
+    "groupMode": "ScaleMode"
+  }
+}

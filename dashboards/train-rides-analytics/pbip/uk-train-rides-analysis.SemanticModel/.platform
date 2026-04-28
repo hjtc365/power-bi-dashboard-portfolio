@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "uk-train-rides-analysis"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "419138c1-f39f-4281-8a69-b61626f5a4ed"
+  }
+}

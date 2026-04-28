@@ -1,0 +1,50 @@
+table 'Time Axis'
+	lineageTag: deb91189-1dc3-4a88-b98c-4defa3611542
+
+	column 'Time Axis'
+		lineageTag: 3be205ed-3512-42cb-af8a-a3da237b2866
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Time Axis Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Time Axis Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Time Axis Fields'
+		isHidden
+		lineageTag: 057af9c7-40ed-4dcb-985a-b1b5a141662b
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Time Axis Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Time Axis Order'
+		isHidden
+		formatString: 0
+		lineageTag: 1da919d4-c12c-4071-a22b-319314b5c61d
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Time Axis' = calculated
+		mode: import
+		source =
+				{
+				    ("Month", NAMEOF('Dim_Date'[Month Name]), 0),
+				    ("DOW", NAMEOF('Dim_Date'[Day Short]), 1),
+				    ("Time Band", NAMEOF('Fact_Transactions'[Time Band]), 2),
+				    ("Hour", NAMEOF('Fact_Transactions'[Departure Hour]), 3)
+				}
+
+	annotation PBI_Id = 0e593eff0d23436fa39decb7d23df1eb
+

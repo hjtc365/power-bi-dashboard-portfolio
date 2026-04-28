@@ -1,0 +1,260 @@
+/// Central fact table. Grain: one row per train ticket transaction.
+table Fact_Transactions
+	lineageTag: 28433b68-270e-4122-82f5-8461c6c68a5a
+
+	/// Surrogate PK — auto-generated row index
+	column 'Transaction SK'
+		dataType: int64
+		lineageTag: 91fdf464-fac3-4b7f-b783-c83575a5e809
+		summarizeBy: sum
+		sourceColumn: Transaction SK
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Natural/degenerate dimension — original transaction identifier
+	column 'Transaction ID'
+		dataType: string
+		lineageTag: 4fed8956-033f-48a9-8797-42d9db59ed42
+		summarizeBy: none
+		sourceColumn: Transaction ID
+
+	/// FK → Dim_Date.Date Key (purchase date)
+	column 'Purchase Date Key'
+		dataType: int64
+		lineageTag: d344609c-fe3f-45dc-85f1-0ed71a13d7b1
+		summarizeBy: none
+		sourceColumn: Purchase Date Key
+
+		annotation SummarizationSetBy = Automatic
+
+	/// FK → Dim_Date.Date Key (journey date) — inactive relationship
+	column 'Journey Date Key'
+		dataType: int64
+		lineageTag: a67a90d4-d1a2-4a7e-b82f-37c2c3f40c84
+		summarizeBy: count
+		sourceColumn: Journey Date Key
+
+		annotation SummarizationSetBy = Automatic
+
+	/// FK → Dim_Station.Station Key (departure)
+	column 'Departure Station Key'
+		dataType: int64
+		lineageTag: 1947c82c-3f8c-44a9-9aa9-04ae4054817e
+		summarizeBy: none
+		sourceColumn: Departure Station Key
+
+	/// FK → Dim_Station.Station Key (arrival) — inactive relationship
+	column 'Arrival Station Key'
+		dataType: int64
+		lineageTag: 7da8f691-11bc-4fd0-b40e-00f2cb8408df
+		summarizeBy: count
+		sourceColumn: Arrival Station Key
+
+		annotation SummarizationSetBy = Automatic
+
+	/// FK → Dim_Ticket.Ticket Key
+	column 'Ticket Key'
+		dataType: int64
+		lineageTag: 9426ae90-6934-467d-bacc-cdebb8b4c733
+		summarizeBy: none
+		sourceColumn: Ticket Key
+
+	/// FK → Dim_Payment.Payment Key
+	column 'Payment Key'
+		dataType: int64
+		lineageTag: 79be5f97-f6e7-4600-b506-fa8e7757bcab
+		summarizeBy: none
+		sourceColumn: Payment Key
+
+	/// FK → Dim_Journey_Status.Journey Status Key
+	column 'Journey Status Key'
+		dataType: int64
+		lineageTag: 397877f4-1dad-48bc-8c91-422c935d61d4
+		summarizeBy: none
+		sourceColumn: Journey Status Key
+
+	/// Ticket price in GBP £
+	column Price
+		dataType: decimal
+		formatString: \$#,0.###############;-\$#,0.###############;\$#,0.###############
+		lineageTag: be523d29-fd54-447b-b982-d164ea3e5d89
+		summarizeBy: sum
+		sourceColumn: Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-CA"}
+
+	/// Time the ticket was purchased
+	column 'Time of Purchase'
+		dataType: string
+		lineageTag: 0ae8c5f7-8298-4795-a25a-0b5649e146c9
+		summarizeBy: none
+		sourceColumn: Time of Purchase
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Scheduled departure time
+	column 'Departure Time'
+		dataType: string
+		lineageTag: 01a100ed-4a90-4858-83f4-e28397932344
+		summarizeBy: none
+		sourceColumn: Departure Time
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Scheduled arrival time
+	column 'Arrival Time'
+		dataType: string
+		lineageTag: fffc60b6-b9e9-4946-8fa9-6bc1db3542e2
+		summarizeBy: none
+		sourceColumn: Arrival Time
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Actual arrival time — null for cancelled journeys
+	column 'Actual Arrival Time'
+		dataType: dateTime
+		formatString: HH:mm:ss
+		lineageTag: 6b40ef14-66dd-46da-b31a-b4c37c44bede
+		summarizeBy: none
+		sourceColumn: Actual Arrival Time
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	/// True when passenger submitted a refund request
+	column 'Refund Request'
+		dataType: boolean
+		lineageTag: aed3ebb7-2232-44fa-8164-a642709e2ebc
+		summarizeBy: none
+		sourceColumn: Refund Request
+
+	/// Concatenated route label: Departure → Arrival.
+	column Route = RELATED(Dim_Station[Station Name]) & " → " & LOOKUPVALUE(Dim_Station[Station Name], Dim_Station[Station Key], Fact_Transactions[Arrival Station Key])
+		dataType: string
+		lineageTag: ec198b8a-c881-4280-a498-b10e0968acac
+		summarizeBy: none
+
+	/// Hour of scheduled departure (0-23).
+	column 'Departure Hour' = HOUR(Fact_Transactions[Departure Time])
+		dataType: int64
+		formatString: 0
+		lineageTag: ea495f9e-c643-4efd-b402-0993ac77e8b4
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Time band based on National Rail peak definitions (weekday 06-09 and 16-18).
+	column 'Time Band' =
+			
+			VAR h = HOUR(Fact_Transactions[Departure Time])
+			VAR jDate =
+			    LOOKUPVALUE(
+			        Dim_Date[Date],
+			        Dim_Date[Date Key],
+			        Fact_Transactions[Journey Date Key]
+			    )
+			VAR isWeekday = WEEKDAY(jDate, 2) <= 5
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        isWeekday && h >= 6  && h < 9,  "Morning Peak",
+			        isWeekday && h >= 16 && h < 19, "Afternoon Peak",
+			        h >= 9  && h < 19,              "Daytime Off-Peak",
+			        h >= 19 && h < 22,              "Evening",
+			        "Night / Early Morning"
+			    )
+		dataType: string
+		lineageTag: e8e36cb5-a1bf-4616-96cd-463ba1753c83
+		summarizeBy: none
+
+	/// Minutes late vs scheduled arrival. 0 for on-time, blank for cancelled.
+	column 'Delay Minutes' =
+			IF(
+			    ISBLANK(Fact_Transactions[Actual Arrival Time]),
+			    BLANK(),
+			    DATEDIFF(Fact_Transactions[Arrival Time], Fact_Transactions[Actual Arrival Time], MINUTE)
+			)
+		dataType: int64
+		formatString: 0
+		lineageTag: 12b5fab2-891b-4866-a5f9-b31837db4690
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Fact_Transactions = m
+		mode: import
+		source =
+				let
+				    Source = RailwayData,
+				
+				    FixDates = Table.TransformColumns(Source, {
+				        {"Date of Purchase", each try Date.From(_) otherwise null, type date},
+				        {"Date of Journey", each try Date.From(_) otherwise null, type date}
+				    }),
+				
+				    // ── Date surrogate keys (YYYYMMDD integer) ──────────────────────────────────
+				    AddPurchaseDK = Table.AddColumn(FixDates, "Purchase Date Key",
+				        each Date.Year([Date of Purchase]) * 10000
+				           + Date.Month([Date of Purchase]) * 100
+				           + Date.Day([Date of Purchase]), Int64.Type),
+				    AddJourneyDK  = Table.AddColumn(AddPurchaseDK, "Journey Date Key",
+				        each Date.Year([Date of Journey]) * 10000
+				           + Date.Month([Date of Journey]) * 100
+				           + Date.Day([Date of Journey]), Int64.Type),
+				
+				    // ── Departure Station Key ───────────────────────────────────────────────────
+				    MergeDepStn   = Table.NestedJoin(AddJourneyDK,      {"Departure Station"},   Dim_Station, {"Station Name"}, "_dep", JoinKind.LeftOuter),
+				    ExpandDepKey  = Table.ExpandTableColumn(MergeDepStn,  "_dep", {"Station Key"}, {"Departure Station Key"}),
+				    TypeDepKey    = Table.TransformColumnTypes(ExpandDepKey,  {{"Departure Station Key", Int64.Type}}),
+				
+				    // ── Arrival Station Key ─────────────────────────────────────────────────────
+				    MergeArrStn   = Table.NestedJoin(TypeDepKey,         {"Arrival Destination"}, Dim_Station, {"Station Name"}, "_arr", JoinKind.LeftOuter),
+				    ExpandArrKey  = Table.ExpandTableColumn(MergeArrStn,  "_arr", {"Station Key"}, {"Arrival Station Key"}),
+				    TypeArrKey    = Table.TransformColumnTypes(ExpandArrKey,  {{"Arrival Station Key", Int64.Type}}),
+				
+				    // ── Ticket Key ──────────────────────────────────────────────────────────────
+				    MergeTicket   = Table.NestedJoin(TypeArrKey,         {"Ticket Class","Ticket Type","Railcard"}, Dim_Ticket, {"Ticket Class","Ticket Type","Railcard"}, "_tkt", JoinKind.LeftOuter),
+				    ExpandTktKey  = Table.ExpandTableColumn(MergeTicket,  "_tkt", {"Ticket Key"}, {"Ticket Key"}),
+				    TypeTktKey    = Table.TransformColumnTypes(ExpandTktKey,  {{"Ticket Key", Int64.Type}}),
+				
+				    // ── Payment Key ─────────────────────────────────────────────────────────────
+				    MergePayment  = Table.NestedJoin(TypeTktKey,         {"Payment Method","Purchase Type"}, Dim_Payment, {"Payment Method","Purchase Type"}, "_pay", JoinKind.LeftOuter),
+				    ExpandPayKey  = Table.ExpandTableColumn(MergePayment, "_pay", {"Payment Key"}, {"Payment Key"}),
+				    TypePayKey    = Table.TransformColumnTypes(ExpandPayKey,  {{"Payment Key", Int64.Type}}),
+				
+				    // ── Journey Status Key ──────────────────────────────────────────────────────
+				    MergeStatus   = Table.NestedJoin(TypePayKey,         {"Journey Status","Reason for Delay"}, Dim_Journey_Status, {"Journey Status","Reason for Delay"}, "_sta", JoinKind.LeftOuter),
+				    ExpandStaKey  = Table.ExpandTableColumn(MergeStatus,  "_sta", {"Journey Status Key"}, {"Journey Status Key"}),
+				    TypeStaKey    = Table.TransformColumnTypes(ExpandStaKey,  {{"Journey Status Key", Int64.Type}}),
+				
+				    // ── Convert Actual Arrival Time (nullable for Cancelled) ────────────────────
+				    ConvActual    = Table.TransformColumns(TypeStaKey, {
+				        {"Actual Arrival Time", each if _ = null or _ = "" then null else try Time.From(_) otherwise null, type time}
+				    }),
+				
+				    // ── Refund Request → boolean ────────────────────────────────────────────────
+				    ConvRefund    = Table.TransformColumns(ConvActual, {
+				        {"Refund Request", each _ = "Yes", type logical}
+				    }),
+				
+				    // ── Surrogate key ────────────────────────────────────────────────────────────
+				    AddSK         = Table.AddIndexColumn(ConvRefund, "Transaction SK", 1, 1, Int64.Type),
+				
+				    // ── Final column selection & ordering ────────────────────────────────────────
+				    FinalCols = Table.SelectColumns(AddSK, {
+				        "Transaction SK", "Transaction ID",
+				        "Purchase Date Key", "Journey Date Key",
+				        "Departure Station Key", "Arrival Station Key",
+				        "Ticket Key", "Payment Key", "Journey Status Key",
+				        "Price", "Time of Purchase", "Departure Time", "Arrival Time", "Actual Arrival Time",
+				        "Refund Request"
+				    }),
+				    #"Changed Type" = Table.TransformColumnTypes(FinalCols,{{"Price", Currency.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,50 @@
+table 'Ticket Axis'
+	lineageTag: ab000911-4399-4a7d-a7a5-c9a05087bc8d
+
+	column 'Ticket Axis'
+		lineageTag: df6f0461-9749-4d01-a1e5-29ab8f74f417
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Ticket Axis Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Ticket Axis Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ticket Axis Fields'
+		isHidden
+		lineageTag: 362ec400-7ed6-484c-b7b4-6a56c47a7fe0
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Ticket Axis Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ticket Axis Order'
+		isHidden
+		formatString: 0
+		lineageTag: ed9a393f-a4ee-44fc-a39b-6937a85fe289
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Ticket Axis' = calculated
+		mode: import
+		source =
+				{
+				    ("Has Railcard", NAMEOF('Dim_Ticket'[Has Railcard]), 0),
+				    ("Railcard Type", NAMEOF('Dim_Ticket'[Railcard]), 1),
+				    ("Ticket Class", NAMEOF('Dim_Ticket'[Ticket Class]), 2),
+				    ("Ticket Type", NAMEOF('Dim_Ticket'[Ticket Type]), 3)
+				}
+
+	annotation PBI_Id = 3d29fbbc5bef454893ceb207c9900eea
+

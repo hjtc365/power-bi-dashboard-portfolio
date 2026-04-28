@@ -1,0 +1,191 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 689.94697082817379,
+            "y": 468.36097716885973
+          },
+          "nodeIndex": "Dim_Date",
+          "nodeLineageTag": "411294ed-93de-46aa-ac2a-39f9c46c5ba3",
+          "size": {
+            "height": 413.65559712630994,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 373.38925134078863,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Journey_Status",
+          "nodeLineageTag": "9128f975-f3fe-45b5-b682-7453d455d472",
+          "size": {
+            "height": 241.21576599085967,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Payment",
+          "nodeLineageTag": "63dee6e6-32f9-4dcb-a5ba-3114a5eee14b",
+          "size": {
+            "height": 243.17427022220465,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 598.27857687375831
+          },
+          "nodeIndex": "Dim_Station",
+          "nodeLineageTag": "204dcf71-f616-4b9f-94b7-6bb0bb616218",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 716.2442299157367,
+            "y": 9.9917008462688841
+          },
+          "nodeIndex": "Dim_Ticket",
+          "nodeLineageTag": "df505ca8-f8e3-4a24-9af4-ab227e8dfcaf",
+          "size": {
+            "height": 222.48132690410523,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 365.41246468397679,
+            "y": 360.09965663624911
+          },
+          "nodeIndex": "Fact_Transactions",
+          "nodeLineageTag": "28433b68-270e-4122-82f5-8461c6c68a5a",
+          "size": {
+            "height": 463.61410135765493,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1104.4763684426716,
+            "y": 0
+          },
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "42850685-0da1-4d6a-beef-e87184154fad",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1388.4763684426716,
+            "y": 341.00828714758484
+          },
+          "nodeIndex": "Delay Threshold Minutes",
+          "nodeLineageTag": "85329e14-9332-4521-a979-31b7bf630784",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1672.4763684426716,
+            "y": 377.00828714758484
+          },
+          "nodeIndex": "Metric Selector",
+          "nodeLineageTag": "b9e90f9c-d2ef-44f5-ad0c-f563ea0f1fa9",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1956.4763684426716,
+            "y": 341.00828714758484
+          },
+          "nodeIndex": "Price Adjustment %",
+          "nodeLineageTag": "e03b7d9f-f833-4ebe-b0ae-2cab64ba296c",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2240.4763684426716,
+            "y": 377.00828714758484
+          },
+          "nodeIndex": "Time Dimension",
+          "nodeLineageTag": "6f04f705-efa2-442a-89b5-dc7caa5f5da9",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2524.4763684426716,
+            "y": 365.00828714758484
+          },
+          "nodeIndex": "Time Axis",
+          "nodeLineageTag": "deb91189-1dc3-4a88-b98c-4defa3611542",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2808.4763684426716,
+            "y": 365.00828714758484
+          },
+          "nodeIndex": "Ticket Axis",
+          "nodeLineageTag": "ab000911-4399-4a7d-a7a5-c9a05087bc8d",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 80.066448376377025,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

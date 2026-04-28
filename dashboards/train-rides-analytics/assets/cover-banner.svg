@@ -1,0 +1,238 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 400">
+  <defs>
+    <!-- Main background gradient (dark navy L-to-R) -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   style="stop-color:#111E35"/>
+      <stop offset="40%"  style="stop-color:#1F3864"/>
+      <stop offset="100%" style="stop-color:#0D1E38"/>
+    </linearGradient>
+    <!-- Train body gradient -->
+    <linearGradient id="trainBodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   style="stop-color:#1EC8F5"/>
+      <stop offset="60%"  style="stop-color:#00B0F0"/>
+      <stop offset="100%" style="stop-color:#0088CC"/>
+    </linearGradient>
+    <!-- Glow effect for accent elements -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Track glow -->
+    <filter id="trackGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- BACKGROUND                                                       -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <rect width="1280" height="400" fill="url(#bgGrad)"/>
+
+  <!-- Subtle dot-grid pattern (circuit board feel) -->
+  <g opacity="0.07" fill="#9DC3E6">
+    <!-- Row 1 -->
+    <circle cx="60"  cy="40"  r="1.5"/><circle cx="120" cy="40"  r="1.5"/><circle cx="180" cy="40"  r="1.5"/>
+    <circle cx="240" cy="40"  r="1.5"/><circle cx="300" cy="40"  r="1.5"/><circle cx="360" cy="40"  r="1.5"/>
+    <circle cx="420" cy="40"  r="1.5"/><circle cx="480" cy="40"  r="1.5"/><circle cx="540" cy="40"  r="1.5"/>
+    <circle cx="600" cy="40"  r="1.5"/><circle cx="660" cy="40"  r="1.5"/><circle cx="720" cy="40"  r="1.5"/>
+    <circle cx="780" cy="40"  r="1.5"/><circle cx="840" cy="40"  r="1.5"/><circle cx="900" cy="40"  r="1.5"/>
+    <circle cx="960" cy="40"  r="1.5"/><circle cx="1020" cy="40" r="1.5"/><circle cx="1080" cy="40" r="1.5"/>
+    <circle cx="1140" cy="40" r="1.5"/><circle cx="1200" cy="40" r="1.5"/>
+    <!-- Row 2 -->
+    <circle cx="60"  cy="100" r="1.5"/><circle cx="120" cy="100" r="1.5"/><circle cx="180" cy="100" r="1.5"/>
+    <circle cx="240" cy="100" r="1.5"/><circle cx="300" cy="100" r="1.5"/><circle cx="360" cy="100" r="1.5"/>
+    <circle cx="420" cy="100" r="1.5"/><circle cx="480" cy="100" r="1.5"/><circle cx="540" cy="100" r="1.5"/>
+    <circle cx="600" cy="100" r="1.5"/><circle cx="660" cy="100" r="1.5"/><circle cx="720" cy="100" r="1.5"/>
+    <circle cx="780" cy="100" r="1.5"/><circle cx="840" cy="100" r="1.5"/><circle cx="900" cy="100" r="1.5"/>
+    <circle cx="960" cy="100" r="1.5"/><circle cx="1020" cy="100" r="1.5"/><circle cx="1080" cy="100" r="1.5"/>
+    <circle cx="1140" cy="100" r="1.5"/><circle cx="1200" cy="100" r="1.5"/>
+    <!-- Row 3 -->
+    <circle cx="60"  cy="160" r="1.5"/><circle cx="120" cy="160" r="1.5"/><circle cx="180" cy="160" r="1.5"/>
+    <circle cx="240" cy="160" r="1.5"/><circle cx="300" cy="160" r="1.5"/><circle cx="360" cy="160" r="1.5"/>
+    <circle cx="420" cy="160" r="1.5"/><circle cx="480" cy="160" r="1.5"/><circle cx="540" cy="160" r="1.5"/>
+    <circle cx="600" cy="160" r="1.5"/><circle cx="660" cy="160" r="1.5"/><circle cx="720" cy="160" r="1.5"/>
+    <circle cx="780" cy="160" r="1.5"/><circle cx="840" cy="160" r="1.5"/><circle cx="900" cy="160" r="1.5"/>
+    <circle cx="960" cy="160" r="1.5"/><circle cx="1020" cy="160" r="1.5"/><circle cx="1080" cy="160" r="1.5"/>
+    <circle cx="1140" cy="160" r="1.5"/><circle cx="1200" cy="160" r="1.5"/>
+  </g>
+
+  <!-- Diagonal speed lines (right side) -->
+  <g opacity="0.06" stroke="#00B0F0" stroke-width="1">
+    <line x1="860" y1="0"   x2="1280" y2="200"/>
+    <line x1="900" y1="0"   x2="1280" y2="152"/>
+    <line x1="950" y1="0"   x2="1280" y2="100"/>
+    <line x1="1010" y1="0"  x2="1280" y2="60"/>
+    <line x1="1070" y1="0"  x2="1280" y2="24"/>
+    <line x1="860" y1="400" x2="1280" y2="200"/>
+    <line x1="900" y1="400" x2="1280" y2="248"/>
+    <line x1="950" y1="400" x2="1280" y2="300"/>
+  </g>
+
+  <!-- Left vertical accent bar -->
+  <rect x="0" y="0" width="7" height="400" fill="#00B0F0" opacity="0.9"/>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- TRACK (perspective lines converging to right vanishing point)   -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- Upper rail -->
+  <line x1="30" y1="335" x2="1100" y2="295" stroke="#9DC3E6" stroke-width="3" stroke-linecap="round" opacity="0.5" filter="url(#trackGlow)"/>
+  <!-- Lower rail -->
+  <line x1="30" y1="355" x2="1100" y2="310" stroke="#9DC3E6" stroke-width="3" stroke-linecap="round" opacity="0.5" filter="url(#trackGlow)"/>
+  <!-- Rail sleepers (cross-ties) — perspective-scaled -->
+  <g stroke="#4059AC" stroke-linecap="round" opacity="0.4">
+    <line x1="80"  y1="328" x2="80"  y2="364" stroke-width="5"/>
+    <line x1="170" y1="326" x2="170" y2="362" stroke-width="5"/>
+    <line x1="270" y1="324" x2="270" y2="360" stroke-width="4.5"/>
+    <line x1="380" y1="322" x2="380" y2="358" stroke-width="4"/>
+    <line x1="490" y1="320" x2="490" y2="356" stroke-width="4"/>
+    <line x1="600" y1="319" x2="600" y2="354" stroke-width="3.5"/>
+    <line x1="700" y1="318" x2="700" y2="352" stroke-width="3"/>
+    <line x1="790" y1="317" x2="790" y2="350" stroke-width="3"/>
+    <line x1="870" y1="316" x2="870" y2="349" stroke-width="2.5"/>
+    <line x1="940" y1="315" x2="940" y2="348" stroke-width="2.5"/>
+    <line x1="1000" y1="314" x2="1000" y2="347" stroke-width="2"/>
+    <line x1="1050" y1="314" x2="1050" y2="346" stroke-width="2"/>
+  </g>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- TRAIN SILHOUETTE                                                 -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+
+  <!-- Trailing car (car 3 — leftmost, slightly faded) -->
+  <rect x="30" y="238" width="195" height="85" rx="6" fill="url(#trainBodyGrad)" opacity="0.75"/>
+  <!-- Windows car 3 -->
+  <rect x="44"  y="254" width="32" height="22" rx="4" fill="#EBF3FB" opacity="0.85"/>
+  <rect x="84"  y="254" width="32" height="22" rx="4" fill="#EBF3FB" opacity="0.85"/>
+  <rect x="124" y="254" width="32" height="22" rx="4" fill="#EBF3FB" opacity="0.85"/>
+  <rect x="164" y="254" width="32" height="22" rx="4" fill="#EBF3FB" opacity="0.85"/>
+  <!-- Wheels car 3 -->
+  <circle cx="80"  cy="330" r="11" fill="#111E35" stroke="#9DC3E6" stroke-width="2"/>
+  <circle cx="80"  cy="330" r="4.5" fill="#9DC3E6"/>
+  <circle cx="175" cy="330" r="11" fill="#111E35" stroke="#9DC3E6" stroke-width="2"/>
+  <circle cx="175" cy="330" r="4.5" fill="#9DC3E6"/>
+  <!-- Coupler -->
+  <rect x="223" y="276" width="8" height="10" rx="2" fill="#4059AC"/>
+  <rect x="225" y="280" width="4" height="4"  rx="1" fill="#9DC3E6"/>
+
+  <!-- Middle car (car 2) -->
+  <rect x="228" y="232" width="240" height="90" rx="6" fill="url(#trainBodyGrad)" opacity="0.88"/>
+  <!-- Roof stripe car 2 -->
+  <rect x="228" y="232" width="240" height="6" rx="3" fill="#9DC3E6" opacity="0.4"/>
+  <!-- Windows car 2 -->
+  <rect x="242" y="248" width="38" height="25" rx="4" fill="#EBF3FB" opacity="0.9"/>
+  <rect x="290" y="248" width="38" height="25" rx="4" fill="#EBF3FB" opacity="0.9"/>
+  <rect x="338" y="248" width="38" height="25" rx="4" fill="#EBF3FB" opacity="0.9"/>
+  <rect x="386" y="248" width="38" height="25" rx="4" fill="#EBF3FB" opacity="0.9"/>
+  <!-- Skirt car 2 -->
+  <rect x="228" y="316" width="240" height="8" rx="3" fill="#4059AC" opacity="0.7"/>
+  <!-- Wheels car 2 -->
+  <circle cx="285" cy="330" r="12" fill="#111E35" stroke="#9DC3E6" stroke-width="2.5"/>
+  <circle cx="285" cy="330" r="5"  fill="#9DC3E6"/>
+  <circle cx="400" cy="330" r="12" fill="#111E35" stroke="#9DC3E6" stroke-width="2.5"/>
+  <circle cx="400" cy="330" r="5"  fill="#9DC3E6"/>
+  <!-- Coupler -->
+  <rect x="466" y="270" width="8" height="12" rx="2" fill="#4059AC"/>
+
+  <!-- Leading car / locomotive (car 1 — rightmost, brightest) -->
+  <rect x="472" y="222" width="320" height="100" rx="8" fill="url(#trainBodyGrad)"/>
+  <!-- Roof stripe car 1 -->
+  <rect x="472" y="222" width="320" height="7" rx="3.5" fill="#9DC3E6" opacity="0.5"/>
+  <!-- Windows car 1 -->
+  <rect x="488" y="240" width="44" height="28" rx="5" fill="#EBF3FB" opacity="0.92"/>
+  <rect x="542" y="240" width="44" height="28" rx="5" fill="#EBF3FB" opacity="0.92"/>
+  <rect x="596" y="240" width="44" height="28" rx="5" fill="#EBF3FB" opacity="0.92"/>
+  <rect x="650" y="240" width="44" height="28" rx="5" fill="#EBF3FB" opacity="0.92"/>
+  <rect x="704" y="240" width="44" height="28" rx="5" fill="#EBF3FB" opacity="0.92"/>
+  <!-- Skirt car 1 -->
+  <rect x="472" y="314" width="320" height="10" rx="4" fill="#4059AC"/>
+  <!-- Bogies / wheels car 1 -->
+  <circle cx="540" cy="332" r="14" fill="#111E35" stroke="#9DC3E6" stroke-width="2.5"/>
+  <circle cx="540" cy="332" r="5.5" fill="#9DC3E6"/>
+  <circle cx="660" cy="332" r="14" fill="#111E35" stroke="#9DC3E6" stroke-width="2.5"/>
+  <circle cx="660" cy="332" r="5.5" fill="#9DC3E6"/>
+  <circle cx="770" cy="332" r="14" fill="#111E35" stroke="#9DC3E6" stroke-width="2.5"/>
+  <circle cx="770" cy="332" r="5.5" fill="#9DC3E6"/>
+
+  <!-- Nose / cab (aerodynamic swept front) -->
+  <path d="M792,222 L855,240 L870,272 L855,322 L792,322 Z" fill="url(#trainBodyGrad)"/>
+  <!-- Cab nose highlight -->
+  <path d="M792,222 L820,230 L825,272 L820,314 L792,322 L792,222 Z" fill="#1EC8F5" opacity="0.5"/>
+  <!-- Windscreen -->
+  <path d="M796,232 L848,248 L852,272 L848,296 L796,312 Z" fill="#EBF3FB" opacity="0.92"/>
+  <!-- Windscreen tint -->
+  <path d="M796,232 L848,248 L852,272 L848,296 L796,312 Z" fill="#1F3864" opacity="0.18"/>
+  <!-- Front headlights -->
+  <circle cx="862" cy="255" r="5" fill="#FFFDE4" opacity="0.95" filter="url(#glow)"/>
+  <circle cx="862" cy="285" r="5" fill="#FFFDE4" opacity="0.95" filter="url(#glow)"/>
+  <!-- Pantograph (on roof) -->
+  <line x1="560" y1="222" x2="565" y2="200" stroke="#9DC3E6" stroke-width="1.5" opacity="0.7"/>
+  <line x1="565" y1="200" x2="580" y2="195" stroke="#9DC3E6" stroke-width="1.5" opacity="0.7"/>
+  <line x1="580" y1="195" x2="620" y2="200" stroke="#9DC3E6" stroke-width="2" opacity="0.7"/>
+  <line x1="620" y1="200" x2="630" y2="222" stroke="#9DC3E6" stroke-width="1.5" opacity="0.7"/>
+  <!-- Overhead wire -->
+  <line x1="30" y1="194" x2="870" y2="194" stroke="#9DC3E6" stroke-width="1" opacity="0.3" stroke-dasharray="8,6"/>
+
+  <!-- Speed blur streaks (motion effect behind train) -->
+  <g opacity="0.12" stroke="#00B0F0" stroke-linecap="round">
+    <line x1="0" y1="242" x2="420" y2="238" stroke-width="2"/>
+    <line x1="0" y1="255" x2="380" y2="251" stroke-width="1.5"/>
+    <line x1="0" y1="268" x2="350" y2="264" stroke-width="1"/>
+    <line x1="0" y1="298" x2="420" y2="294" stroke-width="2"/>
+    <line x1="0" y1="309" x2="380" y2="305" stroke-width="1.5"/>
+  </g>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- TYPOGRAPHY                                                       -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+
+  <!-- Eyebrow label -->
+  <text x="30" y="80"
+    font-family="Segoe UI, Arial, sans-serif"
+    font-size="14"
+    font-weight="400"
+    letter-spacing="4"
+    fill="#00B0F0"
+    opacity="0.85">PASSENGER RAIL ANALYTICS</text>
+
+  <!-- Main title -->
+  <text x="28" y="148"
+    font-family="Segoe UI, Arial, sans-serif"
+    font-size="64"
+    font-weight="700"
+    fill="white">UK NATIONAL RAIL</text>
+
+  <!-- Subtitle -->
+  <text x="30" y="192"
+    font-family="Segoe UI, Arial, sans-serif"
+    font-size="26"
+    font-weight="300"
+    fill="#9DC3E6">Performance Dashboard</text>
+
+  <!-- Date range pill -->
+  <rect x="28" y="206" width="280" height="30" rx="15" fill="#00B0F0" opacity="0.18"/>
+  <rect x="28" y="206" width="280" height="30" rx="15" fill="none" stroke="#00B0F0" stroke-width="1.2" opacity="0.5"/>
+  <text x="168" y="225"
+    font-family="Segoe UI, Arial, sans-serif"
+    font-size="13"
+    font-weight="600"
+    fill="#9DC3E6"
+    text-anchor="middle"
+    letter-spacing="1">January – April 2024</text>
+
+  <!-- Tagline -->
+  <text x="30" y="260"
+    font-family="Segoe UI, Arial, sans-serif"
+    font-size="13"
+    font-weight="400"
+    fill="#9DC3E6"
+    letter-spacing="2"
+    opacity="0.75">ROUTES  ·  REVENUE  ·  RELIABILITY  ·  PERFORMANCE</text>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- BOTTOM ACCENT STRIP                                             -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <rect x="0" y="390" width="1280" height="10" fill="#00B0F0"/>
+  <rect x="0" y="390" width="400" height="10" fill="#4059AC"/>
+  <rect x="0" y="390" width="160" height="10" fill="#29AB87"/>
+</svg>
