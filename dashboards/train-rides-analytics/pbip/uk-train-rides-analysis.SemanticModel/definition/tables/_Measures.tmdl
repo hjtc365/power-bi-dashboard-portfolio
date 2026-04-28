@@ -130,7 +130,7 @@ table _Measures
 	measure 'Railcard Transactions' =
 			CALCULATE(
 			    COUNTROWS(Fact_Transactions),
-			    Dim_Ticket[Has Railcard] = TRUE()
+			    Dim_Ticket[Has Railcard] = "Yes"
 			)
 		formatString: #,##0
 		displayFolder: Volume
@@ -138,7 +138,7 @@ table _Measures
 
 	/// Percentage of transactions that used a railcard
 	measure 'Railcard Usage Rate %' = DIVIDE([Railcard Transactions], [Total Transactions])
-		formatString: 0.0%
+		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Rates
 		lineageTag: b7c4c019-3325-475e-9124-bbdc6c111767
 
@@ -196,7 +196,7 @@ table _Measures
 
 	/// Percentage of journeys that fall within peak hours
 	measure 'Peak Journey Rate %' = DIVIDE([Total Peak Journeys], [Total Transactions (Journey Date)])
-		formatString: 0.0%
+		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Peak Travel
 		lineageTag: 44b7e12b-4844-41ff-8acd-45a9fc7c5169
 
@@ -382,9 +382,16 @@ table _Measures
 			        [Total Transactions (Journey Date)],
 			        DATEADD(Dim_Date[Date], -1, MONTH)
 			    )
+			
+			VAR NextRevenue =
+			    CALCULATE(
+			        [Total Transactions (Journey Date)],
+			        DATEADD(Dim_Date[Date], 1, MONTH)
+			    )
+			
 			RETURN
 			    IF(
-			        NOT ISBLANK(PreviousRevenue) && PreviousRevenue <> 0,
+			        NOT ISBLANK(PreviousRevenue) && NOT ISBLANK(NextRevenue) && PreviousRevenue <> 0,
 			        DIVIDE(CurrentRevenue - PreviousRevenue, PreviousRevenue),
 			        BLANK()
 			    )
@@ -473,23 +480,25 @@ table _Measures
 			    [Selected Metric],
 			    "Total Journeys",   [Total Transactions (Journey Date)],
 			    "Net Revenue",      [Total Revenue],
-			    "On-Time Rate %",   [On Time Rate %],
-			    "Delay Rate %",     [Delay Rate %],
-			    "Cancel Rate %",    [Cancel Rate %],
+			    "On-Time Rate",   [On Time Rate %],
+			    "Delay Rate",     [Delay Rate %],
+			    "Cancel Rate",    [Cancel Rate %],
 			    "Avg Ticket Price", [Avg Ticket Price],
 			    [Total Transactions (Journey Date)]
 			)
 		displayFolder: Dynamic Selectors
 		lineageTag: 9b477cbe-5106-4550-83d4-a93005054376
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	/// Formatted label for the Dynamic KPI — use in card titles or data labels to show the correct unit.
 	measure 'Dynamic KPI Label' =
 			SWITCH(
 			    [Selected Metric],
 			    "Net Revenue",      FORMAT([Total Revenue],      "£#,##0"),
-			    "On-Time Rate %",   FORMAT([On Time Rate %],     "0.0%"),
-			    "Delay Rate %",     FORMAT([Delay Rate %],       "0.0%"),
-			    "Cancel Rate %",    FORMAT([Cancel Rate %],      "0.0%"),
+			    "On-Time Rate",   FORMAT([On Time Rate %],     "0.0%"),
+			    "Delay Rate",     FORMAT([Delay Rate %],       "0.0%"),
+			    "Cancel Rate",    FORMAT([Cancel Rate %],      "0.0%"),
 			    "Avg Ticket Price", FORMAT([Avg Ticket Price],   "£#,##0.00"),
 			    FORMAT([Total Transactions (Journey Date)], "#,##0")
 			)
@@ -557,7 +566,7 @@ table _Measures
 		lineageTag: a0b5c380-3e6f-4473-b252-3805cdc60731
 
 	/// Simulated total revenue if all ticket prices were adjusted by the selected percentage.
-	measure 'Simulated Revenue' = [Total Revenue] * (1 + [Selected Price Adjustment] / 100)
+	measure 'Simulated Revenue' = [Total Revenue (Journey Date)] * (1 + [Selected Price Adjustment] / 100)
 		formatString: £#,##0
 		displayFolder: What-If
 		lineageTag: 66f1d82e-7b55-4bf1-833d-a78fb09c63b3
@@ -584,6 +593,14 @@ table _Measures
 		lineageTag: b5551ba0-5aba-40b9-81f6-7dbd296863c4
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Selected Metric by Month' = SELECTEDVALUE('Metric Selector'[Metric Name], "Total Journeys") & " by Month"
+		displayFolder: Dynamic Selectors
+		lineageTag: c1455f46-20e8-44e2-a1e1-ccad0626aa6f
+
+	measure 'Selected Metric by Route' = "Top 10 " & SELECTEDVALUE('Metric Selector'[Metric Name], "Total Journeys") & " by Route"
+		displayFolder: Dynamic Selectors
+		lineageTag: 32fa92c9-be9a-4ce3-9bcf-ca613ddbde8f
 
 	column _Placeholder
 		isHidden

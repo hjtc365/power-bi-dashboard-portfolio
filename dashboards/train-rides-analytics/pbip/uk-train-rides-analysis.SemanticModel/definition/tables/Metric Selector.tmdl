@@ -4,13 +4,21 @@ table 'Metric Selector'
 
 	column 'Metric Name'
 		lineageTag: eb208a29-3c3d-40f0-944c-6d419bcadc8b
+		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Metric Name]
+		sortByColumn: 'Sort Order'
+
+		annotation SummarizationSetBy = Automatic
 
 	column 'Sort Order'
+		formatString: 0
 		lineageTag: be415530-fb9f-408c-8fa2-bfddba046cf9
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [Sort Order]
+
+		annotation SummarizationSetBy = Automatic
 
 	partition 'Metric Selector' = calculated
 		mode: import
@@ -21,9 +29,9 @@ table 'Metric Selector'
 				    {
 				        {"Total Journeys",   1},
 				        {"Net Revenue",      2},
-				        {"On-Time Rate %",   3},
-				        {"Delay Rate %",     4},
-				        {"Cancel Rate %",    5},
+				        {"On-Time Rate",   3},
+				        {"Delay Rate",     4},
+				        {"Cancel Rate",    5},
 				        {"Avg Ticket Price", 6}
 				    }
 				)

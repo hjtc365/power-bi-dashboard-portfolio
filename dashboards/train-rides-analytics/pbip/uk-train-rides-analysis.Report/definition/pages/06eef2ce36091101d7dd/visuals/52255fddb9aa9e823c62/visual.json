@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "52255fddb9aa9e823c62",
   "position": {
-    "x": 160.54982817869416,
-    "y": 302.40549828178695,
-    "z": 1002,
-    "height": 299.10652920962195,
-    "width": 469.553264604811,
-    "tabOrder": 7002
+    "x": 0.39510204081633782,
+    "y": 111.83878013946064,
+    "z": 3000,
+    "height": 419.16121986053935,
+    "width": 483.60489795918369,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -81,6 +81,32 @@
                 }
               }
             }
+          }
+        },
+        {
+          "properties": {
+            "dynamicLabelValue": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Dynamic KPI Label"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "highlightMatching": 1
           }
         }
       ],
@@ -257,6 +283,18 @@
                   "Value": "true"
                 }
               }
+            },
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Selected Metric by Route"
+                }
+              }
             }
           }
         }
@@ -399,6 +437,7 @@
     },
     "drillFilterOtherVisuals": true
   },
+  "parentGroupName": "2e7cec7505e9ece210e0",
   "filterConfig": {
     "filters": [
       {

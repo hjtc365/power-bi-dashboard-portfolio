@@ -3,9 +3,9 @@
   "name": "9423b8c83904a6a08050",
   "position": {
     "x": 0,
-    "y": 112.26136363636365,
+    "y": 114.78409090909093,
     "z": 1000,
-    "height": 243.73863636363637,
+    "height": 249.21590909090912,
     "width": 486,
     "tabOrder": 1000
   },
@@ -82,6 +82,20 @@
               }
             },
             "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "logAxisScale": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "invertAxis": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -230,8 +244,13 @@
           "properties": {
             "text": {
               "expr": {
-                "Literal": {
-                  "Value": "'Monthly KPI Breakdown'"
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Selected Metric by Month"
                 }
               }
             },

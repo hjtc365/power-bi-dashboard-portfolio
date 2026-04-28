@@ -6,11 +6,15 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
+queryGroup Datasets
+
+	annotation PBI_QueryGroupOrder = 0
+
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling"]
+annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling","TMDLView_Desktop"]
 
-annotation PBI_QueryOrder = ["Dim_Date","Dim_Station","Dim_Ticket","Dim_Payment","Dim_Journey_Status","Fact_Transactions","RailwayData"]
+annotation PBI_QueryOrder = ["Dim_Date","Dim_Station","Dim_Ticket","Dim_Payment","Dim_Journey_Status","Fact_Transactions","Datasets_Folder_Path","Files","RailwayData","RailwayDataDict"]
 
 ref table Dim_Date
 ref table Dim_Station

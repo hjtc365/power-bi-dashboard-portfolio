@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "93c619d8544bce0c56b1",
   "position": {
-    "x": 171.54639175257731,
-    "y": 179.24398625429552,
+    "x": 0,
+    "y": 0,
     "z": 3000,
-    "height": 60.481099656357387,
-    "width": 521.23711340206182,
-    "tabOrder": 2000
+    "height": 61.624649859943972,
+    "width": 520.2962962962963,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "advancedSlicerVisual",
@@ -243,7 +243,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''Dim_Date''[Month Name]'"
+                                "Value": "'''Fact_Transactions''[Departure Hour]'"
                               }
                             }
                           ]
@@ -471,5 +471,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "549b18d3c74733d0c541"
 }

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "3dd292d107495c34de52",
   "position": {
-    "x": 711.47766323024052,
-    "y": 239.72508591065292,
+    "x": 0,
+    "y": 61.624649859943972,
     "z": 6000,
-    "height": 464.05498281786942,
-    "width": 549.828178694158,
-    "tabOrder": 5000
+    "height": 471.70868347338933,
+    "width": 557.03703703703707,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -43,12 +43,12 @@
                       "Entity": "Dim_Ticket"
                     }
                   },
-                  "Property": "Railcard"
+                  "Property": "Ticket Type"
                 }
               },
-              "queryRef": "Dim_Ticket.Railcard",
-              "nativeQueryRef": "Railcard Type",
-              "displayName": "Railcard Type"
+              "queryRef": "Dim_Ticket.Ticket Type",
+              "nativeQueryRef": "Ticket Type",
+              "displayName": "Ticket Type"
             }
           ],
           "fieldParameters": [
@@ -112,7 +112,7 @@
                     "Entity": "Dim_Ticket"
                   }
                 },
-                "Property": "Railcard"
+                "Property": "Ticket Type"
               }
             },
             "direction": "Ascending"
@@ -204,6 +204,41 @@
                   "Value": "'Percent of total'"
                 }
               }
+            },
+            "optimizeLabelDisplay": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "'OutsideEnd'"
+                }
+              }
+            },
+            "enableBackground": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backgroundTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "61D"
+                }
+              }
+            },
+            "labelOverflow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -259,7 +294,7 @@
                   "expr": {
                     "ThemeDataColor": {
                       "ColorId": 0,
-                      "Percent": -0.3
+                      "Percent": -0.1
                     }
                   }
                 }
@@ -342,10 +377,17 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 9,
+                      "ColorId": 3,
                       "Percent": -0.25
                     }
                   }
+                }
+              }
+            },
+            "fillTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "55D"
                 }
               }
             }
@@ -384,8 +426,8 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.5
+                      "ColorId": 9,
+                      "Percent": 0.4
                     }
                   }
                 }
@@ -427,7 +469,7 @@
                   "expr": {
                     "ThemeDataColor": {
                       "ColorId": 0,
-                      "Percent": -0.3
+                      "Percent": -0.2
                     }
                   }
                 }
@@ -511,7 +553,7 @@
                   "expr": {
                     "ThemeDataColor": {
                       "ColorId": 0,
-                      "Percent": -0.3
+                      "Percent": -0.2
                     }
                   }
                 }
@@ -594,10 +636,17 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.5
+                      "ColorId": 3,
+                      "Percent": -0.25
                     }
                   }
+                }
+              }
+            },
+            "fillTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "55D"
                 }
               }
             }
@@ -637,7 +686,7 @@
                   "expr": {
                     "ThemeDataColor": {
                       "ColorId": 0,
-                      "Percent": -0.3
+                      "Percent": -0.2
                     }
                   }
                 }
@@ -663,6 +712,90 @@
                     "Right": {
                       "Literal": {
                         "Value": "'Anytime'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 6,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dim_Ticket"
+                          }
+                        },
+                        "Property": "Has Railcard"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Yes'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dim_Ticket"
+                          }
+                        },
+                        "Property": "Has Railcard"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'No'"
                       }
                     }
                   }
@@ -851,5 +984,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "63db3053cbecb16bec46"
 }

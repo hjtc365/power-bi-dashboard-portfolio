@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "c4998ade496c7000c2b9",
   "position": {
-    "x": 899.02362204724409,
-    "y": 218.70866141732284,
-    "z": 8000,
-    "height": 36.283464566929133,
-    "width": 380.97637795275591,
+    "x": 192.50393700787401,
+    "y": 32.251968503937007,
+    "z": 2000,
+    "height": 35.275590551181104,
+    "width": 342.67716535433073,
     "tabOrder": 5000
   },
   "visual": {
@@ -97,7 +97,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'0 = baseline · Positive = price increase · Negative = discount scenario'"
+                  "Value": "'0 = Baseline · Positive = Increase · Negative = Discount'"
                 }
               }
             },
@@ -116,6 +116,13 @@
               }
             },
             "italic": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "bold": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -150,6 +157,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Notes'"
                 }
               }
             }
@@ -336,5 +350,6 @@
     },
     "drillFilterOtherVisuals": true
   },
+  "parentGroupName": "ea954b9f01404b5d4520",
   "howCreated": "InsertVisualButton"
 }

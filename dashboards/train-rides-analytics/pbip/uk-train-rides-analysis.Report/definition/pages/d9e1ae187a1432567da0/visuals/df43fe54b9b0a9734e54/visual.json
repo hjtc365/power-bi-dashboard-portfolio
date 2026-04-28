@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "df43fe54b9b0a9734e54",
   "position": {
-    "x": 164.39326837909653,
-    "y": 188.20194862710363,
-    "z": 6000,
-    "height": 125.8458813108946,
-    "width": 537.39592559787422,
+    "x": 0,
+    "y": 33.250510352872567,
+    "z": 1000,
+    "height": 101.92592592592592,
+    "width": 535,
     "tabOrder": 11000
   },
   "visual": {
@@ -38,13 +38,6 @@
       "data": [
         {
           "properties": {
-            "numericStart": {
-              "expr": {
-                "Literal": {
-                  "Value": "16D"
-                }
-              }
-            },
             "mode": {
               "expr": {
                 "Literal": {
@@ -102,42 +95,6 @@
                   }
                 }
               }
-            },
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "d",
-                    "Entity": "Delay Threshold Minutes",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "Comparison": {
-                        "ComparisonKind": 2,
-                        "Left": {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "d"
-                              }
-                            },
-                            "Property": "Value"
-                          }
-                        },
-                        "Right": {
-                          "Literal": {
-                            "Value": "16D"
-                          }
-                        }
-                      }
-                    }
-                  }
-                ]
-              }
             }
           }
         }
@@ -149,8 +106,9 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#00B0F0'"
+                    "ThemeDataColor": {
+                      "ColorId": 6,
+                      "Percent": 0.2
                     }
                   }
                 }
@@ -241,5 +199,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "73ae8c6beb130cae3417"
 }

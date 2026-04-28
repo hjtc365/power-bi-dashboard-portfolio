@@ -41,7 +41,7 @@ table 'Time Axis'
 		source =
 				{
 				    ("Month", NAMEOF('Dim_Date'[Month Name]), 0),
-				    ("Day of Week", NAMEOF('Dim_Date'[Day Short]), 1),
+				    ("DOW", NAMEOF('Dim_Date'[Day Short]), 1),
 				    ("Time Band", NAMEOF('Fact_Transactions'[Time Band]), 2),
 				    ("Hour", NAMEOF('Fact_Transactions'[Departure Hour]), 3)
 				}

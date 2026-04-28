@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "4253022546abce1e6060",
   "position": {
-    "x": 162.12577502214347,
-    "y": 323.11780336581046,
-    "z": 10000,
-    "height": 90.699734278122222,
-    "width": 537.39592559787422,
+    "x": 2.277048702245537,
+    "y": 148.15748031496062,
+    "z": 2000,
+    "height": 89.7007874015748,
+    "width": 535,
     "tabOrder": 7000
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "_Measures.Journeys Above Threshold",
-              "nativeQueryRef": "Journeys Above Threshold"
+              "nativeQueryRef": "> Delay Threshold",
+              "displayName": "> Delay Threshold"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "_Measures.Refund Exposure Above Threshold",
-              "nativeQueryRef": "Refund Exposure Above Threshold"
+              "nativeQueryRef": "Delay Refund Risk",
+              "displayName": "Delay Refund Risk"
             },
             {
               "field": {
@@ -100,13 +102,55 @@
             "textWrap": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             }
           },
           "selector": {
             "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Journeys Above Threshold"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Refund Exposure Above Threshold"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Refund Policy Saving"
           }
         }
       ],
@@ -128,6 +172,20 @@
                       "Value": "'#4059AC'"
                     }
                   }
+                }
+              }
+            },
+            "textWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "matchValueAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -353,7 +411,7 @@
             "autoGrid": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -375,6 +433,20 @@
               "expr": {
                 "Literal": {
                   "Value": "'callout_image_referenceLabel'"
+                }
+              }
+            },
+            "style": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Cards'"
+                }
+              }
+            },
+            "maxTiles": {
+              "expr": {
+                "Literal": {
+                  "Value": "3L"
                 }
               }
             }
@@ -501,6 +573,38 @@
               "expr": {
                 "Literal": {
                   "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "verticalSpacing": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
                 }
               }
             }
@@ -661,5 +765,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "73ae8c6beb130cae3417"
 }

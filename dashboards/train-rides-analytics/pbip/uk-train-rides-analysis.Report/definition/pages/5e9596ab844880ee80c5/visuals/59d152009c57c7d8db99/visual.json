@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "59d152009c57c7d8db99",
   "position": {
     "x": 172.5,
@@ -42,6 +42,20 @@
                       "Entity": "_Measures"
                     }
                   },
+                  "Property": "On Time Journeys"
+                }
+              },
+              "queryRef": "_Measures.On Time Journeys",
+              "nativeQueryRef": "On Time Journeys"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
                   "Property": "On Time Rate %"
                 }
               },
@@ -56,11 +70,39 @@
                       "Entity": "_Measures"
                     }
                   },
+                  "Property": "Delayed Journeys"
+                }
+              },
+              "queryRef": "_Measures.Delayed Journeys",
+              "nativeQueryRef": "Delayed Journeys"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
                   "Property": "Delay Rate %"
                 }
               },
               "queryRef": "_Measures.Delay Rate %",
               "nativeQueryRef": "Delay Rate %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Cancelled Journeys"
+                }
+              },
+              "queryRef": "_Measures.Cancelled Journeys",
+              "nativeQueryRef": "Cancelled Journeys"
             },
             {
               "field": {
@@ -111,8 +153,7 @@
                 }
               },
               "queryRef": "_Measures.Journeys MoM %",
-              "nativeQueryRef": "MoM %",
-              "displayName": "MoM %"
+              "nativeQueryRef": "Journeys MoM %"
             }
           ]
         }
@@ -165,7 +206,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -189,13 +230,6 @@
       "lineStyles": [
         {
           "properties": {
-            "showMarker": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
             "lineStyle": {
               "expr": {
                 "Literal": {
@@ -228,27 +262,6 @@
         },
         {
           "properties": {
-            "lineStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "'dashed'"
-                }
-              }
-            },
-            "strokeWidth": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Journeys MoM %"
-          }
-        },
-        {
-          "properties": {
             "strokeWidth": {
               "expr": {
                 "Literal": {
@@ -260,6 +273,27 @@
           "selector": {
             "metadata": "_Measures.Total Transactions (Journey Date)"
           }
+        },
+        {
+          "properties": {
+            "strokeWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "strokeTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Journeys MoM %"
+          }
         }
       ],
       "seriesLabels": [
@@ -268,7 +302,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -337,7 +371,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -381,20 +415,6 @@
                 }
               }
             }
-          }
-        },
-        {
-          "properties": {
-            "enableTitleDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Journeys MoM %"
           }
         },
         {
@@ -473,8 +493,35 @@
                   "matchingOption": 1
                 }
               }
-            ],
+            ]
+          }
+        },
+        {
+          "properties": {
+            "labelPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Above'"
+                }
+              }
+            }
+          },
+          "selector": {
             "metadata": "_Measures.Journeys MoM %"
+          }
+        },
+        {
+          "properties": {
+            "labelPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Auto'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Total Transactions (Journey Date)"
           }
         }
       ],

@@ -4,10 +4,10 @@
   "position": {
     "x": 171,
     "y": 75,
-    "z": 1001,
+    "z": 3000,
     "height": 90,
     "width": 1097.5135135135135,
-    "tabOrder": 7001
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -689,79 +689,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "99910964001051d79a66",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "On Time Rate %"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "62555f960ba303e28a0c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Delay Rate %"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "1f74599636ae63160b4a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Cancel Rate %"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "03a1d19091cc6e9abe09",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Avg Delay Minutes"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "1615b28e007a7d37c5d4",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Refund Exposure"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

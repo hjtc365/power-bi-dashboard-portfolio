@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "deec7050030806026479",
   "position": {
-    "x": 179.24398625429552,
-    "y": 239.72508591065292,
+    "x": 0,
+    "y": 61.624649859943958,
     "z": 4000,
-    "height": 464.05498281786942,
-    "width": 505.84192439862539,
-    "tabOrder": 3000
+    "height": 471.70868347338933,
+    "width": 520.2962962962963,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -20,16 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim_Date"
+                      "Entity": "Fact_Transactions"
                     }
                   },
-                  "Property": "Month Name"
+                  "Property": "Departure Hour"
                 }
               },
-              "queryRef": "Dim_Date.Month Name",
-              "nativeQueryRef": "Month",
+              "queryRef": "Fact_Transactions.Departure Hour",
+              "nativeQueryRef": "Hour",
               "active": true,
-              "displayName": "Month"
+              "displayName": "Hour"
             }
           ],
           "fieldParameters": [
@@ -68,6 +68,24 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Total Transactions (Journey Date)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
@@ -389,5 +407,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "549b18d3c74733d0c541"
 }

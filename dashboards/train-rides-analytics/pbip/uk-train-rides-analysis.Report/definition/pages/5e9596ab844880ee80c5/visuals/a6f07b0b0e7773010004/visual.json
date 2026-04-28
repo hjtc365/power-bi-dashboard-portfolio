@@ -7,7 +7,7 @@
     "z": 8062,
     "height": 178,
     "width": 598,
-    "tabOrder": 4000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -375,20 +375,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "66dc71a44093ec868cde",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Total Transactions (Journey Date)"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

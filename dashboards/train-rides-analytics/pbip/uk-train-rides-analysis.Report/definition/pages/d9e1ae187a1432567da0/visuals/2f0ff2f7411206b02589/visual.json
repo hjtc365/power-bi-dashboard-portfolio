@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "2f0ff2f7411206b02589",
   "position": {
-    "x": 164.39326837909653,
-    "y": 414.95128432240921,
-    "z": 11000,
-    "height": 292.50664304694419,
-    "width": 547.599645704163,
+    "x": 2.277048702245537,
+    "y": 249.95275590551179,
+    "z": 3000,
+    "height": 342.67716535433073,
+    "width": 535,
     "tabOrder": 8000
   },
   "visual": {
@@ -34,21 +34,6 @@
         },
         "Y": {
           "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Total Transactions (Journey Date)"
-                }
-              },
-              "queryRef": "_Measures.Total Transactions (Journey Date)",
-              "nativeQueryRef": "Total Journeys",
-              "displayName": "Total Journeys"
-            },
             {
               "field": {
                 "Measure": {
@@ -124,6 +109,27 @@
               "expr": {
                 "Literal": {
                   "Value": "'TopCenter'"
+                }
+              }
+            },
+            "showTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showGradientLegend": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -259,6 +265,64 @@
               }
             }
           }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "FillRule": {
+                      "Input": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "_Measures"
+                            }
+                          },
+                          "Property": "Journeys Above Threshold"
+                        }
+                      },
+                      "FillRule": {
+                        "linearGradient2": {
+                          "min": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#e6e6e6'"
+                              }
+                            }
+                          },
+                          "max": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#667abd'"
+                              }
+                            }
+                          },
+                          "nullColoringStrategy": {
+                            "strategy": {
+                              "Literal": {
+                                "Value": "'asZero'"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
         }
       ],
       "categoryAxis": [
@@ -303,7 +367,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Affected Journeys vs Total'"
+                  "Value": "'Affected Delayed Journeys'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -447,5 +518,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "73ae8c6beb130cae3417"
 }

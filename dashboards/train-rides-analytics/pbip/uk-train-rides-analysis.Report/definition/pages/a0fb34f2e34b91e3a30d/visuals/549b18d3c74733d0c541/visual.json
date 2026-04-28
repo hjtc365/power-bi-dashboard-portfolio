@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
-  "name": "c02c641596122411dcae",
+  "name": "549b18d3c74733d0c541",
   "position": {
-    "x": 159.71681415929203,
-    "y": 61.000010424799612,
+    "x": 174.22222222222223,
+    "y": 173.03703703703704,
     "z": 4000,
-    "height": 59.725720794360257,
-    "width": 1119.8779557589626,
-    "tabOrder": 2000
+    "height": 533.33333333333337,
+    "width": 520.2962962962963,
+    "tabOrder": 5000
   },
   "visualGroup": {
-    "displayName": "ReadoutBar",
+    "displayName": "Group 1",
     "groupMode": "ScaleMode"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "31b414f007ca204b570a",
   "position": {
     "x": 172,
@@ -60,11 +60,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Revenue"
+                  "Property": "Total Revenue (Journey Date)"
                 }
               },
-              "queryRef": "_Measures.Total Revenue",
-              "nativeQueryRef": "Total Revenue"
+              "queryRef": "_Measures.Total Revenue (Journey Date)",
+              "nativeQueryRef": "Total Revenue",
+              "displayName": "Total Revenue"
             }
           ]
         }

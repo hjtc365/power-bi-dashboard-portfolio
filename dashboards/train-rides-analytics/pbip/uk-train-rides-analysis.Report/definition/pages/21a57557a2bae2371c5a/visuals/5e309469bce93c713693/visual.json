@@ -2,9 +2,9 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "5e309469bce93c713693",
   "position": {
-    "x": 171,
-    "y": 75,
-    "z": 2000,
+    "x": 170.8235294117647,
+    "y": 75.961636828644444,
+    "z": 3000,
     "height": 90,
     "width": 1097.5135135135135,
     "tabOrder": 1000
@@ -28,6 +28,20 @@
               },
               "queryRef": "_Measures.Total Revenue",
               "nativeQueryRef": "Total Revenue"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Revenue per Journey"
+                }
+              },
+              "queryRef": "_Measures.Revenue per Journey",
+              "nativeQueryRef": "Revenue per Journey"
             },
             {
               "field": {
@@ -84,20 +98,6 @@
               },
               "queryRef": "_Measures.Advance Revenue %",
               "nativeQueryRef": "Advance Revenue %"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Revenue per Journey"
-                }
-              },
-              "queryRef": "_Measures.Revenue per Journey",
-              "nativeQueryRef": "Revenue per Journey"
             }
           ]
         }
@@ -149,6 +149,62 @@
           },
           "selector": {
             "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Total Revenue"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.First Class Revenue"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Advance Revenue"
+          }
+        },
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.First Class Revenue %"
           }
         }
       ],

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "6b6bdbaee7a067055e5c",
   "position": {
-    "x": 741.47032772364923,
-    "y": 323.11780336581046,
-    "z": 9000,
-    "height": 90.699734278122222,
-    "width": 537.39592559787422,
+    "x": 1.0078740157480297,
+    "y": 147.14960629921259,
+    "z": 3000,
+    "height": 89.7007874015748,
+    "width": 535,
     "tabOrder": 6000
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "_Measures.Total Revenue",
-              "nativeQueryRef": "Total Revenue"
+              "nativeQueryRef": "Actual Revenue",
+              "displayName": "Actual Revenue"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "_Measures.Simulated Revenue",
-              "nativeQueryRef": "Simulated Revenue"
+              "nativeQueryRef": "Simulated Revenue",
+              "displayName": "Simulated Revenue"
             },
             {
               "field": {
@@ -56,20 +58,6 @@
               },
               "queryRef": "_Measures.Revenue Delta",
               "nativeQueryRef": "Revenue Delta"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Revenue Delta %"
-                }
-              },
-              "queryRef": "_Measures.Revenue Delta %",
-              "nativeQueryRef": "Revenue Delta %"
             }
           ]
         }
@@ -121,6 +109,48 @@
           },
           "selector": {
             "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Total Revenue"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Simulated Revenue"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Revenue Delta"
           }
         }
       ],
@@ -360,7 +390,7 @@
             "columnCount": {
               "expr": {
                 "Literal": {
-                  "Value": "4L"
+                  "Value": "3L"
                 }
               }
             },
@@ -389,6 +419,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'callout_image_referenceLabel'"
+                }
+              }
+            },
+            "style": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Cards'"
                 }
               }
             }
@@ -515,6 +552,22 @@
               "expr": {
                 "Literal": {
                   "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -675,5 +728,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "ea954b9f01404b5d4520"
 }

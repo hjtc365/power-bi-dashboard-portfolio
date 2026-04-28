@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "3ea435cfabe71d5865c0",
   "position": {
-    "x": 730.60414788097387,
-    "y": 414.3552750225428,
-    "z": 12000,
-    "height": 294.31920649233541,
-    "width": 537.85392245266007,
+    "x": 0,
+    "y": 248.94488188976376,
+    "z": 4000,
+    "height": 342.67716535433073,
+    "width": 535,
     "tabOrder": 12000
   },
   "visual": {
@@ -46,7 +46,7 @@
                 }
               },
               "queryRef": "_Measures.Total Revenue (Journey Date)",
-              "nativeQueryRef": "Actual",
+              "nativeQueryRef": "Total Revenue (Journey Date)",
               "displayName": "Actual"
             },
             {
@@ -292,6 +292,25 @@
           },
           "selector": {
             "metadata": "_Measures.Total Revenue (Journey Date)"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Simulated Revenue"
           }
         }
       ],
@@ -701,5 +720,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "ea954b9f01404b5d4520"
 }

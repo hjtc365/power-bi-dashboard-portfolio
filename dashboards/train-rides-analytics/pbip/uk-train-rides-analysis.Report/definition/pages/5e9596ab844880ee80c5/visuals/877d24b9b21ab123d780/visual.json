@@ -2,12 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "877d24b9b21ab123d780",
   "position": {
-    "x": 807,
+    "x": 865,
     "y": 10,
     "z": 3000,
     "height": 41,
-    "width": 187.49006622516555,
-    "tabOrder": 2000
+    "width": 187
   },
   "visualGroup": {
     "displayName": "MonthSlicer",

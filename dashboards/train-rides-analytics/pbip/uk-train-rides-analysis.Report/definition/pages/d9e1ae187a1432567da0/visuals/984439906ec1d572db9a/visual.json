@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "984439906ec1d572db9a",
   "position": {
-    "x": 361.10431328827258,
+    "x": 178.962962962963,
     "y": 0,
-    "z": 4000,
-    "height": 55.433070866141733,
-    "width": 54.425196850393704,
-    "tabOrder": 4000
+    "z": 1000,
+    "height": 50.000000000000007,
+    "width": 54.518518518518519,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Selected Price Adjustment"
+                  "Property": "Selected Delay Threshold"
                 }
               },
-              "queryRef": "_Measures.Selected Price Adjustment",
-              "nativeQueryRef": "Selected Price Adjustment"
+              "queryRef": "_Measures.Selected Delay Threshold",
+              "nativeQueryRef": "Selected Delay Threshold"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Selected Price Adjustment"
+                "Property": "Selected Delay Threshold"
               }
             },
             "direction": "Descending"
@@ -465,7 +465,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "13D"
                 }
               }
             },
@@ -487,6 +487,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
                 }
               }
             }
@@ -570,6 +577,17 @@
           },
           "selector": {
             "metadata": "_Measures.Refund Exposure"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
           }
         }
       ]
@@ -779,5 +797,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "c02c641596122411dcae"
+  "parentGroupName": "9cf277e0a61b9b2c47a5"
 }

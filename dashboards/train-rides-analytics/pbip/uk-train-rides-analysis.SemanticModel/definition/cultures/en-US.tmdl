@@ -1676,16 +1676,6 @@ cultureInfo en-US
 			          "railcard": {
 			            "State": "Generated"
 			          }
-			        },
-			        {
-			          "Railcard Type": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -5544,6 +5534,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.514
 			          }
+			        },
+			        {
+			          "On Time %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -5579,6 +5579,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "Delay %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -5616,6 +5626,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.739
 			          }
+			        },
+			        {
+			          "Cancel %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -5634,12 +5654,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "revenue": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
 			          "total income": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -5647,16 +5661,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "income": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
 			          }
 			        },
 			        {
@@ -5690,36 +5694,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "profit": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
-			          "turnover": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
-			          "yield": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
 			          "aggregate revenue": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -5737,6 +5711,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "Actual Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -6036,6 +6020,26 @@ cultureInfo en-US
 			          }
 			        },
 			        {
+			          "Total": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "Actual": {
 			            "State": "Suggested",
 			            "Source": {
@@ -6287,6 +6291,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "Railcard Usage Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -6550,12 +6564,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "revenue": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
 			          "route revenue": {
 			            "State": "Generated",
 			            "Weight": 0.97
@@ -6612,16 +6620,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "income": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        },
-			        {
 			          "route profit": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -6652,13 +6650,23 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "profit": {
+			          "best route revenue": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.714
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "first route revenue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
 			          }
 			        }
 			      ]
@@ -7062,6 +7070,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.748
 			          }
+			        },
+			        {
+			          "Peak Journey Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -7080,12 +7098,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "revenue": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
 			          "peak income": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -7093,16 +7105,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "income": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
 			          }
 			        },
 			        {
@@ -7134,36 +7136,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.727
 			          }
-			        },
-			        {
-			          "profit": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
-			          "turnover": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
-			          "yield": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
 			        }
 			      ]
 			    },
@@ -7179,12 +7151,6 @@ cultureInfo en-US
 			        {
 			          "first class revenue": {
 			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "revenue": {
-			            "State": "Generated",
-			            "Weight": 0.97
 			          }
 			        },
 			        {
@@ -7244,16 +7210,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "income": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        },
-			        {
 			          "class profit": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -7284,13 +7240,23 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "profit": {
+			          "first classification revenue": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.714
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "first category revenue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
 			          }
 			        }
 			      ]
@@ -7310,12 +7276,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "revenue": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
 			          "standard income": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -7323,16 +7283,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "income": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
 			          }
 			        },
 			        {
@@ -7363,36 +7313,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "profit": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
-			          "turnover": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
-			          "yield": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
 			          }
 			        }
 			      ]
@@ -7528,12 +7448,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "revenue": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
 			          "advance income": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -7541,16 +7455,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "income": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
 			          }
 			        },
 			        {
@@ -7584,33 +7488,13 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "profit": {
-			            "Type": "Noun",
+			          "Advance": {
 			            "State": "Suggested",
 			            "Source": {
-			              "Agent": "Thesaurus"
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
 			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
-			          "turnover": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
-			          "yield": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -7631,12 +7515,6 @@ cultureInfo en-US
 			        },
 			        {
 			          "off peak revenue": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "revenue": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
@@ -7722,23 +7600,33 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "income": {
+			          "off-mountaintop revenue": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.736
+			            "Weight": 0.489
 			          }
 			        },
 			        {
-			          "profit": {
+			          "off-height revenue": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.714
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "Off-Peak": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -7795,6 +7683,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "Anytime": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -8498,6 +8396,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.492
 			          }
+			        },
+			        {
+			          "Avg Delay Mins": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -8747,6 +8655,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "Delays Over 15 Mins": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -9012,6 +8930,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.748
 			          }
+			        },
+			        {
+			          "Delay Refund %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -9148,16 +9076,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.739
 			          }
-			        },
-			        {
-			          "MoM %": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -9252,12 +9170,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "revenue": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
 			          "income per journey": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -9295,46 +9207,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.739
-			          }
-			        },
-			        {
-			          "income": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        },
-			        {
-			          "profit": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
-			          "turnover": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
-			          "yield": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
 			          }
 			        }
 			      ]
@@ -10572,6 +10444,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "> Delay Threshold": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -10693,6 +10575,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "Delay Refund Risk": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -10968,12 +10860,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "revenue": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
 			          "simulated income": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -10981,16 +10867,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "income": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
 			          }
 			        },
 			        {
@@ -11021,36 +10897,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "profit": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
-			          "turnover": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
-			          "yield": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
 			          }
 			        },
 			        {
@@ -12995,9 +12841,313 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "entity__measure.advance_revenue_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Advance Revenue %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "advance revenue %": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "advance revenue percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "advance revenue pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "advance income %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "advance profit %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "advance turnover %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "advance yield %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.half_of_delayed_journeys": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Half of Delayed Journeys"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "half of delayed journeys": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.selected_metric_by_month": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Selected Metric by Month"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "selected metric by month": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "metric": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "selected metric by mth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.selected_metric_by_route": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Selected Metric by Route"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "selected metric by route": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "metric": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "time_axis_has_time_axis": {
+			      "Binding": {
+			        "ConceptualEntity": "Time Axis"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "time_axis": {
+			          "Target": {
+			            "Entity": "time_axis"
+			          }
+			        },
+			        "time_axis.time_axis": {
+			          "Target": {
+			            "Entity": "time_axis.time_axis"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "time_axis"
+			            },
+			            "Object": {
+			              "Role": "time_axis.time_axis"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "time_axes_have_time_axes"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "time_axis"
+			            },
+			            "Name": {
+			              "Role": "time_axis.time_axis"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "time_axes_are_names_IDs_of_time_axes"
+			        }
+			      ]
+			    },
+			    "time_dimension_has_sort_order": {
+			      "Binding": {
+			        "ConceptualEntity": "Time Dimension"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "time_dimension": {
+			          "Target": {
+			            "Entity": "time_dimension"
+			          }
+			        },
+			        "time_dimension.sort_order": {
+			          "Target": {
+			            "Entity": "time_dimension.sort_order"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "time_dimension"
+			            },
+			            "Object": {
+			              "Role": "time_dimension.sort_order"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "time_dimensions_have_sort_orders"
+			        }
+			      ]
+			    },
+			    "time_dimension_has_dimension_name": {
+			      "Binding": {
+			        "ConceptualEntity": "Time Dimension"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "time_dimension": {
+			          "Target": {
+			            "Entity": "time_dimension"
+			          }
+			        },
+			        "time_dimension.dimension_name": {
+			          "Target": {
+			            "Entity": "time_dimension.dimension_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "time_dimension"
+			            },
+			            "Object": {
+			              "Role": "time_dimension.dimension_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "time_dimensions_have_dimension_names"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "time_dimension"
+			            },
+			            "Name": {
+			              "Role": "time_dimension.dimension_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dimension_names_are_names_IDs_of_time_dimensions"
+			        }
+			      ]
+			    },
+			    "metric_selector_has_sort_order": {
+			      "Binding": {
+			        "ConceptualEntity": "Metric Selector"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "metric_selector": {
+			          "Target": {
+			            "Entity": "metric_selector"
+			          }
+			        },
+			        "metric_selector.sort_order": {
+			          "Target": {
+			            "Entity": "metric_selector.sort_order"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "metric_selector"
+			            },
+			            "Object": {
+			              "Role": "metric_selector.sort_order"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "metric_selectors_have_sort_orders"
+			        }
+			      ]
+			    },
 			    "metric_selector_has_metric_name": {
 			      "Binding": {
 			        "ConceptualEntity": "Metric Selector"
@@ -17191,99 +17341,73 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "time_axis_is_named_time_axis": {
+			    "fact_transaction_has_entity__measure_advance_revenue_": {
 			      "Binding": {
-			        "ConceptualEntity": "Time Axis"
+			        "ConceptualEntity": "Fact_Transactions"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "time_axis": {
+			        "fact_transaction": {
 			          "Target": {
-			            "Entity": "time_axis"
+			            "Entity": "fact_transaction"
 			          }
 			        },
-			        "time_axis.time_axis": {
+			        "entity__measure.advance_revenue_": {
 			          "Target": {
-			            "Entity": "time_axis.time_axis"
+			            "Entity": "entity__measure.advance_revenue_"
 			          }
 			        }
 			      },
 			      "Phrasings": [
 			        {
-			          "Name": {
-			            "Subject": {
-			              "Role": "time_axis"
-			            },
-			            "Name": {
-			              "Role": "time_axis.time_axis"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "time_axes_are_names_IDs_of_time_axes"
-			        },
-			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "time_axis"
+			              "Role": "fact_transaction"
 			            },
 			            "Object": {
-			              "Role": "time_axis.time_axis"
+			              "Role": "entity__measure.advance_revenue_"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "time_axes_have_time_axes"
+			          "ID": "fact_transactions_have_advance_revenue_"
 			        }
 			      ]
 			    },
-			    "time_dimension_is_named_dimension_name": {
+			    "fact_transaction_has_entity__measure_half_of_delayed_journeys": {
 			      "Binding": {
-			        "ConceptualEntity": "Time Dimension"
+			        "ConceptualEntity": "Fact_Transactions"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "time_dimension": {
+			        "fact_transaction": {
 			          "Target": {
-			            "Entity": "time_dimension"
+			            "Entity": "fact_transaction"
 			          }
 			        },
-			        "time_dimension.dimension_name": {
+			        "entity__measure.half_of_delayed_journeys": {
 			          "Target": {
-			            "Entity": "time_dimension.dimension_name"
+			            "Entity": "entity__measure.half_of_delayed_journeys"
 			          }
 			        }
 			      },
 			      "Phrasings": [
 			        {
-			          "Name": {
-			            "Subject": {
-			              "Role": "time_dimension"
-			            },
-			            "Name": {
-			              "Role": "time_dimension.dimension_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dimension_names_are_names_IDs_of_time_dimensions"
-			        },
-			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "time_dimension"
+			              "Role": "fact_transaction"
 			            },
 			            "Object": {
-			              "Role": "time_dimension.dimension_name"
+			              "Role": "entity__measure.half_of_delayed_journeys"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "time_dimensions_have_dimension_names"
+			          "ID": "fact_transactions_have_half_of_delayed_journeys"
 			        }
 			      ]
 			    },
-			    "metric_selector_has_sort_order": {
+			    "metric_selector_has_entity__measure_selected_metric_by_month": {
 			      "Binding": {
 			        "ConceptualEntity": "Metric Selector"
 			      },
@@ -17294,9 +17418,9 @@ cultureInfo en-US
 			            "Entity": "metric_selector"
 			          }
 			        },
-			        "metric_selector.sort_order": {
+			        "entity__measure.selected_metric_by_month": {
 			          "Target": {
-			            "Entity": "metric_selector.sort_order"
+			            "Entity": "entity__measure.selected_metric_by_month"
 			          }
 			        }
 			      },
@@ -17307,29 +17431,29 @@ cultureInfo en-US
 			              "Role": "metric_selector"
 			            },
 			            "Object": {
-			              "Role": "metric_selector.sort_order"
+			              "Role": "entity__measure.selected_metric_by_month"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "metric_selectors_have_sort_orders"
+			          "ID": "metric_selectors_have_selected_metric_by_month"
 			        }
 			      ]
 			    },
-			    "time_dimension_has_sort_order": {
+			    "metric_selector_has_entity__measure_selected_metric_by_route": {
 			      "Binding": {
-			        "ConceptualEntity": "Time Dimension"
+			        "ConceptualEntity": "Metric Selector"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "time_dimension": {
+			        "metric_selector": {
 			          "Target": {
-			            "Entity": "time_dimension"
+			            "Entity": "metric_selector"
 			          }
 			        },
-			        "time_dimension.sort_order": {
+			        "entity__measure.selected_metric_by_route": {
 			          "Target": {
-			            "Entity": "time_dimension.sort_order"
+			            "Entity": "entity__measure.selected_metric_by_route"
 			          }
 			        }
 			      },
@@ -17337,15 +17461,15 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "time_dimension"
+			              "Role": "metric_selector"
 			            },
 			            "Object": {
-			              "Role": "time_dimension.sort_order"
+			              "Role": "entity__measure.selected_metric_by_route"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "time_dimensions_have_sort_orders"
+			          "ID": "metric_selectors_have_selected_metric_by_route"
 			        }
 			      ]
 			    },

@@ -5,7 +5,7 @@
     "x": 1.1682692307692308,
     "y": 0,
     "z": 1500,
-    "height": 112.26136363636365,
+    "height": 114.78409090909093,
     "width": 483.66346153846155,
     "tabOrder": 0
   },
@@ -67,7 +67,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Avg Ticket Price'"
+                                "Value": "'Total Journeys'"
                               }
                             }
                           ]

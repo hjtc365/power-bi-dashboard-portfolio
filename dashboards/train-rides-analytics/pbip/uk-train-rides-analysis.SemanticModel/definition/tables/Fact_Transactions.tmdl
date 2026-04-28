@@ -6,8 +6,10 @@ table Fact_Transactions
 	column 'Transaction SK'
 		dataType: int64
 		lineageTag: 91fdf464-fac3-4b7f-b783-c83575a5e809
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Transaction SK
+
+		annotation SummarizationSetBy = Automatic
 
 	/// Natural/degenerate dimension — original transaction identifier
 	column 'Transaction ID'
@@ -23,12 +25,16 @@ table Fact_Transactions
 		summarizeBy: none
 		sourceColumn: Purchase Date Key
 
+		annotation SummarizationSetBy = Automatic
+
 	/// FK → Dim_Date.Date Key (journey date) — inactive relationship
 	column 'Journey Date Key'
 		dataType: int64
 		lineageTag: a67a90d4-d1a2-4a7e-b82f-37c2c3f40c84
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: Journey Date Key
+
+		annotation SummarizationSetBy = Automatic
 
 	/// FK → Dim_Station.Station Key (departure)
 	column 'Departure Station Key'
@@ -41,8 +47,10 @@ table Fact_Transactions
 	column 'Arrival Station Key'
 		dataType: int64
 		lineageTag: 7da8f691-11bc-4fd0-b40e-00f2cb8408df
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: Arrival Station Key
+
+		annotation SummarizationSetBy = Automatic
 
 	/// FK → Dim_Ticket.Ticket Key
 	column 'Ticket Key'
@@ -67,41 +75,42 @@ table Fact_Transactions
 
 	/// Ticket price in GBP £
 	column Price
-		dataType: int64
-		formatString: £#,##0
+		dataType: decimal
+		formatString: \$#,0.###############;-\$#,0.###############;\$#,0.###############
 		lineageTag: be523d29-fd54-447b-b982-d164ea3e5d89
 		summarizeBy: sum
 		sourceColumn: Price
 
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-CA"}
+
 	/// Time the ticket was purchased
 	column 'Time of Purchase'
-		dataType: dateTime
-		formatString: HH:mm:ss
+		dataType: string
 		lineageTag: 0ae8c5f7-8298-4795-a25a-0b5649e146c9
 		summarizeBy: none
 		sourceColumn: Time of Purchase
 
-		annotation UnderlyingDateTimeDataType = Time
+		annotation SummarizationSetBy = Automatic
 
 	/// Scheduled departure time
 	column 'Departure Time'
-		dataType: dateTime
-		formatString: HH:mm:ss
+		dataType: string
 		lineageTag: 01a100ed-4a90-4858-83f4-e28397932344
 		summarizeBy: none
 		sourceColumn: Departure Time
 
-		annotation UnderlyingDateTimeDataType = Time
+		annotation SummarizationSetBy = Automatic
 
 	/// Scheduled arrival time
 	column 'Arrival Time'
-		dataType: dateTime
-		formatString: HH:mm:ss
+		dataType: string
 		lineageTag: fffc60b6-b9e9-4946-8fa9-6bc1db3542e2
 		summarizeBy: none
 		sourceColumn: Arrival Time
 
-		annotation UnderlyingDateTimeDataType = Time
+		annotation SummarizationSetBy = Automatic
 
 	/// Actual arrival time — null for cancelled journeys
 	column 'Actual Arrival Time'
@@ -131,20 +140,28 @@ table Fact_Transactions
 		dataType: int64
 		formatString: 0
 		lineageTag: ea495f9e-c643-4efd-b402-0993ac77e8b4
-		summarizeBy: none
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
 
 	/// Time band based on National Rail peak definitions (weekday 06-09 and 16-18).
 	column 'Time Band' =
+			
 			VAR h = HOUR(Fact_Transactions[Departure Time])
-			VAR jDate = LOOKUPVALUE(Dim_Date[Date], Dim_Date[Date Key], Fact_Transactions[Journey Date Key])
+			VAR jDate =
+			    LOOKUPVALUE(
+			        Dim_Date[Date],
+			        Dim_Date[Date Key],
+			        Fact_Transactions[Journey Date Key]
+			    )
 			VAR isWeekday = WEEKDAY(jDate, 2) <= 5
 			RETURN
 			    SWITCH(
 			        TRUE(),
-			        isWeekday && h >= 6  && h < 8,  "Morning Peak",
-			        isWeekday && h >= 16 && h < 18, "Afternoon Peak",
-			        h >= 8  && h < 16,              "Daytime Off-Peak",
-			        h >= 18 && h < 22,              "Evening",
+			        isWeekday && h >= 6  && h < 9,  "Morning Peak",
+			        isWeekday && h >= 16 && h < 19, "Afternoon Peak",
+			        h >= 9  && h < 19,              "Daytime Off-Peak",
+			        h >= 19 && h < 22,              "Evening",
 			        "Night / Early Morning"
 			    )
 		dataType: string
@@ -161,7 +178,9 @@ table Fact_Transactions
 		dataType: int64
 		formatString: 0
 		lineageTag: 12b5fab2-891b-4866-a5f9-b31837db4690
-		summarizeBy: none
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
 
 	partition Fact_Transactions = m
 		mode: import
@@ -169,8 +188,13 @@ table Fact_Transactions
 				let
 				    Source = RailwayData,
 				
+				    FixDates = Table.TransformColumns(Source, {
+				        {"Date of Purchase", each try Date.From(_) otherwise null, type date},
+				        {"Date of Journey", each try Date.From(_) otherwise null, type date}
+				    }),
+				
 				    // ── Date surrogate keys (YYYYMMDD integer) ──────────────────────────────────
-				    AddPurchaseDK = Table.AddColumn(Source, "Purchase Date Key",
+				    AddPurchaseDK = Table.AddColumn(FixDates, "Purchase Date Key",
 				        each Date.Year([Date of Purchase]) * 10000
 				           + Date.Month([Date of Purchase]) * 100
 				           + Date.Day([Date of Purchase]), Int64.Type),
@@ -225,7 +249,12 @@ table Fact_Transactions
 				        "Ticket Key", "Payment Key", "Journey Status Key",
 				        "Price", "Time of Purchase", "Departure Time", "Arrival Time", "Actual Arrival Time",
 				        "Refund Request"
-				    })
+				    }),
+				    #"Changed Type" = Table.TransformColumnTypes(FinalCols,{{"Price", Currency.Type}})
 				in
-				    FinalCols
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

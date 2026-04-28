@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "605ffc6a2659c77685c4",
   "position": {
-    "x": 171.54639175257731,
-    "y": 73.676975945017176,
-    "z": 2000,
-    "height": 90.171821305841917,
-    "width": 1097.4570446735395,
+    "x": 172.13793103448276,
+    "y": 75.298350824587672,
+    "z": 3000,
+    "height": 89.379310344827587,
+    "width": 1097.9310344827586,
     "tabOrder": 1000
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "_Measures.Total Transactions (Journey Date)",
-              "nativeQueryRef": "Total Transactions (Journey Date)"
+              "nativeQueryRef": "Total Journeys",
+              "displayName": "Total Journeys"
             },
             {
               "field": {
@@ -55,7 +56,8 @@
                 }
               },
               "queryRef": "_Measures.Peak Journey Rate %",
-              "nativeQueryRef": "Peak Journey Rate %"
+              "nativeQueryRef": "Peak Journey Rate",
+              "displayName": "Peak Journey Rate"
             },
             {
               "field": {
@@ -83,7 +85,8 @@
                 }
               },
               "queryRef": "_Measures.Railcard Usage Rate %",
-              "nativeQueryRef": "Railcard Usage Rate %"
+              "nativeQueryRef": "Railcard Usage Rate",
+              "displayName": "Railcard Usage Rate"
             }
           ]
         }

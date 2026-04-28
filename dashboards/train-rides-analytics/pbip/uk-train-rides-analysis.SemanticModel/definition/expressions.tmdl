@@ -1,35 +1,56 @@
 /// Shared staging source — loads and types the raw railway CSV. Referenced by all dimension and fact tables.
 expression RailwayData =
 		let
-		    Source = Csv.Document(
-		        File.Contents("C:\\Dev\\power-bi-dashboard-portfolio\\dashboards\\train-rides-analytics\\datasets\\railway.csv"),
-		        [Delimiter = ",", Columns = 18, Encoding = 65001, QuoteStyle = QuoteStyle.None]
-		    ),
-		    PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-		    TypedCols = Table.TransformColumnTypes(PromotedHeaders, {
-		        {"Transaction ID", type text},
-		        {"Date of Purchase", type date},
-		        {"Time of Purchase", type time},
-		        {"Purchase Type", type text},
-		        {"Payment Method", type text},
-		        {"Railcard", type text},
-		        {"Ticket Class", type text},
-		        {"Ticket Type", type text},
-		        {"Price", Int64.Type},
-		        {"Departure Station", type text},
-		        {"Arrival Destination", type text},
-		        {"Date of Journey", type date},
-		        {"Departure Time", type time},
-		        {"Arrival Time", type time},
-		        {"Actual Arrival Time", type text},
-		        {"Journey Status", type text},
-		        {"Reason for Delay", type text},
-		        {"Refund Request", type text}
-		    }),
-		    CleanReason = Table.TransformColumns(TypedCols, {
+		    Source = Files,
+		    #"RrailwayCSV" = Source{[#"Folder Path"="C:\Dev\power-bi-dashboard-portfolio\dashboards\train-rides-analytics\datasets\",Name="railway.csv"]}[Content],
+		    #"Imported CSV" = Csv.Document(#"RrailwayCSV",[Delimiter=",", Columns=18, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Imported CSV", [PromoteAllScalars=true]),
+		    CleanReason = Table.TransformColumns(#"Promoted Headers", {
 		        {"Reason for Delay", each if _ = "" then null else _, type text}
 		    })
 		in
 		    CleanReason
 	lineageTag: c02cac41-0c83-4df2-86e2-6becdc3a69d7
+	queryGroup: Datasets
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression Datasets_Folder_Path = "C:\Dev\power-bi-dashboard-portfolio\dashboards\train-rides-analytics\datasets" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 4b3e40fc-05f8-44ed-932b-975929d15de5
+	queryGroup: Datasets
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression Files =
+		let
+		    Source = Folder.Files(Datasets_Folder_Path)
+		in
+		    Source
+	lineageTag: 7a3cc198-c481-4350-9df7-d41d08cce21f
+	queryGroup: Datasets
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression RailwayDataDict =
+		let
+		    Source = Files,
+		    #"C:\Dev\power-bi-dashboard-portfolio\dashboards\train-rides-analytics\datasets\_railway_data_dictionary csv" = Source{[#"Folder Path"="C:\Dev\power-bi-dashboard-portfolio\dashboards\train-rides-analytics\datasets\",Name="railway_data_dictionary.csv"]}[Content],
+		    #"Imported CSV" = Csv.Document(#"C:\Dev\power-bi-dashboard-portfolio\dashboards\train-rides-analytics\datasets\_railway_data_dictionary csv",[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Imported CSV",{{"Column1", type text}, {"Column2", type text}}),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
+		    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"Field", type text}, {"Description", type text}})
+		in
+		    #"Changed Type1"
+	lineageTag: b32037c8-4e2f-461a-94b0-03283c8859c2
+	queryGroup: Datasets
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

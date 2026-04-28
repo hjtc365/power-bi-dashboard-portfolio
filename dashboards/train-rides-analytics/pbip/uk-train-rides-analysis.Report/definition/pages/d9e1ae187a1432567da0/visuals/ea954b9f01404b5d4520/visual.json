@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "ea954b9f01404b5d4520",
+  "position": {
+    "x": 728.69291338582684,
+    "y": 115.90551181102362,
+    "z": 5000,
+    "height": 591.62204724409446,
+    "width": 536.00787401574814,
+    "tabOrder": 4000
+  },
+  "visualGroup": {
+    "displayName": "PriceScenarioSimulator",
+    "groupMode": "ScaleMode"
+  }
+}

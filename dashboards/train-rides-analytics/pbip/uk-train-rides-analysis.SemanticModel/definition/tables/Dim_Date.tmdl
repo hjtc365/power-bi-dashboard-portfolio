@@ -10,6 +10,8 @@ table Dim_Date
 		summarizeBy: none
 		sourceColumn: Date Key
 
+		annotation SummarizationSetBy = Automatic
+
 	/// Calendar date
 	column Date
 		dataType: dateTime
@@ -28,12 +30,16 @@ table Dim_Date
 		summarizeBy: none
 		sourceColumn: Year
 
+		annotation SummarizationSetBy = Automatic
+
 	column 'Quarter Number'
 		dataType: int64
 		isHidden
 		lineageTag: 2ba2d629-fc2f-4c6d-89d1-f6eaca397ed9
 		summarizeBy: none
 		sourceColumn: Quarter Number
+
+		annotation SummarizationSetBy = Automatic
 
 	column Quarter
 		dataType: string
@@ -47,6 +53,8 @@ table Dim_Date
 		lineageTag: b078f5de-8628-4744-96ee-6f5044e0b2c9
 		summarizeBy: none
 		sourceColumn: Month Number
+
+		annotation SummarizationSetBy = Automatic
 
 	column 'Month Name'
 		dataType: string
@@ -68,12 +76,16 @@ table Dim_Date
 		summarizeBy: none
 		sourceColumn: Week Number
 
+		annotation SummarizationSetBy = Automatic
+
 	column 'Day of Week Number'
 		dataType: int64
 		isHidden
 		lineageTag: a4599206-85bb-4a40-af10-59b833a31625
 		summarizeBy: none
 		sourceColumn: Day of Week Number
+
+		annotation SummarizationSetBy = Automatic
 
 	column 'Day Name'
 		dataType: string

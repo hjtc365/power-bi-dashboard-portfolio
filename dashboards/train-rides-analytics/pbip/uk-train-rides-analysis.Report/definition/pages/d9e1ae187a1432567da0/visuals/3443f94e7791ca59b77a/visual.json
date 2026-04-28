@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "3443f94e7791ca59b77a",
   "position": {
-    "x": 158.52163612291827,
-    "y": 13.10102783037425,
-    "z": 3000,
-    "height": 30.236220472440944,
-    "width": 45.354330708661415,
-    "tabOrder": 3000
+    "x": 183.7037037037037,
+    "y": 0,
+    "z": 1000,
+    "height": 50.3968253968254,
+    "width": 54.518518518518519,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Selected Delay Threshold"
+                  "Property": "Selected Price Adjustment"
                 }
               },
-              "queryRef": "_Measures.Selected Delay Threshold",
-              "nativeQueryRef": "Selected Delay Threshold"
+              "queryRef": "_Measures.Selected Price Adjustment",
+              "nativeQueryRef": "Selected Price Adjustment"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Selected Delay Threshold"
+                "Property": "Selected Price Adjustment"
               }
             },
             "direction": "Descending"
@@ -472,7 +472,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "14D"
                 }
               }
             },
@@ -500,7 +500,7 @@
             "horizontalAlignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'center'"
+                  "Value": "'left'"
                 }
               }
             }
@@ -793,5 +793,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "c02c641596122411dcae"
+  "parentGroupName": "9ce63ff0bc3a09767856"
 }

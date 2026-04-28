@@ -3,13 +3,17 @@ table 'Price Adjustment %'
 	lineageTag: e03b7d9f-f833-4ebe-b0ae-2cab64ba296c
 
 	column Value
+		formatString: 0
 		lineageTag: c6263843-ded2-42b8-bc51-9d99965ba45d
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [Value]
 
+		annotation SummarizationSetBy = Automatic
+
 	partition 'Price Adjustment %' = calculated
 		mode: import
-		source = GENERATESERIES(-30, 30, 5)
+		source = GENERATESERIES(-30, 30, 1)
 
 	annotation PBI_NavigationStepName = Navigation
 
