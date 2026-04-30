@@ -1,0 +1,43 @@
+table Dim_DowntimeFactor
+	lineageTag: 672c8c5e-c44b-41eb-90e9-81034ffc953c
+
+	column FactorKey
+		dataType: string
+		isHidden
+		lineageTag: 8c9f4c42-1edc-4b79-a06f-2bb80af321d3
+		sourceColumn: FactorKey
+
+	column Factor
+		dataType: int64
+		lineageTag: 092e9e25-d770-4cbe-bca8-a198c9b9652f
+		sourceColumn: Factor
+
+	column Description
+		dataType: string
+		lineageTag: 49ee66a3-65a9-48ce-8b29-ac72c3983d2b
+		sourceColumn: Description
+
+	column 'Operator Error'
+		dataType: string
+		lineageTag: b57a75a7-dd42-4a51-8179-20cdac3000b4
+		sourceColumn: Operator Error
+
+	partition Dim_DowntimeFactor = m
+		mode: import
+		source =
+				let
+				    Source       = Raw_DowntimeFactors,
+				    Sorted       = Table.Sort(Source, {{"Factor", Order.Ascending}}),
+				    AddKey       = Table.AddColumn(Sorted, "FactorKey",
+				                       each fn_GenerateSurrogateKey({Text.From([Factor])}, "DTF"),
+				                       type text),
+				    Reordered    = Table.ReorderColumns(AddKey, {"FactorKey", "Factor", "Description", "Operator Error"}),
+				    FinalTypes   = Table.TransformColumnTypes(Reordered, {
+				                       {"FactorKey",      type text},
+				                       {"Factor",         Int64.Type},
+				                       {"Description",    type text},
+				                       {"Operator Error", type text}
+				                   })
+				in
+				    FinalTypes
+

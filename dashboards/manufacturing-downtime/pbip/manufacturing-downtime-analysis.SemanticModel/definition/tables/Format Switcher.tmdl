@@ -1,0 +1,31 @@
+table 'Format Switcher'
+
+	/// Format switching calculation group
+	calculationGroup
+		precedence: 5
+
+		/// Default format from the measure
+		calculationItem Default = SELECTEDMEASURE()
+
+			formatStringDefinition = SELECTEDMEASUREFORMATSTRING()
+
+		/// Integer number format
+		calculationItem Integer = SELECTEDMEASURE()
+
+			formatStringDefinition = "#,##0"
+
+		/// One decimal place
+		calculationItem Decimal = SELECTEDMEASURE()
+
+			formatStringDefinition = "#,##0.0"
+
+		/// Percentage format
+		calculationItem Percentage = SELECTEDMEASURE()
+
+			formatStringDefinition = "#,##0.0%"
+
+	column 'Format Switcher'
+		dataType: string
+
+	partition 'Partition_Format Switcher' = calculationGroup
+

@@ -1,0 +1,61 @@
+table Dim_Product
+	lineageTag: 42c4b11d-40fd-4232-b6a1-1094a7424c4c
+
+	column ProductKey
+		dataType: string
+		isHidden
+		lineageTag: 5f1f239d-b84d-4d8a-a26a-65f752380923
+		sourceColumn: ProductKey
+
+	column Product
+		dataType: string
+		lineageTag: a6757a79-9823-4317-a59c-f324229f88f0
+		sourceColumn: Product
+
+	column Flavor
+		dataType: string
+		lineageTag: 6540e69d-3d47-4443-9fe6-f84683ff86ba
+		sourceColumn: Flavor
+
+	column Size
+		dataType: string
+		lineageTag: e751e0e0-de96-4dcb-ac14-4368622038f6
+		sourceColumn: Size
+
+	column 'Min batch time'
+		dataType: int64
+		lineageTag: fa572f0c-7f8d-46eb-8a4b-322116df39c4
+		sourceColumn: Min batch time
+
+	hierarchy 'Product Hierarchy'
+		lineageTag: 9376c571-ceea-48ca-b434-9d3862a2259f
+
+		level Flavor
+			lineageTag: 276e1a73-4958-4187-b797-89dc79941722
+			column: Flavor
+
+		level Product
+			lineageTag: f743cdb9-c4c0-4bb1-8d64-dfb2b66409e5
+			column: Product
+
+	partition Dim_Product = m
+		mode: import
+		source =
+				let
+				    Source       = Raw_Products,
+				    Distinct     = Table.Distinct(Source, {"Product"}),
+				    Sorted       = Table.Sort(Distinct, {{"Product", Order.Ascending}}),
+				    AddKey       = Table.AddColumn(Sorted, "ProductKey",
+				                       each fn_GenerateSurrogateKey({[Product]}, "PROD"),
+				                       type text),
+				    Reordered    = Table.ReorderColumns(AddKey, {"ProductKey", "Product", "Flavor", "Size", "Min batch time"}),
+				    FinalTypes   = Table.TransformColumnTypes(Reordered, {
+				                       {"ProductKey",     type text},
+				                       {"Product",        type text},
+				                       {"Flavor",         type text},
+				                       {"Size",           type text},
+				                       {"Min batch time", Int64.Type}
+				                   })
+				in
+				    FinalTypes
+

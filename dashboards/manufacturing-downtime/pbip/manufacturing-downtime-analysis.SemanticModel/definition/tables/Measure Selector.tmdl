@@ -1,0 +1,39 @@
+table 'Measure Selector'
+	lineageTag: 285eeba9-3317-497e-98b9-8effc0f88d28
+
+	column 'Measure Selector'
+		isNameInferred
+		sourceColumn: [Measure Selector]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Measure Selector Fields'
+		isNameInferred
+		sourceColumn: [Measure Selector Fields]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Measure Selector Order'
+		isHidden
+		isNameInferred
+		sourceColumn: [Measure Selector Order]
+
+	partition 'Measure Selector' = calculated
+		mode: import
+		source =
+				SELECTCOLUMNS(
+				    {
+				        ("Total Downtime Minutes",      NAMEOF('_Measures'[Total Downtime Minutes]),      0),
+				        ("Total Batches",               NAMEOF('_Measures'[Total Batches]),               1),
+				        ("Batch Efficiency %",          NAMEOF('_Measures'[Batch Efficiency %]),          2),
+				        ("Downtime Rate %",             NAMEOF('_Measures'[Downtime Rate %]),             3),
+				        ("Operator Error Downtime %",   NAMEOF('_Measures'[Operator Error Downtime %]),   4),
+				        ("Total Over Target Minutes",   NAMEOF('_Measures'[Total Over Target Minutes]),   5)
+				    },
+				    "Measure Selector",        [Value1],
+				    "Measure Selector Fields", [Value2],
+				    "Measure Selector Order",  [Value3]
+				)
+
+	annotation PBI_ResultType = FieldParameter
+

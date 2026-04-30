@@ -1,0 +1,4 @@
+<!-- kpi-neutral.svg — flat/neutral KPI direction: gray dash -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <rect x="4" y="10" width="16" height="4" rx="2" fill="#605E5C"/>
+</svg>

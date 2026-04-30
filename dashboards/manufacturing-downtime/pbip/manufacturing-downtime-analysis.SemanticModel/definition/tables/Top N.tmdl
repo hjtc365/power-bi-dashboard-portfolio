@@ -1,0 +1,15 @@
+table 'Top N'
+	lineageTag: 1f75c708-1ef2-4c58-a8b0-9e588b249674
+
+	column 'Top N'
+		isNameInferred
+		sourceColumn: [Top N]
+
+		annotation ParameterMetadata = {"version":3,"kind":0}
+
+	partition 'Top N' = calculated
+		mode: import
+		source = SELECTCOLUMNS(GENERATESERIES(1, 12, 1), "Top N", [Value])
+
+	annotation PBI_NavigationStepName = Navigation
+

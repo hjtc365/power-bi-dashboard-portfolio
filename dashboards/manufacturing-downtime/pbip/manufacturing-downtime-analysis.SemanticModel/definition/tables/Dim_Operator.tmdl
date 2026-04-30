@@ -1,0 +1,33 @@
+table Dim_Operator
+	lineageTag: 97085f9e-abd0-4ba8-aff4-f35e4d5df120
+
+	column OperatorKey
+		dataType: string
+		isHidden
+		lineageTag: 72cb3662-c5b3-435b-8040-fea13f57e413
+		sourceColumn: OperatorKey
+
+	column Operator
+		dataType: string
+		lineageTag: f67d3bf6-0ccc-418c-8c78-662dc0c87098
+		sourceColumn: Operator
+
+	partition Dim_Operator = m
+		mode: import
+		source =
+				let
+				    Source       = Raw_Productivity,
+				    Selected     = Table.SelectColumns(Source, {"Operator"}),
+				    Distinct     = Table.Distinct(Selected, {"Operator"}),
+				    Sorted       = Table.Sort(Distinct, {{"Operator", Order.Ascending}}),
+				    AddKey       = Table.AddColumn(Sorted, "OperatorKey",
+				                       each fn_GenerateSurrogateKey({[Operator]}, "OPR"),
+				                       type text),
+				    Reordered    = Table.ReorderColumns(AddKey, {"OperatorKey", "Operator"}),
+				    FinalTypes   = Table.TransformColumnTypes(Reordered, {
+				                       {"OperatorKey", type text},
+				                       {"Operator",   type text}
+				                   })
+				in
+				    FinalTypes
+

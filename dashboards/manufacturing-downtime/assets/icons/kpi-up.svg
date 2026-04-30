@@ -1,0 +1,4 @@
+<!-- kpi-up.svg — positive KPI direction: green upward triangle -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 5L20 19H4L12 5Z" fill="#107C10"/>
+</svg>

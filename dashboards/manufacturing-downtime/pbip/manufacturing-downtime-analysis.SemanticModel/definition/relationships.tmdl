@@ -1,0 +1,28 @@
+relationship Fact_Productivity_DateKey_Dim_Date_DateKey
+	fromColumn: Fact_Productivity.DateKey
+	toColumn: Dim_Date.DateKey
+
+relationship Fact_Productivity_ProductKey_Dim_Product_ProductKey
+	fromColumn: Fact_Productivity.ProductKey
+	toColumn: Dim_Product.ProductKey
+
+relationship Fact_Productivity_OperatorKey_Dim_Operator_OperatorKey
+	fromColumn: Fact_Productivity.OperatorKey
+	toColumn: Dim_Operator.OperatorKey
+
+relationship Fact_Downtime_DateKey_Dim_Date_DateKey
+	fromColumn: Fact_Downtime.DateKey
+	toColumn: Dim_Date.DateKey
+
+relationship Fact_Downtime_ProductKey_Dim_Product_ProductKey
+	fromColumn: Fact_Downtime.ProductKey
+	toColumn: Dim_Product.ProductKey
+
+relationship Fact_Downtime_OperatorKey_Dim_Operator_OperatorKey
+	fromColumn: Fact_Downtime.OperatorKey
+	toColumn: Dim_Operator.OperatorKey
+
+relationship Fact_Downtime_FactorKey_Dim_DowntimeFactor_FactorKey
+	fromColumn: Fact_Downtime.FactorKey
+	toColumn: Dim_DowntimeFactor.FactorKey
+

@@ -1,0 +1,39 @@
+table 'Dimension Selector'
+	lineageTag: 4f93bfd4-8b14-4366-b467-6a659d149f7b
+
+	column 'Dimension Selector'
+		isNameInferred
+		sourceColumn: [Dimension Selector]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dimension Selector Fields'
+		isNameInferred
+		sourceColumn: [Dimension Selector Fields]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dimension Selector Order'
+		isHidden
+		isNameInferred
+		sourceColumn: [Dimension Selector Order]
+
+	partition 'Dimension Selector' = calculated
+		mode: import
+		source =
+				SELECTCOLUMNS(
+				    {
+				        ("Operator",             NAMEOF('Dim_Operator'[Operator]),            0),
+				        ("Product",              NAMEOF('Dim_Product'[Product]),              1),
+				        ("Flavor",               NAMEOF('Dim_Product'[Flavor]),               2),
+				        ("Downtime Factor",      NAMEOF('Dim_DowntimeFactor'[Description]),   3),
+				        ("Date",                 NAMEOF('Dim_Date'[Date]),                    4),
+				        ("Month",                NAMEOF('Dim_Date'[Month Name]),              5)
+				    },
+				    "Dimension Selector",        [Value1],
+				    "Dimension Selector Fields", [Value2],
+				    "Dimension Selector Order",  [Value3]
+				)
+
+	annotation PBI_ResultType = FieldParameter
+

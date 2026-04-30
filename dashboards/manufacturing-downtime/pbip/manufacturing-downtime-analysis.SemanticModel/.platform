@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "manufacturing-downtime-analysis"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1c11ba35-593d-47eb-a72c-9c6d73e9c5c9"
+  }
+}
