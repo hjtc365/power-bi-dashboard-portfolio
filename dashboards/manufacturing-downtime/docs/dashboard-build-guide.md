@@ -6,6 +6,17 @@
 
 ---
 
+## Key Questions Coverage
+
+| Business Question | Measure(s) | Page |
+|---|---|---|
+| What's the current line efficiency? | `[Batch Efficiency %]`, `[Total Over Target Minutes]`, `[Downtime Rate %]` | Page 2 — KPI cards + trend line |
+| Are any operators underperforming? | `[Batch Efficiency %]`, `[Avg Downtime Per Batch]`, `[Operator Downtime Rank]`, `[Operator Downtime Share %]` | Page 4 — bar, scatter, summary table |
+| What are the leading factors for downtime? | `[Top N Factor Downtime]`, `[Factor Downtime Share %]`, `[Operator Error Downtime %]` | Page 2 (quick bar) + Page 3 (Top N + incidents) |
+| Do any operators struggle with particular operator error types? | `[Total Downtime Minutes]`, `[Operator Error Factor Share %]` | Page 4 — Operator × OE Factor matrix |
+
+---
+
 ## Data Model Overview
 
 ### Star Schema
@@ -183,7 +194,13 @@ _Measures                           (DAX measure container, no data)
 │   Y: Total Downtime    │  Downtime, Avg Downtime, Eff%          │
 │   Size: Batch Eff %    │  Sort by Total Downtime DESC           │
 │   Legend: Operator]    │                                        │
-└────────────────────────┴────────────────────────────────────────┘
+├────────────────────────┴────────────────────────────────────────┤
+│  [Matrix: Operator × Operator Error Factor — answers Q4]        │
+│  Rows: Dim_Operator[Operator]                                   │
+│  Cols: Dim_DowntimeFactor[Description]                          │
+│  Values: [Total Downtime Minutes] + [Operator Error Factor %]   │
+│  Visual filter: Dim_DowntimeFactor[Operator Error] = "Yes"      │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 **Visuals**:
@@ -195,6 +212,7 @@ _Measures                           (DAX measure container, no data)
 | 4 | Bar Chart | Y: `Dim_Operator[Operator]`, X: `[Top N Operator Downtime]` | Sorted DESC |
 | 5 | Scatter | X: `[Total Batches]`, Y: `[Total Downtime Minutes]`, Size: `[Batch Efficiency %]`, Legend: `Dim_Operator[Operator]` | |
 | 6 | Table | `Dim_Operator[Operator]`, `[Total Batches]`, `[Total Downtime Minutes]`, `[Avg Downtime Per Batch]`, `[Batch Efficiency %]` | Conditional bars on downtime |
+| 7 | Matrix | Rows: `Dim_Operator[Operator]`, Cols: `Dim_DowntimeFactor[Description]`, Values: `[Total Downtime Minutes]`, `[Operator Error Factor Share %]` | Add visual-level filter: `Dim_DowntimeFactor[Operator Error] = "Yes"`. Conditional format the values — highlights which operator is disproportionately responsible for each error type. |
 
 **Slicers**:
 - `Dim_Date[Date]` — range
@@ -302,6 +320,7 @@ Located in `assets/icons/`:
 | `Operator Error Downtime %` | `DIVIDE([Operator Error Downtime Minutes], [Total Downtime Minutes], 0)` |
 | `Operator Downtime Share %` | Share vs all operators (removes Dim_Operator filter) |
 | `Factor Downtime Share %` | Share vs all factors (removes Dim_DowntimeFactor filter) |
+| `Operator Error Factor Share %` | This OE factor's share of the operator's total OE downtime — use in Operator × OE Factor matrix to identify disproportionate error concentrations |
 
 ### Dynamic Measures (What-If / Ranking)
 | Measure | Description |
