@@ -2,12 +2,14 @@ table 'Measure Selector'
 	lineageTag: 285eeba9-3317-497e-98b9-8effc0f88d28
 
 	column 'Measure Selector'
+		lineageTag: bb7685b2-d423-4271-8958-f90348bd22d2
 		isNameInferred
 		sourceColumn: [Measure Selector]
 
 		annotation SummarizationSetBy = Automatic
 
 	column 'Measure Selector Fields'
+		lineageTag: 3af69a11-227e-4379-b0e6-42b9d63c43f7
 		isNameInferred
 		sourceColumn: [Measure Selector Fields]
 
@@ -15,6 +17,7 @@ table 'Measure Selector'
 
 	column 'Measure Selector Order'
 		isHidden
+		lineageTag: 78b5b567-2ddb-4933-b64a-3e80d4ac0a1f
 		isNameInferred
 		sourceColumn: [Measure Selector Order]
 

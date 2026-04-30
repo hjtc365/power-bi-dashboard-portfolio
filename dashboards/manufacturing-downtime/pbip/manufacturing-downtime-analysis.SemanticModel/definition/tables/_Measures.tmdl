@@ -157,7 +157,20 @@ table _Measures
 		lineageTag: 53d09648-7a0b-4528-ab04-b18d1552a0c6
 		dataCategory: ImageUrl
 
+	/// This operator-error factor's share of the operator's total operator-error downtime. Use in a matrix filtered to Operator Error = Yes to show which error types each operator is disproportionately responsible for.
+	measure 'Operator Error Factor Share %' =
+			DIVIDE(
+			    [Total Downtime Minutes],
+			    CALCULATE([Total Downtime Minutes], ALL(Dim_DowntimeFactor), Dim_DowntimeFactor[Operator Error] = "Yes"),
+			    0
+			)
+		formatString: #,##0.0%
+		displayFolder: 📈 Rates & Ratios
+		lineageTag: 89e01257-de4a-476d-a28b-fe91ea6d4a36
+
 	column _
+		isHidden
+		lineageTag: 73ffbb9c-a638-4650-9eca-c8dd35571def
 		isNameInferred
 		sourceColumn: [_]
 

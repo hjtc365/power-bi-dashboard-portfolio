@@ -1,4 +1,5 @@
 table 'Format Switcher'
+	lineageTag: bdc78455-3721-45ed-986c-3c778ccc2867
 
 	/// Format switching calculation group
 	calculationGroup
@@ -26,6 +27,7 @@ table 'Format Switcher'
 
 	column 'Format Switcher'
 		dataType: string
+		lineageTag: b7acb12a-acd2-4dda-8242-6cec2386172b
 
 	partition 'Partition_Format Switcher' = calculationGroup
 

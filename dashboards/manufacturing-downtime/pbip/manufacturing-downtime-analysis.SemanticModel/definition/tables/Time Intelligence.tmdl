@@ -1,4 +1,5 @@
 table 'Time Intelligence'
+	lineageTag: 13ca8730-ae96-4660-8689-e78ddfe81f03
 
 	/// Time intelligence calculation group for all base measures
 	calculationGroup
@@ -46,6 +47,7 @@ table 'Time Intelligence'
 
 	column 'Time Intelligence'
 		dataType: string
+		lineageTag: b8b6457d-9f1d-41cd-8d40-d06c9f385779
 
 	partition 'Partition_Time Intelligence' = calculationGroup
 
