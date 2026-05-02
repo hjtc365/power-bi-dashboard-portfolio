@@ -44,39 +44,155 @@ table Fact_Productivity
 		source =
 				let
 				    Source          = Raw_Productivity,
-				    ParsedStart     = Table.AddColumn(Source, "StartParsed",
-				                          each Time.FromText([Start Time]), type time),
-				    ParsedEnd       = Table.AddColumn(ParsedStart, "EndParsed",
-				                          each Time.FromText([End Time]), type time),
-				    AddDuration     = Table.AddColumn(ParsedEnd, "Actual Duration Minutes",
-				                          each Duration.TotalMinutes([EndParsed] - [StartParsed]),
-				                          type number),
-				    JoinProducts    = Table.NestedJoin(AddDuration, {"Product"}, Raw_Products, {"Product"}, "_ProdJoin", JoinKind.LeftOuter),
-				    ExpandProd      = Table.ExpandTableColumn(JoinProducts, "_ProdJoin", {"Min batch time"}, {"Min Batch Time"}),
-				    TypeMinBatch    = Table.TransformColumnTypes(ExpandProd, {{"Min Batch Time", Int64.Type}}),
-				    AddOverTarget   = Table.AddColumn(TypeMinBatch, "Over Target Minutes",
-				                          each [Actual Duration Minutes] - [Min Batch Time],
-				                          type number),
-				    AddProductKey   = Table.AddColumn(AddOverTarget, "ProductKey",
-				                          each fn_GenerateSurrogateKey({[Product]}, "PROD"), type text),
-				    AddOperatorKey  = Table.AddColumn(AddProductKey, "OperatorKey",
-				                          each fn_GenerateSurrogateKey({[Operator]}, "OPR"), type text),
-				    AddDateKey      = Table.AddColumn(AddOperatorKey, "DateKey",
-				                          each Date.Year([Date])*10000 + Date.Month([Date])*100 + Date.Day([Date]),
-				                          Int64.Type),
-				    SelectedCols    = Table.SelectColumns(AddDateKey, {
-				                          "Batch", "DateKey", "ProductKey", "OperatorKey",
-				                          "Actual Duration Minutes", "Min Batch Time", "Over Target Minutes"
-				                      }),
-				    FinalTypes      = Table.TransformColumnTypes(SelectedCols, {
-				                          {"Batch",                   Int64.Type},
-				                          {"DateKey",                 Int64.Type},
-				                          {"ProductKey",              type text},
-				                          {"OperatorKey",             type text},
-				                          {"Actual Duration Minutes", Int64.Type},
-				                          {"Min Batch Time",          Int64.Type},
-				                          {"Over Target Minutes",     Int64.Type}
-				                      })
+				
+				    // Build proper Start/End DateTime with overnight handling
+				    AddDateTimes =
+				        Table.AddColumn(
+				            Source,
+				            "DateTimes",
+				            each
+				                let
+				                    // force correct types safely
+				                    d = Date.From([Date]),
+				
+				                    startTime = try Time.From(DateTime.FromText([Start Time])) otherwise null,
+				                    endTime   = try Time.From(DateTime.FromText([End Time])) otherwise null,
+				
+				                    // convert both into duration since midnight
+				                    startDT =
+				                        if startTime <> null
+				                        then DateTime.From(d) + #duration(0, Time.Hour(startTime), Time.Minute(startTime), Time.Second(startTime))
+				                        else null,
+				
+				                    endDT =
+				                        if endTime <> null
+				                        then DateTime.From(d) + #duration(0, Time.Hour(endTime), Time.Minute(endTime), Time.Second(endTime))
+				                        else null,
+				
+				                    // overnight fix
+				                    adjustedEnd =
+				                        if startDT <> null and endDT <> null and endDT < startDT
+				                        then endDT + #duration(1, 0, 0, 0)
+				                        else endDT
+				                in
+				                    [
+				                        StartDateTime = startDT,
+				                        EndDateTime   = adjustedEnd
+				                    ],
+				            type record
+				        ),
+				
+				    ExpandDateTimes =
+				        Table.ExpandRecordColumn(
+				            AddDateTimes,
+				            "DateTimes",
+				            {"StartDateTime", "EndDateTime"},
+				            {"StartDateTime", "EndDateTime"}
+				        ),
+				
+				    // Calculate duration
+				    AddDuration =
+				        Table.AddColumn(
+				            ExpandDateTimes,
+				            "Actual Duration Minutes",
+				            each
+				                if [StartDateTime] <> null and [EndDateTime] <> null
+				                then Duration.TotalMinutes([EndDateTime] - [StartDateTime])
+				                else null,
+				            type number
+				        ),
+				
+				    // Join product to get min batch time
+				    JoinProducts =
+				        Table.NestedJoin(
+				            AddDuration,
+				            {"Product"},
+				            Raw_Products,
+				            {"Product"},
+				            "_ProdJoin",
+				            JoinKind.LeftOuter
+				        ),
+				
+				    ExpandProd =
+				        Table.ExpandTableColumn(
+				            JoinProducts,
+				            "_ProdJoin",
+				            {"Min batch time"},
+				            {"Min Batch Time"}
+				        ),
+				
+				    TypeMinBatch =
+				        Table.TransformColumnTypes(
+				            ExpandProd,
+				            {{"Min Batch Time", Int64.Type}}
+				        ),
+				
+				    // Variance calculation
+				    AddOverTarget =
+				        Table.AddColumn(
+				            TypeMinBatch,
+				            "Over Target Minutes",
+				            each [Actual Duration Minutes] - [Min Batch Time],
+				            type number
+				        ),
+				
+				    // Surrogate keys generation
+				    AddProductKey =
+				        Table.AddColumn(
+				            AddOverTarget,
+				            "ProductKey",
+				            each fn_GenerateSurrogateKey({[Product]}, "PROD"),
+				            type text
+				        ),
+				
+				    AddOperatorKey =
+				        Table.AddColumn(
+				            AddProductKey,
+				            "OperatorKey",
+				            each fn_GenerateSurrogateKey({[Operator]}, "OPR"),
+				            type text
+				        ),
+				
+				    AddDateKey =
+				        Table.AddColumn(
+				            AddOperatorKey,
+				            "DateKey",
+				            each Date.Year([Date]) * 10000 + Date.Month([Date]) * 100 + Date.Day([Date]),
+				            Int64.Type
+				        ),
+				
+				    SelectedCols =
+				        Table.SelectColumns(
+				            AddDateKey,
+				            {
+				                "Batch",
+				                "DateKey",
+				                "ProductKey",
+				                "OperatorKey",
+				                "Actual Duration Minutes",
+				                "Min Batch Time",
+				                "Over Target Minutes"
+				            }
+				        ),
+				
+				    FinalTypes =
+				        Table.TransformColumnTypes(
+				            SelectedCols,
+				            {
+				                {"Batch",                   Int64.Type},
+				                {"DateKey",                Int64.Type},
+				                {"ProductKey",             type text},
+				                {"OperatorKey",            type text},
+				                {"Actual Duration Minutes", Int64.Type},
+				                {"Min Batch Time",         Int64.Type},
+				                {"Over Target Minutes",    Int64.Type}
+				            }
+				        )
+				
 				in
 				    FinalTypes
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

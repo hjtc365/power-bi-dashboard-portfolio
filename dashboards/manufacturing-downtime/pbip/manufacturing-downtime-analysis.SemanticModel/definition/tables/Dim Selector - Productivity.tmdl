@@ -1,0 +1,50 @@
+table 'Dim Selector - Productivity'
+	lineageTag: f0ba019f-f93d-4888-bd1d-46be5f00357d
+
+	column 'Dim Selector - Productivity'
+		lineageTag: 001a8ebb-8e5d-4b94-921a-8a3f51914a92
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Dim Selector - Productivity Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Dim Selector - Productivity Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dim Selector - Productivity Fields'
+		isHidden
+		lineageTag: 4f70e432-78b1-4472-88f1-86b04531e7bf
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Dim Selector - Productivity Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dim Selector - Productivity Order'
+		isHidden
+		formatString: 0
+		lineageTag: 60ada61d-da06-4fe3-8b75-6d3062b1d772
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dim Selector - Productivity' = calculated
+		mode: import
+		source =
+				{
+				    ("Product", NAMEOF('Dim_Product'[Product]), 0),
+				    ("Flavor", NAMEOF('Dim_Product'[Flavor]), 1),
+				    ("Operator", NAMEOF('Dim_Operator'[Operator]), 2),
+				    ("Date", NAMEOF('Dim_Date'[Date]), 3)
+				}
+
+	annotation PBI_Id = 3be652cd034f4bc4bd37123223e7bbaf
+

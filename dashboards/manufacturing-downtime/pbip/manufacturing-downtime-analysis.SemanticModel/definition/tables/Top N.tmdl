@@ -2,11 +2,15 @@ table 'Top N'
 	lineageTag: 1f75c708-1ef2-4c58-a8b0-9e588b249674
 
 	column 'Top N'
+		formatString: 0
 		lineageTag: afb04f61-f840-4145-9143-01d6db33a6a4
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [Top N]
 
 		annotation ParameterMetadata = {"version":3,"kind":0}
+
+		annotation SummarizationSetBy = Automatic
 
 	partition 'Top N' = calculated
 		mode: import

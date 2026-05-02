@@ -104,9 +104,11 @@ table _Measures
 		lineageTag: 046c075f-aa35-4e07-8fab-79eb627493a1
 
 	/// Timestamp of the most recent data refresh
-	measure 'Last Refresh' = "Data last refreshed: " & FORMAT(NOW(), "MMM DD, YYYY h:mm AM/PM")
+	measure 'Last Refresh' = "Data Last Refreshed: " & FORMAT(NOW(), "MMM DD, YYYY h:mm AM/PM")
 		displayFolder: 🔧 Utility
 		lineageTag: edcecf05-3639-4eb3-96ea-78b7c004c3df
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	/// Total number of rows loaded in Fact_Productivity
 	measure 'Fact Productivity Row Count' = COUNTROWS(Fact_Productivity)
@@ -167,6 +169,16 @@ table _Measures
 		formatString: #,##0.0%
 		displayFolder: 📈 Rates & Ratios
 		lineageTag: 89e01257-de4a-476d-a28b-fe91ea6d4a36
+
+	measure 'Total Min Batches Padded' = [Total Batches] - 5
+		lineageTag: a05a51c0-3fe8-4303-b910-8c6f81c5e28a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Max Batches Padded' = [Total Batches] + 5
+		lineageTag: 23f08e0b-24de-487b-aa2c-1ee094cd4ad8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column _
 		isHidden

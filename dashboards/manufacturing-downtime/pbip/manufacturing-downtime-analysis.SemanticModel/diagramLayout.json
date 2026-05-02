@@ -11,7 +11,7 @@
         {
           "location": {
             "x": 0,
-            "y": 62
+            "y": 0
           },
           "nodeIndex": "Dim_DowntimeFactor",
           "nodeLineageTag": "672c8c5e-c44b-41eb-90e9-81034ffc953c",
@@ -19,12 +19,12 @@
             "height": 176,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
         },
         {
           "location": {
-            "x": 284,
-            "y": 86
+            "x": 279,
+            "y": 0
           },
           "nodeIndex": "Dim_Operator",
           "nodeLineageTag": "97085f9e-abd0-4ba8-aff4-f35e4d5df120",
@@ -32,12 +32,12 @@
             "height": 128,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 2
         },
         {
           "location": {
-            "x": 568,
-            "y": 50
+            "x": 563,
+            "y": 0
           },
           "nodeIndex": "Dim_Product",
           "nodeLineageTag": "42c4b11d-40fd-4232-b6a1-1094a7424c4c",
@@ -45,11 +45,11 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 3
         },
         {
           "location": {
-            "x": 852,
+            "x": 866,
             "y": 0
           },
           "nodeIndex": "Dim_Date",
@@ -58,25 +58,25 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 4
         },
         {
           "location": {
-            "x": 1136,
-            "y": 38
+            "x": 44,
+            "y": 421
           },
           "nodeIndex": "Fact_Downtime",
           "nodeLineageTag": "cc35c019-9f96-49ff-a97b-45d16806108d",
           "size": {
-            "height": 224,
+            "height": 250,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 5
         },
         {
           "location": {
-            "x": 1420,
-            "y": 26
+            "x": 622,
+            "y": 419
           },
           "nodeIndex": "Fact_Productivity",
           "nodeLineageTag": "042bc07c-765f-4ab2-a525-eaf71dc2d0ae",
@@ -84,7 +84,7 @@
             "height": 248,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 12
         },
         {
           "location": {
@@ -97,7 +97,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 6
         },
         {
           "location": {
@@ -109,7 +109,7 @@
             "height": 104,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 7
         },
         {
           "location": {
@@ -121,33 +121,7 @@
             "height": 104,
             "width": 234
           },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 2556,
-            "y": 74
-          },
-          "nodeIndex": "Dimension Selector",
-          "nodeLineageTag": "4f93bfd4-8b14-4366-b467-6a659d149f7b",
-          "size": {
-            "height": 152,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 2840,
-            "y": 74
-          },
-          "nodeIndex": "Measure Selector",
-          "nodeLineageTag": "285eeba9-3317-497e-98b9-8effc0f88d28",
-          "size": {
-            "height": 152,
-            "width": 234
-          },
-          "zIndex": 0
+          "zIndex": 8
         },
         {
           "location": {
@@ -160,6 +134,26 @@
             "height": 200,
             "width": 234
           },
+          "zIndex": 11
+        },
+        {
+          "location": {},
+          "nodeIndex": "Dim Selector - Productivity",
+          "nodeLineageTag": "f0ba019f-f93d-4888-bd1d-46be5f00357d",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Measure Selector - Productivity",
+          "nodeLineageTag": "0e1d42e3-c8c5-4743-96ec-974a0d6f2080",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
           "zIndex": 0
         }
       ],
@@ -169,8 +163,155 @@
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
       "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 321,
+            "y": 417
+          },
+          "nodeIndex": "Fact_Productivity",
+          "nodeLineageTag": "042bc07c-765f-4ab2-a525-eaf71dc2d0ae",
+          "size": {
+            "height": 275,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Date",
+          "nodeLineageTag": "4a646897-9a76-48d2-9e53-b8d43d044583",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 323,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Product",
+          "nodeLineageTag": "42c4b11d-40fd-4232-b6a1-1094a7424c4c",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 665,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Operator",
+          "nodeLineageTag": "97085f9e-abd0-4ba8-aff4-f35e4d5df120",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Productivity",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 2,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Date",
+          "nodeLineageTag": "4a646897-9a76-48d2-9e53-b8d43d044583",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 278,
+            "y": 454
+          },
+          "nodeIndex": "Fact_Downtime",
+          "nodeLineageTag": "cc35c019-9f96-49ff-a97b-45d16806108d",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 596,
+            "y": 2
+          },
+          "nodeIndex": "Dim_Operator",
+          "nodeLineageTag": "97085f9e-abd0-4ba8-aff4-f35e4d5df120",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 884,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Product",
+          "nodeLineageTag": "42c4b11d-40fd-4232-b6a1-1094a7424c4c",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 308,
+            "y": 0
+          },
+          "nodeIndex": "Dim_DowntimeFactor",
+          "nodeLineageTag": "672c8c5e-c44b-41eb-90e9-81034ffc953c",
+          "size": {
+            "height": 176,
+            "width": 252
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Downtime",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
     }
   ],
-  "selectedDiagram": "All tables",
+  "selectedDiagram": "Productivity",
   "defaultDiagram": "All tables"
 }
