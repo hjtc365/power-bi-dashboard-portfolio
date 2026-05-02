@@ -21,6 +21,14 @@ dashboards/
 	- Analyze marketing campaign effectiveness, channel performance, and customer engagement.
 	- Located in: `dashboards/campaign-performance/`
 
+- **Manufacturing Downtime Dashboard**
+	- Monitor and analyze production line downtime, identify root causes, and optimize manufacturing efficiency.
+	- Located in: `dashboards/manufacturing-downtime/`
+
+- **Train Rides Analytics Dashboard**
+	- Explore UK train ride data, uncover ridership trends, and visualize key rail network metrics.
+	- Located in: `dashboards/train-rides/`
+
 ## How to Use
 
 1. Clone this repository:
