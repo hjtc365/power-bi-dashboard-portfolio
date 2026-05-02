@@ -31,8 +31,8 @@ ref table _Measures
 ref table 'Time Intelligence'
 ref table 'Format Switcher'
 ref table 'Top N'
-ref table 'Dim Selector - Productivity'
-ref table 'Measure Selector - Productivity'
+ref table 'Dynamic Dim Selector'
+ref table 'Dynamic Measure Selector'
 
 ref cultureInfo en-US
 

@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "db99f7654900da30b96b",
   "position": {
-    "x": 20,
-    "y": 213,
+    "x": 19.575191163976211,
+    "y": 237.07731520815634,
     "z": 3000,
-    "height": 487,
-    "width": 1240,
+    "height": 464.36703483432456,
+    "width": 1240.8496176720475,
     "tabOrder": 2000
   },
   "visual": {
@@ -38,7 +38,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim Selector - Productivity"
+                      "Entity": "Dynamic Dim Selector"
                     }
                   },
                   "Property": "Dim Selector - Productivity"
@@ -63,8 +63,8 @@
                 }
               },
               "queryRef": "_Measures.Total Min Batch Time",
-              "nativeQueryRef": "Ideal Batch Mins",
-              "displayName": "Ideal Batch Mins"
+              "nativeQueryRef": "Target Batch Mins",
+              "displayName": "Target Batch Mins"
             },
             {
               "field": {
@@ -89,6 +89,21 @@
                       "Entity": "_Measures"
                     }
                   },
+                  "Property": "Total Over Target Minutes"
+                }
+              },
+              "queryRef": "_Measures.Total Over Target Minutes",
+              "nativeQueryRef": "Over Target Mins",
+              "displayName": "Over Target Mins"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
                   "Property": "Batch Efficiency %"
                 }
               },
@@ -103,14 +118,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measure Selector - Productivity"
+                      "Entity": "Dynamic Measure Selector"
                     }
                   },
                   "Property": "Measure Selector - Productivity"
                 }
               },
               "index": 0,
-              "length": 3,
+              "length": 4,
               "sortDirection": "Descending"
             }
           ]
@@ -169,25 +184,8 @@
                     "Value": "'CO-2L'"
                   }
                 }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'CO-600'"
-                  }
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'DC-600'"
-                  }
-                }
-              ]
+              ],
+              "isToggled": true
             }
           ]
         }
@@ -448,7 +446,7 @@
             "layout": {
               "expr": {
                 "Literal": {
-                  "Value": "'Outline'"
+                  "Value": "'Compact'"
                 }
               }
             }

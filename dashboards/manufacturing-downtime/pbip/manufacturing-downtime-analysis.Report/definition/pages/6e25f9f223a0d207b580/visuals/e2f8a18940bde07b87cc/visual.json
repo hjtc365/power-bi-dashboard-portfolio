@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "e2f8a18940bde07b87cc",
   "position": {
-    "x": 1105.3018372703411,
-    "y": 4.4794400699912513,
-    "z": 4000,
-    "height": 60.472440944881889,
-    "width": 154.54068241469815,
-    "tabOrder": 3000
+    "x": 1121.3223140495868,
+    "y": 0,
+    "z": 9000,
+    "height": 70.523415977961434,
+    "width": 158.67768595041321,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "slicer",
@@ -88,6 +88,19 @@
             }
           }
         }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "singleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -103,9 +116,34 @@
             }
           }
         }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'SlicerOperator'"
+                }
+              }
+            }
+          }
+        }
       ]
+    },
+    "syncGroup": {
+      "groupName": "Operator",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "c7b716bc59581ee52c9d"
+  "parentGroupName": "41cc64f8a72adba191e5"
 }

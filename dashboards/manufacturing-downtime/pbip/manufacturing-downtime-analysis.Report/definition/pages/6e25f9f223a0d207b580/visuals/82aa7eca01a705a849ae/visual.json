@@ -3,8 +3,8 @@
   "name": "82aa7eca01a705a849ae",
   "position": {
     "x": 19.692307692307693,
-    "y": 196.92307692307693,
-    "z": 2000,
+    "y": 201.22078594805868,
+    "z": 8500,
     "height": 237.62051282051283,
     "width": 610.46153846153845,
     "tabOrder": 1000
@@ -46,8 +46,8 @@
                 }
               },
               "queryRef": "_Measures.Total Min Batch Time",
-              "nativeQueryRef": "Ideal Batch Minutes",
-              "displayName": "Ideal Batch Minutes"
+              "nativeQueryRef": "Target Batch Minutes",
+              "displayName": "Target Batch Minutes"
             },
             {
               "field": {
@@ -124,6 +124,13 @@
                       "Percent": -0.25
                     }
                   }
+                }
+              }
+            },
+            "markerSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
                 }
               }
             }

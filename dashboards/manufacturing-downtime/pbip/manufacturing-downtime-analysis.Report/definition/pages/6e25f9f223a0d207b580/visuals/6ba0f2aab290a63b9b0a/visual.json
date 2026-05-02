@@ -4,7 +4,7 @@
   "position": {
     "x": 19.692307692307693,
     "y": 454.23589743589741,
-    "z": 4000,
+    "z": 8000,
     "height": 245.49743589743591,
     "width": 610.46153846153845,
     "tabOrder": 3000
@@ -88,9 +88,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 8,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#34A85A'"
                     }
                   }
                 }
@@ -99,6 +98,24 @@
           },
           "selector": {
             "metadata": "_Measures.Machine Downtime Minutes"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#A4262C'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Operator Error Downtime Minutes"
           }
         }
       ]

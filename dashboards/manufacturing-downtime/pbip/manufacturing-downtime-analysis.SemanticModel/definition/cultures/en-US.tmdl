@@ -5319,6 +5319,16 @@ cultureInfo en-US
 			          }
 			        },
 			        {
+			          "Downtime": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "Down Mins": {
 			            "State": "Suggested",
 			            "Source": {
@@ -5477,16 +5487,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Total Batch Minutes": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
 			          "Actual Batch Mins": {
 			            "State": "Suggested",
 			            "Source": {
@@ -5619,7 +5619,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Ideal Batch Minutes": {
+			          "Target Batch Minutes": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -5988,16 +5988,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.739
-			          }
-			        },
-			        {
-			          "Downtime %": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -8670,7 +8660,7 @@ cultureInfo en-US
 			    "dim_selector__productivity": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Dim Selector - Productivity"
+			          "ConceptualEntity": "Dynamic Dim Selector"
 			        }
 			      },
 			      "State": "Generated",
@@ -8803,7 +8793,7 @@ cultureInfo en-US
 			    "dim_selector__productivity.dim_selector__productivity": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Dim Selector - Productivity",
+			          "ConceptualEntity": "Dynamic Dim Selector",
 			          "ConceptualProperty": "Dim Selector - Productivity"
 			        }
 			      },
@@ -8943,7 +8933,7 @@ cultureInfo en-US
 			    "dim_selector__productivity.dim_selector__productivity_field": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Dim Selector - Productivity",
+			          "ConceptualEntity": "Dynamic Dim Selector",
 			          "ConceptualProperty": "Dim Selector - Productivity Fields"
 			        }
 			      },
@@ -9086,7 +9076,7 @@ cultureInfo en-US
 			    "dim_selector__productivity.dim_selector__productivity_order": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Dim Selector - Productivity",
+			          "ConceptualEntity": "Dynamic Dim Selector",
 			          "ConceptualProperty": "Dim Selector - Productivity Order"
 			        }
 			      },
@@ -9229,7 +9219,7 @@ cultureInfo en-US
 			    "measure_selector__productivity": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Measure Selector - Productivity"
+			          "ConceptualEntity": "Dynamic Measure Selector"
 			        }
 			      },
 			      "State": "Generated",
@@ -9362,7 +9352,7 @@ cultureInfo en-US
 			    "measure_selector__productivity.measure_selector__productivity": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Measure Selector - Productivity",
+			          "ConceptualEntity": "Dynamic Measure Selector",
 			          "ConceptualProperty": "Measure Selector - Productivity"
 			        }
 			      },
@@ -9502,7 +9492,7 @@ cultureInfo en-US
 			    "measure_selector__productivity.measure_selector__productivity_field": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Measure Selector - Productivity",
+			          "ConceptualEntity": "Dynamic Measure Selector",
 			          "ConceptualProperty": "Measure Selector - Productivity Fields"
 			        }
 			      },
@@ -9645,7 +9635,7 @@ cultureInfo en-US
 			    "measure_selector__productivity.measure_selector__productivity_order": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Measure Selector - Productivity",
+			          "ConceptualEntity": "Dynamic Measure Selector",
 			          "ConceptualProperty": "Measure Selector - Productivity Order"
 			        }
 			      },
@@ -9785,98 +9775,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "entity__measure.total_min_batches_padded": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "_Measures",
-			          "ConceptualProperty": "Total Min Batches Padded"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "total min batches padded": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "aggregate min batch padded": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "overall min batch padded": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "total minimum batch padded": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        }
-			      ]
-			    },
-			    "entity__measure.total_max_batches_padded": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "_Measures",
-			          "ConceptualProperty": "Total Max Batches Padded"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "total max batches padded": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "aggregate max batch padded": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "overall max batch padded": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "total maximum batch padded": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        }
-			      ]
-			    },
 			    "entity__measure.entity__total_min_batches_padded_FormatString": {
 			      "Definition": {
 			        "Binding": {
@@ -9910,6 +9808,661 @@ cultureInfo en-US
 			      "Terms": [
 			        {
 			          "_total max batches padded FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.sentiment_color_positive": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Sentiment Color Positive"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sentiment color positive": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "positive": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "color positive": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "encouraging": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "affirmative": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "progressive": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "up": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "upbeat": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "activist": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "clear": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        },
+			        {
+			          "assured": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.sentiment_color_negative": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Sentiment Color Negative"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sentiment color negative": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "negative": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "color negative": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "undesirable": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "damaging": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "sentiment color rejection": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.458
+			          }
+			        },
+			        {
+			          "sentiment color refusal": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.458
+			          }
+			        },
+			        {
+			          "sentiment color denial": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.458
+			          }
+			        },
+			        {
+			          "downbeat": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        },
+			        {
+			          "depressing": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        },
+			        {
+			          "disapproving": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        },
+			        {
+			          "discouraging": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        },
+			        {
+			          "color rejection": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.451
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.sentiment_color_neutral": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Sentiment Color Neutral"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sentiment color neutral": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "neutral": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "color neutral": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "middle-of-the-road": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "pale": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        },
+			        {
+			          "drab": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        },
+			        {
+			          "light-colored": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.efficiency_band_color": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Efficiency Band Color"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "efficiency band color": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "color": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "band color": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "efficiency band hue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "band hue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "efficiency band tint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "efficiency band shade": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "efficiency band dye": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "efficiency band paint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "efficiency band pigment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "hue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "band tint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "band shade": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.operator_error_color": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Operator Error Color"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "operator error color": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "color": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "error color": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "operator error hue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "error hue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "operator error tint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "operator error shade": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "operator error dye": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "operator error paint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "operator error pigment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "hue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "error tint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "error shade": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__sentiment_color_positive_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Sentiment Color Positive FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_sentiment color positive FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__sentiment_color_negative_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Sentiment Color Negative FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_sentiment color negative FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__sentiment_color_neutral_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Sentiment Color Neutral FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_sentiment color neutral FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__efficiency_band_color_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Efficiency Band Color FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_efficiency band color FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__operator_error_color_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Operator Error Color FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_operator error color FormatString": {
 			            "State": "Generated"
 			          }
 			        }
@@ -10272,6 +10825,171 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "dim_downtime_factor_has_entity__measure_operator_error_color": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_DowntimeFactor"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_downtime_factor": {
+			          "Target": {
+			            "Entity": "dim_downtime_factor"
+			          }
+			        },
+			        "entity__measure.operator_error_color": {
+			          "Target": {
+			            "Entity": "entity__measure.operator_error_color"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_downtime_factor"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.operator_error_color"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_downtime_factors_have_operator_error_color"
+			        }
+			      ]
+			    },
+			    "fact_productivity_has_entity__measure_efficiency_band_color": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Productivity"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_productivity": {
+			          "Target": {
+			            "Entity": "fact_productivity"
+			          }
+			        },
+			        "entity__measure.efficiency_band_color": {
+			          "Target": {
+			            "Entity": "entity__measure.efficiency_band_color"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_productivity"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.efficiency_band_color"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_productivities_have_efficiency_band_color"
+			        }
+			      ]
+			    },
+			    "entity__measure_has_sentiment_color_neutral": {
+			      "Binding": {
+			        "ConceptualEntity": "_Measures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "entity__measure": {
+			          "Target": {
+			            "Entity": "entity__measure"
+			          }
+			        },
+			        "entity__measure.sentiment_color_neutral": {
+			          "Target": {
+			            "Entity": "entity__measure.sentiment_color_neutral"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "entity__measure"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.sentiment_color_neutral"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Phrasing_measures_have_sentiment_color_neutral"
+			        }
+			      ]
+			    },
+			    "entity__measure_has_sentiment_color_negative": {
+			      "Binding": {
+			        "ConceptualEntity": "_Measures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "entity__measure": {
+			          "Target": {
+			            "Entity": "entity__measure"
+			          }
+			        },
+			        "entity__measure.sentiment_color_negative": {
+			          "Target": {
+			            "Entity": "entity__measure.sentiment_color_negative"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "entity__measure"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.sentiment_color_negative"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Phrasing_measures_have_sentiment_color_negative"
+			        }
+			      ]
+			    },
+			    "entity__measure_has_sentiment_color_positive": {
+			      "Binding": {
+			        "ConceptualEntity": "_Measures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "entity__measure": {
+			          "Target": {
+			            "Entity": "entity__measure"
+			          }
+			        },
+			        "entity__measure.sentiment_color_positive": {
+			          "Target": {
+			            "Entity": "entity__measure.sentiment_color_positive"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "entity__measure"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.sentiment_color_positive"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Phrasing_measures_have_sentiment_color_positive"
+			        }
+			      ]
+			    },
 			    "fact_productivity_has_entity__measure_total_max_batches_padded": {
 			      "Binding": {
 			        "ConceptualEntity": "Fact_Productivity"
@@ -10340,7 +11058,7 @@ cultureInfo en-US
 			    },
 			    "measure_selector__productivity_has_measure_selector__productivity": {
 			      "Binding": {
-			        "ConceptualEntity": "Measure Selector - Productivity"
+			        "ConceptualEntity": "Dynamic Measure Selector"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -10386,7 +11104,7 @@ cultureInfo en-US
 			    },
 			    "dim_selector__productivity_has_dim_selector__productivity": {
 			      "Binding": {
-			        "ConceptualEntity": "Dim Selector - Productivity"
+			        "ConceptualEntity": "Dynamic Dim Selector"
 			      },
 			      "State": "Generated",
 			      "Roles": {

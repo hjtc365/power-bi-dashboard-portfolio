@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "098ced6b90bcce092673",
   "position": {
-    "x": 941.80227471566059,
-    "y": 4.4794400699912513,
-    "z": 3000,
-    "height": 60.472440944881889,
-    "width": 154.54068241469815,
-    "tabOrder": 2000
+    "x": 962.64462809917347,
+    "y": 0,
+    "z": 7000,
+    "height": 70.523415977961434,
+    "width": 158.67768595041321,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "slicer",
@@ -95,6 +95,19 @@
             }
           }
         }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "singleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -122,9 +135,47 @@
             }
           }
         }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'SlicerProduct'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
       ]
+    },
+    "syncGroup": {
+      "groupName": "Product",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "c7b716bc59581ee52c9d"
+  "parentGroupName": "41cc64f8a72adba191e5"
 }

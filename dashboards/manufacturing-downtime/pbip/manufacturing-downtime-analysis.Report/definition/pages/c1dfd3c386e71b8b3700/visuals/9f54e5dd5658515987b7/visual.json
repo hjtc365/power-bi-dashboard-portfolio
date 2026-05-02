@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "9f54e5dd5658515987b7",
   "position": {
-    "x": 298.3458646616541,
-    "y": 194.61988304093566,
-    "z": 4000,
-    "height": 504.7284878863826,
-    "width": 961.33667502088554,
+    "x": 292.54035683942226,
+    "y": 202.27697536108747,
+    "z": 1000,
+    "height": 496.99235344095155,
+    "width": 966.79694137638057,
     "tabOrder": 1000
   },
   "visual": {
@@ -132,7 +132,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "57.40489935739021D"
+                  "Value": "63.88555221921222D"
                 }
               }
             }
@@ -169,7 +169,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "75.14653454126996D"
+                  "Value": "68.63368471895818D"
                 }
               }
             }
@@ -206,7 +206,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "65.47645871837022D"
+                  "Value": "69.79535531036922D"
                 }
               }
             }
@@ -243,7 +243,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "77.45797067769934D"
+                  "Value": "81.7825633086342D"
                 }
               }
             }
@@ -280,7 +280,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "81.33117956131991D"
+                  "Value": "80.24805747601216D"
                 }
               }
             }
@@ -317,7 +317,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "60.935897858604484D"
+                  "Value": "76.83800016526246D"
                 }
               }
             }
@@ -391,7 +391,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "96.81036802723705D"
+                  "Value": "88.09202622858479D"
                 }
               }
             }
@@ -428,7 +428,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "89.47450876199937D"
+                  "Value": "86.14560431923405D"
                 }
               }
             }
@@ -465,7 +465,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "49D"
+                  "Value": "82.30779679648089D"
                 }
               }
             }
@@ -502,7 +502,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "69.40517278490242D"
+                  "Value": "81.21632594422272D"
                 }
               }
             }
@@ -539,7 +539,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "47D"
+                  "Value": "43.737462610262654D"
                 }
               }
             }
@@ -568,7 +568,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "57D"
+                  "Value": "73D"
                 }
               }
             }
@@ -584,7 +584,7 @@
             "columnSubtotals": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -624,6 +624,67 @@
             }
           },
           "selector": {
+            "metadata": "_Measures.Total Downtime Minutes"
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "FillRule": {
+                      "Input": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "_Measures"
+                            }
+                          },
+                          "Property": "Total Downtime Minutes"
+                        }
+                      },
+                      "FillRule": {
+                        "linearGradient2": {
+                          "min": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'minColor'"
+                              }
+                            }
+                          },
+                          "max": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#c87d80'"
+                              }
+                            }
+                          },
+                          "nullColoringStrategy": {
+                            "strategy": {
+                              "Literal": {
+                                "Value": "'asZero'"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
             "metadata": "_Measures.Total Downtime Minutes"
           }
         }

@@ -11,9 +11,9 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "Custom_Theme6121947406087349.json",
+      "name": "Fizzy_Line_Theme7758489384468112.json",
       "reportVersionAtImport": {
-        "visual": "2.7.0",
+        "visual": "2.8.0",
         "report": "3.2.0",
         "page": "2.3.1"
       },
@@ -65,8 +65,8 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "Custom_Theme6121947406087349.json",
-          "path": "Custom_Theme6121947406087349.json",
+          "name": "Fizzy_Line_Theme7758489384468112.json",
+          "path": "Fizzy_Line_Theme7758489384468112.json",
           "type": "CustomTheme"
         },
         {
@@ -75,13 +75,18 @@
           "type": "Image"
         },
         {
-          "name": "icon-downtime-analysis32322917231511505.svg",
-          "path": "icon-downtime-analysis32322917231511505.svg",
+          "name": "icon-downtime-analysis07703554492173303.svg",
+          "path": "icon-downtime-analysis07703554492173303.svg",
           "type": "Image"
         },
         {
-          "name": "icon-operator-performance03439510084781572.svg",
-          "path": "icon-operator-performance03439510084781572.svg",
+          "name": "icon-downtime-analysis3348131841274259.svg",
+          "path": "icon-downtime-analysis3348131841274259.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-operator-performance1811218778377207.svg",
+          "path": "icon-operator-performance1811218778377207.svg",
           "type": "Image"
         },
         {
@@ -95,8 +100,8 @@
           "type": "Image"
         },
         {
-          "name": "icon-product-analysis06772705230427267.svg",
-          "path": "icon-product-analysis06772705230427267.svg",
+          "name": "icon-product-analysis7355049143960006.svg",
+          "path": "icon-product-analysis7355049143960006.svg",
           "type": "Image"
         }
       ]

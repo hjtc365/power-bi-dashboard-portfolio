@@ -2,183 +2,294 @@ table _Measures
 	lineageTag: 2212bf32-62b2-4a5b-b99d-89f3a27c0994
 
 	/// Total number of batches produced
-	measure 'Total Batches' = COUNTROWS(Fact_Productivity)
+	measure 'Total Batches' =
+			
+			COUNTROWS ( Fact_Productivity )
 		formatString: #,##0
 		displayFolder: 📊 Core Metrics
 		lineageTag: e776d241-d8ed-4426-98f7-6b4136b99814
 
 	/// Total downtime minutes across all batches and factors
-	measure 'Total Downtime Minutes' = SUM(Fact_Downtime[Downtime Minutes])
+	measure 'Total Downtime Minutes' =
+			
+			SUM ( Fact_Downtime[Downtime Minutes] )
 		formatString: #,##0
 		displayFolder: 📊 Core Metrics
 		lineageTag: 6699a546-ae49-405b-a169-592df0906305
 
 	/// Total actual production time in minutes
-	measure 'Total Actual Duration Minutes' = SUM(Fact_Productivity[Actual Duration Minutes])
+	measure 'Total Actual Duration Minutes' =
+			
+			SUM ( Fact_Productivity[Actual Duration Minutes] )
 		formatString: #,##0
 		displayFolder: 📊 Core Metrics
 		lineageTag: b9053fff-be6f-4f93-8088-3f4049dd8c83
 
 	/// Total minimum batch time target in minutes (no downtime scenario)
-	measure 'Total Min Batch Time' = SUM(Fact_Productivity[Min Batch Time])
+	measure 'Total Min Batch Time' =
+			
+			SUM ( Fact_Productivity[Min Batch Time] )
 		formatString: #,##0
 		displayFolder: 📊 Core Metrics
 		lineageTag: b9349a8d-96d0-4396-8bc0-d13cf1a51882
 
 	/// Total minutes over the minimum batch time target
-	measure 'Total Over Target Minutes' = SUM(Fact_Productivity[Over Target Minutes])
+	measure 'Total Over Target Minutes' =
+			
+			SUM ( Fact_Productivity[Over Target Minutes] )
 		formatString: #,##0
 		displayFolder: 📊 Core Metrics
 		lineageTag: 83a44f23-9e51-4d1c-b9a1-82b321d49fc4
 
 	/// Average actual batch duration in minutes
-	measure 'Avg Batch Duration Minutes' = DIVIDE([Total Actual Duration Minutes], [Total Batches], 0)
+	measure 'Avg Batch Duration Minutes' =
+			
+			DIVIDE ( [Total Actual Duration Minutes], [Total Batches], 0 )
 		formatString: #,##0.0
 		displayFolder: 📊 Core Metrics
 		lineageTag: bf262828-52da-4cf7-bfd2-b3b24c5464b9
 
 	/// Average downtime per batch in minutes
-	measure 'Avg Downtime Per Batch' = DIVIDE([Total Downtime Minutes], [Total Batches], 0)
+	measure 'Avg Downtime Per Batch' =
+			
+			DIVIDE ( [Total Downtime Minutes], [Total Batches], 0 )
 		formatString: #,##0.0
 		displayFolder: 📊 Core Metrics
 		lineageTag: ced7df0e-15e4-4df3-9d90-5fdcd1af9b99
 
 	/// Batch efficiency: minimum target time as a percentage of actual time. Higher is better.
-	measure 'Batch Efficiency %' = DIVIDE([Total Min Batch Time], [Total Actual Duration Minutes], 0)
+	measure 'Batch Efficiency %' =
+			
+			DIVIDE ( [Total Min Batch Time], [Total Actual Duration Minutes], 0 )
 		formatString: #,##0.0%
 		displayFolder: 📈 Rates & Ratios
 		lineageTag: dc335c3a-4325-400f-8275-8498daf05c8f
 
 	/// Downtime as a percentage of total actual production time
-	measure 'Downtime Rate %' = DIVIDE([Total Downtime Minutes], [Total Actual Duration Minutes], 0)
+	measure 'Downtime Rate %' =
+			
+			DIVIDE ( [Total Downtime Minutes], [Total Actual Duration Minutes], 0 )
 		formatString: #,##0.0%
 		displayFolder: 📈 Rates & Ratios
 		lineageTag: a9741b8e-8e12-4cbe-ab65-bdeeb016aa95
 
 	/// Downtime minutes caused by operator error factors only
-	measure 'Operator Error Downtime Minutes' = CALCULATE([Total Downtime Minutes], Dim_DowntimeFactor[Operator Error] = "Yes")
+	measure 'Operator Error Downtime Minutes' =
+			
+			CALCULATE (
+			    [Total Downtime Minutes],
+			    Dim_DowntimeFactor[Operator Error] = "Yes"
+			)
 		formatString: #,##0
 		displayFolder: 📊 Core Metrics
 		lineageTag: 8f3aef1f-cd96-458a-b5df-c0429438315d
 
 	/// Operator error downtime as a percentage of total downtime minutes
-	measure 'Operator Error Downtime %' = DIVIDE([Operator Error Downtime Minutes], [Total Downtime Minutes], 0)
+	measure 'Operator Error Downtime %' =
+			
+			DIVIDE ( [Operator Error Downtime Minutes], [Total Downtime Minutes], 0 )
 		formatString: #,##0.0%
 		displayFolder: 📈 Rates & Ratios
 		lineageTag: 0de4d18d-0986-4ee9-9207-79509ddb514f
 
 	/// Downtime minutes not caused by operator error (machine/process related)
-	measure 'Machine Downtime Minutes' = CALCULATE([Total Downtime Minutes], Dim_DowntimeFactor[Operator Error] = "No")
+	measure 'Machine Downtime Minutes' =
+			
+			CALCULATE (
+			    [Total Downtime Minutes],
+			    Dim_DowntimeFactor[Operator Error] = "No"
+			)
 		formatString: #,##0
 		displayFolder: 📊 Core Metrics
 		lineageTag: 8127f8be-eb2d-4590-8db9-359013276398
 
 	/// Number of downtime incidents (unique batch-factor combinations)
-	measure 'Total Downtime Incidents' = COUNTROWS(Fact_Downtime)
+	measure 'Total Downtime Incidents' =
+			
+			COUNTROWS ( Fact_Downtime )
 		formatString: #,##0
 		displayFolder: 📊 Core Metrics
 		lineageTag: bd4f530c-7ed6-4c58-bdf6-fe859155b8e3
 
 	/// Rank of operator by total downtime minutes — 1 is highest downtime
-	measure 'Operator Downtime Rank' = RANKX(ALL(Dim_Operator[Operator]), [Total Downtime Minutes], , DESC, DENSE)
+	measure 'Operator Downtime Rank' =
+			
+			RANKX ( ALL ( Dim_Operator[Operator] ), [Total Downtime Minutes],, DESC, DENSE )
 		formatString: #,##0
 		displayFolder: 🔢 Ranking
 		lineageTag: aae2bc7b-6035-479c-962f-fea7fcf3edc8
 
 	/// Rank of downtime factor by total minutes — 1 is most impactful factor
-	measure 'Factor Downtime Rank' = RANKX(ALL(Dim_DowntimeFactor[Description]), [Total Downtime Minutes], , DESC, DENSE)
+	measure 'Factor Downtime Rank' =
+			
+			RANKX (
+			    ALL ( Dim_DowntimeFactor[Description] ),
+			    [Total Downtime Minutes],
+			    ,
+			    DESC,
+			    DENSE
+			)
 		formatString: #,##0
 		displayFolder: 🔢 Ranking
 		lineageTag: bf1d27b5-f202-4cd1-bbfe-d709a95aa346
 
 	/// Operator's share of total downtime minutes across all operators
-	measure 'Operator Downtime Share %' = DIVIDE([Total Downtime Minutes], CALCULATE([Total Downtime Minutes], ALL(Dim_Operator)), 0)
+	measure 'Operator Downtime Share %' =
+			
+			DIVIDE (
+			    [Total Downtime Minutes],
+			    CALCULATE ( [Total Downtime Minutes], ALL ( Dim_Operator ) ),
+			    0
+			)
 		formatString: #,##0.0%
 		displayFolder: 📈 Rates & Ratios
 		lineageTag: 0988ebd5-de9e-447d-9eee-be9d36c15d1c
 
 	/// Factor's share of total downtime minutes across all factors
-	measure 'Factor Downtime Share %' = DIVIDE([Total Downtime Minutes], CALCULATE([Total Downtime Minutes], ALL(Dim_DowntimeFactor)), 0)
+	measure 'Factor Downtime Share %' =
+			
+			DIVIDE (
+			    [Total Downtime Minutes],
+			    CALCULATE ( [Total Downtime Minutes], ALL ( Dim_DowntimeFactor ) ),
+			    0
+			)
 		formatString: #,##0.0%
 		displayFolder: 📈 Rates & Ratios
 		lineageTag: 046c075f-aa35-4e07-8fab-79eb627493a1
 
 	/// Timestamp of the most recent data refresh
-	measure 'Last Refresh' = "Data Last Refreshed: " & FORMAT(NOW(), "MMM DD, YYYY h:mm AM/PM")
+	measure 'Last Refresh' =
+			
+			"Last Refresh: " & FORMAT ( NOW (), "MMM DD, YYYY h:mm AM/PM" )
 		displayFolder: 🔧 Utility
 		lineageTag: edcecf05-3639-4eb3-96ea-78b7c004c3df
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	/// Total number of rows loaded in Fact_Productivity
-	measure 'Fact Productivity Row Count' = COUNTROWS(Fact_Productivity)
+	measure 'Fact Productivity Row Count' =
+			
+			COUNTROWS ( Fact_Productivity )
 		formatString: #,##0
 		displayFolder: 🔧 Utility
 		lineageTag: 60ec33bd-3c7b-4fd2-a6c7-6d3224ff50d0
 
 	/// Total number of rows loaded in Fact_Downtime
-	measure 'Fact Downtime Row Count' = COUNTROWS(Fact_Downtime)
+	measure 'Fact Downtime Row Count' =
+			
+			COUNTROWS ( Fact_Downtime )
 		formatString: #,##0
 		displayFolder: 🔧 Utility
 		lineageTag: c88d15fa-f86a-4a28-aabd-ac71e7a5ab72
 
 	/// Selected value from the Top N slicer — defaults to 5
-	measure 'Top N Value' = SELECTEDVALUE('Top N'[Top N], 5)
+	measure 'Top N Value' =
+			
+			SELECTEDVALUE ( 'Top N'[Top N], 5 )
 		formatString: #,##0
 		displayFolder: ⚙️ What-If
 		lineageTag: 00c3d77a-6390-4e0f-96c5-e19075afbf90
 
 	/// Total downtime minutes visible only for the top N downtime factors
 	measure 'Top N Factor Downtime' =
-			VAR _n = SELECTEDVALUE('Top N'[Top N], 5)
-			RETURN IF([Factor Downtime Rank] <= _n, [Total Downtime Minutes], BLANK())
+			
+			VAR _n =
+			    SELECTEDVALUE ( 'Top N'[Top N], 5 )
+			RETURN
+			    IF ( [Factor Downtime Rank] <= _n, [Total Downtime Minutes], BLANK () )
 		formatString: #,##0
 		displayFolder: 🔢 Ranking
 		lineageTag: d01f0458-5fb2-4469-80d7-1ed68b5077f3
 
 	/// Total downtime minutes visible only for the top N operators by downtime
 	measure 'Top N Operator Downtime' =
-			VAR _n = SELECTEDVALUE('Top N'[Top N], 5)
-			RETURN IF([Operator Downtime Rank] <= _n, [Total Downtime Minutes], BLANK())
+			
+			VAR _n =
+			    SELECTEDVALUE ( 'Top N'[Top N], 5 )
+			RETURN
+			    IF ( [Operator Downtime Rank] <= _n, [Total Downtime Minutes], BLANK () )
 		formatString: #,##0
 		displayFolder: 🔢 Ranking
 		lineageTag: 5912e8b2-146f-4ba4-83fc-1994320e3b13
 
 	/// Inline KPI direction icon (up=green, down=red, neutral=gray) based on Batch Efficiency % change
 	measure 'Efficiency Status Icon' =
+			
 			VAR _eff = [Batch Efficiency %]
-			VAR _up   = "data:image/svg+xml;base64,PCEtLSBrcGktdXAuc3ZnIOKAlCBwb3NpdGl2ZSBLUEkgZGlyZWN0aW9uOiBncmVlbiB1cHdhcmQgdHJpYW5nbGUgLS0+DQo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgPHBhdGggZD0iTTEyIDVMMjAgMTlINEwxMiA1WiIgZmlsbD0iIzEwN0MxMCIvPg0KPC9zdmc+DQo="
+			VAR _up = "data:image/svg+xml;base64,PCEtLSBrcGktdXAuc3ZnIOKAlCBwb3NpdGl2ZSBLUEkgZGlyZWN0aW9uOiBncmVlbiB1cHdhcmQgdHJpYW5nbGUgLS0+DQo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgPHBhdGggZD0iTTEyIDVMMjAgMTlINEwxMiA1WiIgZmlsbD0iIzEwN0MxMCIvPg0KPC9zdmc+DQo="
 			VAR _down = "data:image/svg+xml;base64,PCEtLSBrcGktZG93bi5zdmcg4oCUIG5lZ2F0aXZlIEtQSSBkaXJlY3Rpb246IHJlZCBkb3dud2FyZCB0cmlhbmdsZSAtLT4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiPg0KICA8cGF0aCBkPSJNMTIgMTlMNCA1SDIwTDEyIDE5WiIgZmlsbD0iI0E0MjYyQyIvPg0KPC9zdmc+DQo="
 			VAR _flat = "data:image/svg+xml;base64,PCEtLSBrcGktbmV1dHJhbC5zdmcg4oCUIGZsYXQvbmV1dHJhbCBLUEkgZGlyZWN0aW9uOiBncmF5IGRhc2ggLS0+DQo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgPHJlY3QgeD0iNCIgeT0iMTAiIHdpZHRoPSIxNiIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzYwNUU1QyIvPg0KPC9zdmc+DQo="
 			RETURN
-			    SWITCH(TRUE(),
-			        _eff >= 0.90, _up,
-			        _eff >= 0.75, _flat,
-			        _down)
+			    SWITCH ( TRUE (), _eff >= 0.90, _up, _eff >= 0.75, _flat, _down )
 		displayFolder: 🔧 Utility
 		lineageTag: 53d09648-7a0b-4528-ab04-b18d1552a0c6
 		dataCategory: ImageUrl
 
 	/// This operator-error factor's share of the operator's total operator-error downtime. Use in a matrix filtered to Operator Error = Yes to show which error types each operator is disproportionately responsible for.
 	measure 'Operator Error Factor Share %' =
-			DIVIDE(
+			
+			DIVIDE (
 			    [Total Downtime Minutes],
-			    CALCULATE([Total Downtime Minutes], ALL(Dim_DowntimeFactor), Dim_DowntimeFactor[Operator Error] = "Yes"),
+			    CALCULATE (
+			        [Total Downtime Minutes],
+			        ALL ( Dim_DowntimeFactor ),
+			        Dim_DowntimeFactor[Operator Error] = "Yes"
+			    ),
 			    0
 			)
 		formatString: #,##0.0%
 		displayFolder: 📈 Rates & Ratios
 		lineageTag: 89e01257-de4a-476d-a28b-fe91ea6d4a36
 
-	measure 'Total Min Batches Padded' = [Total Batches] - 5
-		lineageTag: a05a51c0-3fe8-4303-b910-8c6f81c5e28a
+	/// Sentiment color for positive KPIs (efficiency, savings). Bind to card background or accent bar via conditional formatting.
+	measure 'Sentiment Color Positive' =
+			
+			"#34A85A"
+		displayFolder: 🎨 Styling
+		lineageTag: 11111111-1111-1111-1111-111111110001
+		dataCategory: HexColor
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+	/// Sentiment color for negative KPIs (downtime, errors, cost). Bind to card background or accent bar via conditional formatting.
+	measure 'Sentiment Color Negative' =
+			
+			"#A4262C"
+		displayFolder: 🎨 Styling
+		lineageTag: 11111111-1111-1111-1111-111111110002
+		dataCategory: HexColor
 
-	measure 'Total Max Batches Padded' = [Total Batches] + 5
-		lineageTag: 23f08e0b-24de-487b-aa2c-1ee094cd4ad8
+	/// Sentiment color for neutral KPIs (counts, identifiers).
+	measure 'Sentiment Color Neutral' =
+			
+			"#605E5C"
+		displayFolder: 🎨 Styling
+		lineageTag: 11111111-1111-1111-1111-111111110003
+		dataCategory: HexColor
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+	/// Banded color for Batch Efficiency %: red < 60%, amber 60–75%, green ≥ 75%. Bind to background of Eff% cells / cards.
+	measure 'Efficiency Band Color' =
+			
+			SWITCH (
+			    TRUE (),
+			    [Batch Efficiency %] < 0.60, "#A4262C",
+			    [Batch Efficiency %] < 0.75, "#C19C00",
+			    "#34A85A"
+			)
+		displayFolder: 🎨 Styling
+		lineageTag: 11111111-1111-1111-1111-111111110004
+		dataCategory: HexColor
+
+	/// Color for Operator Error rows in mixed bar charts: red if Yes, green if No. Use as "Color by category" rule.
+	measure 'Operator Error Color' =
+			
+			SWITCH (
+			    SELECTEDVALUE ( Dim_DowntimeFactor[Operator Error] ),
+			    "Yes", "#A4262C",
+			    "No", "#34A85A",
+			    "#605E5C"
+			)
+		displayFolder: 🎨 Styling
+		lineageTag: 11111111-1111-1111-1111-111111110005
+		dataCategory: HexColor
 
 	column _
 		isHidden

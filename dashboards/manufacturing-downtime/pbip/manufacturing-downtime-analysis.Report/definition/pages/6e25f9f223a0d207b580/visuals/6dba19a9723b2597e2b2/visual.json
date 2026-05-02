@@ -3,11 +3,11 @@
   "name": "6dba19a9723b2597e2b2",
   "position": {
     "x": 0,
-    "y": 0,
-    "z": 1000,
-    "height": 60,
-    "width": 60,
-    "tabOrder": 0
+    "y": 4.7015610651974287,
+    "z": 2000,
+    "height": 59.944903581267212,
+    "width": 59.944903581267212,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "image",
@@ -59,9 +59,29 @@
             }
           }
         }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ImageLogo'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "c7b716bc59581ee52c9d"
+  "parentGroupName": "41cc64f8a72adba191e5"
 }
