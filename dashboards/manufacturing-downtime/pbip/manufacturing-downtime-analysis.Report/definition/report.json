@@ -1,0 +1,118 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.2.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "Fluent2-CY26SU04",
+      "reportVersionAtImport": {
+        "visual": "2.8.0",
+        "report": "3.2.0",
+        "page": "2.3.1"
+      },
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "Fizzy_Line_Theme7758489384468112.json",
+      "reportVersionAtImport": {
+        "visual": "2.8.0",
+        "report": "3.2.0",
+        "page": "2.3.1"
+      },
+      "type": "RegisteredResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "Fluent2-CY26SU04",
+          "path": "BaseThemes/Fluent2-CY26SU04.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "Fizzy_Line_Theme7758489384468112.json",
+          "path": "Fizzy_Line_Theme7758489384468112.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "hero-cover04248582769572651.svg",
+          "path": "hero-cover04248582769572651.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-downtime-analysis07703554492173303.svg",
+          "path": "icon-downtime-analysis07703554492173303.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-downtime-analysis3348131841274259.svg",
+          "path": "icon-downtime-analysis3348131841274259.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-operator-performance1811218778377207.svg",
+          "path": "icon-operator-performance1811218778377207.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-overview10779688112839714.svg",
+          "path": "icon-overview10779688112839714.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-overview14963358999836696.svg",
+          "path": "icon-overview14963358999836696.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-product-analysis7355049143960006.svg",
+          "path": "icon-product-analysis7355049143960006.svg",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

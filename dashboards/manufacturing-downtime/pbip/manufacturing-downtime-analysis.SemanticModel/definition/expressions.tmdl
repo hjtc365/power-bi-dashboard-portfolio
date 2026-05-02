@@ -1,0 +1,92 @@
+expression fn_GenerateSurrogateKey =
+		(
+		    values as list,
+		    optional prefix as nullable text
+		) as text =>
+		let
+		    Cleaned =
+		        List.Transform(values, each
+		            let
+		                v       = if _ = null then "NULL" else Text.From(_),
+		                trimmed = Text.Trim(v),
+		                lowered = Text.Lower(trimmed),
+		                safe    = Text.Replace(lowered, "|", "")
+		            in safe),
+		    keyText  = Text.Combine(Cleaned, "|"),
+		    encoded  = Binary.ToText(Text.ToBinary(keyText), BinaryEncoding.Base64),
+		    finalKey = if prefix = null then encoded else prefix & "|" & encoded
+		in
+		    finalKey
+	lineageTag: 2a73f77a-4ea3-4f84-a20d-40255a9199c1
+	queryGroup: '🔧 Functions'
+
+expression Raw_Productivity =
+		let
+		    Source          = Excel.Workbook(File.Contents("C:\\Dev\\power-bi-dashboard-portfolio\\dashboards\\manufacturing-downtime\\datasets\\Manufacturing_Line_Productivity.xlsx"), null, true),
+		    Sheet           = Source{[Item="Line productivity",Kind="Sheet"]}[Data],
+		    PromotedHeaders = Table.PromoteHeaders(Sheet, [PromoteAllScalars=true]),
+		    TypedColumns    = Table.TransformColumnTypes(PromotedHeaders, {
+		                          {"Date",       type date},
+		                          {"Product",    type text},
+		                          {"Batch",      Int64.Type},
+		                          {"Operator",   type text},
+		                          {"Start Time", type text},
+		                          {"End Time",   type text}
+		                      })
+		in
+		    TypedColumns
+	lineageTag: 2584a1f7-b8fc-49f9-96f7-d65a694fe050
+	queryGroup: '📥 Staging'
+
+expression Raw_Products =
+		let
+		    Source          = Excel.Workbook(File.Contents("C:\\Dev\\power-bi-dashboard-portfolio\\dashboards\\manufacturing-downtime\\datasets\\Manufacturing_Line_Productivity.xlsx"), null, true),
+		    Sheet           = Source{[Item="Products",Kind="Sheet"]}[Data],
+		    PromotedHeaders = Table.PromoteHeaders(Sheet, [PromoteAllScalars=true]),
+		    TypedColumns    = Table.TransformColumnTypes(PromotedHeaders, {
+		                          {"Product",         type text},
+		                          {"Flavor",          type text},
+		                          {"Size",            type text},
+		                          {"Min batch time",  Int64.Type}
+		                      })
+		in
+		    TypedColumns
+	lineageTag: 1f1b2d5c-eadf-447e-96b7-ea1fa25d20a5
+	queryGroup: '📥 Staging'
+
+expression Raw_DowntimeFactors =
+		let
+		    Source          = Excel.Workbook(File.Contents("C:\\Dev\\power-bi-dashboard-portfolio\\dashboards\\manufacturing-downtime\\datasets\\Manufacturing_Line_Productivity.xlsx"), null, true),
+		    Sheet           = Source{[Item="Downtime factors",Kind="Sheet"]}[Data],
+		    PromotedHeaders = Table.PromoteHeaders(Sheet, [PromoteAllScalars=true]),
+		    TypedColumns    = Table.TransformColumnTypes(PromotedHeaders, {
+		                          {"Factor",          Int64.Type},
+		                          {"Description",     type text},
+		                          {"Operator Error",  type text}
+		                      })
+		in
+		    TypedColumns
+	lineageTag: 852667e0-f64d-4f0f-b1a3-27257b56b5c4
+	queryGroup: '📥 Staging'
+
+expression Raw_LineDowntime =
+		let
+		    Source          = Excel.Workbook(File.Contents("C:\\Dev\\power-bi-dashboard-portfolio\\dashboards\\manufacturing-downtime\\datasets\\Manufacturing_Line_Productivity.xlsx"), null, false),
+		    Sheet           = Source{[Item="Line downtime",Kind="Sheet"]}[Data],
+		    // Row 0: (blank, Downtime factor, blank...)
+		    // Row 1: (Batch, 1, 2, ..., 12)
+		    // Row 2+: actual data
+		    SkipLabelRow    = Table.Skip(Sheet, 1),
+		    Promoted        = Table.PromoteHeaders(SkipLabelRow, [PromoteAllScalars=true]),
+		    // Rename columns by position: first = Batch, rest = 1..12
+		    AllCols         = Table.ColumnNames(Promoted),
+		    RenameList      = List.Transform(List.Positions(AllCols), each
+		                          if _ = 0 then {AllCols{_}, "Batch"}
+		                          else {AllCols{_}, Text.From(_)}),
+		    Renamed         = Table.RenameColumns(Promoted, RenameList),
+		    TypedBatch      = Table.TransformColumnTypes(Renamed, {{"Batch", Int64.Type}})
+		in
+		    TypedBatch
+	lineageTag: 32ffaec0-acc9-4e22-abb0-88999893b92c
+	queryGroup: '📥 Staging'
+

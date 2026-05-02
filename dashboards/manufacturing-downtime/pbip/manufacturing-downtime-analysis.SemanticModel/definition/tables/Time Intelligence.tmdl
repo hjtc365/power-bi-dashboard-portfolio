@@ -1,0 +1,53 @@
+table 'Time Intelligence'
+	lineageTag: 13ca8730-ae96-4660-8689-e78ddfe81f03
+
+	/// Time intelligence calculation group for all base measures
+	calculationGroup
+		precedence: 10
+
+		/// Current period value with no time modification
+		calculationItem Actual = SELECTEDMEASURE()
+
+			formatStringDefinition = SELECTEDMEASUREFORMATSTRING()
+
+		/// Same measure for the equivalent period in the prior year
+		calculationItem 'Prior Year' = CALCULATE(SELECTEDMEASURE(), SAMEPERIODLASTYEAR(Dim_Date[Date]))
+
+			formatStringDefinition = SELECTEDMEASUREFORMATSTRING()
+
+		/// Absolute change versus prior year
+		calculationItem 'YoY Change' = SELECTEDMEASURE() - CALCULATE(SELECTEDMEASURE(), SAMEPERIODLASTYEAR(Dim_Date[Date]))
+
+			formatStringDefinition = SELECTEDMEASUREFORMATSTRING()
+
+		/// Percentage growth versus prior year
+		calculationItem 'YoY %' = VAR PY = CALCULATE(SELECTEDMEASURE(), SAMEPERIODLASTYEAR(Dim_Date[Date])) RETURN DIVIDE(SELECTEDMEASURE() - PY, PY, BLANK())
+
+			formatStringDefinition = "#,##0.0%"
+
+		/// Year-to-date cumulative value
+		calculationItem YTD = CALCULATE(SELECTEDMEASURE(), DATESYTD(Dim_Date[Date]))
+
+			formatStringDefinition = SELECTEDMEASUREFORMATSTRING()
+
+		/// Month-to-date cumulative value
+		calculationItem MTD = CALCULATE(SELECTEDMEASURE(), DATESMTD(Dim_Date[Date]))
+
+			formatStringDefinition = SELECTEDMEASUREFORMATSTRING()
+
+		/// Value for the prior calendar month
+		calculationItem 'Prior Month' = CALCULATE(SELECTEDMEASURE(), PREVIOUSMONTH(Dim_Date[Date]))
+
+			formatStringDefinition = SELECTEDMEASUREFORMATSTRING()
+
+		/// Percentage growth versus prior month
+		calculationItem 'MoM %' = VAR PM = CALCULATE(SELECTEDMEASURE(), PREVIOUSMONTH(Dim_Date[Date])) RETURN DIVIDE(SELECTEDMEASURE() - PM, PM, BLANK())
+
+			formatStringDefinition = "#,##0.0%"
+
+	column 'Time Intelligence'
+		dataType: string
+		lineageTag: b8b6457d-9f1d-41cd-8d40-d06c9f385779
+
+	partition 'Partition_Time Intelligence' = calculationGroup
+

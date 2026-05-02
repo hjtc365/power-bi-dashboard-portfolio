@@ -1,0 +1,69 @@
+table Fact_Downtime
+	lineageTag: cc35c019-9f96-49ff-a97b-45d16806108d
+
+	column Batch
+		dataType: int64
+		lineageTag: 05ad3687-19a2-4607-aefd-adcbde8d7be2
+		sourceColumn: Batch
+
+	column DateKey
+		dataType: int64
+		isHidden
+		lineageTag: 79e324c0-92db-4cc5-a0aa-1c15ea17f4f9
+		sourceColumn: DateKey
+
+	column ProductKey
+		dataType: string
+		isHidden
+		lineageTag: 1a7adba9-3108-4462-a00f-51803fa7cd84
+		sourceColumn: ProductKey
+
+	column OperatorKey
+		dataType: string
+		isHidden
+		lineageTag: d9096fe0-f1e2-486b-9c1a-f32d55baebce
+		sourceColumn: OperatorKey
+
+	column FactorKey
+		dataType: string
+		isHidden
+		lineageTag: 9909155b-cba6-4e96-9ec0-431640860923
+		sourceColumn: FactorKey
+
+	column 'Downtime Minutes'
+		dataType: double
+		lineageTag: 0ebb30a1-d400-47d5-b7dc-f2e0c99308f8
+		sourceColumn: Downtime Minutes
+
+	partition Fact_Downtime = m
+		mode: import
+		source =
+				let
+				    Source          = Raw_LineDowntime,
+				    UnpivotCols     = Table.UnpivotOtherColumns(Source, {"Batch"}, "FactorNum", "Downtime Minutes"),
+				    FilterBlanks    = Table.SelectRows(UnpivotCols, each [Downtime Minutes] <> null and [Downtime Minutes] > 0),
+				    AddFactorKey    = Table.AddColumn(FilterBlanks, "FactorKey",
+				                          each fn_GenerateSurrogateKey({[FactorNum]}, "DTF"), type text),
+				    JoinProd        = Table.NestedJoin(AddFactorKey, {"Batch"}, Raw_Productivity, {"Batch"}, "_ProdJoin", JoinKind.LeftOuter),
+				    ExpandProd      = Table.ExpandTableColumn(JoinProd, "_ProdJoin", {"Date", "Product", "Operator"}, {"Date", "Product", "Operator"}),
+				    TypeDate        = Table.TransformColumnTypes(ExpandProd, {{"Date", type date}}),
+				    AddProductKey   = Table.AddColumn(TypeDate, "ProductKey",
+				                          each fn_GenerateSurrogateKey({[Product]}, "PROD"), type text),
+				    AddOperatorKey  = Table.AddColumn(AddProductKey, "OperatorKey",
+				                          each fn_GenerateSurrogateKey({[Operator]}, "OPR"), type text),
+				    AddDateKey      = Table.AddColumn(AddOperatorKey, "DateKey",
+				                          each Date.Year([Date])*10000 + Date.Month([Date])*100 + Date.Day([Date]),
+				                          Int64.Type),
+				    SelectedCols    = Table.SelectColumns(AddDateKey, {
+				                          "Batch", "DateKey", "ProductKey", "OperatorKey", "FactorKey", "Downtime Minutes"
+				                      }),
+				    FinalTypes      = Table.TransformColumnTypes(SelectedCols, {
+				                          {"Batch",            Int64.Type},
+				                          {"DateKey",          Int64.Type},
+				                          {"ProductKey",       type text},
+				                          {"OperatorKey",      type text},
+				                          {"FactorKey",        type text}
+				                      })
+				in
+				    FinalTypes
+

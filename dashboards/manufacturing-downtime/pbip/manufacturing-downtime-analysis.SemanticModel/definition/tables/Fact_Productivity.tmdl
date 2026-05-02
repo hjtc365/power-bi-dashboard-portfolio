@@ -1,0 +1,198 @@
+table Fact_Productivity
+	lineageTag: 042bc07c-765f-4ab2-a525-eaf71dc2d0ae
+
+	column Batch
+		dataType: int64
+		lineageTag: f530866c-1adf-4d5e-8e92-237ed70d931b
+		sourceColumn: Batch
+
+	column DateKey
+		dataType: int64
+		isHidden
+		lineageTag: 83a8c45a-9b06-4980-b78a-1176b53d655b
+		sourceColumn: DateKey
+
+	column ProductKey
+		dataType: string
+		isHidden
+		lineageTag: 1cbb7157-f803-42b9-ad81-5fb3c7d4e332
+		sourceColumn: ProductKey
+
+	column OperatorKey
+		dataType: string
+		isHidden
+		lineageTag: 07463044-2100-417f-ad68-921e9523269e
+		sourceColumn: OperatorKey
+
+	column 'Actual Duration Minutes'
+		dataType: int64
+		lineageTag: 74c7b999-04be-4149-925b-19a7c44a0645
+		sourceColumn: Actual Duration Minutes
+
+	column 'Min Batch Time'
+		dataType: int64
+		lineageTag: 0ce6d35c-85d6-43ee-a5af-bfdd98bac0fd
+		sourceColumn: Min Batch Time
+
+	column 'Over Target Minutes'
+		dataType: int64
+		lineageTag: a1cbcf61-abc4-4f86-b681-33c900f229c8
+		sourceColumn: Over Target Minutes
+
+	partition Fact_Productivity = m
+		mode: import
+		source =
+				let
+				    Source          = Raw_Productivity,
+				
+				    // Build proper Start/End DateTime with overnight handling
+				    AddDateTimes =
+				        Table.AddColumn(
+				            Source,
+				            "DateTimes",
+				            each
+				                let
+				                    // force correct types safely
+				                    d = Date.From([Date]),
+				
+				                    startTime = try Time.From(DateTime.FromText([Start Time])) otherwise null,
+				                    endTime   = try Time.From(DateTime.FromText([End Time])) otherwise null,
+				
+				                    // convert both into duration since midnight
+				                    startDT =
+				                        if startTime <> null
+				                        then DateTime.From(d) + #duration(0, Time.Hour(startTime), Time.Minute(startTime), Time.Second(startTime))
+				                        else null,
+				
+				                    endDT =
+				                        if endTime <> null
+				                        then DateTime.From(d) + #duration(0, Time.Hour(endTime), Time.Minute(endTime), Time.Second(endTime))
+				                        else null,
+				
+				                    // overnight fix
+				                    adjustedEnd =
+				                        if startDT <> null and endDT <> null and endDT < startDT
+				                        then endDT + #duration(1, 0, 0, 0)
+				                        else endDT
+				                in
+				                    [
+				                        StartDateTime = startDT,
+				                        EndDateTime   = adjustedEnd
+				                    ],
+				            type record
+				        ),
+				
+				    ExpandDateTimes =
+				        Table.ExpandRecordColumn(
+				            AddDateTimes,
+				            "DateTimes",
+				            {"StartDateTime", "EndDateTime"},
+				            {"StartDateTime", "EndDateTime"}
+				        ),
+				
+				    // Calculate duration
+				    AddDuration =
+				        Table.AddColumn(
+				            ExpandDateTimes,
+				            "Actual Duration Minutes",
+				            each
+				                if [StartDateTime] <> null and [EndDateTime] <> null
+				                then Duration.TotalMinutes([EndDateTime] - [StartDateTime])
+				                else null,
+				            type number
+				        ),
+				
+				    // Join product to get min batch time
+				    JoinProducts =
+				        Table.NestedJoin(
+				            AddDuration,
+				            {"Product"},
+				            Raw_Products,
+				            {"Product"},
+				            "_ProdJoin",
+				            JoinKind.LeftOuter
+				        ),
+				
+				    ExpandProd =
+				        Table.ExpandTableColumn(
+				            JoinProducts,
+				            "_ProdJoin",
+				            {"Min batch time"},
+				            {"Min Batch Time"}
+				        ),
+				
+				    TypeMinBatch =
+				        Table.TransformColumnTypes(
+				            ExpandProd,
+				            {{"Min Batch Time", Int64.Type}}
+				        ),
+				
+				    // Variance calculation
+				    AddOverTarget =
+				        Table.AddColumn(
+				            TypeMinBatch,
+				            "Over Target Minutes",
+				            each [Actual Duration Minutes] - [Min Batch Time],
+				            type number
+				        ),
+				
+				    // Surrogate keys generation
+				    AddProductKey =
+				        Table.AddColumn(
+				            AddOverTarget,
+				            "ProductKey",
+				            each fn_GenerateSurrogateKey({[Product]}, "PROD"),
+				            type text
+				        ),
+				
+				    AddOperatorKey =
+				        Table.AddColumn(
+				            AddProductKey,
+				            "OperatorKey",
+				            each fn_GenerateSurrogateKey({[Operator]}, "OPR"),
+				            type text
+				        ),
+				
+				    AddDateKey =
+				        Table.AddColumn(
+				            AddOperatorKey,
+				            "DateKey",
+				            each Date.Year([Date]) * 10000 + Date.Month([Date]) * 100 + Date.Day([Date]),
+				            Int64.Type
+				        ),
+				
+				    SelectedCols =
+				        Table.SelectColumns(
+				            AddDateKey,
+				            {
+				                "Batch",
+				                "DateKey",
+				                "ProductKey",
+				                "OperatorKey",
+				                "Actual Duration Minutes",
+				                "Min Batch Time",
+				                "Over Target Minutes"
+				            }
+				        ),
+				
+				    FinalTypes =
+				        Table.TransformColumnTypes(
+				            SelectedCols,
+				            {
+				                {"Batch",                   Int64.Type},
+				                {"DateKey",                Int64.Type},
+				                {"ProductKey",             type text},
+				                {"OperatorKey",            type text},
+				                {"Actual Duration Minutes", Int64.Type},
+				                {"Min Batch Time",         Int64.Type},
+				                {"Over Target Minutes",    Int64.Type}
+				            }
+				        )
+				
+				in
+				    FinalTypes
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

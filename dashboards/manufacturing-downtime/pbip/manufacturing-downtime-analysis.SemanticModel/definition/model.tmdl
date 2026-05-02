@@ -1,0 +1,38 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: en-CA
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup '🔧 Functions'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup '📥 Staging'
+
+	annotation PBI_QueryGroupOrder = 1
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling"]
+
+annotation PBI_QueryOrder = ["Dim_Product","Dim_Operator","Dim_DowntimeFactor","Dim_Date","Fact_Productivity","Fact_Downtime","fn_GenerateSurrogateKey","Raw_Productivity","Raw_Products","Raw_DowntimeFactors","Raw_LineDowntime"]
+
+ref table Dim_Product
+ref table Dim_Operator
+ref table Dim_DowntimeFactor
+ref table Dim_Date
+ref table Fact_Productivity
+ref table Fact_Downtime
+ref table _Measures
+ref table 'Time Intelligence'
+ref table 'Format Switcher'
+ref table 'Top N'
+ref table 'Dynamic Dim Selector'
+ref table 'Dynamic Measure Selector'
+
+ref cultureInfo en-US
+

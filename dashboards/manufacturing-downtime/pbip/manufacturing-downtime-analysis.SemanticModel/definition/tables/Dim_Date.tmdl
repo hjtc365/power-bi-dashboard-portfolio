@@ -1,0 +1,162 @@
+table Dim_Date
+	lineageTag: 4a646897-9a76-48d2-9e53-b8d43d044583
+	dataCategory: Time
+
+	column DateKey
+		dataType: int64
+		isHidden
+		lineageTag: f5e2705b-8f36-4c73-b690-9ab01a25b3d7
+		sourceColumn: DateKey
+
+	column Date
+		dataType: dateTime
+		isUnique
+		lineageTag: 3f468a03-04fe-4945-b7ab-6d73c75e456a
+		sourceColumn: Date
+
+	column Year
+		dataType: int64
+		lineageTag: 77671f9a-0ae4-4091-8a0f-c3b2491dc898
+		sourceColumn: Year
+
+	column 'Quarter Number'
+		dataType: int64
+		isHidden
+		lineageTag: 8075363a-d916-41e8-b70c-9f26ef3ca026
+		sourceColumn: Quarter Number
+
+	column Quarter
+		dataType: string
+		lineageTag: efea370a-6c03-46f1-8603-26b3595c44c5
+		sourceColumn: Quarter
+		sortByColumn: 'Quarter Number'
+
+	column 'Month Number'
+		dataType: int64
+		isHidden
+		lineageTag: 12b916e6-601f-4888-a619-f15bbeb9f453
+		sourceColumn: Month Number
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: 30f2aa2f-3afa-420b-9d51-e87e129b1ba8
+		sourceColumn: Month Name
+		sortByColumn: 'Month Number'
+
+	column 'Month Short'
+		dataType: string
+		lineageTag: 24bc424e-097d-4cff-acc2-5a5036b046e6
+		sourceColumn: Month Short
+		sortByColumn: 'Month Number'
+
+	column Year-Month
+		dataType: string
+		lineageTag: 6d23255d-9085-45c3-ab92-d8a1b2eb75fe
+		sourceColumn: Year-Month
+		sortByColumn: YearMonthNum
+
+	column 'Week Number'
+		dataType: int64
+		lineageTag: 6c2fe9c8-4057-488a-9a0f-52b883cb891c
+		sourceColumn: Week Number
+
+	column 'Day of Week'
+		dataType: int64
+		isHidden
+		lineageTag: a294f2c6-6626-437d-bbf2-e8b5013e2fb4
+		sourceColumn: Day of Week
+
+	column 'Day Name'
+		dataType: string
+		lineageTag: 821286ce-2d64-4e8e-a8d8-3306fa5d2acd
+		sourceColumn: Day Name
+		sortByColumn: 'Day of Week'
+
+	column 'Day Short'
+		dataType: string
+		lineageTag: 3190f984-a3ac-4711-83f4-99874f98eeae
+		sourceColumn: Day Short
+
+	column 'Is Weekend'
+		dataType: boolean
+		lineageTag: f5e6a067-e0ac-4a98-b866-c83bb6a9d6f3
+		sourceColumn: Is Weekend
+
+	column 'Fiscal Year'
+		dataType: int64
+		lineageTag: 0ac47295-7a11-4869-a044-1e4e0299257d
+		sourceColumn: Fiscal Year
+
+	column 'Is Current Day'
+		dataType: boolean
+		lineageTag: eaa12831-6a78-44dc-93de-5d2a2371e280
+		sourceColumn: Is Current Day
+
+	column 'Is Current Month'
+		dataType: boolean
+		lineageTag: 72c57159-2761-45e5-916a-ae93a3ed9e45
+		sourceColumn: Is Current Month
+
+	column 'Is Current Year'
+		dataType: boolean
+		lineageTag: 84ac79cd-5e3b-4d63-a960-3331b4b757e8
+		sourceColumn: Is Current Year
+
+	column YearMonthNum
+		dataType: int64
+		isHidden
+		lineageTag: 07203255-053f-4634-998e-8c06bc746748
+		summarizeBy: none
+		sourceColumn: YearMonthNum
+
+	hierarchy 'Date Hierarchy'
+		lineageTag: 203aa6a8-acff-4758-8fd2-8ea9feb13d78
+
+		level Year
+			lineageTag: 77333293-9c3f-4f8f-be66-2b52cd28c482
+			column: Year
+
+		level Quarter
+			lineageTag: 7345d063-0085-46ed-9fd6-c0521dd020c1
+			column: Quarter
+
+		level 'Month Name'
+			lineageTag: 778a4da9-37a4-47d6-ad5b-c6b84fe0d3ff
+			column: 'Month Name'
+
+		level Date
+			lineageTag: 85827b51-700f-4c5d-bf1f-9aca17dfd651
+			column: Date
+
+	partition Dim_Date = m
+		mode: import
+		source =
+				let
+				    StartDate     = #date(2024, 8, 1),
+				    EndDate       = #date(2025, 12, 31),
+				    DayCount      = Duration.Days(EndDate - StartDate) + 1,
+				    Source        = List.Dates(StartDate, DayCount, #duration(1,0,0,0)),
+				    AsTable       = Table.FromList(Source, Splitter.SplitByNothing()),
+				    TypedDate     = Table.TransformColumnTypes(AsTable,{{"Column1", type date}}),
+				    Renamed       = Table.RenameColumns(TypedDate,{{"Column1","Date"}}),
+				    YearCol       = Table.AddColumn(Renamed,      "Year",            each Date.Year([Date]),            Int64.Type),
+				    QuarterNum    = Table.AddColumn(YearCol,       "Quarter Number",  each Date.QuarterOfYear([Date]),   Int64.Type),
+				    QuarterLabel  = Table.AddColumn(QuarterNum,    "Quarter",         each "Q" & Text.From(Date.QuarterOfYear([Date])), type text),
+				    MonthNum      = Table.AddColumn(QuarterLabel,  "Month Number",    each Date.Month([Date]),            Int64.Type),
+				    MonthName     = Table.AddColumn(MonthNum,      "Month Name",      each Date.ToText([Date],"MMMM","en-US"),   type text),
+				    MonthShort    = Table.AddColumn(MonthName,     "Month Short",     each Date.ToText([Date],"MMM","en-US"),    type text),
+				    YearMonthNum  = Table.AddColumn(MonthShort,    "YearMonthNum",    each Date.Year([Date]) * 100 + Date.Month([Date]), Int64.Type),
+				    YearMonth     = Table.AddColumn(YearMonthNum,  "Year-Month",      each Date.ToText([Date],"yyyy-MM","en-US"), type text),
+				    WeekNum       = Table.AddColumn(YearMonth,     "Week Number",     each Date.WeekOfYear([Date]),       Int64.Type),
+				    DayOfWeekNum  = Table.AddColumn(WeekNum,       "Day of Week",     each Date.DayOfWeek([Date], Day.Monday) + 1, Int64.Type),
+				    DayName       = Table.AddColumn(DayOfWeekNum,  "Day Name",        each Date.ToText([Date],"dddd","en-US"),   type text),
+				    DayShort      = Table.AddColumn(DayName,       "Day Short",       each Date.ToText([Date],"ddd","en-US"),    type text),
+				    IsWeekend     = Table.AddColumn(DayShort,      "Is Weekend",      each Date.DayOfWeek([Date]) = Day.Saturday or Date.DayOfWeek([Date]) = Day.Sunday, type logical),
+				    FiscalYear    = Table.AddColumn(IsWeekend,     "Fiscal Year",     each if Date.Month([Date]) >= 10 then Date.Year([Date]) + 1 else Date.Year([Date]), Int64.Type),
+				    IsCurrentDay  = Table.AddColumn(FiscalYear,    "Is Current Day",  each [Date] = Date.From(DateTime.LocalNow()), type logical),
+				    IsCurrentMth  = Table.AddColumn(IsCurrentDay,  "Is Current Month",each Date.Year([Date]) = Date.Year(DateTime.LocalNow()) and Date.Month([Date]) = Date.Month(DateTime.LocalNow()), type logical),
+				    IsCurrentYr   = Table.AddColumn(IsCurrentMth,  "Is Current Year", each Date.Year([Date]) = Date.Year(DateTime.LocalNow()), type logical),
+				    DateKey       = Table.AddColumn(IsCurrentYr,   "DateKey",         each Date.Year([Date]) * 10000 + Date.Month([Date]) * 100 + Date.Day([Date]), Int64.Type)
+				in
+				    DateKey
+
