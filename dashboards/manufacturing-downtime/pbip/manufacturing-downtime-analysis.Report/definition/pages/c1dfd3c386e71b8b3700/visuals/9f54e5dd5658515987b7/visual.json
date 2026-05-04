@@ -576,6 +576,43 @@
           "selector": {
             "metadata": "Fact_Downtime.Batch"
           }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "117D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dim_DowntimeFactor"
+                          }
+                        },
+                        "Property": "Description"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Emergency stop'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
         }
       ],
       "subTotals": [

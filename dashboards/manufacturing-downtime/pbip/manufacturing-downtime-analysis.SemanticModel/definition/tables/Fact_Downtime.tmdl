@@ -31,9 +31,13 @@ table Fact_Downtime
 		sourceColumn: FactorKey
 
 	column 'Downtime Minutes'
-		dataType: double
+		dataType: int64
+		formatString: 0
 		lineageTag: 0ebb30a1-d400-47d5-b7dc-f2e0c99308f8
+		summarizeBy: sum
 		sourceColumn: Downtime Minutes
+
+		annotation SummarizationSetBy = Automatic
 
 	partition Fact_Downtime = m
 		mode: import
@@ -57,13 +61,11 @@ table Fact_Downtime
 				    SelectedCols    = Table.SelectColumns(AddDateKey, {
 				                          "Batch", "DateKey", "ProductKey", "OperatorKey", "FactorKey", "Downtime Minutes"
 				                      }),
-				    FinalTypes      = Table.TransformColumnTypes(SelectedCols, {
-				                          {"Batch",            Int64.Type},
-				                          {"DateKey",          Int64.Type},
-				                          {"ProductKey",       type text},
-				                          {"OperatorKey",      type text},
-				                          {"FactorKey",        type text}
-				                      })
+				    FinalTypes      = Table.TransformColumnTypes(SelectedCols,{{"Batch", Int64.Type}, {"DateKey", Int64.Type}, {"ProductKey", type text}, {"OperatorKey", type text}, {"FactorKey", type text}, {"Downtime Minutes", Int64.Type}})
 				in
 				    FinalTypes
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

@@ -95,16 +95,16 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "_Measures"
+                    "Entity": "Dim_Operator"
                   }
                 },
-                "Property": "Batch Efficiency %"
+                "Property": "Operator"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -137,7 +137,7 @@
             "columnAdjustment": {
               "expr": {
                 "Literal": {
-                  "Value": "'fitToContent'"
+                  "Value": "'growToFit'"
                 }
               }
             },
@@ -789,7 +789,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "78.5220179953638D"
+                  "Value": "73.85925225532239D"
                 }
               }
             }
@@ -803,7 +803,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "67.35004156424864D"
+                  "Value": "63.32259571670146D"
                 }
               }
             }

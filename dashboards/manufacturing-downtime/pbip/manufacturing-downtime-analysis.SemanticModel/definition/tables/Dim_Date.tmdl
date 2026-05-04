@@ -11,8 +11,14 @@ table Dim_Date
 	column Date
 		dataType: dateTime
 		isUnique
+		formatString: Long Date
 		lineageTag: 3f468a03-04fe-4945-b7ab-6d73c75e456a
+		summarizeBy: none
 		sourceColumn: Date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation SummarizationSetBy = Automatic
 
 	column Year
 		dataType: int64
