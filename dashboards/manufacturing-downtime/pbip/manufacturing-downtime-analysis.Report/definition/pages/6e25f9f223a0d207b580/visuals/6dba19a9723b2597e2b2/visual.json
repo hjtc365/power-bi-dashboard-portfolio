@@ -3,10 +3,10 @@
   "name": "6dba19a9723b2597e2b2",
   "position": {
     "x": 0,
-    "y": 4.7015610651974287,
-    "z": 2000,
-    "height": 59.944903581267212,
-    "width": 59.944903581267212,
+    "y": 10.078740157480315,
+    "z": 5000,
+    "height": 49.385826771653541,
+    "width": 50.393700787401578,
     "tabOrder": 2000
   },
   "visual": {
@@ -74,6 +74,40 @@
               "expr": {
                 "Literal": {
                   "Value": "'ImageLogo'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }

@@ -1,0 +1,22 @@
+table 'Target Efficiency %'
+	lineageTag: 5ae2c61a-810e-4ef6-b7dd-b6c718a90c72
+
+	column 'Target Efficiency %'
+		formatString: 0
+		lineageTag: 10a1af79-211a-4555-806e-8e0ed0ae1d42
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition 'Target Efficiency %' = calculated
+		mode: import
+		source = GENERATESERIES(50, 100, 1)
+
+	annotation PBI_Id = a9fc2521e30c4308a70d9571307e25c4
+

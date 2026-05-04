@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "6a9ea58006d202cd820c",
   "position": {
-    "x": 359.955005624297,
-    "y": 490,
-    "z": 5000,
-    "height": 140,
-    "width": 260.607424071991,
+    "x": 509.48031496062993,
+    "y": 289.25984251968504,
+    "z": 7000,
+    "height": 140.09448818897638,
+    "width": 261.03937007874015,
     "tabOrder": 5000
   },
   "visual": {
@@ -378,6 +378,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ButtonDowntime'"
                 }
               }
             }

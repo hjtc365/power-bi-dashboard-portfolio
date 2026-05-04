@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "2a7e8af08c0a0052833a",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 2500,
+    "height": 720.62992125984249,
+    "width": 1280,
+    "tabOrder": 9007
+  },
+  "visualGroup": {
+    "displayName": "MeasurementTools",
+    "groupMode": "ScaleMode"
+  },
+  "isHidden": true
+}

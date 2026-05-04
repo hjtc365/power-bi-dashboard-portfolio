@@ -138,7 +138,37 @@
         },
         {
           "location": {},
-          "nodeIndex": "Dynamic Dim Selector",
+          "nodeIndex": "Downtime Reduction %",
+          "nodeLineageTag": "9b380418-9224-47f0-9ea1-7aa53390f367",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Target Efficiency %",
+          "nodeLineageTag": "5ae2c61a-810e-4ef6-b7dd-b6c718a90c72",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Downtime Cost Per Hour",
+          "nodeLineageTag": "6c10a3af-c4cb-466e-832d-508e9850d3cb",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Measure Selector",
           "size": {
             "height": 152,
             "width": 234
@@ -147,9 +177,28 @@
         },
         {
           "location": {},
-          "nodeIndex": "Dynamic Measure Selector",
+          "nodeIndex": "Dim Selector",
           "size": {
             "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Scenario Step",
+          "nodeLineageTag": "926e947e-c2e3-4559-8562-8297bc56b16a",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Scenario Steps",
+          "size": {
+            "height": 200,
             "width": 234
           },
           "zIndex": 0

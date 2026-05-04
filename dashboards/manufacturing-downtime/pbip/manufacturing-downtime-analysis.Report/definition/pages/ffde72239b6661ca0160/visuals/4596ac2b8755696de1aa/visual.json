@@ -4,7 +4,7 @@
   "position": {
     "x": 0,
     "y": 0,
-    "z": 0,
+    "z": 2000,
     "height": 719.91001124859383,
     "width": 1280,
     "tabOrder": 0
@@ -109,6 +109,13 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ImageBackground'"
                 }
               }
             }

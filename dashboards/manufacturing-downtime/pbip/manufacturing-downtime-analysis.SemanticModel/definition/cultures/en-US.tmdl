@@ -4307,12 +4307,6 @@ cultureInfo en-US
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
-			        },
-			        {
-			          "downtime": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
 			        }
 			      ]
 			    },
@@ -5330,6 +5324,16 @@ cultureInfo en-US
 			        },
 			        {
 			          "Downtime Mins": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Actual": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -6993,12 +6997,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "downtime": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
 			          "factor downtime": {
 			            "State": "Generated",
 			            "Weight": 0.97
@@ -7084,12 +7082,6 @@ cultureInfo en-US
 			        {
 			          "top n operator downtime": {
 			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "downtime": {
-			            "State": "Generated",
-			            "Weight": 0.97
 			          }
 			        },
 			        {
@@ -8637,99 +8629,27 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "dim_selector__productivity": {
+			    "dim_selector": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Dynamic Dim Selector"
+			          "ConceptualEntity": "Dim Selector"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "dim selector - productivity": {
+			          "dim selector": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "dim selector productivity": {
+			          "selector": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
 			        },
 			        {
-			          "productivity": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "selector productivity": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "dim selector - efficiency": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.514
-			          }
-			        },
-			        {
-			          "dim selector - production": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.514
-			          }
-			        },
-			        {
-			          "dim selector - throughput": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.514
-			          }
-			        },
-			        {
-			          "dim selector efficiency": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.508
-			          }
-			        },
-			        {
-			          "dim selector production": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.508
-			          }
-			        },
-			        {
-			          "dim selector throughput": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.508
-			          }
-			        },
-			        {
-			          "selector efficiency": {
+			          "dim chooser": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -8739,7 +8659,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "selector production": {
+			          "dim picker": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -8749,126 +8669,54 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "selector throughput": {
+			          "chooser": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.5
+			            "Weight": 0.491
 			          }
 			        },
 			        {
-			          "dim selector - output": {
+			          "picker": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.499
+			            "Weight": 0.491
 			          }
 			        }
 			      ]
 			    },
-			    "dim_selector__productivity.dim_selector__productivity": {
+			    "dim_selector.dim_selector": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Dynamic Dim Selector",
-			          "ConceptualProperty": "Dim Selector - Productivity"
+			          "ConceptualEntity": "Dim Selector",
+			          "ConceptualProperty": "Dim Selector"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "dim selector - productivity": {
+			          "dim selector": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "dim selector - productivity name": {
+			          "dim selector name": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "dim selector productivity": {
+			          "selector": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
 			        },
 			        {
-			          "productivity": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "selector productivity": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "dim selector - efficiency": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.514
-			          }
-			        },
-			        {
-			          "dim selector - production": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.514
-			          }
-			        },
-			        {
-			          "dim selector - throughput": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.514
-			          }
-			        },
-			        {
-			          "dim selector efficiency": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.508
-			          }
-			        },
-			        {
-			          "dim selector production": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.508
-			          }
-			        },
-			        {
-			          "dim selector throughput": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.508
-			          }
-			        },
-			        {
-			          "selector efficiency": {
+			          "dim chooser": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -8878,7 +8726,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "selector production": {
+			          "dim picker": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -8888,32 +8736,32 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "selector throughput": {
+			          "chooser": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.5
+			            "Weight": 0.491
 			          }
 			        },
 			        {
-			          "dim selector - output": {
+			          "picker": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.499
+			            "Weight": 0.491
 			          }
 			        }
 			      ],
 			      "NameType": "Name"
 			    },
-			    "dim_selector__productivity.dim_selector__productivity_field": {
+			    "dim_selector.dim_selector__productivity_field": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Dynamic Dim Selector",
+			          "ConceptualEntity": "Dim Selector",
 			          "ConceptualProperty": "Dim Selector - Productivity Fields"
 			        }
 			      },
@@ -9053,10 +8901,10 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "dim_selector__productivity.dim_selector__productivity_order": {
+			    "dim_selector.dim_selector__productivity_order": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Dynamic Dim Selector",
+			          "ConceptualEntity": "Dim Selector",
 			          "ConceptualProperty": "Dim Selector - Productivity Order"
 			        }
 			      },
@@ -9072,12 +8920,6 @@ cultureInfo en-US
 			        },
 			        {
 			          "dim selector productivity order": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "order": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
@@ -9196,99 +9038,27 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "measure_selector__productivity": {
+			    "measure_selector": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Dynamic Measure Selector"
+			          "ConceptualEntity": "Measure Selector"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "measure selector - productivity": {
+			          "measure selector": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "measure selector productivity": {
+			          "selector": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
 			        },
 			        {
-			          "productivity": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "selector productivity": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "measure selector - efficiency": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.514
-			          }
-			        },
-			        {
-			          "measure selector - production": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.514
-			          }
-			        },
-			        {
-			          "measure selector - throughput": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.514
-			          }
-			        },
-			        {
-			          "measure selector efficiency": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.508
-			          }
-			        },
-			        {
-			          "measure selector production": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.508
-			          }
-			        },
-			        {
-			          "measure selector throughput": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.508
-			          }
-			        },
-			        {
-			          "selector efficiency": {
+			          "measure chooser": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -9298,7 +9068,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "selector production": {
+			          "measure picker": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -9308,126 +9078,54 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "selector throughput": {
+			          "chooser": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.5
+			            "Weight": 0.491
 			          }
 			        },
 			        {
-			          "measure selector - output": {
+			          "picker": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.499
+			            "Weight": 0.491
 			          }
 			        }
 			      ]
 			    },
-			    "measure_selector__productivity.measure_selector__productivity": {
+			    "measure_selector.measure_selector": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Dynamic Measure Selector",
-			          "ConceptualProperty": "Measure Selector - Productivity"
+			          "ConceptualEntity": "Measure Selector",
+			          "ConceptualProperty": "Measure Selector"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "measure selector - productivity": {
+			          "measure selector": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "measure selector - productivity name": {
+			          "measure selector name": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "measure selector productivity": {
+			          "selector": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
 			        },
 			        {
-			          "productivity": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "selector productivity": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "measure selector - efficiency": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.514
-			          }
-			        },
-			        {
-			          "measure selector - production": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.514
-			          }
-			        },
-			        {
-			          "measure selector - throughput": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.514
-			          }
-			        },
-			        {
-			          "measure selector efficiency": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.508
-			          }
-			        },
-			        {
-			          "measure selector production": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.508
-			          }
-			        },
-			        {
-			          "measure selector throughput": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.508
-			          }
-			        },
-			        {
-			          "selector efficiency": {
+			          "measure chooser": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -9437,7 +9135,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "selector production": {
+			          "measure picker": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -9447,32 +9145,32 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "selector throughput": {
+			          "chooser": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.5
+			            "Weight": 0.491
 			          }
 			        },
 			        {
-			          "measure selector - output": {
+			          "picker": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.499
+			            "Weight": 0.491
 			          }
 			        }
 			      ],
 			      "NameType": "Name"
 			    },
-			    "measure_selector__productivity.measure_selector__productivity_field": {
+			    "measure_selector.measure_selector__productivity_field": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Dynamic Measure Selector",
+			          "ConceptualEntity": "Measure Selector",
 			          "ConceptualProperty": "Measure Selector - Productivity Fields"
 			        }
 			      },
@@ -9612,10 +9310,10 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "measure_selector__productivity.measure_selector__productivity_order": {
+			    "measure_selector.measure_selector__productivity_order": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Dynamic Measure Selector",
+			          "ConceptualEntity": "Measure Selector",
 			          "ConceptualProperty": "Measure Selector - Productivity Order"
 			        }
 			      },
@@ -9631,12 +9329,6 @@ cultureInfo en-US
 			        },
 			        {
 			          "measure selector productivity order": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "order": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
@@ -9755,40 +9447,244 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "entity__measure.entity__total_min_batches_padded_FormatString": {
+			    "entity__measure.downtime_reduction__value": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "_Measures",
-			          "ConceptualProperty": "_Total Min Batches Padded FormatString"
+			          "ConceptualProperty": "Downtime Reduction % Value"
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
-			          "_total min batches padded FormatString": {
+			          "downtime reduction % value": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "downtime reduction percentage value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "downtime reduction pct value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "downtime reduction % assessment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "downtime reduction % worth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "downtime reduction % price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "downtime reduction % cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "downtime reduction % charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "downtime reduction % rate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "downtime reduction % importance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "downtime reduction % significance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
 			          }
 			        }
 			      ]
 			    },
-			    "entity__measure.entity__total_max_batches_padded_FormatString": {
+			    "entity__measure.target_efficiency__value": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "_Measures",
-			          "ConceptualProperty": "_Total Max Batches Padded FormatString"
+			          "ConceptualProperty": "Target Efficiency % Value"
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
-			          "_total max batches padded FormatString": {
+			          "target efficiency % value": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "target efficiency percentage value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "focus efficiency % value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "goal efficiency % value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "objective efficiency % value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "target efficiency pct value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "target efficiency % assessment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "target efficiency % worth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "target efficiency % price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "target efficiency % cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "target efficiency % charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "Target Batch Efficiency %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -10447,272 +10343,2674 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "entity__measure.downtime_cost_per_hour_value": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Downtime Cost Per Hour Value"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "downtime cost per hour value": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "downtime price per hour value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "downtime charge per hour value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "downtime rate per hour value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "downtime fee per hour value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "downtime total per hour value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "downtime expenditure per hour value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.494
+			          }
+			        },
+			        {
+			          "downtime budget per hour value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.479
+			          }
+			        },
+			        {
+			          "downtime amount per hour value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.479
+			          }
+			        },
+			        {
+			          "downtime outlay per hour value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.479
+			          }
+			        },
+			        {
+			          "downtime expense per hour value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.479
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.simulated_downtime_minutes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Simulated Downtime Minutes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "simulated downtime minutes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "downtime minutes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "simulated downtime transcript": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "simulated downtime transcription": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "simulated downtime résumé": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "downtime transcript": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "downtime transcription": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "downtime résumé": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "simulated downtime note": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "simulated downtime action": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "simulated downtime record": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "simulated downtime proceeding": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "Simulated": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.simulated_actual_duration_minutes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Simulated Actual Duration Minutes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "simulated actual duration minutes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "duration minutes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "actual duration minutes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "simulated real duration minute": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "simulated existent duration minute": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "simulated tangible duration minute": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "real duration minute": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "existent duration minute": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "tangible duration minute": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "simulated actual duration transcript": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "simulated actual duration transcription": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "simulated actual duration résumé": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "actual duration transcript": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.simulated_batch_efficiency_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Simulated Batch Efficiency %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "simulated batch efficiency %": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "simulated batch efficiency percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "simulated batch efficiency pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.efficiency_gap_to_target_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Efficiency Gap To Target %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "efficiency gap to target %": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "efficiency gap to target percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "efficiency gap to focus %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "efficiency gap to goal %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "efficiency gap to objective %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "efficiency gap to target pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "efficiency cavity to target %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "efficiency aperture to target %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "efficiency hole to target %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "efficiency opening to target %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "efficiency break to target %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.downtime_hours_saved": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Downtime Hours Saved"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "downtime hours saved": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "downtime period saved": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "downtime eras saved": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "downtime epoch saved": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "downtime age saved": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.downtime_cost_avoided": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Downtime Cost Avoided"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "downtime cost avoided": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "downtime price avoided": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "downtime charge avoided": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "downtime rate avoided": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "downtime fee avoided": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "downtime total avoided": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "downtime expenditure avoided": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "downtime budget avoided": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "downtime amount avoided": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "downtime outlay avoided": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "downtime expense avoided": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.residual_downtime_cost": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Residual Downtime Cost"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "residual downtime cost": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cost": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "downtime cost": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "residual downtime price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "residual downtime charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "residual downtime rate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "residual downtime fee": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "residual downtime total": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "downtime price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "downtime charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "downtime rate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "downtime fee": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "downtime total": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.min_value_gauge": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Min Value Gauge"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "min value gauge": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "gauge": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "value gauge": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "minimum value gauge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "min value device": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "min value tester": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "value device": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "value tester": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "min value instrument": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "min value measure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "min value meter": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "min value scale": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "device": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.max_value_gauge": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Max Value Gauge"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "max value gauge": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "gauge": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "value gauge": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "maximum value gauge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "max value device": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "max value tester": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "value device": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "value tester": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "max value instrument": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "max value measure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "max value meter": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "max value scale": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "device": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__target_efficiency__value_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Target Efficiency % Value FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_target efficiency % value FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__downtime_reduction__value_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Downtime Reduction % Value FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_downtime reduction % value FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__downtime_cost_per_hour_value_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Downtime Cost Per Hour Value FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_downtime cost per hour value FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__simulated_downtime_minutes_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Simulated Downtime Minutes FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_simulated downtime minutes FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__simulated_actual_duration_minutes_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Simulated Actual Duration Minutes FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_simulated actual duration minutes FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__simulated_batch_efficiency__FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Simulated Batch Efficiency % FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_simulated batch efficiency % FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__efficiency_gap_to_target__FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Efficiency Gap To Target % FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_efficiency gap to target % FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__downtime_hours_saved_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Downtime Hours Saved FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_downtime hours saved FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__downtime_cost_avoided_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Downtime Cost Avoided FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_downtime cost avoided FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__residual_downtime_cost_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Residual Downtime Cost FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_residual downtime cost FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__min_value_gauge_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Min Value Gauge FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_min value gauge FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_ minimum value gauge formatstring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__max_value_gauge_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Max Value Gauge FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_max value gauge FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_ maximum value gauge formatstring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "downtime_reduction_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Downtime Reduction %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "downtime reduction %": {
+			            "State": "Generated",
+			            "Weight": 0.87
+			          }
+			        },
+			        {
+			          "downtime reduction percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "downtime reduction pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        }
+			      ]
+			    },
+			    "downtime_reduction_.downtime_reduction_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Downtime Reduction %",
+			          "ConceptualProperty": "Downtime Reduction %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "downtime reduction %": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "downtime reduction percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "downtime reduction pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        }
+			      ]
+			    },
+			    "target_efficiency_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target Efficiency %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "target efficiency %": {
+			            "State": "Generated",
+			            "Weight": 0.87
+			          }
+			        },
+			        {
+			          "target efficiency percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "target efficiency pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "focus efficiency %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "goal efficiency %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "objective efficiency %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "target_efficiency_.target_efficiency_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target Efficiency %",
+			          "ConceptualProperty": "Target Efficiency %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "target efficiency %": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "target efficiency percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "target efficiency pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "focus efficiency %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "goal efficiency %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "objective efficiency %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "downtime_cost_per_hour": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Downtime Cost Per Hour"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "downtime cost per hour": {
+			            "State": "Generated",
+			            "Weight": 0.87
+			          }
+			        },
+			        {
+			          "cost": {
+			            "State": "Generated",
+			            "Weight": 0.8439
+			          }
+			        },
+			        {
+			          "downtime cost": {
+			            "State": "Generated",
+			            "Weight": 0.8439
+			          }
+			        },
+			        {
+			          "downtime price per hour": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "downtime charge per hour": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "downtime rate per hour": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "downtime fee per hour": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "downtime total per hour": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "downtime expenditure per hour": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "downtime price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "downtime charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "downtime rate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "downtime fee": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "downtime_cost_per_hour.downtime_cost_per_hour": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Downtime Cost Per Hour",
+			          "ConceptualProperty": "Downtime Cost Per Hour"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "downtime cost per hour": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cost": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "downtime cost": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "downtime price per hour": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "downtime charge per hour": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "downtime rate per hour": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "downtime fee per hour": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "downtime total per hour": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "downtime expenditure per hour": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "downtime price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "downtime charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "downtime rate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "downtime fee": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.total_downtime_cost": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Total Downtime Cost"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total downtime cost": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cost": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "downtime cost": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "aggregate downtime cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "overall downtime cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "total downtime price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "total downtime charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "total downtime rate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "total downtime fee": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "total downtime total": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "downtime price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "downtime charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "downtime rate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.net_reduction": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Net Reduction"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "net reduction": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "reduction": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "net diminution": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "net cutback": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "diminution": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "cutback": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "net discount": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "net decrease": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "net lessening": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "net drop": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "net saving": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "net bargain": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.waterfall_value": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Waterfall Value"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "waterfall value": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "value": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "waterfall assessment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "assessment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "waterfall worth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "waterfall price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "waterfall cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "waterfall charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "waterfall rate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "worth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.simulated_efficiency_band_color": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Simulated Efficiency Band Color"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "simulated efficiency band color": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "color": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "band color": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "simulated efficiency band hue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "band hue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "simulated efficiency band tint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "simulated efficiency band shade": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "simulated efficiency band dye": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "simulated efficiency band paint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "simulated efficiency band pigment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "hue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "band tint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "band shade": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__total_downtime_cost_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Total Downtime Cost FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_total downtime cost FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_ aggregate downtime cost formatstring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "_ overall downtime cost formatstring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__net_reduction_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Net Reduction FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_net reduction FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__waterfall_value_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Waterfall Value FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_waterfall value FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity__simulated_efficiency_band_color_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "_Simulated Efficiency Band Color FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_simulated efficiency band color FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "scenario_step": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Scenario Steps"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "scenario step": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "scenario stage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "scenario phase": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "scenario period": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "scenario footstep": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "scenario pace": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "scenario stride": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "scenario stair": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.451
+			          }
+			        }
+			      ]
+			    },
+			    "scenario_step.step": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Scenario Steps",
+			          "ConceptualProperty": "Step"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "step": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "stage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "phase": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "period": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "footstep": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "pace": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        },
+			        {
+			          "stride": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        }
+			      ]
+			    },
+			    "scenario_step.order": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Scenario Steps",
+			          "ConceptualProperty": "Order"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "order": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "instruction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "direction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "edict": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "command": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "directive": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "demand": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "mandate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "imperative": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "stability": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "harmony": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "dim_product_product_hierarchy_has_flavor": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_Product"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_product.product_hierarchy": {
-			          "Target": {
-			            "Entity": "dim_product.product_hierarchy"
-			          }
-			        },
-			        "dim_product.product_hierarchy.flavor": {
-			          "Target": {
-			            "Entity": "dim_product.product_hierarchy.flavor"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_product.product_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "dim_product.product_hierarchy.flavor"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "product_hierarchies_have_flavors"
-			        }
-			      ]
-			    },
-			    "fact_downtime_has_dim_downtime_factor": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact_Downtime"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_downtime": {
-			          "Target": {
-			            "Entity": "fact_downtime"
-			          }
-			        },
-			        "dim_downtime_factor": {
-			          "Target": {
-			            "Entity": "dim_downtime_factor"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_downtime"
-			            },
-			            "Object": {
-			              "Role": "dim_downtime_factor"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_downtimes_have_dim_downtime_factors"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_downtime_factor"
-			            },
-			            "Object": {
-			              "Role": "fact_downtime"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_downtime_factors_have_fact_downtimes"
-			        }
-			      ]
-			    },
-			    "fact_downtime_has_dim_operator": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact_Downtime"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_downtime": {
-			          "Target": {
-			            "Entity": "fact_downtime"
-			          }
-			        },
-			        "dim_operator": {
-			          "Target": {
-			            "Entity": "dim_operator"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_downtime"
-			            },
-			            "Object": {
-			              "Role": "dim_operator"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_downtimes_have_dim_operators"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_operator"
-			            },
-			            "Object": {
-			              "Role": "fact_downtime"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_operators_have_fact_downtimes"
-			        }
-			      ]
-			    },
-			    "fact_downtime_has_dim_product": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact_Downtime"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_downtime": {
-			          "Target": {
-			            "Entity": "fact_downtime"
-			          }
-			        },
-			        "dim_product": {
-			          "Target": {
-			            "Entity": "dim_product"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_downtime"
-			            },
-			            "Object": {
-			              "Role": "dim_product"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_downtimes_have_dim_products"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_product"
-			            },
-			            "Object": {
-			              "Role": "fact_downtime"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_products_have_fact_downtimes"
-			        }
-			      ]
-			    },
-			    "fact_downtime_has_dim_date": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact_Downtime"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_downtime": {
-			          "Target": {
-			            "Entity": "fact_downtime"
-			          }
-			        },
-			        "dim_date": {
-			          "Target": {
-			            "Entity": "dim_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_downtime"
-			            },
-			            "Object": {
-			              "Role": "dim_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_downtimes_have_dim_dates"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_date"
-			            },
-			            "Object": {
-			              "Role": "fact_downtime"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_dates_have_fact_downtimes"
-			        }
-			      ]
-			    },
-			    "fact_productivity_has_dim_operator": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact_Productivity"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_productivity": {
-			          "Target": {
-			            "Entity": "fact_productivity"
-			          }
-			        },
-			        "dim_operator": {
-			          "Target": {
-			            "Entity": "dim_operator"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_productivity"
-			            },
-			            "Object": {
-			              "Role": "dim_operator"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_productivities_have_dim_operators"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_operator"
-			            },
-			            "Object": {
-			              "Role": "fact_productivity"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_operators_have_fact_productivities"
-			        }
-			      ]
-			    },
 			    "fact_productivity_has_dim_product": {
 			      "Binding": {
 			        "ConceptualEntity": "Fact_Productivity"
@@ -10802,6 +13100,1488 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_dates_have_fact_productivities"
+			        }
+			      ]
+			    },
+			    "scenario_step_has_order": {
+			      "Binding": {
+			        "ConceptualEntity": "Scenario Steps"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "scenario_step": {
+			          "Target": {
+			            "Entity": "scenario_step"
+			          }
+			        },
+			        "scenario_step.order": {
+			          "Target": {
+			            "Entity": "scenario_step.order"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "scenario_step"
+			            },
+			            "Object": {
+			              "Role": "scenario_step.order"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "scenario_steps_have_orders"
+			        }
+			      ]
+			    },
+			    "scenario_step_has_step": {
+			      "Binding": {
+			        "ConceptualEntity": "Scenario Steps"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "scenario_step": {
+			          "Target": {
+			            "Entity": "scenario_step"
+			          }
+			        },
+			        "scenario_step.step": {
+			          "Target": {
+			            "Entity": "scenario_step.step"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "scenario_step"
+			            },
+			            "Object": {
+			              "Role": "scenario_step.step"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "scenario_steps_have_steps"
+			        }
+			      ]
+			    },
+			    "fact_productivity_has_entity__measure_simulated_efficiency_band_color": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Productivity"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_productivity": {
+			          "Target": {
+			            "Entity": "fact_productivity"
+			          }
+			        },
+			        "entity__measure.simulated_efficiency_band_color": {
+			          "Target": {
+			            "Entity": "entity__measure.simulated_efficiency_band_color"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_productivity"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.simulated_efficiency_band_color"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_productivities_have_simulated_efficiency_band_color"
+			        }
+			      ]
+			    },
+			    "fact_downtime_has_entity__measure_simulated_efficiency_band_color": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Downtime"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_downtime": {
+			          "Target": {
+			            "Entity": "fact_downtime"
+			          }
+			        },
+			        "entity__measure.simulated_efficiency_band_color": {
+			          "Target": {
+			            "Entity": "entity__measure.simulated_efficiency_band_color"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_downtime"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.simulated_efficiency_band_color"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_downtimes_have_simulated_efficiency_band_color"
+			        }
+			      ]
+			    },
+			    "downtime_reduction__has_entity__measure_simulated_efficiency_band_color": {
+			      "Binding": {
+			        "ConceptualEntity": "Downtime Reduction %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "downtime_reduction_": {
+			          "Target": {
+			            "Entity": "downtime_reduction_"
+			          }
+			        },
+			        "entity__measure.simulated_efficiency_band_color": {
+			          "Target": {
+			            "Entity": "entity__measure.simulated_efficiency_band_color"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "downtime_reduction_"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.simulated_efficiency_band_color"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_reduction__have_simulated_efficiency_band_color"
+			        }
+			      ]
+			    },
+			    "scenario_step_has_entity__measure_waterfall_value": {
+			      "Binding": {
+			        "ConceptualEntity": "Scenario Steps"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "scenario_step": {
+			          "Target": {
+			            "Entity": "scenario_step"
+			          }
+			        },
+			        "entity__measure.waterfall_value": {
+			          "Target": {
+			            "Entity": "entity__measure.waterfall_value"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "scenario_step"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.waterfall_value"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "scenario_steps_have_waterfall_value"
+			        }
+			      ]
+			    },
+			    "fact_downtime_has_entity__measure_waterfall_value": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Downtime"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_downtime": {
+			          "Target": {
+			            "Entity": "fact_downtime"
+			          }
+			        },
+			        "entity__measure.waterfall_value": {
+			          "Target": {
+			            "Entity": "entity__measure.waterfall_value"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_downtime"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.waterfall_value"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_downtimes_have_waterfall_value"
+			        }
+			      ]
+			    },
+			    "downtime_reduction__has_entity__measure_waterfall_value": {
+			      "Binding": {
+			        "ConceptualEntity": "Downtime Reduction %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "downtime_reduction_": {
+			          "Target": {
+			            "Entity": "downtime_reduction_"
+			          }
+			        },
+			        "entity__measure.waterfall_value": {
+			          "Target": {
+			            "Entity": "entity__measure.waterfall_value"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "downtime_reduction_"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.waterfall_value"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_reduction__have_waterfall_value"
+			        }
+			      ]
+			    },
+			    "downtime_cost_per_hour_has_entity__measure_waterfall_value": {
+			      "Binding": {
+			        "ConceptualEntity": "Downtime Cost Per Hour"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "downtime_cost_per_hour": {
+			          "Target": {
+			            "Entity": "downtime_cost_per_hour"
+			          }
+			        },
+			        "entity__measure.waterfall_value": {
+			          "Target": {
+			            "Entity": "entity__measure.waterfall_value"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "downtime_cost_per_hour"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.waterfall_value"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_cost_per_hour_have_waterfall_value"
+			        }
+			      ]
+			    },
+			    "fact_downtime_has_entity__measure_net_reduction": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Downtime"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_downtime": {
+			          "Target": {
+			            "Entity": "fact_downtime"
+			          }
+			        },
+			        "entity__measure.net_reduction": {
+			          "Target": {
+			            "Entity": "entity__measure.net_reduction"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_downtime"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.net_reduction"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_downtimes_have_net_reduction"
+			        }
+			      ]
+			    },
+			    "downtime_reduction__has_entity__measure_net_reduction": {
+			      "Binding": {
+			        "ConceptualEntity": "Downtime Reduction %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "downtime_reduction_": {
+			          "Target": {
+			            "Entity": "downtime_reduction_"
+			          }
+			        },
+			        "entity__measure.net_reduction": {
+			          "Target": {
+			            "Entity": "entity__measure.net_reduction"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "downtime_reduction_"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.net_reduction"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_reduction__have_net_reduction"
+			        }
+			      ]
+			    },
+			    "downtime_cost_per_hour_has_entity__measure_net_reduction": {
+			      "Binding": {
+			        "ConceptualEntity": "Downtime Cost Per Hour"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "downtime_cost_per_hour": {
+			          "Target": {
+			            "Entity": "downtime_cost_per_hour"
+			          }
+			        },
+			        "entity__measure.net_reduction": {
+			          "Target": {
+			            "Entity": "entity__measure.net_reduction"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "downtime_cost_per_hour"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.net_reduction"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_cost_per_hour_have_net_reduction"
+			        }
+			      ]
+			    },
+			    "fact_downtime_has_entity__measure_total_downtime_cost": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Downtime"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_downtime": {
+			          "Target": {
+			            "Entity": "fact_downtime"
+			          }
+			        },
+			        "entity__measure.total_downtime_cost": {
+			          "Target": {
+			            "Entity": "entity__measure.total_downtime_cost"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_downtime"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.total_downtime_cost"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_downtimes_have_total_downtime_cost"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "fact_downtime"
+			            },
+			            "Adjectives": [
+			              {
+			                "expensive": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "cheap": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "entity__measure.total_downtime_cost"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "total_downtime_cost_indicates_how_expensive_fact_downtimes_are"
+			        }
+			      ]
+			    },
+			    "downtime_cost_per_hour_has_entity__measure_total_downtime_cost": {
+			      "Binding": {
+			        "ConceptualEntity": "Downtime Cost Per Hour"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "downtime_cost_per_hour": {
+			          "Target": {
+			            "Entity": "downtime_cost_per_hour"
+			          }
+			        },
+			        "entity__measure.total_downtime_cost": {
+			          "Target": {
+			            "Entity": "entity__measure.total_downtime_cost"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "downtime_cost_per_hour"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.total_downtime_cost"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_cost_per_hour_have_total_downtime_cost"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "downtime_cost_per_hour"
+			            },
+			            "Adjectives": [
+			              {
+			                "expensive": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "cheap": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "entity__measure.total_downtime_cost"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "total_downtime_cost_indicates_how_expensive_downtime_cost_per_hour_are"
+			        }
+			      ]
+			    },
+			    "downtime_cost_per_hour_has_downtime_cost_per_hour": {
+			      "Binding": {
+			        "ConceptualEntity": "Downtime Cost Per Hour"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "downtime_cost_per_hour": {
+			          "Target": {
+			            "Entity": "downtime_cost_per_hour"
+			          }
+			        },
+			        "downtime_cost_per_hour.downtime_cost_per_hour": {
+			          "Target": {
+			            "Entity": "downtime_cost_per_hour.downtime_cost_per_hour"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "downtime_cost_per_hour"
+			            },
+			            "Object": {
+			              "Role": "downtime_cost_per_hour.downtime_cost_per_hour"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_cost_per_hour_have_downtime_cost_per_hour"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "downtime_cost_per_hour"
+			            },
+			            "Adjectives": [
+			              {
+			                "expensive": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "cheap": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "downtime_cost_per_hour.downtime_cost_per_hour"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_cost_per_hour_indicates_how_expensive_downtime_cost_per_hour_are"
+			        }
+			      ]
+			    },
+			    "target_efficiency__has_target_efficiency_": {
+			      "Binding": {
+			        "ConceptualEntity": "Target Efficiency %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "target_efficiency_": {
+			          "Target": {
+			            "Entity": "target_efficiency_"
+			          }
+			        },
+			        "target_efficiency_.target_efficiency_": {
+			          "Target": {
+			            "Entity": "target_efficiency_.target_efficiency_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "target_efficiency_"
+			            },
+			            "Object": {
+			              "Role": "target_efficiency_.target_efficiency_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "target_efficiency__have_target_efficiency_"
+			        }
+			      ]
+			    },
+			    "downtime_reduction__has_downtime_reduction_": {
+			      "Binding": {
+			        "ConceptualEntity": "Downtime Reduction %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "downtime_reduction_": {
+			          "Target": {
+			            "Entity": "downtime_reduction_"
+			          }
+			        },
+			        "downtime_reduction_.downtime_reduction_": {
+			          "Target": {
+			            "Entity": "downtime_reduction_.downtime_reduction_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "downtime_reduction_"
+			            },
+			            "Object": {
+			              "Role": "downtime_reduction_.downtime_reduction_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_reduction__have_downtime_reduction_"
+			        }
+			      ]
+			    },
+			    "entity__measure_has_max_value_gauge": {
+			      "Binding": {
+			        "ConceptualEntity": "_Measures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "entity__measure": {
+			          "Target": {
+			            "Entity": "entity__measure"
+			          }
+			        },
+			        "entity__measure.max_value_gauge": {
+			          "Target": {
+			            "Entity": "entity__measure.max_value_gauge"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "entity__measure"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.max_value_gauge"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Phrasing_measures_have_max_value_gauge"
+			        }
+			      ]
+			    },
+			    "entity__measure_has_min_value_gauge": {
+			      "Binding": {
+			        "ConceptualEntity": "_Measures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "entity__measure": {
+			          "Target": {
+			            "Entity": "entity__measure"
+			          }
+			        },
+			        "entity__measure.min_value_gauge": {
+			          "Target": {
+			            "Entity": "entity__measure.min_value_gauge"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "entity__measure"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.min_value_gauge"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Phrasing_measures_have_min_value_gauge"
+			        }
+			      ]
+			    },
+			    "fact_downtime_has_entity__measure_residual_downtime_cost": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Downtime"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_downtime": {
+			          "Target": {
+			            "Entity": "fact_downtime"
+			          }
+			        },
+			        "entity__measure.residual_downtime_cost": {
+			          "Target": {
+			            "Entity": "entity__measure.residual_downtime_cost"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_downtime"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.residual_downtime_cost"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_downtimes_have_residual_downtime_cost"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "fact_downtime"
+			            },
+			            "Adjectives": [
+			              {
+			                "expensive": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "cheap": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "entity__measure.residual_downtime_cost"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "residual_downtime_cost_indicates_how_expensive_fact_downtimes_are"
+			        }
+			      ]
+			    },
+			    "downtime_reduction__has_entity__measure_residual_downtime_cost": {
+			      "Binding": {
+			        "ConceptualEntity": "Downtime Reduction %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "downtime_reduction_": {
+			          "Target": {
+			            "Entity": "downtime_reduction_"
+			          }
+			        },
+			        "entity__measure.residual_downtime_cost": {
+			          "Target": {
+			            "Entity": "entity__measure.residual_downtime_cost"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "downtime_reduction_"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.residual_downtime_cost"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_reduction__have_residual_downtime_cost"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "downtime_reduction_"
+			            },
+			            "Adjectives": [
+			              {
+			                "expensive": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "cheap": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "entity__measure.residual_downtime_cost"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "residual_downtime_cost_indicates_how_expensive_downtime_reduction__are"
+			        }
+			      ]
+			    },
+			    "downtime_cost_per_hour_has_entity__measure_residual_downtime_cost": {
+			      "Binding": {
+			        "ConceptualEntity": "Downtime Cost Per Hour"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "downtime_cost_per_hour": {
+			          "Target": {
+			            "Entity": "downtime_cost_per_hour"
+			          }
+			        },
+			        "entity__measure.residual_downtime_cost": {
+			          "Target": {
+			            "Entity": "entity__measure.residual_downtime_cost"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "downtime_cost_per_hour"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.residual_downtime_cost"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_cost_per_hour_have_residual_downtime_cost"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "downtime_cost_per_hour"
+			            },
+			            "Adjectives": [
+			              {
+			                "expensive": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "cheap": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "entity__measure.residual_downtime_cost"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "residual_downtime_cost_indicates_how_expensive_downtime_cost_per_hour_are"
+			        }
+			      ]
+			    },
+			    "fact_downtime_has_entity__measure_downtime_cost_avoided": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Downtime"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_downtime": {
+			          "Target": {
+			            "Entity": "fact_downtime"
+			          }
+			        },
+			        "entity__measure.downtime_cost_avoided": {
+			          "Target": {
+			            "Entity": "entity__measure.downtime_cost_avoided"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_downtime"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.downtime_cost_avoided"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_downtimes_have_downtime_cost_avoided"
+			        }
+			      ]
+			    },
+			    "downtime_reduction__has_entity__measure_downtime_cost_avoided": {
+			      "Binding": {
+			        "ConceptualEntity": "Downtime Reduction %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "downtime_reduction_": {
+			          "Target": {
+			            "Entity": "downtime_reduction_"
+			          }
+			        },
+			        "entity__measure.downtime_cost_avoided": {
+			          "Target": {
+			            "Entity": "entity__measure.downtime_cost_avoided"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "downtime_reduction_"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.downtime_cost_avoided"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_reduction__have_downtime_cost_avoided"
+			        }
+			      ]
+			    },
+			    "downtime_cost_per_hour_has_entity__measure_downtime_cost_avoided": {
+			      "Binding": {
+			        "ConceptualEntity": "Downtime Cost Per Hour"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "downtime_cost_per_hour": {
+			          "Target": {
+			            "Entity": "downtime_cost_per_hour"
+			          }
+			        },
+			        "entity__measure.downtime_cost_avoided": {
+			          "Target": {
+			            "Entity": "entity__measure.downtime_cost_avoided"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "downtime_cost_per_hour"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.downtime_cost_avoided"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_cost_per_hour_have_downtime_cost_avoided"
+			        }
+			      ]
+			    },
+			    "fact_downtime_has_entity__measure_downtime_hours_saved": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Downtime"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_downtime": {
+			          "Target": {
+			            "Entity": "fact_downtime"
+			          }
+			        },
+			        "entity__measure.downtime_hours_saved": {
+			          "Target": {
+			            "Entity": "entity__measure.downtime_hours_saved"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_downtime"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.downtime_hours_saved"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_downtimes_have_downtime_hours_saved"
+			        }
+			      ]
+			    },
+			    "downtime_reduction__has_entity__measure_downtime_hours_saved": {
+			      "Binding": {
+			        "ConceptualEntity": "Downtime Reduction %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "downtime_reduction_": {
+			          "Target": {
+			            "Entity": "downtime_reduction_"
+			          }
+			        },
+			        "entity__measure.downtime_hours_saved": {
+			          "Target": {
+			            "Entity": "entity__measure.downtime_hours_saved"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "downtime_reduction_"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.downtime_hours_saved"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_reduction__have_downtime_hours_saved"
+			        }
+			      ]
+			    },
+			    "target_efficiency__has_entity__measure_efficiency_gap_to_target_": {
+			      "Binding": {
+			        "ConceptualEntity": "Target Efficiency %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "target_efficiency_": {
+			          "Target": {
+			            "Entity": "target_efficiency_"
+			          }
+			        },
+			        "entity__measure.efficiency_gap_to_target_": {
+			          "Target": {
+			            "Entity": "entity__measure.efficiency_gap_to_target_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "target_efficiency_"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.efficiency_gap_to_target_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "target_efficiency__have_efficiency_gap_to_target_"
+			        }
+			      ]
+			    },
+			    "fact_productivity_has_entity__measure_efficiency_gap_to_target_": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Productivity"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_productivity": {
+			          "Target": {
+			            "Entity": "fact_productivity"
+			          }
+			        },
+			        "entity__measure.efficiency_gap_to_target_": {
+			          "Target": {
+			            "Entity": "entity__measure.efficiency_gap_to_target_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_productivity"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.efficiency_gap_to_target_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_productivities_have_efficiency_gap_to_target_"
+			        }
+			      ]
+			    },
+			    "fact_downtime_has_entity__measure_efficiency_gap_to_target_": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Downtime"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_downtime": {
+			          "Target": {
+			            "Entity": "fact_downtime"
+			          }
+			        },
+			        "entity__measure.efficiency_gap_to_target_": {
+			          "Target": {
+			            "Entity": "entity__measure.efficiency_gap_to_target_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_downtime"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.efficiency_gap_to_target_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_downtimes_have_efficiency_gap_to_target_"
+			        }
+			      ]
+			    },
+			    "downtime_reduction__has_entity__measure_efficiency_gap_to_target_": {
+			      "Binding": {
+			        "ConceptualEntity": "Downtime Reduction %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "downtime_reduction_": {
+			          "Target": {
+			            "Entity": "downtime_reduction_"
+			          }
+			        },
+			        "entity__measure.efficiency_gap_to_target_": {
+			          "Target": {
+			            "Entity": "entity__measure.efficiency_gap_to_target_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "downtime_reduction_"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.efficiency_gap_to_target_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_reduction__have_efficiency_gap_to_target_"
+			        }
+			      ]
+			    },
+			    "fact_productivity_has_entity__measure_simulated_batch_efficiency_": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Productivity"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_productivity": {
+			          "Target": {
+			            "Entity": "fact_productivity"
+			          }
+			        },
+			        "entity__measure.simulated_batch_efficiency_": {
+			          "Target": {
+			            "Entity": "entity__measure.simulated_batch_efficiency_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_productivity"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.simulated_batch_efficiency_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_productivities_have_simulated_batch_efficiency_"
+			        }
+			      ]
+			    },
+			    "fact_downtime_has_entity__measure_simulated_batch_efficiency_": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Downtime"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_downtime": {
+			          "Target": {
+			            "Entity": "fact_downtime"
+			          }
+			        },
+			        "entity__measure.simulated_batch_efficiency_": {
+			          "Target": {
+			            "Entity": "entity__measure.simulated_batch_efficiency_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_downtime"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.simulated_batch_efficiency_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_downtimes_have_simulated_batch_efficiency_"
+			        }
+			      ]
+			    },
+			    "downtime_reduction__has_entity__measure_simulated_batch_efficiency_": {
+			      "Binding": {
+			        "ConceptualEntity": "Downtime Reduction %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "downtime_reduction_": {
+			          "Target": {
+			            "Entity": "downtime_reduction_"
+			          }
+			        },
+			        "entity__measure.simulated_batch_efficiency_": {
+			          "Target": {
+			            "Entity": "entity__measure.simulated_batch_efficiency_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "downtime_reduction_"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.simulated_batch_efficiency_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_reduction__have_simulated_batch_efficiency_"
+			        }
+			      ]
+			    },
+			    "fact_productivity_has_entity__measure_simulated_actual_duration_minutes": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Productivity"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_productivity": {
+			          "Target": {
+			            "Entity": "fact_productivity"
+			          }
+			        },
+			        "entity__measure.simulated_actual_duration_minutes": {
+			          "Target": {
+			            "Entity": "entity__measure.simulated_actual_duration_minutes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_productivity"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.simulated_actual_duration_minutes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_productivities_have_simulated_actual_duration_minutes"
+			        }
+			      ]
+			    },
+			    "fact_downtime_has_entity__measure_simulated_actual_duration_minutes": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Downtime"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_downtime": {
+			          "Target": {
+			            "Entity": "fact_downtime"
+			          }
+			        },
+			        "entity__measure.simulated_actual_duration_minutes": {
+			          "Target": {
+			            "Entity": "entity__measure.simulated_actual_duration_minutes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_downtime"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.simulated_actual_duration_minutes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_downtimes_have_simulated_actual_duration_minutes"
+			        }
+			      ]
+			    },
+			    "downtime_reduction__has_entity__measure_simulated_actual_duration_minutes": {
+			      "Binding": {
+			        "ConceptualEntity": "Downtime Reduction %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "downtime_reduction_": {
+			          "Target": {
+			            "Entity": "downtime_reduction_"
+			          }
+			        },
+			        "entity__measure.simulated_actual_duration_minutes": {
+			          "Target": {
+			            "Entity": "entity__measure.simulated_actual_duration_minutes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "downtime_reduction_"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.simulated_actual_duration_minutes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_reduction__have_simulated_actual_duration_minutes"
+			        }
+			      ]
+			    },
+			    "fact_downtime_has_entity__measure_simulated_downtime_minutes": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Downtime"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_downtime": {
+			          "Target": {
+			            "Entity": "fact_downtime"
+			          }
+			        },
+			        "entity__measure.simulated_downtime_minutes": {
+			          "Target": {
+			            "Entity": "entity__measure.simulated_downtime_minutes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_downtime"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.simulated_downtime_minutes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_downtimes_have_simulated_downtime_minutes"
+			        }
+			      ]
+			    },
+			    "downtime_reduction__has_entity__measure_simulated_downtime_minutes": {
+			      "Binding": {
+			        "ConceptualEntity": "Downtime Reduction %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "downtime_reduction_": {
+			          "Target": {
+			            "Entity": "downtime_reduction_"
+			          }
+			        },
+			        "entity__measure.simulated_downtime_minutes": {
+			          "Target": {
+			            "Entity": "entity__measure.simulated_downtime_minutes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "downtime_reduction_"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.simulated_downtime_minutes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_reduction__have_simulated_downtime_minutes"
+			        }
+			      ]
+			    },
+			    "downtime_cost_per_hour_has_entity__measure_downtime_cost_per_hour_value": {
+			      "Binding": {
+			        "ConceptualEntity": "Downtime Cost Per Hour"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "downtime_cost_per_hour": {
+			          "Target": {
+			            "Entity": "downtime_cost_per_hour"
+			          }
+			        },
+			        "entity__measure.downtime_cost_per_hour_value": {
+			          "Target": {
+			            "Entity": "entity__measure.downtime_cost_per_hour_value"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "downtime_cost_per_hour"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.downtime_cost_per_hour_value"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "downtime_cost_per_hour_have_downtime_cost_per_hour_value"
 			        }
 			      ]
 			    },
@@ -10970,20 +14750,20 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "fact_productivity_has_entity__measure_total_max_batches_padded": {
+			    "target_efficiency__has_entity__measure_target_efficiency__value": {
 			      "Binding": {
-			        "ConceptualEntity": "Fact_Productivity"
+			        "ConceptualEntity": "Target Efficiency %"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "fact_productivity": {
+			        "target_efficiency_": {
 			          "Target": {
-			            "Entity": "fact_productivity"
+			            "Entity": "target_efficiency_"
 			          }
 			        },
-			        "entity__measure.total_max_batches_padded": {
+			        "entity__measure.target_efficiency__value": {
 			          "Target": {
-			            "Entity": "entity__measure.total_max_batches_padded"
+			            "Entity": "entity__measure.target_efficiency__value"
 			          }
 			        }
 			      },
@@ -10991,32 +14771,32 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "fact_productivity"
+			              "Role": "target_efficiency_"
 			            },
 			            "Object": {
-			              "Role": "entity__measure.total_max_batches_padded"
+			              "Role": "entity__measure.target_efficiency__value"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_productivities_have_total_max_batches_padded"
+			          "ID": "target_efficiency__have_target_efficiency__value"
 			        }
 			      ]
 			    },
-			    "fact_productivity_has_entity__measure_total_min_batches_padded": {
+			    "downtime_reduction__has_entity__measure_downtime_reduction__value": {
 			      "Binding": {
-			        "ConceptualEntity": "Fact_Productivity"
+			        "ConceptualEntity": "Downtime Reduction %"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "fact_productivity": {
+			        "downtime_reduction_": {
 			          "Target": {
-			            "Entity": "fact_productivity"
+			            "Entity": "downtime_reduction_"
 			          }
 			        },
-			        "entity__measure.total_min_batches_padded": {
+			        "entity__measure.downtime_reduction__value": {
 			          "Target": {
-			            "Entity": "entity__measure.total_min_batches_padded"
+			            "Entity": "entity__measure.downtime_reduction__value"
 			          }
 			        }
 			      },
@@ -11024,32 +14804,32 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "fact_productivity"
+			              "Role": "downtime_reduction_"
 			            },
 			            "Object": {
-			              "Role": "entity__measure.total_min_batches_padded"
+			              "Role": "entity__measure.downtime_reduction__value"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_productivities_have_total_min_batches_padded"
+			          "ID": "downtime_reduction__have_downtime_reduction__value"
 			        }
 			      ]
 			    },
-			    "measure_selector__productivity_has_measure_selector__productivity": {
+			    "measure_selector_has_measure_selector": {
 			      "Binding": {
-			        "ConceptualEntity": "Dynamic Measure Selector"
+			        "ConceptualEntity": "Measure Selector"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "measure_selector__productivity": {
+			        "measure_selector": {
 			          "Target": {
-			            "Entity": "measure_selector__productivity"
+			            "Entity": "measure_selector"
 			          }
 			        },
-			        "measure_selector__productivity.measure_selector__productivity": {
+			        "measure_selector.measure_selector": {
 			          "Target": {
-			            "Entity": "measure_selector__productivity.measure_selector__productivity"
+			            "Entity": "measure_selector.measure_selector"
 			          }
 			        }
 			      },
@@ -11057,45 +14837,45 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "measure_selector__productivity"
+			              "Role": "measure_selector"
 			            },
 			            "Object": {
-			              "Role": "measure_selector__productivity.measure_selector__productivity"
+			              "Role": "measure_selector.measure_selector"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "measure_selector__productivities_have_measure_selector__productivities"
+			          "ID": "measure_selectors_have_measure_selectors"
 			        },
 			        {
 			          "Name": {
 			            "Subject": {
-			              "Role": "measure_selector__productivity"
+			              "Role": "measure_selector"
 			            },
 			            "Name": {
-			              "Role": "measure_selector__productivity.measure_selector__productivity"
+			              "Role": "measure_selector.measure_selector"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "measure_selector__productivities_are_names_IDs_of_measure_selector__productivities"
+			          "ID": "measure_selectors_are_names_IDs_of_measure_selectors"
 			        }
 			      ]
 			    },
-			    "dim_selector__productivity_has_dim_selector__productivity": {
+			    "dim_selector_has_dim_selector": {
 			      "Binding": {
-			        "ConceptualEntity": "Dynamic Dim Selector"
+			        "ConceptualEntity": "Dim Selector"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "dim_selector__productivity": {
+			        "dim_selector": {
 			          "Target": {
-			            "Entity": "dim_selector__productivity"
+			            "Entity": "dim_selector"
 			          }
 			        },
-			        "dim_selector__productivity.dim_selector__productivity": {
+			        "dim_selector.dim_selector": {
 			          "Target": {
-			            "Entity": "dim_selector__productivity.dim_selector__productivity"
+			            "Entity": "dim_selector.dim_selector"
 			          }
 			        }
 			      },
@@ -11103,28 +14883,28 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dim_selector__productivity"
+			              "Role": "dim_selector"
 			            },
 			            "Object": {
-			              "Role": "dim_selector__productivity.dim_selector__productivity"
+			              "Role": "dim_selector.dim_selector"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_selector__productivities_have_dim_selector__productivities"
+			          "ID": "dim_selectors_have_dim_selectors"
 			        },
 			        {
 			          "Name": {
 			            "Subject": {
-			              "Role": "dim_selector__productivity"
+			              "Role": "dim_selector"
 			            },
 			            "Name": {
-			              "Role": "dim_selector__productivity.dim_selector__productivity"
+			              "Role": "dim_selector.dim_selector"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_selector__productivities_are_names_IDs_of_dim_selector__productivities"
+			          "ID": "dim_selectors_are_names_IDs_of_dim_selectors"
 			        }
 			      ]
 			    },
@@ -13250,6 +17030,70 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "measure_selector_select": {
+			      "Binding": {
+			        "ConceptualEntity": "Measure Selector"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "measure_selector": {
+			          "Target": {
+			            "Entity": "measure_selector"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Verb": {
+			            "Subject": {
+			              "Role": "measure_selector"
+			            },
+			            "Verbs": [
+			              {
+			                "select": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ]
+			          },
+			          "State": "Generated",
+			          "Weight": 0.75,
+			          "ID": "measure_selectors_select"
+			        }
+			      ]
+			    },
+			    "dim_selector_select": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Selector"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_selector": {
+			          "Target": {
+			            "Entity": "dim_selector"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Verb": {
+			            "Subject": {
+			              "Role": "dim_selector"
+			            },
+			            "Verbs": [
+			              {
+			                "select": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ]
+			          },
+			          "State": "Generated",
+			          "Weight": 0.75,
+			          "ID": "dim_selectors_select"
+			        }
+			      ]
+			    },
 			    "format_switcher_switch": {
 			      "Binding": {
 			        "ConceptualEntity": "Format Switcher"
@@ -13279,6 +17123,269 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.75,
 			          "ID": "format_switchers_switch"
+			        }
+			      ]
+			    },
+			    "fact_productivity_has_dim_operator": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Productivity"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_productivity": {
+			          "Target": {
+			            "Entity": "fact_productivity"
+			          }
+			        },
+			        "dim_operator": {
+			          "Target": {
+			            "Entity": "dim_operator"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_productivity"
+			            },
+			            "Object": {
+			              "Role": "dim_operator"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_productivities_have_dim_operators"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_operator"
+			            },
+			            "Object": {
+			              "Role": "fact_productivity"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_operators_have_fact_productivities"
+			        }
+			      ]
+			    },
+			    "fact_downtime_has_dim_date": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Downtime"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_downtime": {
+			          "Target": {
+			            "Entity": "fact_downtime"
+			          }
+			        },
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_downtime"
+			            },
+			            "Object": {
+			              "Role": "dim_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_downtimes_have_dim_dates"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "fact_downtime"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_fact_downtimes"
+			        }
+			      ]
+			    },
+			    "fact_downtime_has_dim_product": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Downtime"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_downtime": {
+			          "Target": {
+			            "Entity": "fact_downtime"
+			          }
+			        },
+			        "dim_product": {
+			          "Target": {
+			            "Entity": "dim_product"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_downtime"
+			            },
+			            "Object": {
+			              "Role": "dim_product"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_downtimes_have_dim_products"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "fact_downtime"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_fact_downtimes"
+			        }
+			      ]
+			    },
+			    "fact_downtime_has_dim_operator": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Downtime"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_downtime": {
+			          "Target": {
+			            "Entity": "fact_downtime"
+			          }
+			        },
+			        "dim_operator": {
+			          "Target": {
+			            "Entity": "dim_operator"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_downtime"
+			            },
+			            "Object": {
+			              "Role": "dim_operator"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_downtimes_have_dim_operators"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_operator"
+			            },
+			            "Object": {
+			              "Role": "fact_downtime"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_operators_have_fact_downtimes"
+			        }
+			      ]
+			    },
+			    "fact_downtime_has_dim_downtime_factor": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Downtime"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_downtime": {
+			          "Target": {
+			            "Entity": "fact_downtime"
+			          }
+			        },
+			        "dim_downtime_factor": {
+			          "Target": {
+			            "Entity": "dim_downtime_factor"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_downtime"
+			            },
+			            "Object": {
+			              "Role": "dim_downtime_factor"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_downtimes_have_dim_downtime_factors"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_downtime_factor"
+			            },
+			            "Object": {
+			              "Role": "fact_downtime"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_downtime_factors_have_fact_downtimes"
+			        }
+			      ]
+			    },
+			    "dim_product_product_hierarchy_has_flavor": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Product"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product.product_hierarchy": {
+			          "Target": {
+			            "Entity": "dim_product.product_hierarchy"
+			          }
+			        },
+			        "dim_product.product_hierarchy.flavor": {
+			          "Target": {
+			            "Entity": "dim_product.product_hierarchy.flavor"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product.product_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "dim_product.product_hierarchy.flavor"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "product_hierarchies_have_flavors"
 			        }
 			      ]
 			    },

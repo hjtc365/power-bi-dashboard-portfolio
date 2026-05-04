@@ -75,18 +75,13 @@
           "type": "Image"
         },
         {
-          "name": "icon-downtime-analysis07703554492173303.svg",
-          "path": "icon-downtime-analysis07703554492173303.svg",
+          "name": "icon-downtime-analysis20941972200377446.svg",
+          "path": "icon-downtime-analysis20941972200377446.svg",
           "type": "Image"
         },
         {
-          "name": "icon-downtime-analysis3348131841274259.svg",
-          "path": "icon-downtime-analysis3348131841274259.svg",
-          "type": "Image"
-        },
-        {
-          "name": "icon-operator-performance1811218778377207.svg",
-          "path": "icon-operator-performance1811218778377207.svg",
+          "name": "icon-operator-performance4094017297624396.svg",
+          "path": "icon-operator-performance4094017297624396.svg",
           "type": "Image"
         },
         {
@@ -100,8 +95,18 @@
           "type": "Image"
         },
         {
-          "name": "icon-product-analysis7355049143960006.svg",
-          "path": "icon-product-analysis7355049143960006.svg",
+          "name": "icon-overview34653524028260096.svg",
+          "path": "icon-overview34653524028260096.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-product-analysis160475132896424.svg",
+          "path": "icon-product-analysis160475132896424.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-scenario9731386618249335.svg",
+          "path": "icon-scenario9731386618249335.svg",
           "type": "Image"
         }
       ]

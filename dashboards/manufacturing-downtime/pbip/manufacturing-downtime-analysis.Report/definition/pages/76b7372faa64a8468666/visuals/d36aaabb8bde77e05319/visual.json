@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "d36aaabb8bde77e05319",
   "position": {
-    "x": 22.443890274314214,
-    "y": 89.775561097256855,
+    "x": 15.641547861507128,
+    "y": 84.72505091649694,
     "z": 1000,
-    "height": 129.27680798004988,
-    "width": 444.38902743142143,
+    "height": 130.34623217922606,
+    "width": 444.48065173116089,
     "tabOrder": 0
   },
   "visual": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dynamic Dim Selector"
+                      "Entity": "Dim Selector"
                     }
                   },
-                  "Property": "Dim Selector - Productivity"
+                  "Property": "Dim Selector"
                 }
               },
               "queryRef": "Dim Selector - Productivity.Dim Selector - Productivity",
-              "nativeQueryRef": "Dim Selector - Productivity"
+              "nativeQueryRef": "Dim Selector"
             }
           ]
         }
@@ -70,7 +70,7 @@
                 "From": [
                   {
                     "Name": "d",
-                    "Entity": "Dynamic Dim Selector",
+                    "Entity": "Dim Selector",
                     "Type": 0
                   }
                 ],
@@ -108,10 +108,10 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Entity": "Dynamic Dim Selector"
+                                  "Entity": "Dim Selector"
                                 }
                               },
-                              "Property": "Dim Selector - Productivity"
+                              "Property": "Dim Selector"
                             }
                           }
                         ],
@@ -135,7 +135,7 @@
                                 "Column": {
                                   "Expression": {
                                     "SourceRef": {
-                                      "Entity": "Dynamic Dim Selector"
+                                      "Entity": "Dim Selector"
                                     }
                                   },
                                   "Property": "Dim Selector - Productivity Fields"

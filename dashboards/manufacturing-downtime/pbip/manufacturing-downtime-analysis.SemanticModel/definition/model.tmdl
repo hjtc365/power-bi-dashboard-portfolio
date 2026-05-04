@@ -31,8 +31,12 @@ ref table _Measures
 ref table 'Time Intelligence'
 ref table 'Format Switcher'
 ref table 'Top N'
-ref table 'Dynamic Dim Selector'
-ref table 'Dynamic Measure Selector'
+ref table 'Dim Selector'
+ref table 'Measure Selector'
+ref table 'Downtime Reduction %'
+ref table 'Target Efficiency %'
+ref table 'Downtime Cost Per Hour'
+ref table 'Scenario Steps'
 
 ref cultureInfo en-US
 
