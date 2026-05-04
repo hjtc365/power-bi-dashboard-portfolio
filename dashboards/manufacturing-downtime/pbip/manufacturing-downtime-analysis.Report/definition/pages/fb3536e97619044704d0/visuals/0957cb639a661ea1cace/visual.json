@@ -6,7 +6,8 @@
     "y": 1.220209723546235,
     "z": 500,
     "height": 719.304984874984,
-    "width": 1280
+    "width": 1280,
+    "tabOrder": 7000
   },
   "visualGroup": {
     "displayName": "Grid",

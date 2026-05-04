@@ -7,7 +7,7 @@
     "z": 8250,
     "height": 104.93803622497616,
     "width": 406.32983794089608,
-    "tabOrder": 6014
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "slicer",
@@ -41,7 +41,7 @@
             "numericStart": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "50D"
                 }
               }
             },
@@ -92,7 +92,7 @@
                         },
                         "Right": {
                           "Literal": {
-                            "Value": "0D"
+                            "Value": "50D"
                           }
                         }
                       }
@@ -111,6 +111,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Operator Downtime Reduction %'"
                 }
               }
             }

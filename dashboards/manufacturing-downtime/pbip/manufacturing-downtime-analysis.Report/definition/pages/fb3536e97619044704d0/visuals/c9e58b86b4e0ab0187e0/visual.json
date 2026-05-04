@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 100.05719733079123,
     "width": 1250.7149666348903,
-    "tabOrder": 6007
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -517,65 +517,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "7d4367465d19035d62d1",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Batch Efficiency %"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "2ca63facd0032a96c0e5",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Simulated Batch Efficiency %"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "a2528340de4ac29b1b59",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Downtime Hours Saved"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "bd25b432ba5cebb43700",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Downtime Cost Avoided"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
