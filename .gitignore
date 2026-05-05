@@ -1,5 +1,6 @@
 **/.pbi/localSettings.json
 **/.pbi/cache.abf
 **/docs/
+**/generator/
 todos/
 .github/
