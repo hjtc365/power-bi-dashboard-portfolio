@@ -31,3 +31,7 @@ table Dim_Operator
 				in
 				    FinalTypes
 
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

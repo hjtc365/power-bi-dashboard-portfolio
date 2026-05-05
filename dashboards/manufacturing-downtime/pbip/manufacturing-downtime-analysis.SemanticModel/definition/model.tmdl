@@ -17,7 +17,7 @@ queryGroup '📥 Staging'
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling"]
+annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling","DaxQueryView_Desktop"]
 
 annotation PBI_QueryOrder = ["Dim_Product","Dim_Operator","Dim_DowntimeFactor","Dim_Date","Fact_Productivity","Fact_Downtime","fn_GenerateSurrogateKey","Raw_Productivity","Raw_Products","Raw_DowntimeFactors","Raw_LineDowntime"]
 

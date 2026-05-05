@@ -41,3 +41,7 @@ table Dim_DowntimeFactor
 				in
 				    FinalTypes
 
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

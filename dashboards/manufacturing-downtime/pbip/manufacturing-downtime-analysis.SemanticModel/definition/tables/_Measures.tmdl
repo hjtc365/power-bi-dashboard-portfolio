@@ -432,6 +432,18 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure MinDate = MIN(Dim_Date[Date])
+		displayFolder: Paginated Report Visual
+		lineageTag: 795bd5f6-65ad-4bc6-9fc3-faef86d3800c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure MaxDate = MAX(Dim_Date[Date])
+		displayFolder: Paginated Report Visual
+		lineageTag: 373305ef-081c-42f4-846f-d16c01883fdc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column _
 		isHidden
 		lineageTag: 73ffbb9c-a638-4650-9eca-c8dd35571def

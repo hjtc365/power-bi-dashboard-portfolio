@@ -137,7 +137,10 @@
           "zIndex": 11
         },
         {
-          "location": {},
+          "location": {
+            "x": 3408,
+            "y": 223.5
+          },
           "nodeIndex": "Downtime Reduction %",
           "nodeLineageTag": "9b380418-9224-47f0-9ea1-7aa53390f367",
           "size": {
@@ -147,7 +150,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 3692,
+            "y": 223.5
+          },
           "nodeIndex": "Target Efficiency %",
           "nodeLineageTag": "5ae2c61a-810e-4ef6-b7dd-b6c718a90c72",
           "size": {
@@ -157,7 +163,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 3976,
+            "y": 223.5
+          },
           "nodeIndex": "Downtime Cost Per Hour",
           "nodeLineageTag": "6c10a3af-c4cb-466e-832d-508e9850d3cb",
           "size": {
@@ -167,7 +176,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 4260,
+            "y": 259.5
+          },
           "nodeIndex": "Measure Selector",
           "size": {
             "height": 152,
@@ -176,7 +188,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 4544,
+            "y": 259.5
+          },
           "nodeIndex": "Dim Selector",
           "size": {
             "height": 152,
@@ -185,17 +200,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
-          "nodeIndex": "Scenario Step",
-          "nodeLineageTag": "926e947e-c2e3-4559-8562-8297bc56b16a",
-          "size": {
-            "height": 152,
-            "width": 234
+          "location": {
+            "x": 4828,
+            "y": 235.5
           },
-          "zIndex": 0
-        },
-        {
-          "location": {},
           "nodeIndex": "Scenario Steps",
           "size": {
             "height": 200,
@@ -345,7 +353,7 @@
           "nodeIndex": "Dim_DowntimeFactor",
           "nodeLineageTag": "672c8c5e-c44b-41eb-90e9-81034ffc953c",
           "size": {
-            "height": 176,
+            "height": 191,
             "width": 252
           },
           "zIndex": 0
@@ -359,6 +367,6 @@
       "tablesLocked": false
     }
   ],
-  "selectedDiagram": "Productivity",
+  "selectedDiagram": "Downtime",
   "defaultDiagram": "All tables"
 }

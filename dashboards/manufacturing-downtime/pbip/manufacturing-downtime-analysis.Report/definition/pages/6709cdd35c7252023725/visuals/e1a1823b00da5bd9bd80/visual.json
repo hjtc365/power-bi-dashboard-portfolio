@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
-  "name": "72e69fc46b5b7d3c42b3",
+  "name": "e1a1823b00da5bd9bd80",
   "position": {
-    "x": 19.692307692307693,
-    "y": 434.54358974358973,
-    "z": 4000,
-    "height": 19.692307692307693,
-    "width": 1260.3076923076924,
-    "tabOrder": 4000
+    "x": 15.118110236220472,
+    "y": 704.18687463876358,
+    "z": 0,
+    "height": 15.118110236220472,
+    "width": 1249.7637795275591,
+    "tabOrder": 6004
   },
   "visual": {
     "visualType": "shape",
@@ -38,38 +38,6 @@
           }
         }
       ],
-      "fill": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        },
-        {
-          "properties": {
-            "fillColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.3
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ],
       "outline": [
         {
           "properties": {
@@ -82,10 +50,91 @@
             }
           }
         }
+      ],
+      "fill": [
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 6,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
       ]
     },
     "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
         {
           "properties": {
             "show": {
@@ -101,6 +150,6 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "9d5d1579d3b7077a2122",
+  "parentGroupName": "d4d86500330d011ba803",
   "howCreated": "InsertVisualButton"
 }
