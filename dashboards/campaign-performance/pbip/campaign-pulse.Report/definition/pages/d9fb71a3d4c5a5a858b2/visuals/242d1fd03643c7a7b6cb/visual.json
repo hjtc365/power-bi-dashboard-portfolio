@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "242d1fd03643c7a7b6cb",
   "position": {
-    "x": 307.42857142857144,
-    "y": 433.14285714285717,
-    "z": 4,
-    "height": 243.42857142857142,
-    "width": 290.28571428571428,
+    "x": 303.63636363636363,
+    "y": 432.72727272727269,
+    "z": 4000,
+    "height": 245.45454545454544,
+    "width": 293.63636363636363,
     "tabOrder": 4
   },
   "visual": {
@@ -172,7 +172,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'... by Relationship Status'"
+                  "Value": "'Customers by Relationship Status'"
                 }
               }
             }
@@ -181,5 +181,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "bfac4451c5f5c9fadac3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Customer"
+              }
+            },
+            "Property": "Relationship Status"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4bff898dc10742b782d1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Avg Web Purchases per Customer"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

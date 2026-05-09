@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "82e15ce11051d793848a",
   "position": {
-    "x": 957.71428571428578,
-    "y": 422.85714285714283,
+    "x": 957.27272727272725,
+    "y": 432.72727272727269,
     "z": 2000,
-    "height": 257.14285714285717,
-    "width": 308.57142857142856,
+    "height": 245.45454545454544,
+    "width": 310.90909090909088,
     "tabOrder": 2000
   },
   "visual": {
@@ -603,7 +603,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'... by Relationship Status'"
+                  "Value": "'Customers by Relationship Status'"
                 }
               }
             }
@@ -862,5 +862,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2e8bbf2e0ba886c463be",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Customer"
+              }
+            },
+            "Property": "Relationship Status"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5d1d4d1e5cef5c26e8f0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Total Customers"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "222b223715ab7cabb04c",
   "position": {
-    "x": 609.14285714285711,
-    "y": 370.28571428571428,
-    "z": 6,
-    "height": 310.85714285714283,
-    "width": 659.42857142857144,
+    "x": 609.090909090909,
+    "y": 369.99999999999994,
+    "z": 5000,
+    "height": 308.18181818181813,
+    "width": 658.18181818181813,
     "tabOrder": 6
   },
   "visual": {
@@ -185,7 +185,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Channel by Income Band'"
+                  "Value": "'Acceptance Rate by Campaign × Income Band'"
                 }
               }
             }
@@ -194,5 +194,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "45ed441fad203f10aac4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Customer"
+              }
+            },
+            "Property": "Income Band"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "790945b2edbe0c626459",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Campaign"
+              }
+            },
+            "Property": "Campaign"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6cbcbb84f6fbdb991bcc",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Acceptance Rate"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

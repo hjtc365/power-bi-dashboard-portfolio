@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "025674ddb91b8a9e0555",
   "position": {
-    "x": 365.71428571428572,
-    "y": 422.85714285714283,
+    "x": 365.45454545454544,
+    "y": 432.72727272727269,
     "z": 5000,
-    "height": 257.14285714285717,
-    "width": 286.85714285714283,
+    "height": 245.45454545454544,
+    "width": 286.36363636363632,
     "tabOrder": 5000
   },
   "visual": {
@@ -645,7 +645,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'... by Age Group'"
+                  "Value": "'Customers by Age Group'"
                 }
               }
             }
@@ -904,5 +904,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b12b29c4e8eabf8a1fab",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Customer"
+              }
+            },
+            "Property": "Age Group"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "13bad5d8755238be2484",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Total Customers"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

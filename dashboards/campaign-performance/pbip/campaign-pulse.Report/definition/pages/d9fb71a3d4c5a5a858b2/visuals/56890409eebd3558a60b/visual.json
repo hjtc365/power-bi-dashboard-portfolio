@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "56890409eebd3558a60b",
   "position": {
-    "x": 612.57142857142856,
-    "y": 184,
-    "z": 7,
-    "height": 234.28571428571428,
-    "width": 290.28571428571428,
+    "x": 609.090909090909,
+    "y": 179.99999999999997,
+    "z": 7000,
+    "height": 239.99999999999997,
+    "width": 295.45454545454544,
     "tabOrder": 7
   },
   "visual": {
@@ -172,7 +172,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'... by Campaign Engagement'"
+                  "Value": "'Customers by Engagement'"
                 }
               }
             }
@@ -181,5 +181,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "23c197ef8703191f6373",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Customer"
+              }
+            },
+            "Property": "Campaign Engagement"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "50ddf35b7c6010dbd5cf",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Avg Web Purchases per Customer"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

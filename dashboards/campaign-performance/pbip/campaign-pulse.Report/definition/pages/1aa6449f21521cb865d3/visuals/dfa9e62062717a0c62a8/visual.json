@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "dfa9e62062717a0c62a8",
   "position": {
-    "x": 664,
-    "y": 422.85714285714283,
+    "x": 663.63636363636363,
+    "y": 432.72727272727269,
     "z": 3000,
-    "height": 257.14285714285717,
-    "width": 282.28571428571428,
+    "height": 245.45454545454544,
+    "width": 281.81818181818181,
     "tabOrder": 3000
   },
   "visual": {
@@ -561,7 +561,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'... by Children Status'"
+                  "Value": "'Customers by Children Status'"
                 }
               }
             }
@@ -820,5 +820,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "47e5850b5964ccd0b848",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Customer"
+              }
+            },
+            "Property": "Children Status"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "257242bdf2c9ecce4b75",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Total Customers"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "55b3d6c91d73716b58b5",
   "position": {
-    "x": 612.57142857142856,
-    "y": 433.14285714285717,
-    "z": 5,
-    "height": 243.42857142857142,
-    "width": 290.28571428571428,
+    "x": 609.090909090909,
+    "y": 432.72727272727269,
+    "z": 5000,
+    "height": 245.45454545454544,
+    "width": 295.45454545454544,
     "tabOrder": 5
   },
   "visual": {
@@ -172,7 +172,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'... by Children Status'"
+                  "Value": "'Customers by Children Status'"
                 }
               }
             }
@@ -181,5 +181,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9c2a18c8cb2522c51ded",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Customer"
+              }
+            },
+            "Property": "Children Status"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fc33faadece9b4b338fe",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Avg Web Purchases per Customer"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -39,9 +39,8 @@ table _Data_Quality_Issues
 		annotation SummarizationSetBy = Automatic
 
 	column IsBirthYearOutlier
-		dataType: boolean
+		dataType: string
 		isHidden
-		formatString: """TRUE"";""TRUE"";""FALSE"""
 		lineageTag: b663039a-516f-4523-8297-4bbd8b4992d7
 		summarizeBy: none
 		sourceColumn: IsBirthYearOutlier
@@ -51,9 +50,8 @@ table _Data_Quality_Issues
 		annotation SummarizationSetBy = Automatic
 
 	column IsIncomeOutlier
-		dataType: boolean
+		dataType: string
 		isHidden
-		formatString: """TRUE"";""TRUE"";""FALSE"""
 		lineageTag: 5504d970-f21e-47a2-9870-9bf54c71aeb6
 		summarizeBy: none
 		sourceColumn: IsIncomeOutlier
@@ -63,9 +61,8 @@ table _Data_Quality_Issues
 		annotation SummarizationSetBy = Automatic
 
 	column IsIncomeMissing
-		dataType: boolean
+		dataType: string
 		isHidden
-		formatString: """TRUE"";""TRUE"";""FALSE"""
 		lineageTag: 43e0f177-8fb6-419e-95f2-6eeb0461b89c
 		summarizeBy: none
 		sourceColumn: IsIncomeMissing
@@ -131,10 +128,12 @@ table _Data_Quality_Issues
 				    reorder_columns = Table.ReorderColumns(select_columns,
 				        {"Customer ID", "Birth Year", "Age", "IsBirthYearOutlier",
 				         "Income", "IsIncomeMissing", "IsIncomeOutlier"}),
-				    #"Sorted Rows" = Table.Sort(reorder_columns,{{"Customer ID", Order.Ascending}})
-				
+				    #"Sorted Rows" = Table.Sort(reorder_columns,{{"Customer ID", Order.Ascending}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Sorted Rows",{{"IsBirthYearOutlier", type text}, {"IsIncomeMissing", type text}, {"IsIncomeOutlier", type text}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type","true","Yes",Replacer.ReplaceText,{"IsBirthYearOutlier", "IsIncomeMissing", "IsIncomeOutlier"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","false","No",Replacer.ReplaceText,{"IsBirthYearOutlier", "IsIncomeMissing", "IsIncomeOutlier"})
 				in
-				    #"Sorted Rows"
+				    #"Replaced Value1"
 				```
 
 	changedProperty = IsHidden

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "890c66ed0e2300980cb6",
   "position": {
-    "x": 609.14285714285711,
-    "y": 68.571428571428569,
-    "z": 5,
-    "height": 289.14285714285717,
-    "width": 659.42857142857144,
+    "x": 609.090909090909,
+    "y": 68.181818181818173,
+    "z": 4000,
+    "height": 289.09090909090907,
+    "width": 658.18181818181813,
     "tabOrder": 5
   },
   "visual": {
@@ -198,7 +198,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Channel by Age Group'"
+                  "Value": "'Acceptance Rate by Campaign × Education'"
                 }
               }
             }
@@ -207,5 +207,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "16c8894cb340cab8d854",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Customer"
+              }
+            },
+            "Property": "Education"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7d5f32d261f43b33ad68",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Campaign"
+              }
+            },
+            "Property": "Campaign"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "799d3c7df170ae26c303",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Acceptance Rate"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

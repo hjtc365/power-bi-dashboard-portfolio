@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "cd57739cc1010be7437a",
   "position": {
-    "x": 18.285714285714285,
-    "y": 433.14285714285717,
-    "z": 3,
-    "height": 248,
-    "width": 273.14285714285717,
+    "x": 11.818181818181817,
+    "y": 432.72727272727269,
+    "z": 2000,
+    "height": 245.45454545454544,
+    "width": 584.5454545454545,
     "tabOrder": 3
   },
   "visual": {
@@ -77,7 +77,7 @@
             "labelStyle": {
               "expr": {
                 "Literal": {
-                  "Value": "'Percent of total'"
+                  "Value": "'Data value, percent of total'"
                 }
               }
             },
@@ -104,7 +104,7 @@
             "position": {
               "expr": {
                 "Literal": {
-                  "Value": "'Right'"
+                  "Value": "'Left'"
                 }
               }
             }
@@ -380,5 +380,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2c5ef81132310c80cba2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Campaign"
+              }
+            },
+            "Property": "Campaign"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ed49ec45c565ef652f69",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Total Acceptances"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

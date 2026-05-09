@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "f79a98b18600eabc5000",
   "position": {
-    "x": 307.42857142857144,
-    "y": 184,
-    "z": 2,
-    "height": 234.28571428571428,
-    "width": 290.28571428571428,
+    "x": 303.63636363636363,
+    "y": 179.99999999999997,
+    "z": 2000,
+    "height": 239.99999999999997,
+    "width": 293.63636363636363,
     "tabOrder": 2
   },
   "visual": {
@@ -172,7 +172,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'... by Age Group'"
+                  "Value": "'Customers by Age Group'"
                 }
               }
             }
@@ -181,5 +181,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e6e802d6f6da676a2e58",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Customer"
+              }
+            },
+            "Property": "Age Group"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c905443c3fd6c2783098",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Avg Web Purchases per Customer"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

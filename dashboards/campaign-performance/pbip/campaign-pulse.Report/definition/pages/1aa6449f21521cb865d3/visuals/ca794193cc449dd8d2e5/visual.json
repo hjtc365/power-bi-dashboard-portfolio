@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "ca794193cc449dd8d2e5",
   "position": {
-    "x": 854.85714285714266,
-    "y": 183.99999999999997,
+    "x": 853.63636363636351,
+    "y": 179.99999999999997,
     "z": 6000,
-    "height": 222.85714285714286,
-    "width": 411.42857142857144,
+    "height": 239.99999999999997,
+    "width": 414.5454545454545,
     "tabOrder": 6000
   },
   "visual": {
@@ -458,7 +458,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'... by Income Band'"
+                  "Value": "'Customers by Income Band'"
                 }
               }
             },
@@ -752,5 +752,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3d8b038f747afc8984f9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Customer"
+              }
+            },
+            "Property": "Income Band"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b150244db88ca5f2a905",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Total Customers"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

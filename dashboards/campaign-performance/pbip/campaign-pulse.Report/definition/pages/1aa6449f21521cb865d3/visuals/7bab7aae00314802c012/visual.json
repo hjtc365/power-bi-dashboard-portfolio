@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "7bab7aae00314802c012",
   "position": {
-    "x": 458.85714285714272,
-    "y": 183.99999999999997,
+    "x": 457.27272727272725,
+    "y": 179.99999999999997,
     "z": 1000,
-    "height": 222.85714285714286,
-    "width": 382.85714285714283,
+    "height": 239.99999999999997,
+    "width": 384.5454545454545,
     "tabOrder": 1000
   },
   "visual": {
@@ -458,7 +458,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'... by Education'"
+                  "Value": "'Customers by Education'"
                 }
               }
             },
@@ -752,5 +752,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "703e9b453e504b15b072",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Customer"
+              }
+            },
+            "Property": "Education"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "05119c4b8c8921e6cc99",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Total Customers"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

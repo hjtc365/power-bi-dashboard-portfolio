@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "8093a3c5cab97ca45683",
   "position": {
-    "x": 16,
-    "y": 433.14285714285717,
-    "z": 3,
-    "height": 243.42857142857142,
-    "width": 275.42857142857144,
+    "x": 11.818181818181817,
+    "y": 432.72727272727269,
+    "z": 3000,
+    "height": 245.45454545454544,
+    "width": 280,
     "tabOrder": 3
   },
   "visual": {
@@ -172,7 +172,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'... by Education'"
+                  "Value": "'Customers by Education'"
                 }
               }
             }
@@ -181,5 +181,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3caefba8c60e0c3a9f39",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Customer"
+              }
+            },
+            "Property": "Education"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1163c95f895e33d84e43",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Avg Web Purchases per Customer"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

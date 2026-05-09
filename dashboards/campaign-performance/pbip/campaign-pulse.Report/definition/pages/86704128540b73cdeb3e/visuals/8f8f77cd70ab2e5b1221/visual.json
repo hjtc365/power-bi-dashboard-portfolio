@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "8f8f77cd70ab2e5b1221",
   "position": {
-    "x": 307.42857142857144,
-    "y": 433.14285714285717,
-    "z": 4,
-    "height": 248,
-    "width": 290.28571428571428,
+    "x": 303.63636363636363,
+    "y": 179.99999999999997,
+    "z": 3000,
+    "height": 239.99999999999997,
+    "width": 292.72727272727269,
     "tabOrder": 4
   },
   "visual": {
@@ -181,5 +181,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "76383fd4dfb76fd57d26",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Campaign"
+              }
+            },
+            "Property": "Campaign"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e64c2cc73835a11e10df",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Avg Campaigns Accepted per Customer"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

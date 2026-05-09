@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "1d0ee6c8c67036da5c78",
   "position": {
-    "x": 14.857142857142858,
-    "y": 422.85714285714283,
+    "x": 11.818181818181817,
+    "y": 432.72727272727269,
     "z": 4000,
-    "height": 257.14285714285717,
-    "width": 339.42857142857144,
+    "height": 245.45454545454544,
+    "width": 341.81818181818181,
     "tabOrder": 4000
   },
   "visual": {
@@ -645,7 +645,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'... by Campaign Engagement'"
+                  "Value": "'Customers by Campaign Engagement'"
                 }
               }
             }
@@ -935,6 +935,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "4624ce8a88865beff795",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Total Customers"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }
