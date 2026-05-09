@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "c4998ade496c7000c2b9",
   "position": {
-    "x": 192.50393700787401,
-    "y": 32.251968503937007,
+    "x": 192.56897880933974,
+    "y": 31.317925123073415,
     "z": 2000,
-    "height": 35.275590551181104,
-    "width": 342.67716535433073,
-    "tabOrder": 5000
+    "height": 34.253980603361548,
+    "width": 342.7929465715996,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "shape",
@@ -104,14 +104,14 @@
             "horizontalAlignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'center'"
+                  "Value": "'right'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "8D"
                 }
               }
             },
@@ -126,6 +126,34 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "rightMargin": {
+              "expr": {
+                "Literal": {
+                  "Value": "4L"
+                }
+              }
+            },
+            "leftMargin": {
+              "expr": {
+                "Literal": {
+                  "Value": "4L"
+                }
+              }
+            },
+            "topMargin": {
+              "expr": {
+                "Literal": {
+                  "Value": "4L"
+                }
+              }
+            },
+            "bottomMargin": {
+              "expr": {
+                "Literal": {
+                  "Value": "4L"
                 }
               }
             }

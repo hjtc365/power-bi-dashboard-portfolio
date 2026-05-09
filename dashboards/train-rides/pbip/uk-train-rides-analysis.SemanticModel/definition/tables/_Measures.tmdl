@@ -589,10 +589,11 @@ table _Measures
 		lineageTag: 12f1e7fb-1bc1-4130-9c17-39411910a675
 
 	measure 'Half of Delayed Journeys' = DIVIDE([Delayed Journeys], 2)
+		formatString: #,0
 		displayFolder: Volume
 		lineageTag: b5551ba0-5aba-40b9-81f6-7dbd296863c4
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	measure 'Selected Metric by Month' = SELECTEDVALUE('Metric Selector'[Metric Name], "Total Journeys") & " by Month"
 		displayFolder: Dynamic Selectors

@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "3dd292d107495c34de52",
   "position": {
     "x": 0,
-    "y": 61.624649859943972,
-    "z": 6000,
-    "height": 471.70868347338933,
-    "width": 557.03703703703707,
+    "y": 60.707919531448923,
+    "z": 0,
+    "height": 464.69152950436364,
+    "width": 554.7842056932966,
     "tabOrder": 0
   },
   "visual": {
@@ -43,12 +43,12 @@
                       "Entity": "Dim_Ticket"
                     }
                   },
-                  "Property": "Ticket Type"
+                  "Property": "Has Railcard"
                 }
               },
-              "queryRef": "Dim_Ticket.Ticket Type",
-              "nativeQueryRef": "Ticket Type",
-              "displayName": "Ticket Type"
+              "queryRef": "Dim_Ticket.Has Railcard",
+              "nativeQueryRef": "Has Railcard",
+              "displayName": "Has Railcard"
             }
           ],
           "fieldParameters": [
@@ -112,7 +112,7 @@
                     "Entity": "Dim_Ticket"
                   }
                 },
-                "Property": "Ticket Type"
+                "Property": "Has Railcard"
               }
             },
             "direction": "Ascending"
@@ -162,6 +162,13 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
                 }
               }
             }

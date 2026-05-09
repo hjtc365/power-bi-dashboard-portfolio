@@ -3996,12 +3996,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "time": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        },
-			        {
 			          "duration of purchase": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -4051,8 +4045,7 @@ cultureInfo en-US
 			            "Weight": 0.739
 			          }
 			        }
-			      ],
-			      "SemanticType": "Time"
+			      ]
 			    },
 			    "fact_transaction.departure_time": {
 			      "Definition": {
@@ -4066,12 +4059,6 @@ cultureInfo en-US
 			        {
 			          "departure time": {
 			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "time": {
-			            "State": "Generated",
-			            "Weight": 0.7
 			          }
 			        },
 			        {
@@ -4124,8 +4111,7 @@ cultureInfo en-US
 			            "Weight": 0.727
 			          }
 			        }
-			      ],
-			      "SemanticType": "Time"
+			      ]
 			    },
 			    "fact_transaction.arrival_time": {
 			      "Definition": {
@@ -4139,12 +4125,6 @@ cultureInfo en-US
 			        {
 			          "arrival time": {
 			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "time": {
-			            "State": "Generated",
-			            "Weight": 0.7
 			          }
 			        },
 			        {
@@ -4197,8 +4177,7 @@ cultureInfo en-US
 			            "Weight": 0.727
 			          }
 			        }
-			      ],
-			      "SemanticType": "Time"
+			      ]
 			    },
 			    "fact_transaction.actual_arrival_time": {
 			      "Definition": {

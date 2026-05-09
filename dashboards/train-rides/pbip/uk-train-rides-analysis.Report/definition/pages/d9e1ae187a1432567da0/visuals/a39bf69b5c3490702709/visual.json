@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "a39bf69b5c3490702709",
   "position": {
     "x": 0,
     "y": 59.130434782608631,
-    "z": 2000,
+    "z": 7000,
     "height": 660.86956521739137,
     "width": 160,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visualGroup": {
     "displayName": "Sidebar",

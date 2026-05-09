@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1F3864"/>
+      <stop offset="100%" style="stop-color:#2A4A7F"/>
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="31" fill="url(#bg)"/>
+  <!-- Inner ring -->
+  <circle cx="32" cy="32" r="26" fill="none" stroke="white" stroke-width="1.5" opacity="0.2"/>
+  <!-- Filter funnel (muted, outline only) -->
+  <path d="M8,22 H50 L35,36 V52 H23 V36 Z"
+        fill="none" stroke="#9DC3E6" stroke-width="2.5" stroke-linejoin="round" opacity="0.85"/>
+  <!-- Clear badge -->
+  <circle cx="46" cy="17" r="9" fill="#9DC3E6" opacity="0.85"/>
+  <line x1="41" y1="12" x2="51" y2="22" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+  <line x1="51" y1="12" x2="41" y2="22" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+</svg>

@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "e0d945e5797488ea0399",
   "position": {
     "x": 0,
     "y": 0,
-    "z": 7000,
-    "height": 61.412881303724234,
-    "width": 557.52640190391207,
+    "z": 1000,
+    "height": 60.499301251272136,
+    "width": 555.27159141616983,
     "tabOrder": 1000
   },
   "visual": {
@@ -67,7 +67,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''Dim_Ticket''[Ticket Type]'"
+                                "Value": "'''Dim_Ticket''[Has Railcard]'"
                               }
                             }
                           ]
@@ -95,7 +95,7 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'''Dim_Ticket''[Ticket Type]'"
+                                      "Value": "'''Dim_Ticket''[Has Railcard]'"
                                     }
                                   }
                                 ]
@@ -119,7 +119,7 @@
                         },
                         "valueMap": [
                           {
-                            "0": "Ticket Type"
+                            "0": "Has Railcard"
                           }
                         ]
                       }
