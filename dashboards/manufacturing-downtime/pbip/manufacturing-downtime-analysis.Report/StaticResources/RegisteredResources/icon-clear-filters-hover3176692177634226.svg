@@ -1,0 +1,9 @@
+<!-- icon-clear-filters-hover.svg — clear all filters: hover state (darker green, slightly bolder) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+     stroke="#1F7A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- funnel outline (truncated) -->
+  <path d="M3 4h18l-7 8v5"/>
+  <!-- X mark -->
+  <line x1="8" y1="15" x2="14" y2="21"/>
+  <line x1="14" y1="15" x2="8"  y2="21"/>
+</svg>

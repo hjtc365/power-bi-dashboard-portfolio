@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "db99f7654900da30b96b",
   "position": {
-    "x": 19.575191163976211,
-    "y": 237.07731520815634,
+    "x": 15.118110236220472,
+    "y": 229.79527559055117,
     "z": 3000,
-    "height": 464.36703483432456,
-    "width": 1240.8496176720475,
+    "height": 474.70866141732284,
+    "width": 1249.7637795275591,
     "tabOrder": 2000
   },
   "visual": {
@@ -38,14 +38,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dynamic Dim Selector"
+                      "Entity": "Dim Selector"
                     }
                   },
-                  "Property": "Dim Selector - Productivity"
+                  "Property": "Dim Selector"
                 }
               },
               "index": 0,
-              "length": 1
+              "length": 1,
+              "sortDirection": "Ascending"
             }
           ]
         },
@@ -118,15 +119,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dynamic Measure Selector"
+                      "Entity": "Measure Selector"
                     }
                   },
-                  "Property": "Measure Selector - Productivity"
+                  "Property": "Measure Selector"
                 }
               },
               "index": 0,
-              "length": 4,
-              "sortDirection": "Descending"
+              "length": 4
             }
           ]
         }
@@ -135,62 +135,20 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "_Measures"
+                    "Entity": "Dim_Product"
                   }
                 },
-                "Property": "Total Min Batch Time"
+                "Property": "Product"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
     },
-    "expansionStates": [
-      {
-        "roles": [
-          "Rows"
-        ],
-        "levels": [
-          {
-            "queryRefs": [
-              "Dim_Product.Product"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dim_Product"
-                    }
-                  },
-                  "Property": "Product"
-                }
-              }
-            ],
-            "isPinned": true
-          }
-        ],
-        "root": {
-          "children": [
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'CO-2L'"
-                  }
-                }
-              ],
-              "isToggled": true
-            }
-          ]
-        }
-      }
-    ],
     "objects": {
       "columnHeaders": [
         {

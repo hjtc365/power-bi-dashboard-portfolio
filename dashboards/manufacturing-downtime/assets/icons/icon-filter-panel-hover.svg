@@ -1,0 +1,10 @@
+<!-- icon-filter-panel-hover.svg — open Filters Panel: hover state (darker green, slightly bolder) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+     stroke="#1F7A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- funnel outline -->
+  <path d="M3 4h18l-7 8v6l-4 2v-8L3 4Z"/>
+  <!-- panel lines -->
+  <line x1="16" y1="14" x2="21" y2="14"/>
+  <line x1="16" y1="17" x2="21" y2="17"/>
+  <line x1="16" y1="20" x2="21" y2="20"/>
+</svg>

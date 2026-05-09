@@ -1,0 +1,37 @@
+table 'Scenario Steps'
+	lineageTag: cbc16ce4-287b-4ba7-93e6-f3b046521240
+
+	column Step
+		lineageTag: c7e96866-b3b8-4612-a3a4-996a84da0056
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Step]
+		sortByColumn: Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order
+		formatString: 0
+		lineageTag: e23432f7-4943-4439-970e-af0e11b1e209
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Order]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Scenario Steps' = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Step", STRING,
+				    "Order", INTEGER,
+				    {
+				        {"Current Total Cost", 1},
+				        {"Cost Avoided", 2},
+				        {"Residual Cost", 3}
+				    }
+				)
+
+	annotation PBI_Id = e7d808731f054900bab994a2f8e0e045
+

@@ -17,7 +17,7 @@ queryGroup '📥 Staging'
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling"]
+annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling","DaxQueryView_Desktop"]
 
 annotation PBI_QueryOrder = ["Dim_Product","Dim_Operator","Dim_DowntimeFactor","Dim_Date","Fact_Productivity","Fact_Downtime","fn_GenerateSurrogateKey","Raw_Productivity","Raw_Products","Raw_DowntimeFactors","Raw_LineDowntime"]
 
@@ -31,8 +31,12 @@ ref table _Measures
 ref table 'Time Intelligence'
 ref table 'Format Switcher'
 ref table 'Top N'
-ref table 'Dynamic Dim Selector'
-ref table 'Dynamic Measure Selector'
+ref table 'Dim Selector'
+ref table 'Measure Selector'
+ref table 'Downtime Reduction %'
+ref table 'Target Efficiency %'
+ref table 'Downtime Cost Per Hour'
+ref table 'Scenario Steps'
 
 ref cultureInfo en-US
 

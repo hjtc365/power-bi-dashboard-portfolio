@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "ce1140110d06b8576832",
   "position": {
-    "x": 19.981634527089071,
-    "y": 86.446109351801766,
-    "z": 3000,
-    "height": 99.908172635445354,
-    "width": 1240.0367309458218,
-    "tabOrder": 5001
+    "x": 15.118110236220472,
+    "y": 85.669291338582681,
+    "z": 4000,
+    "height": 99.779527559055111,
+    "width": 1249.7637795275591,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -199,6 +199,62 @@
           },
           "selector": {
             "metadata": "_Measures.Total Downtime Minutes"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Total Downtime Incidents"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Operator Error Downtime %"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Avg Downtime Per Batch"
           }
         }
       ],

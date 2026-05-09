@@ -278,6 +278,8 @@ table _Measures
 		lineageTag: 11111111-1111-1111-1111-111111110004
 		dataCategory: HexColor
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	/// Color for Operator Error rows in mixed bar charts: red if Yes, green if No. Use as "Color by category" rule.
 	measure 'Operator Error Color' =
 			
@@ -290,6 +292,214 @@ table _Measures
 		displayFolder: 🎨 Styling
 		lineageTag: 11111111-1111-1111-1111-111111110005
 		dataCategory: HexColor
+
+	measure 'Target Efficiency % Value' =
+			
+			DIVIDE (
+			    SELECTEDVALUE ( 'Target Efficiency %'[Target Efficiency %], 85 ),
+			    100,
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: ⚙️ What-If
+		lineageTag: 81c285cd-e455-40e4-b094-1504e724b9ce
+
+	measure 'Downtime Reduction % Value' =
+			
+			DIVIDE (
+			    SELECTEDVALUE ( 'Downtime Reduction %'[Downtime Reduction %], 25 ),
+			    100,
+			    0
+			)
+		formatString: 0%;-0%;0%
+		displayFolder: ⚙️ What-If
+		lineageTag: ef65c1aa-d287-4859-b020-c17c35876807
+
+	measure 'Downtime Cost Per Hour Value' =
+			
+			SELECTEDVALUE ( 'Downtime Cost Per Hour'[Downtime Cost Per Hour], 150 )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: ⚙️ What-If
+		lineageTag: cc1cac2e-6239-4eee-801f-0288be1cf6bc
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Simulated Downtime Minutes' =
+			
+			[Total Downtime Minutes] - ( [Operator Error Downtime Minutes] * [Downtime Reduction % Value] )
+		displayFolder: ⚙️ What-If
+		lineageTag: 50b1903e-dd80-4d08-8ace-484d4cc2f28e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Simulated Actual Duration Minutes' =
+			
+			[Total Actual Duration Minutes] - ( [Operator Error Downtime Minutes] * [Downtime Reduction % Value] )
+		displayFolder: ⚙️ What-If
+		lineageTag: 6050df03-e36e-42ba-a46e-db787edcd7b1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Simulated Batch Efficiency %' =
+			
+			DIVIDE ( [Total Min Batch Time], [Simulated Actual Duration Minutes], 0 )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: ⚙️ What-If
+		lineageTag: d075b859-3a58-46c3-823b-4c5003b63dc6
+
+	measure 'Efficiency Gap To Target %' =
+			
+			[Simulated Batch Efficiency %] - [Target Efficiency % Value]
+		formatString: 0%;-0%;0%
+		displayFolder: ⚙️ What-If
+		lineageTag: ad639c20-d2a2-4339-a587-670fa13914b1
+
+	measure 'Downtime Hours Saved' =
+			
+			DIVIDE (
+			    [Operator Error Downtime Minutes] * [Downtime Reduction % Value],
+			    60,
+			    0
+			)
+		displayFolder: ⚙️ What-If
+		lineageTag: 8e9d4ecb-6fc8-45bb-ab64-ae6eac75312c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Downtime Cost Avoided' =
+			
+			[Downtime Hours Saved] * [Downtime Cost Per Hour Value]
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: ⚙️ What-If
+		lineageTag: ba62cf4f-007e-42cc-b501-8c999ced3896
+
+	measure 'Residual Downtime Cost' =
+			
+			DIVIDE ( [Simulated Downtime Minutes], 60, 0 ) * [Downtime Cost Per Hour Value]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: ⚙️ What-If
+		lineageTag: 3f2d7b94-86f0-473f-b994-464a57bbddf0
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Min Value Gauge' =
+			
+			0
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: ⚙️ What-If
+		lineageTag: e9dd81a7-133d-4dca-828b-c3c303d2a265
+
+	measure 'Max Value Gauge' =
+			
+			1
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: ⚙️ What-If
+		lineageTag: a9bfe91d-d1f6-49bc-9e6f-8aadc00ff795
+
+	measure 'Total Downtime Cost' =
+			
+			DIVIDE ( [Total Downtime Minutes], 60 ) * [Downtime Cost Per Hour Value]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: ⚙️ What-If
+		lineageTag: a2b63b51-1f39-4003-84fe-6a69cda2139e
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Net Reduction' =
+			
+			[Total Downtime Cost] - [Residual Downtime Cost]
+		displayFolder: ⚙️ What-If
+		lineageTag: 305d58b7-573a-43ed-abda-2cdfd4c69231
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Waterfall Value' =
+			
+			SWITCH (
+			    SELECTEDVALUE ( 'Scenario Steps'[Step] ),
+			    "Current Total Cost", [Total Downtime Cost],
+			    "Cost Avoided", - [Downtime Cost Avoided],
+			    "Residual Cost", [Residual Downtime Cost],
+			    "Net Reduction", [Net Reduction]
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: ⚙️ What-If
+		lineageTag: ec1e8905-3be5-4acc-96bb-293b10d78979
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Simulated Efficiency Band Color' =
+			
+			SWITCH (
+			    TRUE (),
+			    [Simulated Batch Efficiency %] < 0.60, "#A4262C",
+			    [Simulated Batch Efficiency %] < 0.75, "#C19C00",
+			    "#34A85A"
+			)
+		displayFolder: 🎨 Styling
+		lineageTag: a0991fdd-1a42-4d51-86a7-9a0591ab4990
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure MinDate =
+			
+			MIN ( Dim_Date[Date] )
+		displayFolder: Paginated Report Visual
+		lineageTag: 795bd5f6-65ad-4bc6-9fc3-faef86d3800c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure MaxDate =
+			
+			MAX ( Dim_Date[Date] )
+		displayFolder: Paginated Report Visual
+		lineageTag: 373305ef-081c-42f4-846f-d16c01883fdc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Top N Download Error Value' =
+			
+			"Top " & SELECTEDVALUE ( 'Top N'[Top N], 5 ) & " Downtime Errors"
+		displayFolder: 🔢 Ranking
+		lineageTag: f59da270-5215-4936-965a-1e5d27fe73a5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Downtime by Top N Operators' =
+			
+			"Downtime by Top " & SELECTEDVALUE ( 'Top N'[Top N] ) & " Operators"
+		displayFolder: 🔢 Ranking
+		lineageTag: 05287944-2a71-46d2-91a1-d1d0103e27cd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Batches by Top N Operators' =
+			
+			"Batches by Top " & SELECTEDVALUE ( 'Top N'[Top N] ) & " Operators"
+		displayFolder: 🔢 Ranking
+		lineageTag: b31483ec-2d3b-437f-92f6-90f191b6e950
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Operator Batch Rank' =
+			
+			RANKX ( ALL ( Dim_Operator[Operator] ), [Total Batches],, DESC, DENSE )
+		displayFolder: 🔢 Ranking
+		lineageTag: cadfda0f-78b4-486d-860e-290bcaaa2081
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Top N Operator Batch' =
+			
+			VAR _n =
+			    SELECTEDVALUE ( 'Top N'[Top N], 5 )
+			RETURN
+			    IF ( [Operator Batch Rank] <= _n, [Total Batches], BLANK () )
+		formatString: 0
+		displayFolder: 🔢 Ranking
+		lineageTag: 16106f8b-0385-4efc-8a13-3508581fcbf4
+
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	column _
 		isHidden

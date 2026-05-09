@@ -1,0 +1,22 @@
+table 'Downtime Cost Per Hour'
+	lineageTag: 6c10a3af-c4cb-466e-832d-508e9850d3cb
+
+	column 'Downtime Cost Per Hour'
+		formatString: 0
+		lineageTag: 592b3550-6508-4dd6-a8a4-86c94d4267e6
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition 'Downtime Cost Per Hour' = calculated
+		mode: import
+		source = GENERATESERIES(50, 500, 1)
+
+	annotation PBI_Id = 99ddcd5227ab4e199d9d07308775fa6c
+

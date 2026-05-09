@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "8d09892615ab3cda8275",
   "position": {
-    "x": 606.58634538152614,
-    "y": 88.674698795180731,
+    "x": 610.77165354330714,
+    "y": 84.661417322834652,
     "z": 2000,
-    "height": 129.79919678714859,
-    "width": 654.136546184739,
+    "height": 130.01574803149606,
+    "width": 654.11023622047242,
     "tabOrder": 1000
   },
   "visual": {
@@ -20,10 +20,10 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dynamic Measure Selector"
+                      "Entity": "Measure Selector"
                     }
                   },
-                  "Property": "Measure Selector - Productivity"
+                  "Property": "Measure Selector"
                 }
               },
               "queryRef": "Measure Selector - Productivity.Measure Selector - Productivity",
@@ -69,8 +69,8 @@
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "m",
-                    "Entity": "Dynamic Measure Selector",
+                    "Name": "d",
+                    "Entity": "Measure Selector",
                     "Type": 0
                   }
                 ],
@@ -83,7 +83,7 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Source": "m"
+                                  "Source": "d"
                                 }
                               },
                               "Property": "Measure Selector - Productivity Fields"
@@ -129,10 +129,10 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Entity": "Dynamic Measure Selector"
+                                  "Entity": "Measure Selector"
                                 }
                               },
-                              "Property": "Measure Selector - Productivity"
+                              "Property": "Measure Selector"
                             }
                           }
                         ],
@@ -189,7 +189,7 @@
                                 "Column": {
                                   "Expression": {
                                     "SourceRef": {
-                                      "Entity": "Dynamic Measure Selector"
+                                      "Entity": "Measure Selector"
                                     }
                                   },
                                   "Property": "Measure Selector - Productivity Fields"

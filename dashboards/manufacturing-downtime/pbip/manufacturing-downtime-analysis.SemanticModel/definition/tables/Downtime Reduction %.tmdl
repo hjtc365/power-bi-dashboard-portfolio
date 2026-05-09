@@ -1,0 +1,22 @@
+table 'Downtime Reduction %'
+	lineageTag: 9b380418-9224-47f0-9ea1-7aa53390f367
+
+	column 'Downtime Reduction %'
+		formatString: 0
+		lineageTag: c7a4345a-b6e1-40c6-8ffc-b37172b09550
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition 'Downtime Reduction %' = calculated
+		mode: import
+		source = GENERATESERIES(0, 100, 1)
+
+	annotation PBI_Id = f5f12dcf1aea4578811693504c06d761
+

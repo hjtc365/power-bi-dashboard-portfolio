@@ -75,18 +75,83 @@
           "type": "Image"
         },
         {
-          "name": "icon-downtime-analysis07703554492173303.svg",
-          "path": "icon-downtime-analysis07703554492173303.svg",
+          "name": "icon-clear-filters-hover3176692177634226.svg",
+          "path": "icon-clear-filters-hover3176692177634226.svg",
           "type": "Image"
         },
         {
-          "name": "icon-downtime-analysis3348131841274259.svg",
-          "path": "icon-downtime-analysis3348131841274259.svg",
+          "name": "icon-clear-filters-selected4581546008501396.svg",
+          "path": "icon-clear-filters-selected4581546008501396.svg",
           "type": "Image"
         },
         {
-          "name": "icon-operator-performance1811218778377207.svg",
-          "path": "icon-operator-performance1811218778377207.svg",
+          "name": "icon-clear-filters322230411696814.svg",
+          "path": "icon-clear-filters322230411696814.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-data-export26953729761963663.svg",
+          "path": "icon-data-export26953729761963663.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-data-export9405712828466766.svg",
+          "path": "icon-data-export9405712828466766.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-downtime-analysis6387091693371123.svg",
+          "path": "icon-downtime-analysis6387091693371123.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-downtime-analysis6676281131725925.svg",
+          "path": "icon-downtime-analysis6676281131725925.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-downtime-analysis6838056514408226.svg",
+          "path": "icon-downtime-analysis6838056514408226.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-filter-panel-hover05728280611339476.svg",
+          "path": "icon-filter-panel-hover05728280611339476.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-filter-panel-selected7207257180522919.svg",
+          "path": "icon-filter-panel-selected7207257180522919.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-filter-panel7420664922229732.svg",
+          "path": "icon-filter-panel7420664922229732.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-operator-performance019175938091144262.svg",
+          "path": "icon-operator-performance019175938091144262.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-operator-performance2503900254315521.svg",
+          "path": "icon-operator-performance2503900254315521.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-operator-performance301568389932954.svg",
+          "path": "icon-operator-performance301568389932954.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-overview-white7691761157422579.svg",
+          "path": "icon-overview-white7691761157422579.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-overview01758942545915465.svg",
+          "path": "icon-overview01758942545915465.svg",
           "type": "Image"
         },
         {
@@ -95,13 +160,23 @@
           "type": "Image"
         },
         {
-          "name": "icon-overview14963358999836696.svg",
-          "path": "icon-overview14963358999836696.svg",
+          "name": "icon-product-analysis4272758810730366.svg",
+          "path": "icon-product-analysis4272758810730366.svg",
           "type": "Image"
         },
         {
-          "name": "icon-product-analysis7355049143960006.svg",
-          "path": "icon-product-analysis7355049143960006.svg",
+          "name": "icon-product-analysis8424087919405199.svg",
+          "path": "icon-product-analysis8424087919405199.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-scenario3395473728066891.svg",
+          "path": "icon-scenario3395473728066891.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon-scenario8962418306133024.svg",
+          "path": "icon-scenario8962418306133024.svg",
           "type": "Image"
         }
       ]

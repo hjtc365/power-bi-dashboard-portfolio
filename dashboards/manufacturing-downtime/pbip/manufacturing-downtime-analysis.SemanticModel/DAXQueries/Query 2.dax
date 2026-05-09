@@ -1,0 +1,17 @@
+EVALUATE
+UNION(
+    ROW(
+        "ErrorTypeValue", "Both",
+        "ErrorTypeLabel", "Both"
+    ),
+    SELECTCOLUMNS(
+        VALUES(Dim_DowntimeFactor[Operator Error]),
+        "ErrorTypeValue", Dim_DowntimeFactor[Operator Error],
+        "ErrorTypeLabel", IF(
+            Dim_DowntimeFactor[Operator Error] = "Yes",
+            "Operator Error",
+            "Not Operator Error"
+        )
+    )
+)
+ORDER BY [ErrorTypeLabel]
