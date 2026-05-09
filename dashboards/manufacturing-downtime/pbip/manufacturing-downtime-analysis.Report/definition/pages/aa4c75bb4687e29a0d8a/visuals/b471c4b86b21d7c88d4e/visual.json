@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "b471c4b86b21d7c88d4e",
   "position": {
-    "x": 398.21068470995294,
-    "y": 196.05483613263249,
-    "z": 5000,
-    "height": 237.75100401606426,
-    "width": 363.6947791164659,
+    "x": 494.83443708609275,
+    "y": 200.26490066225165,
+    "z": 4000,
+    "height": 236.29139072847681,
+    "width": 363.44370860927154,
     "tabOrder": 5000
   },
   "visual": {
@@ -32,24 +32,6 @@
             }
           ]
         },
-        "Tooltips": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Total Batches"
-                }
-              },
-              "queryRef": "_Measures.Total Batches",
-              "nativeQueryRef": "Total Batches"
-            }
-          ]
-        },
         "Y": {
           "projections": [
             {
@@ -60,11 +42,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Batches"
+                  "Property": "Top N Operator Batch"
                 }
               },
-              "queryRef": "_Measures.Total Batches",
-              "nativeQueryRef": "Total Batches"
+              "queryRef": "_Measures.Top N Operator Batch",
+              "nativeQueryRef": "Top N Operator Batch"
             }
           ]
         }
@@ -79,7 +61,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Total Batches"
+                "Property": "Top N Operator Batch"
               }
             },
             "direction": "Descending"
@@ -231,7 +213,7 @@
             "labelPosition": {
               "expr": {
                 "Literal": {
-                  "Value": "'InsideCenter'"
+                  "Value": "'Auto'"
                 }
               }
             }
@@ -253,7 +235,7 @@
                               "Entity": "_Measures"
                             }
                           },
-                          "Property": "Total Downtime Minutes"
+                          "Property": "Total Batches"
                         }
                       },
                       "FillRule": {
@@ -261,14 +243,14 @@
                           "min": {
                             "color": {
                               "Literal": {
-                                "Value": "'#34A85A'"
+                                "Value": "'#dba8ab'"
                               }
                             }
                           },
                           "max": {
                             "color": {
                               "Literal": {
-                                "Value": "'#c87d80'"
+                                "Value": "'#34A85A'"
                               }
                             }
                           },
@@ -297,87 +279,6 @@
             ]
           }
         }
-      ],
-      "referenceLine": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "displayName": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Average line 1'"
-                }
-              }
-            },
-            "value": {
-              "expr": {
-                "Aggregation": {
-                  "Expression": {
-                    "SelectRef": {
-                      "ExpressionName": "_Measures.Total Batches"
-                    }
-                  },
-                  "Function": 1
-                }
-              }
-            },
-            "lineColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.6
-                    }
-                  }
-                }
-              }
-            },
-            "autoScale": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "dataLabelShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "dataLabelHorizontalPosition": {
-              "expr": {
-                "Literal": {
-                  "Value": "'right'"
-                }
-              }
-            },
-            "dataLabelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.6
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Total Batches",
-            "id": "1"
-          }
-        }
       ]
     },
     "visualContainerObjects": {
@@ -386,8 +287,13 @@
           "properties": {
             "text": {
               "expr": {
-                "Literal": {
-                  "Value": "'Total Batches by Operator'"
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Batches by Top N Operators"
                 }
               }
             }

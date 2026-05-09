@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "3a99546530cd63eed50b",
   "position": {
-    "x": 19.575191163976211,
-    "y": 202.27697536108747,
-    "z": 0,
-    "height": 496.99235344095155,
-    "width": 258.82752761257433,
-    "tabOrder": 3000
+    "x": 15.609756097560975,
+    "y": 200.69686411149826,
+    "z": 2000,
+    "height": 503.97212543554008,
+    "width": 248.64111498257842,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "tableEx",
@@ -37,15 +37,32 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Downtime Minutes"
+                  "Property": "Top N Factor Downtime"
                 }
               },
-              "queryRef": "_Measures.Total Downtime Minutes",
+              "queryRef": "_Measures.Top N Factor Downtime",
               "nativeQueryRef": "Downtime",
               "displayName": "Downtime"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Top N Factor Downtime"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "objects": {
@@ -124,6 +141,64 @@
           "selector": {
             "metadata": "Dim_DowntimeFactor.Description"
           }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Top N Factor Downtime"
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "135.74030818198503D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Dim_DowntimeFactor.Description"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "83.75365141187926D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Top N Factor Downtime"
+          }
         }
       ]
     },
@@ -134,7 +209,104 @@
             "show": {
               "expr": {
                 "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Top N Download Error Value"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "divider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "spaceBelowTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "spaceBelowTitleArea": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
                 }
               }
             }

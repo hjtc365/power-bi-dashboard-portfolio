@@ -1,0 +1,10 @@
+<!-- icon-filter-panel-selected.svg — open Filters Panel: selected/active state (filled funnel) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+     stroke="#0E6027" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- funnel filled to indicate panel is open/active -->
+  <path d="M3 4h18l-7 8v6l-4 2v-8L3 4Z" fill="#0E6027"/>
+  <!-- panel lines in white for contrast against filled funnel -->
+  <line x1="16" y1="14" x2="21" y2="14" stroke="#0E6027"/>
+  <line x1="16" y1="17" x2="21" y2="17" stroke="#0E6027"/>
+  <line x1="16" y1="20" x2="21" y2="20" stroke="#0E6027"/>
+</svg>
