@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "17f5dc82e61a1ae6a266",
   "position": {
     "x": 15.493482309124767,
@@ -121,6 +121,20 @@
         {
           "properties": {
             "paramButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "openReportButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "pageNavigation": {
               "expr": {
                 "Literal": {
                   "Value": "true"

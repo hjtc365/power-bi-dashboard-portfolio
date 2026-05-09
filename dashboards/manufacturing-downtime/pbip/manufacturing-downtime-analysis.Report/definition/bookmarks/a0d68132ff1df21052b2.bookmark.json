@@ -525,12 +525,6 @@
               "visualType": "shape",
               "objects": {}
             }
-          },
-          "4a00e1d95104d50510c5": {
-            "singleVisual": {
-              "visualType": "pageNavigator",
-              "objects": {}
-            }
           }
         },
         "visualContainerGroups": {

@@ -141,12 +141,6 @@
               "objects": {}
             }
           },
-          "1f9a755e4826b8380258": {
-            "singleVisual": {
-              "visualType": "pageNavigator",
-              "objects": {}
-            }
-          },
           "309a2151b86db2e30bdc": {
             "singleVisual": {
               "visualType": "actionButton",

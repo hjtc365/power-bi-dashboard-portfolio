@@ -18,17 +18,11 @@
     "sections": {
       "6e25f9f223a0d207b580": {
         "visualContainers": {
-          "012255286a7d789dd29b": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
-            }
-          },
           "26471a5ca2d98855e9d4": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "2c140de49ea36d0a8462",
+                  "name": "9571ff9df30eca35da9b",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -43,7 +37,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "d621fe887561d6d05a35",
+                  "name": "728b6a9ea16959fc9b67",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -58,7 +52,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "922a981e5615c6b588e6",
+                  "name": "0ce6335747d49ae6b182",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -108,6 +102,30 @@
               }
             }
           },
+          "6dba19a9723b2597e2b2": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "8a6ceaa87080259c04d9": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "8e77d6b9ba0074e03138": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "ba43c7707edeb4e47e0c": {
+            "singleVisual": {
+              "visualType": "pageNavigator",
+              "objects": {}
+            }
+          },
           "271bf680a0d7ee0d0ec6": {
             "singleVisual": {
               "visualType": "shape",
@@ -120,11 +138,41 @@
               "objects": {}
             }
           },
+          "826d9b2c8206c69a0609": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "a3ff529401973c601b00": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "b4c1b70812107905b4c2": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "b680d4a13dea999e3d71": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "c1916d8beace519a68b8": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
           "6ba0f2aab290a63b9b0a": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "1fdcf981b32822494556",
+                  "name": "6afdb99610265f4829d3",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -139,7 +187,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "d2145701dcdef87d4e87",
+                  "name": "0f1408535d6ddf73d1dd",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -175,23 +223,11 @@
               ]
             }
           },
-          "6dba19a9723b2597e2b2": {
-            "singleVisual": {
-              "visualType": "image",
-              "objects": {}
-            }
-          },
-          "826d9b2c8206c69a0609": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
-            }
-          },
           "82aa7eca01a705a849ae": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "c568076965bfcd1faff4",
+                  "name": "b56b1ad320c4c2692fc2",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -206,7 +242,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "7c99a35e2aa28deed4e4",
+                  "name": "82caa8dcc1722d98748d",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -221,7 +257,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "6a11f054117bde1ce8ba",
+                  "name": "1e37b2f408add0e55bd3",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -236,7 +272,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "5c362d06702c7e2af6dd",
+                  "name": "bda8b991b9a0dc48b81d",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -284,18 +320,6 @@
                   }
                 ]
               }
-            }
-          },
-          "8a6ceaa87080259c04d9": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
-            }
-          },
-          "8e77d6b9ba0074e03138": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
             }
           },
           "97b040fc34a2035d7383": {
@@ -346,37 +370,7 @@
               "objects": {}
             }
           },
-          "a3ff529401973c601b00": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
-            }
-          },
-          "b209c765db7daea845d8": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "b4c1b70812107905b4c2": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
-            }
-          },
-          "b680d4a13dea999e3d71": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
-            }
-          },
-          "ba43c7707edeb4e47e0c": {
-            "singleVisual": {
-              "visualType": "pageNavigator",
-              "objects": {}
-            }
-          },
-          "c1916d8beace519a68b8": {
+          "012255286a7d789dd29b": {
             "singleVisual": {
               "visualType": "shape",
               "objects": {}
@@ -386,7 +380,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "755053facfe2b736e084",
+                  "name": "a641c37ee54996313326",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -422,9 +416,8 @@
                             "Where": [
                               {
                                 "Condition": {
-                                  "Comparison": {
-                                    "ComparisonKind": 2,
-                                    "Left": {
+                                  "Between": {
+                                    "Expression": {
                                       "Column": {
                                         "Expression": {
                                           "SourceRef": {
@@ -434,9 +427,32 @@
                                         "Property": "Date"
                                       }
                                     },
-                                    "Right": {
-                                      "Literal": {
-                                        "Value": "datetime'2024-01-01T00:00:00'"
+                                    "LowerBound": {
+                                      "DateSpan": {
+                                        "Expression": {
+                                          "DateAdd": {
+                                            "Expression": {
+                                              "DateAdd": {
+                                                "Expression": {
+                                                  "Now": {}
+                                                },
+                                                "Amount": 1,
+                                                "TimeUnit": 0
+                                              }
+                                            },
+                                            "Amount": -15,
+                                            "TimeUnit": 0
+                                          }
+                                        },
+                                        "TimeUnit": 0
+                                      }
+                                    },
+                                    "UpperBound": {
+                                      "DateSpan": {
+                                        "Expression": {
+                                          "Now": {}
+                                        },
+                                        "TimeUnit": 0
                                       }
                                     }
                                   }
@@ -451,17 +467,44 @@
                   "data": [
                     {
                       "properties": {
-                        "startDate": {
+                        "relativeRange": {
                           "expr": {
                             "Literal": {
-                              "Value": "datetime'2024-01-01T00:00:00'"
+                              "Value": "'Last'"
+                            }
+                          }
+                        },
+                        "relativePeriod": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Days'"
+                            }
+                          }
+                        },
+                        "relativeDuration": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "15D"
                             }
                           }
                         },
                         "mode": {
                           "expr": {
                             "Literal": {
-                              "Value": "'Between'"
+                              "Value": "'Relative'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "dateRange": [
+                    {
+                      "properties": {
+                        "includeToday": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
                             }
                           }
                         }
@@ -501,111 +544,11 @@
               }
             }
           },
-          "ecb8a1ca273295a139eb": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "e63be1fa2730cb848e80",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Total Batches"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "ee84da1a63537983e92e",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Total Downtime Minutes"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "55fb13ce1eb8ed7e5994",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Batch Efficiency %"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "5f12695ec12ea664a7f6",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Avg Downtime Per Batch"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "c90445c5671ca2237586",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Downtime Rate %"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "cardVisual",
-              "objects": {},
-              "orderBy": [
-                {
-                  "Direction": 2,
-                  "Expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Total Batches"
-                    }
-                  }
-                }
-              ]
-            }
-          },
           "f50436de60c0dbee7500": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "6e618de3fee3b05b3298",
+                  "name": "e2c4afc7421b4773241d",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -660,7 +603,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "c8d4772707cdf02d6b99",
+                  "name": "cf556b4ad10b2940474d",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -709,6 +652,112 @@
                   }
                 ]
               }
+            }
+          },
+          "b209c765db7daea845d8": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "ecb8a1ca273295a139eb": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "6ab3e2806578e04384cf",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Total Batches"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a37a2f2424a6f2709a85",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Total Downtime Minutes"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "dd2f64c427af2a111b62",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Batch Efficiency %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b64c979435a874b1bcff",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Avg Downtime Per Batch"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c19b9b995d7c556dcb48",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Downtime Rate %"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Total Batches"
+                    }
+                  }
+                }
+              ]
             }
           }
         },

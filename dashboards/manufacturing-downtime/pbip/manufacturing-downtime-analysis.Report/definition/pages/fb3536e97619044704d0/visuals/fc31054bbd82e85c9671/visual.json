@@ -150,37 +150,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "9c86383df8fafe07ef9d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Scenario Steps"
-              }
-            },
-            "Property": "Step"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "0fc0d62bd5a00a31428a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Waterfall Value"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

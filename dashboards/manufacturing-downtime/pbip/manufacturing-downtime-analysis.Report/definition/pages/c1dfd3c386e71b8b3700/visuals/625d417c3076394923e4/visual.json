@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "625d417c3076394923e4",
   "position": {
-    "x": 25.837401744471503,
-    "y": 67.300758982150555,
+    "x": 30,
+    "y": 65,
     "z": 4000,
-    "height": 116,
-    "width": 270.65742197939244,
-    "tabOrder": 2000
+    "height": 120,
+    "width": 340,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "slicer",
@@ -66,7 +66,28 @@
             "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'Between'"
+                  "Value": "'Relative'"
+                }
+              }
+            },
+            "relativeRange": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Last'"
+                }
+              }
+            },
+            "relativePeriod": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Days'"
+                }
+              }
+            },
+            "relativeDuration": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
                 }
               }
             }
@@ -142,9 +163,8 @@
                 "Where": [
                   {
                     "Condition": {
-                      "Comparison": {
-                        "ComparisonKind": 2,
-                        "Left": {
+                      "Between": {
+                        "Expression": {
                           "Column": {
                             "Expression": {
                               "SourceRef": {
@@ -154,15 +174,51 @@
                             "Property": "Date"
                           }
                         },
-                        "Right": {
-                          "Literal": {
-                            "Value": "datetime'2024-01-01T00:00:00'"
+                        "LowerBound": {
+                          "DateSpan": {
+                            "Expression": {
+                              "DateAdd": {
+                                "Expression": {
+                                  "DateAdd": {
+                                    "Expression": {
+                                      "Now": {}
+                                    },
+                                    "Amount": 1,
+                                    "TimeUnit": 0
+                                  }
+                                },
+                                "Amount": -15,
+                                "TimeUnit": 0
+                              }
+                            },
+                            "TimeUnit": 0
+                          }
+                        },
+                        "UpperBound": {
+                          "DateSpan": {
+                            "Expression": {
+                              "Now": {}
+                            },
+                            "TimeUnit": 0
                           }
                         }
                       }
                     }
                   }
                 ]
+              }
+            }
+          }
+        }
+      ],
+      "dateRange": [
+        {
+          "properties": {
+            "includeToday": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
               }
             }
           }

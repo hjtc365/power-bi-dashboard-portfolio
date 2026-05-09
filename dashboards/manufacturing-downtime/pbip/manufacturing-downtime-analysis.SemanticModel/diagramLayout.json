@@ -237,7 +237,7 @@
             "height": 275,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
         },
         {
           "location": {
@@ -250,7 +250,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 4
         },
         {
           "location": {
@@ -263,7 +263,7 @@
             "height": 272,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 2
         },
         {
           "location": {
@@ -276,7 +276,7 @@
             "height": 128,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 3
         }
       ],
       "name": "Productivity",
@@ -367,6 +367,6 @@
       "tablesLocked": false
     }
   ],
-  "selectedDiagram": "Downtime",
+  "selectedDiagram": "Productivity",
   "defaultDiagram": "All tables"
 }

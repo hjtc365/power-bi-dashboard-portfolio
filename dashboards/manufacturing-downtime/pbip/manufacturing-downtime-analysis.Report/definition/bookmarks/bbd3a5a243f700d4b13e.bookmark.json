@@ -19,27 +19,9 @@
     "sections": {
       "c1dfd3c386e71b8b3700": {
         "visualContainers": {
-          "073772682db12b9c9bee": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
-            }
-          },
           "11b8ccfd9cb59b21528c": {
             "singleVisual": {
               "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "13a197837a77353857e8": {
-            "singleVisual": {
-              "visualType": "image",
-              "objects": {}
-            }
-          },
-          "2440b5e2975dc132cc1b": {
-            "singleVisual": {
-              "visualType": "shape",
               "objects": {}
             }
           },
@@ -53,7 +35,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "0e0727b34ef2a964c22b",
+                  "name": "cbf5ff6287026ab9e39c",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -68,7 +50,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "2ef51ebd3e46bd458d0b",
+                  "name": "4085c74c0b54e4f27f01",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -104,25 +86,25 @@
               ]
             }
           },
+          "2440b5e2975dc132cc1b": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
           "3cdf7455d3e00e9d5239": {
             "singleVisual": {
               "visualType": "shape",
               "objects": {}
             }
           },
-          "4a00e1d95104d50510c5": {
-            "singleVisual": {
-              "visualType": "pageNavigator",
-              "objects": {}
-            }
-          },
-          "4ccb8ae2c4e4ed618606": {
+          "46e3fb42a7255bdd87d2": {
             "singleVisual": {
               "visualType": "shape",
               "objects": {}
             }
           },
-          "4ee3acd4e54380850454": {
+          "4ccb8ae2c4e4ed618606": {
             "singleVisual": {
               "visualType": "shape",
               "objects": {}
@@ -134,11 +116,137 @@
               "objects": {}
             }
           },
+          "c991bae6a03a3135d6a7": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "d95da93666569c1d09dc": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "073772682db12b9c9bee": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "13a197837a77353857e8": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "4ee3acd4e54380850454": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "9f54e5dd5658515987b7": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "fedb0cf49e2a7b8318c8",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_DowntimeFactor"
+                        }
+                      },
+                      "Property": "Description"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ca8083fb7ed164ecafa0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Fact_Downtime"
+                        }
+                      },
+                      "Property": "Batch"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6eea38c2cbcae43bed42",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Total Downtime Minutes"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Fact_Downtime"
+                        }
+                      },
+                      "Property": "Batch"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Columns": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_DowntimeFactor"
+                        }
+                      },
+                      "Property": "Description"
+                    }
+                  }
+                ],
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Fact_Downtime"
+                        }
+                      },
+                      "Property": "Batch"
+                    }
+                  }
+                ]
+              }
+            }
+          },
           "625d417c3076394923e4": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "aa1c177aff17aee12851",
+                  "name": "ac478354ccde4bb95c63",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -174,9 +282,8 @@
                             "Where": [
                               {
                                 "Condition": {
-                                  "Comparison": {
-                                    "ComparisonKind": 2,
-                                    "Left": {
+                                  "Between": {
+                                    "Expression": {
                                       "Column": {
                                         "Expression": {
                                           "SourceRef": {
@@ -186,9 +293,32 @@
                                         "Property": "Date"
                                       }
                                     },
-                                    "Right": {
-                                      "Literal": {
-                                        "Value": "datetime'2024-01-01T00:00:00'"
+                                    "LowerBound": {
+                                      "DateSpan": {
+                                        "Expression": {
+                                          "DateAdd": {
+                                            "Expression": {
+                                              "DateAdd": {
+                                                "Expression": {
+                                                  "Now": {}
+                                                },
+                                                "Amount": 1,
+                                                "TimeUnit": 0
+                                              }
+                                            },
+                                            "Amount": -15,
+                                            "TimeUnit": 0
+                                          }
+                                        },
+                                        "TimeUnit": 0
+                                      }
+                                    },
+                                    "UpperBound": {
+                                      "DateSpan": {
+                                        "Expression": {
+                                          "Now": {}
+                                        },
+                                        "TimeUnit": 0
                                       }
                                     }
                                   }
@@ -210,10 +340,44 @@
                             }
                           }
                         },
+                        "relativeRange": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Last'"
+                            }
+                          }
+                        },
+                        "relativePeriod": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Days'"
+                            }
+                          }
+                        },
+                        "relativeDuration": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "15D"
+                            }
+                          }
+                        },
                         "mode": {
                           "expr": {
                             "Literal": {
-                              "Value": "'Between'"
+                              "Value": "'Relative'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "dateRange": [
+                    {
+                      "properties": {
+                        "includeToday": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
                             }
                           }
                         }
@@ -257,7 +421,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "78bfb5a436d5b3275c23",
+                  "name": "26426ef424d79990c5d1",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -312,7 +476,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "27abca6d4a7ff671591a",
+                  "name": "8f3e6f184285b710a506",
                   "type": "Advanced",
                   "expression": {
                     "Column": {
@@ -423,107 +587,17 @@
               }
             }
           },
-          "9f54e5dd5658515987b7": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "ffb1a6dcd41eb2bcac0a",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_DowntimeFactor"
-                        }
-                      },
-                      "Property": "Description"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "63a62c0a09d2594175ef",
-                  "type": "Advanced",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Fact_Downtime"
-                        }
-                      },
-                      "Property": "Batch"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "66f5132bec8eb4908df5",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Total Downtime Minutes"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
+          "b81654766754aaa20a30": {
             "singleVisual": {
-              "visualType": "pivotTable",
-              "objects": {},
-              "orderBy": [
-                {
-                  "Direction": 1,
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Fact_Downtime"
-                        }
-                      },
-                      "Property": "Batch"
-                    }
-                  }
-                }
-              ],
-              "activeProjections": {
-                "Columns": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_DowntimeFactor"
-                        }
-                      },
-                      "Property": "Description"
-                    }
-                  }
-                ],
-                "Rows": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Fact_Downtime"
-                        }
-                      },
-                      "Property": "Batch"
-                    }
-                  }
-                ]
-              }
+              "visualType": "shape",
+              "objects": {}
             }
           },
           "aaed56c838d2b2d88c1a": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "e77130cb463025743296",
+                  "name": "beaafb819842c077ac8f",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -574,23 +648,11 @@
               }
             }
           },
-          "b81654766754aaa20a30": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
-            }
-          },
-          "c991bae6a03a3135d6a7": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
-            }
-          },
           "ce1140110d06b8576832": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "16f8bce392642d910ea2",
+                  "name": "0b0a260b5485d1e19000",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -605,7 +667,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "142698ef4aefbb5e64a4",
+                  "name": "35da17c337c9a6a70206",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -620,7 +682,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "9e012cf64a412b087aef",
+                  "name": "a5f25f4b70e7b0287a74",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -635,7 +697,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "1eb1c0de9d70115b9fab",
+                  "name": "201729f2b4830991ba66",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -669,18 +731,6 @@
                   }
                 }
               ]
-            }
-          },
-          "d95da93666569c1d09dc": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
-            }
-          },
-          "46e3fb42a7255bdd87d2": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
             }
           }
         },

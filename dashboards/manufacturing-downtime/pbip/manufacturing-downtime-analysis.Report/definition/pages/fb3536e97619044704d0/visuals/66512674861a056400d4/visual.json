@@ -328,34 +328,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "8b675370345287522de8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Total Downtime Minutes"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "40dadf5e397b89413ca9",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Simulated Downtime Minutes"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

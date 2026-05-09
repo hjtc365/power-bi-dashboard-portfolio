@@ -5,11 +5,11 @@
   "options": {
     "applyOnlyToTargetVisuals": true,
     "targetVisualNames": [
-      "795b700a0070a39a1182",
-      "5680dd8a166be178662c",
-      "1c1fb7f3100720d7d4c7",
-      "f02545d0820baeae6dc8",
-      "6a8595e72937de06a600"
+      "b82d399c776b001301b9",
+      "b37073d5d389b4cd7e2b",
+      "d058e8111fba0e35bbcb",
+      "24ca2f41470c5965cf3c",
+      "844c51c36d85f9ec6516"
     ],
     "suppressData": true
   },
@@ -19,6 +19,36 @@
     "sections": {
       "76b7372faa64a8468666": {
         "visualContainers": {
+          "19dd4a503e9eedacbe8a": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "c4560b5531a59bbb4e56": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "c8094e800807a173b78a": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "d60478be3301115adb83": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "486555810d9093663c8a": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
           "1fd7a4c3925ce59a8026": {
             "singleVisual": {
               "visualType": "shape",
@@ -71,7 +101,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "752e52e63755942ebaa9",
+                  "name": "a0c6f34abfbf0dc14a56",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -282,7 +312,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "2f499a2b63f844142f7a",
+                  "name": "94c6f04b09d3f3441cbc",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -397,7 +427,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "f2ad549b543c6207468e",
+                  "name": "17a0add47b965c347e7b",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -412,7 +442,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "986b751891348ad7f073",
+                  "name": "eecb393ee16070b3560f",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -427,7 +457,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "1169790f32cd4e3c154b",
+                  "name": "d7338e2b074b1fe67a83",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -442,7 +472,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "258b073ab1105bb3eedb",
+                  "name": "ec988c1f2eb48ccdb2ae",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -457,7 +487,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "1727a72e8e56f800633f",
+                  "name": "d2cb726f2e5018042521",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -598,133 +628,17 @@
               }
             }
           },
-          "19dd4a503e9eedacbe8a": {
+          "b37073d5d389b4cd7e2b": {
             "singleVisual": {
-              "visualType": "actionButton",
+              "visualType": "shape",
               "objects": {}
             }
           },
-          "486555810d9093663c8a": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "5680dd8a166be178662c": {
+          "d058e8111fba0e35bbcb": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "f7bca8eaf0b9943965ad",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Operator"
-                        }
-                      },
-                      "Property": "Operator"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "isInvertedSelectionMode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "true"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Operator"
-                        }
-                      },
-                      "Property": "Operator"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "1c1fb7f3100720d7d4c7": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "538a4a649d641b4db94e",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Product"
-                        }
-                      },
-                      "Property": "Product"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "isInvertedSelectionMode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "true"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_Product"
-                        }
-                      },
-                      "Property": "Product"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "f02545d0820baeae6dc8": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "efe144a4ebea78490c55",
+                  "name": "6ac28c778a79dd5e6aeb",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -760,9 +674,8 @@
                             "Where": [
                               {
                                 "Condition": {
-                                  "Comparison": {
-                                    "ComparisonKind": 2,
-                                    "Left": {
+                                  "Between": {
+                                    "Expression": {
                                       "Column": {
                                         "Expression": {
                                           "SourceRef": {
@@ -772,9 +685,32 @@
                                         "Property": "Date"
                                       }
                                     },
-                                    "Right": {
-                                      "Literal": {
-                                        "Value": "datetime'2024-08-01T00:00:00'"
+                                    "LowerBound": {
+                                      "DateSpan": {
+                                        "Expression": {
+                                          "DateAdd": {
+                                            "Expression": {
+                                              "DateAdd": {
+                                                "Expression": {
+                                                  "Now": {}
+                                                },
+                                                "Amount": 1,
+                                                "TimeUnit": 0
+                                              }
+                                            },
+                                            "Amount": -15,
+                                            "TimeUnit": 0
+                                          }
+                                        },
+                                        "TimeUnit": 0
+                                      }
+                                    },
+                                    "UpperBound": {
+                                      "DateSpan": {
+                                        "Expression": {
+                                          "Now": {}
+                                        },
+                                        "TimeUnit": 0
                                       }
                                     }
                                   }
@@ -789,17 +725,44 @@
                   "data": [
                     {
                       "properties": {
-                        "startDate": {
+                        "relativeRange": {
                           "expr": {
                             "Literal": {
-                              "Value": "datetime'2024-08-01T00:00:00'"
+                              "Value": "'Last'"
+                            }
+                          }
+                        },
+                        "relativePeriod": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Days'"
+                            }
+                          }
+                        },
+                        "relativeDuration": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "15D"
                             }
                           }
                         },
                         "mode": {
                           "expr": {
                             "Literal": {
-                              "Value": "'Between'"
+                              "Value": "'Relative'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "dateRange": [
+                    {
+                      "properties": {
+                        "includeToday": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
                             }
                           }
                         }
@@ -839,34 +802,114 @@
               }
             }
           },
-          "6a8595e72937de06a600": {
+          "24ca2f41470c5965cf3c": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "5b8c063d511f5ce98c9c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Operator"
+                        }
+                      },
+                      "Property": "Operator"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
             "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Operator"
+                        }
+                      },
+                      "Property": "Operator"
+                    }
+                  }
+                ]
+              }
             }
           },
-          "d60478be3301115adb83": {
+          "844c51c36d85f9ec6516": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "eb1a8e525fd6be62ba63",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Product"
+                        }
+                      },
+                      "Property": "Product"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
             "singleVisual": {
-              "visualType": "image",
-              "objects": {}
-            }
-          },
-          "c8094e800807a173b78a": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
-            }
-          },
-          "c4560b5531a59bbb4e56": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
-            }
-          },
-          "b43c478a6c6720a89cc8": {
-            "singleVisual": {
-              "visualType": "pageNavigator",
-              "objects": {}
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Product"
+                        }
+                      },
+                      "Property": "Product"
+                    }
+                  }
+                ]
+              }
             }
           }
         },
@@ -874,7 +917,7 @@
           "541e480d9a59401d3230": {
             "isHidden": true
           },
-          "795b700a0070a39a1182": {
+          "b82d399c776b001301b9": {
             "isHidden": false
           }
         }

@@ -819,12 +819,6 @@
               "visualType": "shape",
               "objects": {}
             }
-          },
-          "1f9a755e4826b8380258": {
-            "singleVisual": {
-              "visualType": "pageNavigator",
-              "objects": {}
-            }
           }
         },
         "visualContainerGroups": {
