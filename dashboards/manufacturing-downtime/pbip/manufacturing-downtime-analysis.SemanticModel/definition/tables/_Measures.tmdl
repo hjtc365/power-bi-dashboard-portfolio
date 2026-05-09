@@ -444,6 +444,46 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Top N Download Error Value' =
+			
+			"Top " & SELECTEDVALUE ( 'Top N'[Top N], 5 ) & " Downtime Errors"
+		displayFolder: 🔢 Ranking
+		lineageTag: f59da270-5215-4936-965a-1e5d27fe73a5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Downtime by Top N Operators' = "Downtime by Top " & SELECTEDVALUE('Top N'[Top N]) & " Operators"
+		displayFolder: 🔢 Ranking
+		lineageTag: 05287944-2a71-46d2-91a1-d1d0103e27cd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Batches by Top N Operators' = "Batches by Top " & SELECTEDVALUE('Top N'[Top N]) & " Operators"
+		displayFolder: 🔢 Ranking
+		lineageTag: b31483ec-2d3b-437f-92f6-90f191b6e950
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Operator Batch Rank' =
+			
+			RANKX ( ALL ( Dim_Operator[Operator] ), [Total Batches],, DESC, DENSE )
+		displayFolder: 🔢 Ranking
+		lineageTag: cadfda0f-78b4-486d-860e-290bcaaa2081
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Top N Operator Batch' =
+			
+			VAR _n =
+			    SELECTEDVALUE ( 'Top N'[Top N], 5 )
+			RETURN
+			    IF ( [Operator Batch Rank] <= _n, [Total Batches], BLANK () )
+		formatString: 0
+		displayFolder: 🔢 Ranking
+		lineageTag: 16106f8b-0385-4efc-8a13-3508581fcbf4
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
 	column _
 		isHidden
 		lineageTag: 73ffbb9c-a638-4650-9eca-c8dd35571def

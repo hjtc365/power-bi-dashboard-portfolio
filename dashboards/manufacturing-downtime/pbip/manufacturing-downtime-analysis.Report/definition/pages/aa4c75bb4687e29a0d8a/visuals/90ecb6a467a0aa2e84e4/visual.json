@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "90ecb6a467a0aa2e84e4",
   "position": {
-    "x": 776.06299212598424,
-    "y": 196.53543307086613,
-    "z": 3000,
-    "height": 239.8740157480315,
-    "width": 488.81889763779526,
+    "x": 873.11258278145692,
+    "y": 200.26490066225165,
+    "z": 2000,
+    "height": 236.29139072847681,
+    "width": 392.05298013245033,
     "tabOrder": 1000
   },
   "visual": {
@@ -37,12 +37,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Batches"
+                  "Property": "Total Min Batch Time"
                 }
               },
-              "queryRef": "_Measures.Total Batches",
-              "nativeQueryRef": "Batches",
-              "displayName": "Batches"
+              "queryRef": "_Measures.Total Min Batch Time",
+              "nativeQueryRef": "Target (min)",
+              "displayName": "Target (min)"
             },
             {
               "field": {
@@ -52,27 +52,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Downtime Minutes"
+                  "Property": "Total Actual Duration Minutes"
                 }
               },
-              "queryRef": "_Measures.Total Downtime Minutes",
-              "nativeQueryRef": "Downtime Mins",
-              "displayName": "Downtime Mins"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Avg Downtime Per Batch"
-                }
-              },
-              "queryRef": "_Measures.Avg Downtime Per Batch",
-              "nativeQueryRef": "Avg Down Mins Per Batch",
-              "displayName": "Avg Down Mins Per Batch"
+              "queryRef": "_Measures.Total Actual Duration Minutes",
+              "nativeQueryRef": "Actual (min)",
+              "displayName": "Actual (min)"
             },
             {
               "field": {
@@ -86,7 +71,8 @@
                 }
               },
               "queryRef": "_Measures.Batch Efficiency %",
-              "nativeQueryRef": "Batch Efficiency %"
+              "nativeQueryRef": "Efficiency %",
+              "displayName": "Efficiency %"
             }
           ]
         }
@@ -95,16 +81,16 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dim_Operator"
+                    "Entity": "_Measures"
                   }
                 },
-                "Property": "Operator"
+                "Property": "Batch Efficiency %"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
@@ -169,34 +155,6 @@
             "alignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'Center'"
-                }
-              }
-            },
-            "styleHeader": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "styleTotal": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Total Downtime Minutes"
-          }
-        },
-        {
-          "properties": {
-            "alignment": {
-              "expr": {
-                "Literal": {
                   "Value": "'Left'"
                 }
               }
@@ -231,7 +189,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Total Batches"
+            "metadata": "_Measures.Batch Efficiency %"
           }
         },
         {
@@ -259,7 +217,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Avg Downtime Per Batch"
+            "metadata": "_Measures.Total Min Batch Time"
           }
         },
         {
@@ -287,546 +245,11 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Batch Efficiency %"
-          }
-        }
-      ],
-      "columnWidth": [
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "63.88555221921222D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Dim_DowntimeFactor"
-                          }
-                        },
-                        "Property": "Description"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Batch change'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "68.63368471895818D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Dim_DowntimeFactor"
-                          }
-                        },
-                        "Property": "Description"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Batch coding error'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "69.79535531036922D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Dim_DowntimeFactor"
-                          }
-                        },
-                        "Property": "Description"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Calibration error'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "81.7825633086342D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Dim_DowntimeFactor"
-                          }
-                        },
-                        "Property": "Description"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Conveyor belt jam'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "80.24805747601216D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Dim_DowntimeFactor"
-                          }
-                        },
-                        "Property": "Description"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Inventory shortage'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "71.82494533497525D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Dim_DowntimeFactor"
-                          }
-                        },
-                        "Property": "Description"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Label switch'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "66.51947351768737D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Dim_DowntimeFactor"
-                          }
-                        },
-                        "Property": "Description"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Labeling error'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "88.09202622858479D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Dim_DowntimeFactor"
-                          }
-                        },
-                        "Property": "Description"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Machine adjustment'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "85.14725599844125D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Dim_DowntimeFactor"
-                          }
-                        },
-                        "Property": "Description"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Machine failure'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "66.3927280932642D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Dim_DowntimeFactor"
-                          }
-                        },
-                        "Property": "Description"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Other'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "80.21905286280472D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Dim_DowntimeFactor"
-                          }
-                        },
-                        "Property": "Description"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Product spill'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "43.737462610262654D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "total": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim_DowntimeFactor"
-                        }
-                      },
-                      "Property": "Description"
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "57D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Fact_Downtime.Batch"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "87.63722658049466D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Total Downtime Minutes"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "113.39930010982937D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Avg Downtime Per Batch"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "108.16228160401785D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Batch Efficiency %"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "73.85925225532239D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Dim_Operator.Operator"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "63.32259571670146D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Total Batches"
+            "metadata": "_Measures.Total Actual Duration Minutes"
           }
         }
       ],
       "values": [
-        {
-          "properties": {},
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ],
-            "metadata": "_Measures.Total Downtime Minutes"
-          }
-        },
         {
           "properties": {
             "backColor": {
@@ -1074,6 +497,22 @@
             }
           }
         }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "91.38423645320196D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Total Min Batch Time"
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -1083,7 +522,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
@@ -1143,6 +582,13 @@
                   "Value": "'''Segoe UI Semibold'', ''Segoe UI'', sans-serif'"
                 }
               }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Operator Efficiency %'"
+                }
+              }
             }
           }
         }
@@ -1153,7 +599,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -1188,6 +634,20 @@
               "expr": {
                 "Literal": {
                   "Value": "16D"
+                }
+              }
+            },
+            "spaceBelowTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "spaceBelowTitleArea": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
                 }
               }
             }
@@ -1399,6 +859,26 @@
                       "Value": "'#605E5C'"
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "divider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "style": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dotted'"
                 }
               }
             }

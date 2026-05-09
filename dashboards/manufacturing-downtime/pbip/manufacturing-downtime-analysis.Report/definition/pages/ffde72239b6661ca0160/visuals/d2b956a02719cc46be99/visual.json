@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "d2b956a02719cc46be99",
   "position": {
     "x": 784.12598425196848,
@@ -27,7 +27,7 @@
                 "name": {
                   "expr": {
                     "Literal": {
-                      "Value": "'icon-overview.svg'"
+                      "Value": "'icon-operator-performance.svg'"
                     }
                   }
                 },
@@ -36,7 +36,7 @@
                     "ResourcePackageItem": {
                       "PackageName": "RegisteredResources",
                       "PackageType": 1,
-                      "ItemName": "icon-overview14963358999836696.svg"
+                      "ItemName": "icon-operator-performance019175938091144262.svg"
                     }
                   }
                 },
@@ -55,6 +55,20 @@
                   "Value": "'left'"
                 }
               }
+            },
+            "placement": {
+              "expr": {
+                "Literal": {
+                  "Value": "'above'"
+                }
+              }
+            },
+            "iconSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "45D"
+                }
+              }
             }
           },
           "selector": {
@@ -66,7 +80,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             }
@@ -121,7 +135,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Operator Performance'"
+                  "Value": "'Operator'"
                 }
               }
             },
@@ -145,10 +159,31 @@
                   "Value": "'center'"
                 }
               }
+            },
+            "bottomMargin": {
+              "expr": {
+                "Literal": {
+                  "Value": "6L"
+                }
+              }
             }
           },
           "selector": {
             "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "22D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "selected"
           }
         }
       ],

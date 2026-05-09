@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "fc31054bbd82e85c9671",
   "position": {
-    "x": 857.80743565300281,
-    "y": 320.91515729265967,
-    "z": 5000,
-    "height": 384.36606291706386,
-    "width": 407.55004766444233,
-    "tabOrder": 3000
+    "x": 857.07133917396743,
+    "y": 320.40050062578223,
+    "z": 4000,
+    "height": 384.48060075093866,
+    "width": 408.51063829787233,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "waterfallChart",
@@ -150,5 +150,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9c86383df8fafe07ef9d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Scenario Steps"
+              }
+            },
+            "Property": "Step"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "0fc0d62bd5a00a31428a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Waterfall Value"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

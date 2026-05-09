@@ -1,0 +1,9 @@
+<!-- icon-clear-filters-selected.svg — clear all filters: selected/active state (filled funnel, bold X) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+     stroke="#0E6027" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- funnel filled to indicate action is active -->
+  <path d="M3 4h18l-7 8v5" stroke="#0E6027"/>
+  <!-- X mark bolder to reinforce the clear action -->
+  <line x1="8" y1="15" x2="14" y2="21" stroke="#0E6027" stroke-width="2"/>
+  <line x1="14" y1="15" x2="8"  y2="21" stroke="#0E6027" stroke-width="2"/>
+</svg>

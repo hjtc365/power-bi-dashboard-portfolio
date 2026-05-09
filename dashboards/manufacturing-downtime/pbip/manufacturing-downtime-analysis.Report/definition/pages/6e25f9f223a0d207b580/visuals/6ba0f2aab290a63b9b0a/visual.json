@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "6ba0f2aab290a63b9b0a",
   "position": {
-    "x": 15.118110236220472,
-    "y": 459.59055118110234,
+    "x": 14.656488549618322,
+    "y": 459.2366412213741,
     "z": 2000,
-    "height": 244.91338582677164,
-    "width": 616.81889763779532,
+    "height": 245.90330788804073,
+    "width": 737.70992366412224,
     "tabOrder": 3000
   },
   "visual": {
@@ -118,6 +118,19 @@
             "metadata": "_Measures.Operator Error Downtime Minutes"
           }
         }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "labelStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Data value, percent of total'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -127,7 +140,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Operator vs Machine Downtime Minutes'"
+                  "Value": "'Operator vs Machine Downtime'"
                 }
               }
             },

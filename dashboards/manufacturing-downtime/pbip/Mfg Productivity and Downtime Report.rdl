@@ -11,7 +11,7 @@
       <am:Name>PBIRB</am:Name>
       <am:Version>15.7.1815.334</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-05-05T03:46:31.5025096Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-05-09T04:48:47.3018738Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -967,8 +967,17 @@ SUMMARIZECOLUMNS(
               <BreakLocation>End</BreakLocation>
             </PageBreak>
             <PageName>=Variables!ProdDetailsTableName.Value</PageName>
-            <Top>0in</Top>
-            <Left>0in</Left>
+            <SortExpressions>
+              <SortExpression>
+                <Value>=Fields!Dim_Date_Date_.Value</Value>
+              </SortExpression>
+              <SortExpression>
+                <Value>=Fields!Dim_Product_Product_.Value</Value>
+              </SortExpression>
+              <SortExpression>
+                <Value>=Fields!Dim_Operator_Operator_.Value</Value>
+              </SortExpression>
+            </SortExpressions>
             <Height>1.15in</Height>
             <Width>6.25in</Width>
             <Style>
@@ -1657,8 +1666,18 @@ SUMMARIZECOLUMNS(
             <KeepTogether>true</KeepTogether>
             <DataSetName>dsDowntimeDetails</DataSetName>
             <PageName>=Variables!DownDetailsTableName.Value</PageName>
-            <Top>1.21944in</Top>
-            <Left>0in</Left>
+            <SortExpressions>
+              <SortExpression>
+                <Value>=Fields!Dim_Date_Date_.Value</Value>
+              </SortExpression>
+              <SortExpression>
+                <Value>=Fields!Dim_Product_Product_.Value</Value>
+              </SortExpression>
+              <SortExpression>
+                <Value>=Fields!Dim_Operator_Operator_.Value</Value>
+              </SortExpression>
+            </SortExpressions>
+            <Top>1.15in</Top>
             <Height>1.05in</Height>
             <Width>7.15in</Width>
             <ZIndex>1</ZIndex>
@@ -1669,7 +1688,7 @@ SUMMARIZECOLUMNS(
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.26944in</Height>
+        <Height>2.2in</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1746,7 +1765,6 @@ SUMMARIZECOLUMNS(
                 </Paragraph>
               </Paragraphs>
               <Top>0.06944in</Top>
-              <Left>0in</Left>
               <Height>0.38056in</Height>
               <Width>7.15in</Width>
               <Style>
@@ -1777,11 +1795,6 @@ SUMMARIZECOLUMNS(
   <ReportParameters>
     <ReportParameter Name="pStartDate">
       <DataType>DateTime</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>2024-01-01 12:00:00 AM</Value>
-        </Values>
-      </DefaultValue>
       <Prompt>Start Date</Prompt>
       <cl:ComponentMetadata>
         <cl:HideUpdateNotifications>true</cl:HideUpdateNotifications>
@@ -1789,11 +1802,6 @@ SUMMARIZECOLUMNS(
     </ReportParameter>
     <ReportParameter Name="pEndDate">
       <DataType>DateTime</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>=Today()</Value>
-        </Values>
-      </DefaultValue>
       <Prompt>End Date</Prompt>
       <cl:ComponentMetadata>
         <cl:HideUpdateNotifications>true</cl:HideUpdateNotifications>

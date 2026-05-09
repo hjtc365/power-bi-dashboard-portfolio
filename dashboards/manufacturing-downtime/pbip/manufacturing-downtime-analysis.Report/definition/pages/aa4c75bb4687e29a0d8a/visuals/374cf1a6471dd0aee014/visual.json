@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "374cf1a6471dd0aee014",
   "position": {
-    "x": 15.118110236220472,
-    "y": 200.56692913385828,
-    "z": 5000,
-    "height": 235.84251968503938,
-    "width": 367.87401574803147,
+    "x": 14.834437086092716,
+    "y": 200.26490066225165,
+    "z": 4000,
+    "height": 236.29139072847681,
+    "width": 465.16556291390731,
     "tabOrder": 0
   },
   "visual": {
@@ -60,12 +60,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Downtime Minutes"
+                  "Property": "Top N Operator Downtime"
                 }
               },
-              "queryRef": "_Measures.Total Downtime Minutes",
-              "nativeQueryRef": "Downtime Mins",
-              "displayName": "Downtime Mins"
+              "queryRef": "_Measures.Top N Operator Downtime",
+              "nativeQueryRef": "Top N Operator Downtime"
             }
           ]
         }
@@ -80,7 +79,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Total Downtime Minutes"
+                "Property": "Top N Operator Downtime"
               }
             },
             "direction": "Descending"
@@ -164,7 +163,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -215,123 +214,45 @@
                   "Value": "false"
                 }
               }
-            }
-          }
-        }
-      ],
-      "referenceLine": [
-        {
-          "properties": {
-            "show": {
+            },
+            "showTitle": {
               "expr": {
                 "Literal": {
                   "Value": "true"
                 }
               }
             },
-            "displayName": {
+            "position": {
               "expr": {
                 "Literal": {
-                  "Value": "'Average line 1'"
+                  "Value": "'BottomCenter'"
                 }
               }
             },
-            "value": {
-              "expr": {
-                "Aggregation": {
-                  "Expression": {
-                    "SelectRef": {
-                      "ExpressionName": "_Measures.Total Downtime Minutes"
-                    }
-                  },
-                  "Function": 1
-                }
-              }
-            },
-            "autoScale": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "50D"
-                }
-              }
-            },
-            "lineColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.6
-                    }
-                  }
-                }
-              }
-            },
-            "dataLabelShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "dataLabelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.6
-                    }
-                  }
-                }
-              }
-            },
-            "dataLabelHorizontalPosition": {
-              "expr": {
-                "Literal": {
-                  "Value": "'right'"
+                  "Value": "8D"
                 }
               }
             }
-          },
-          "selector": {
-            "metadata": "_Measures.Total Downtime Minutes",
-            "id": "1"
           }
         }
       ],
       "labels": [
         {
           "properties": {
+            "labelOrientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
             "show": {
               "expr": {
                 "Literal": {
                   "Value": "true"
-                }
-              }
-            },
-            "labelPosition": {
-              "expr": {
-                "Literal": {
-                  "Value": "'InsideCenter'"
-                }
-              }
-            }
-          }
-        },
-        {
-          "properties": {
-            "enableBackground": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
                 }
               }
             },
@@ -341,10 +262,21 @@
                   "Value": "true"
                 }
               }
+            },
+            "detailFontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "detailLabelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
             }
-          },
-          "selector": {
-            "metadata": "_Measures.Total Downtime Minutes"
           }
         }
       ],
@@ -407,6 +339,19 @@
             ]
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "responsive": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -415,8 +360,13 @@
           "properties": {
             "text": {
               "expr": {
-                "Literal": {
-                  "Value": "'Total Downtime by Operator'"
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Downtime by Top N Operators"
                 }
               }
             }

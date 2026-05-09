@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "5f1a168c33d4c3974a2a",
   "position": {
-    "x": 436.83508102955193,
-    "y": 320.91515729265967,
-    "z": 3000,
-    "height": 384.36606291706386,
-    "width": 406.32983794089608,
-    "tabOrder": 2000
+    "x": 464.58072590738419,
+    "y": 320.40050062578223,
+    "z": 2000,
+    "height": 384.48060075093866,
+    "width": 379.67459324155192,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "gauge",
@@ -342,5 +342,65 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "752d8f4ddd32c7d2d5f6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Max Value Gauge"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2785679187e3ef3235f3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Min Value Gauge"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "52b76247734134d716c7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Target Efficiency % Value"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "dc1f49e76c3ec23e2a00",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Simulated Batch Efficiency %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

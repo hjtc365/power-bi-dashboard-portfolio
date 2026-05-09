@@ -11,7 +11,7 @@ table Dim_Date
 	column Date
 		dataType: dateTime
 		isUnique
-		formatString: Long Date
+		formatString: yyyy-mm-dd
 		lineageTag: 3f468a03-04fe-4945-b7ab-6d73c75e456a
 		summarizeBy: none
 		sourceColumn: Date
@@ -19,6 +19,8 @@ table Dim_Date
 		annotation UnderlyingDateTimeDataType = Date
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column Year
 		dataType: int64
@@ -138,8 +140,8 @@ table Dim_Date
 		mode: import
 		source =
 				let
-				    StartDate     = #date(2024, 8, 1),
-				    EndDate       = #date(2025, 12, 31),
+				    StartDate     = #date(2024, 1, 1),
+				    EndDate       = #date(2027, 12, 31),
 				    DayCount      = Duration.Days(EndDate - StartDate) + 1,
 				    Source        = List.Dates(StartDate, DayCount, #duration(1,0,0,0)),
 				    AsTable       = Table.FromList(Source, Splitter.SplitByNothing()),

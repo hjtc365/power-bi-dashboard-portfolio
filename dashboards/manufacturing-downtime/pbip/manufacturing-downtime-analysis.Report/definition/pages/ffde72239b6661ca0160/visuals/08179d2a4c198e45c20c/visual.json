@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "08179d2a4c198e45c20c",
   "position": {
-    "x": 784.12598425196848,
-    "y": 452.53543307086613,
+    "x": 784,
+    "y": 453,
     "z": 12000,
-    "height": 140.09448818897638,
-    "width": 261.03937007874015,
+    "height": 140,
+    "width": 261,
     "tabOrder": 9000
   },
   "visual": {
@@ -27,7 +27,7 @@
                 "name": {
                   "expr": {
                     "Literal": {
-                      "Value": "'icon-overview.svg'"
+                      "Value": "'icon-data-export.svg'"
                     }
                   }
                 },
@@ -36,7 +36,7 @@
                     "ResourcePackageItem": {
                       "PackageName": "RegisteredResources",
                       "PackageType": 1,
-                      "ItemName": "icon-overview14963358999836696.svg"
+                      "ItemName": "icon-data-export26953729761963663.svg"
                     }
                   }
                 },
@@ -55,6 +55,27 @@
                   "Value": "'left'"
                 }
               }
+            },
+            "iconSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "45D"
+                }
+              }
+            },
+            "placement": {
+              "expr": {
+                "Literal": {
+                  "Value": "'above'"
+                }
+              }
+            },
+            "leftMargin": {
+              "expr": {
+                "Literal": {
+                  "Value": "4L"
+                }
+              }
             }
           },
           "selector": {
@@ -66,7 +87,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             }
@@ -121,7 +142,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Data Export'"
+                  "Value": "'Export'"
                 }
               }
             },
@@ -145,10 +166,52 @@
                   "Value": "'center'"
                 }
               }
+            },
+            "leftMargin": {
+              "expr": {
+                "Literal": {
+                  "Value": "12L"
+                }
+              }
+            },
+            "verticalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'middle'"
+                }
+              }
+            },
+            "bottomMargin": {
+              "expr": {
+                "Literal": {
+                  "Value": "6L"
+                }
+              }
             }
           },
           "selector": {
             "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "22D"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Export Data'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "selected"
           }
         }
       ],

@@ -1,10 +1,10 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "317b5cf0989870ee4eb1",
   "position": {
     "x": 15.118110236220472,
     "y": 451.5275590551181,
-    "z": 2000,
+    "z": 1000,
     "height": 252.97637795275591,
     "width": 1249.7637795275591,
     "tabOrder": 2000
@@ -27,9 +27,9 @@
                 }
               },
               "queryRef": "Dim_DowntimeFactor.Description",
-              "nativeQueryRef": "Desc",
+              "nativeQueryRef": "Operator Error",
               "active": true,
-              "displayName": "Desc"
+              "displayName": "Operator Error"
             }
           ]
         },
@@ -66,8 +66,8 @@
                 }
               },
               "queryRef": "_Measures.Total Downtime Minutes",
-              "nativeQueryRef": "Down Mins",
-              "displayName": "Down Mins"
+              "nativeQueryRef": "Down (min)",
+              "displayName": "Down (min)"
             },
             {
               "field": {
@@ -371,7 +371,14 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Operator Error Downtime by Operator – Minutes & % Share'"
                 }
               }
             }
@@ -411,6 +418,59 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "divider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "style": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dotted'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "spaceBelowTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "spaceBelowTitleArea": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
                 }
               }
             }

@@ -1,0 +1,15 @@
+<!-- icon-data-export.svg — Data Export page: paginated report (document with table rows) + export arrow -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+     stroke="#34A85A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- document body with folded top-right corner (paginated report feel) -->
+  <path d="M14 2H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"/>
+  <path d="M14 2v4h4"/>
+  <path d="M14 2l4 4"/>
+  <!-- table rows inside the document representing structured/paginated data -->
+  <line x1="7" y1="9"  x2="13" y2="9"/>
+  <line x1="7" y1="12" x2="13" y2="12"/>
+  <line x1="7" y1="15" x2="11" y2="15"/>
+  <!-- export arrow: shaft pointing out to the right, arrowhead -->
+  <line x1="16" y1="16" x2="22" y2="16"/>
+  <polyline points="19 13 22 16 19 19"/>
+</svg>

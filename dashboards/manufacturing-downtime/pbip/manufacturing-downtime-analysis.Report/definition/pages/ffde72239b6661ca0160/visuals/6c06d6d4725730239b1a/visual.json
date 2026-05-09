@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "6c06d6d4725730239b1a",
   "position": {
-    "x": 509.98425196850394,
-    "y": 452.53543307086613,
+    "x": 509,
+    "y": 453,
     "z": 11000,
-    "height": 140.09448818897638,
-    "width": 261.03937007874015,
+    "height": 140,
+    "width": 261,
     "tabOrder": 8000
   },
   "visual": {
@@ -27,7 +27,7 @@
                 "name": {
                   "expr": {
                     "Literal": {
-                      "Value": "'icon-overview.svg'"
+                      "Value": "'icon-scenario.svg'"
                     }
                   }
                 },
@@ -36,7 +36,7 @@
                     "ResourcePackageItem": {
                       "PackageName": "RegisteredResources",
                       "PackageType": 1,
-                      "ItemName": "icon-overview14963358999836696.svg"
+                      "ItemName": "icon-scenario8962418306133024.svg"
                     }
                   }
                 },
@@ -55,6 +55,20 @@
                   "Value": "'left'"
                 }
               }
+            },
+            "placement": {
+              "expr": {
+                "Literal": {
+                  "Value": "'above'"
+                }
+              }
+            },
+            "iconSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "45D"
+                }
+              }
             }
           },
           "selector": {
@@ -66,7 +80,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             }
@@ -121,7 +135,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'What-If Simulator'"
+                  "Value": "'Simulator'"
                 }
               }
             },
@@ -145,10 +159,31 @@
                   "Value": "'center'"
                 }
               }
+            },
+            "bottomMargin": {
+              "expr": {
+                "Literal": {
+                  "Value": "6L"
+                }
+              }
             }
           },
           "selector": {
             "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "22D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "selected"
           }
         }
       ],

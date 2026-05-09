@@ -344,6 +344,20 @@
           "selector": {
             "metadata": "_Measures.Downtime Rate %"
           }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Total Batches"
+          }
         }
       ],
       "outline": [
