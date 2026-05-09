@@ -3,15 +3,18 @@ table _Measures
 	lineageTag: 42850685-0da1-4d6a-beef-e87184154fad
 
 	/// Total number of ticket transactions
-	measure 'Total Transactions' = COUNTROWS(Fact_Transactions)
+	measure 'Total Transactions' =
+			
+			COUNTROWS ( Fact_Transactions )
 		formatString: #,##0
 		displayFolder: Volume
 		lineageTag: caebb590-425c-43df-a09e-fa3c9cc08ea2
 
 	/// Transactions where the train arrived on time
 	measure 'On Time Journeys' =
-			CALCULATE(
-			    COUNTROWS(Fact_Transactions),
+			
+			CALCULATE (
+			    COUNTROWS ( Fact_Transactions ),
 			    Dim_Journey_Status[Journey Status] = "On Time"
 			)
 		formatString: #,##0
@@ -20,8 +23,9 @@ table _Measures
 
 	/// Transactions where the train was delayed
 	measure 'Delayed Journeys' =
-			CALCULATE(
-			    COUNTROWS(Fact_Transactions),
+			
+			CALCULATE (
+			    COUNTROWS ( Fact_Transactions ),
 			    Dim_Journey_Status[Journey Status] = "Delayed"
 			)
 		formatString: #,##0
@@ -30,8 +34,9 @@ table _Measures
 
 	/// Transactions where the train was cancelled
 	measure 'Cancelled Journeys' =
-			CALCULATE(
-			    COUNTROWS(Fact_Transactions),
+			
+			CALCULATE (
+			    COUNTROWS ( Fact_Transactions ),
 			    Dim_Journey_Status[Journey Status] = "Cancelled"
 			)
 		formatString: #,##0
@@ -39,31 +44,41 @@ table _Measures
 		lineageTag: fdc8cf87-691d-4cc0-a86f-05b330755e35
 
 	/// Percentage of journeys that arrived on time
-	measure 'On Time Rate %' = DIVIDE([On Time Journeys], [Total Transactions])
+	measure 'On Time Rate %' =
+			
+			DIVIDE ( [On Time Journeys], [Total Transactions] )
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Rates
 		lineageTag: dc60e1d8-383b-49ed-8cf6-74047abc529c
 
 	/// Percentage of journeys that were delayed
-	measure 'Delay Rate %' = DIVIDE([Delayed Journeys], [Total Transactions])
+	measure 'Delay Rate %' =
+			
+			DIVIDE ( [Delayed Journeys], [Total Transactions] )
 		formatString: 0.0%
 		displayFolder: Rates
 		lineageTag: 69a5c9b6-3183-4378-a71e-bac20b3505ee
 
 	/// Percentage of journeys that were cancelled
-	measure 'Cancel Rate %' = DIVIDE([Cancelled Journeys], [Total Transactions])
+	measure 'Cancel Rate %' =
+			
+			DIVIDE ( [Cancelled Journeys], [Total Transactions] )
 		formatString: 0.0%
 		displayFolder: Rates
 		lineageTag: 4c8bcf83-d8f3-4508-bab9-7a94f2bfa823
 
 	/// Sum of all ticket prices (GBP)
-	measure 'Total Revenue' = SUM(Fact_Transactions[Price])
+	measure 'Total Revenue' =
+			
+			SUM ( Fact_Transactions[Price] )
 		formatString: £#,##0
 		displayFolder: Revenue
 		lineageTag: 92b2afb0-2699-4472-9004-3b1af0732e44
 
 	/// Average ticket price across all transactions (GBP)
-	measure 'Avg Ticket Price' = AVERAGE(Fact_Transactions[Price])
+	measure 'Avg Ticket Price' =
+			
+			AVERAGE ( Fact_Transactions[Price] )
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: Revenue
 		lineageTag: 64846168-3476-4352-a30c-e565c73e6366
@@ -72,25 +87,29 @@ table _Measures
 
 	/// Number of transactions where a refund was requested
 	measure 'Refund Requests' =
-			CALCULATE(
-			    COUNTROWS(Fact_Transactions),
-			    Fact_Transactions[Refund Request] = TRUE()
+			
+			CALCULATE (
+			    COUNTROWS ( Fact_Transactions ),
+			    Fact_Transactions[Refund Request] = TRUE ()
 			)
 		formatString: #,##0
 		displayFolder: Refunds
 		lineageTag: 5ea88bab-23a0-4c3b-af72-b70e7ea4d6ee
 
 	/// Percentage of transactions that resulted in a refund request
-	measure 'Refund Request Rate %' = DIVIDE([Refund Requests], [Total Transactions])
+	measure 'Refund Request Rate %' =
+			
+			DIVIDE ( [Refund Requests], [Total Transactions] )
 		formatString: 0.0%
 		displayFolder: Refunds
 		lineageTag: 84472232-0a94-409d-92f0-fb963f68244e
 
 	/// Total revenue filtered by journey date (uses inactive relationship)
 	measure 'Total Revenue (Journey Date)' =
-			CALCULATE(
+			
+			CALCULATE (
 			    [Total Revenue],
-			    USERELATIONSHIP(Fact_Transactions[Journey Date Key], Dim_Date[Date Key])
+			    USERELATIONSHIP ( Fact_Transactions[Journey Date Key], Dim_Date[Date Key] )
 			)
 		formatString: £#,##0
 		displayFolder: Revenue
@@ -98,9 +117,10 @@ table _Measures
 
 	/// Total transactions filtered by journey date (uses inactive relationship)
 	measure 'Total Transactions (Journey Date)' =
-			CALCULATE(
+			
+			CALCULATE (
 			    [Total Transactions],
-			    USERELATIONSHIP(Fact_Transactions[Journey Date Key], Dim_Date[Date Key])
+			    USERELATIONSHIP ( Fact_Transactions[Journey Date Key], Dim_Date[Date Key] )
 			)
 		formatString: #,##0
 		displayFolder: Volume
@@ -108,9 +128,10 @@ table _Measures
 
 	/// Total revenue filtered by arrival station (uses inactive relationship)
 	measure 'Total Revenue (Arrival Station)' =
-			CALCULATE(
+			
+			CALCULATE (
 			    [Total Revenue],
-			    USERELATIONSHIP(Fact_Transactions[Arrival Station Key], Dim_Station[Station Key])
+			    USERELATIONSHIP ( Fact_Transactions[Arrival Station Key], Dim_Station[Station Key] )
 			)
 		formatString: £#,##0
 		displayFolder: Revenue
@@ -118,9 +139,10 @@ table _Measures
 
 	/// Total transactions filtered by arrival station (uses inactive relationship)
 	measure 'Total Transactions (Arrival Station)' =
-			CALCULATE(
+			
+			CALCULATE (
 			    [Total Transactions],
-			    USERELATIONSHIP(Fact_Transactions[Arrival Station Key], Dim_Station[Station Key])
+			    USERELATIONSHIP ( Fact_Transactions[Arrival Station Key], Dim_Station[Station Key] )
 			)
 		formatString: #,##0
 		displayFolder: Volume
@@ -128,31 +150,38 @@ table _Measures
 
 	/// Transactions purchased with railcard discount
 	measure 'Railcard Transactions' =
-			CALCULATE(
-			    COUNTROWS(Fact_Transactions),
-			    Dim_Ticket[Has Railcard] = "Yes"
-			)
+			
+			CALCULATE ( COUNTROWS ( Fact_Transactions ), Dim_Ticket[Has Railcard] = "Yes" )
 		formatString: #,##0
 		displayFolder: Volume
 		lineageTag: 7e8b154a-a7ff-4521-9860-b3f4f5cc6020
 
 	/// Percentage of transactions that used a railcard
-	measure 'Railcard Usage Rate %' = DIVIDE([Railcard Transactions], [Total Transactions])
+	measure 'Railcard Usage Rate %' =
+			
+			DIVIDE ( [Railcard Transactions], [Total Transactions] )
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Rates
 		lineageTag: b7c4c019-3325-475e-9124-bbdc6c111767
 
 	/// Number of distinct departure → arrival routes in scope
-	measure 'Unique Routes' = DISTINCTCOUNT(Fact_Transactions[Route])
+	measure 'Unique Routes' =
+			
+			DISTINCTCOUNT ( Fact_Transactions[Route] )
 		formatString: #,##0
 		displayFolder: Routes
 		lineageTag: 85b3e7cc-ef1a-4f06-8f4c-eb5757724175
 
 	/// Transactions on the single busiest route
 	measure 'Top Route Journeys' =
-			CALCULATE(
+			
+			CALCULATE (
 			    [Total Transactions (Journey Date)],
-			    TOPN(1, VALUES(Fact_Transactions[Route]), [Total Transactions (Journey Date)], DESC)
+			    TOPN (
+			        1,
+			        VALUES ( Fact_Transactions[Route] ),
+			        [Total Transactions (Journey Date)], DESC
+			    )
 			)
 		formatString: #,##0
 		displayFolder: Routes
@@ -160,9 +189,14 @@ table _Measures
 
 	/// Revenue on the single highest-revenue route
 	measure 'Top Route Revenue' =
-			CALCULATE(
+			
+			CALCULATE (
 			    [Total Revenue (Journey Date)],
-			    TOPN(1, VALUES(Fact_Transactions[Route]), [Total Revenue (Journey Date)], DESC)
+			    TOPN (
+			        1,
+			        VALUES ( Fact_Transactions[Route] ),
+			        [Total Revenue (Journey Date)], DESC
+			    )
 			)
 		formatString: £#,##0
 		displayFolder: Routes
@@ -170,7 +204,8 @@ table _Measures
 
 	/// Journeys departing during Morning Peak (weekday 06:00-08:59)
 	measure 'Morning Peak Journeys' =
-			CALCULATE(
+			
+			CALCULATE (
 			    [Total Transactions (Journey Date)],
 			    Fact_Transactions[Time Band] = "Morning Peak"
 			)
@@ -180,7 +215,8 @@ table _Measures
 
 	/// Journeys departing during Afternoon Peak (weekday 16:00-17:59)
 	measure 'Afternoon Peak Journeys' =
-			CALCULATE(
+			
+			CALCULATE (
 			    [Total Transactions (Journey Date)],
 			    Fact_Transactions[Time Band] = "Afternoon Peak"
 			)
@@ -189,97 +225,125 @@ table _Measures
 		lineageTag: 07d35bbc-0bed-45cb-b5e5-c57c2552dba1
 
 	/// Combined Morning + Afternoon Peak journeys
-	measure 'Total Peak Journeys' = [Morning Peak Journeys] + [Afternoon Peak Journeys]
+	measure 'Total Peak Journeys' =
+			
+			[Morning Peak Journeys] + [Afternoon Peak Journeys]
 		formatString: #,##0
 		displayFolder: Peak Travel
 		lineageTag: 3f7a6944-a840-454f-bb6e-06b96774a67e
 
 	/// Percentage of journeys that fall within peak hours
-	measure 'Peak Journey Rate %' = DIVIDE([Total Peak Journeys], [Total Transactions (Journey Date)])
+	measure 'Peak Journey Rate %' =
+			
+			DIVIDE ( [Total Peak Journeys], [Total Transactions (Journey Date)] )
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Peak Travel
 		lineageTag: 44b7e12b-4844-41ff-8acd-45a9fc7c5169
 
 	/// Revenue earned during peak travel hours
 	measure 'Peak Revenue' =
-			CALCULATE(
+			
+			CALCULATE (
 			    [Total Revenue (Journey Date)],
-			    Fact_Transactions[Time Band] IN {"Morning Peak", "Afternoon Peak"}
+			    Fact_Transactions[Time Band] IN { "Morning Peak", "Afternoon Peak" }
 			)
 		formatString: £#,##0
 		displayFolder: Peak Travel
 		lineageTag: d1b6893b-a2a6-40c5-8487-3becf60f408f
 
 	/// Revenue from First Class tickets only
-	measure 'First Class Revenue' = CALCULATE([Total Revenue], Dim_Ticket[Ticket Class] = "First Class")
+	measure 'First Class Revenue' =
+			
+			CALCULATE ( [Total Revenue], Dim_Ticket[Ticket Class] = "First Class" )
 		formatString: £#,##0
 		displayFolder: Revenue
 		lineageTag: 5c4b7d49-bece-48d5-8fd0-ee416c93b5bb
 
 	/// Revenue from Standard Class tickets only
-	measure 'Standard Revenue' = CALCULATE([Total Revenue], Dim_Ticket[Ticket Class] = "Standard")
+	measure 'Standard Revenue' =
+			
+			CALCULATE ( [Total Revenue], Dim_Ticket[Ticket Class] = "Standard" )
 		formatString: £#,##0
 		displayFolder: Revenue
 		lineageTag: 2c634de6-d6b8-4795-9750-f0c955cafb32
 
 	/// First Class revenue as a share of total revenue
-	measure 'First Class Revenue %' = DIVIDE([First Class Revenue], [Total Revenue])
+	measure 'First Class Revenue %' =
+			
+			DIVIDE ( [First Class Revenue], [Total Revenue] )
 		formatString: 0.0%
 		displayFolder: Revenue
 		lineageTag: 6f73f6af-deba-451c-900e-f6c66e3a0857
 
 	/// Revenue from Advance tickets
-	measure 'Advance Revenue' = CALCULATE([Total Revenue], Dim_Ticket[Ticket Type] = "Advance")
+	measure 'Advance Revenue' =
+			
+			CALCULATE ( [Total Revenue], Dim_Ticket[Ticket Type] = "Advance" )
 		formatString: £#,##0
 		displayFolder: Revenue
 		lineageTag: 6a1409a9-5dfd-4988-9501-752242305d48
 
 	/// Revenue from Off-Peak tickets
-	measure 'Off-Peak Revenue' = CALCULATE([Total Revenue], Dim_Ticket[Ticket Type] = "Off-Peak")
+	measure 'Off-Peak Revenue' =
+			
+			CALCULATE ( [Total Revenue], Dim_Ticket[Ticket Type] = "Off-Peak" )
 		formatString: £#,##0
 		displayFolder: Revenue
 		lineageTag: b941c283-13c8-49f3-9ecd-35192a1974fc
 
 	/// Revenue from Anytime tickets
-	measure 'Anytime Revenue' = CALCULATE([Total Revenue], Dim_Ticket[Ticket Type] = "Anytime")
+	measure 'Anytime Revenue' =
+			
+			CALCULATE ( [Total Revenue], Dim_Ticket[Ticket Type] = "Anytime" )
 		formatString: £#,##0
 		displayFolder: Revenue
 		lineageTag: ee448369-da45-4b5a-b5de-7613934f4fc3
 
 	/// Average ticket price for First Class journeys
-	measure 'Avg Price First Class' = CALCULATE([Avg Ticket Price], Dim_Ticket[Ticket Class] = "First Class")
+	measure 'Avg Price First Class' =
+			
+			CALCULATE ( [Avg Ticket Price], Dim_Ticket[Ticket Class] = "First Class" )
 		formatString: £#,##0.00
 		displayFolder: Revenue
 		lineageTag: d5928baf-d9be-4971-955e-8e2572cf016b
 
 	/// Average ticket price for Standard Class journeys
-	measure 'Avg Price Standard' = CALCULATE([Avg Ticket Price], Dim_Ticket[Ticket Class] = "Standard")
+	measure 'Avg Price Standard' =
+			
+			CALCULATE ( [Avg Ticket Price], Dim_Ticket[Ticket Class] = "Standard" )
 		formatString: £#,##0.00
 		displayFolder: Revenue
 		lineageTag: b2998df9-168b-43fd-8de3-7fa1551d98c1
 
 	/// Average ticket price for Advance ticket type
-	measure 'Avg Price Advance' = CALCULATE([Avg Ticket Price], Dim_Ticket[Ticket Type] = "Advance")
+	measure 'Avg Price Advance' =
+			
+			CALCULATE ( [Avg Ticket Price], Dim_Ticket[Ticket Type] = "Advance" )
 		formatString: £#,##0.00
 		displayFolder: Revenue
 		lineageTag: be1b337b-3f4c-4a28-9c9d-1145d981c21e
 
 	/// Average ticket price for Off-Peak ticket type
-	measure 'Avg Price Off-Peak' = CALCULATE([Avg Ticket Price], Dim_Ticket[Ticket Type] = "Off-Peak")
+	measure 'Avg Price Off-Peak' =
+			
+			CALCULATE ( [Avg Ticket Price], Dim_Ticket[Ticket Type] = "Off-Peak" )
 		formatString: £#,##0.00
 		displayFolder: Revenue
 		lineageTag: 5542d1d4-f657-40cd-88d3-24cb3199caa2
 
 	/// Average ticket price for Anytime ticket type
-	measure 'Avg Price Anytime' = CALCULATE([Avg Ticket Price], Dim_Ticket[Ticket Type] = "Anytime")
+	measure 'Avg Price Anytime' =
+			
+			CALCULATE ( [Avg Ticket Price], Dim_Ticket[Ticket Type] = "Anytime" )
 		formatString: £#,##0.00
 		displayFolder: Revenue
 		lineageTag: e2798ce0-8f25-42ed-9f88-cf9b8f925dff
 
 	/// Average minutes late for journeys that were delayed (excludes on-time and cancelled)
 	measure 'Avg Delay Minutes' =
-			AVERAGEX(
-			    FILTER(Fact_Transactions, Fact_Transactions[Delay Minutes] > 0),
+			
+			AVERAGEX (
+			    FILTER ( Fact_Transactions, Fact_Transactions[Delay Minutes] > 0 ),
 			    Fact_Transactions[Delay Minutes]
 			)
 		formatString: 0.0
@@ -287,15 +351,18 @@ table _Measures
 		lineageTag: d4c99dae-0c73-4694-8e47-9eb7d88c45ec
 
 	/// Maximum delay in minutes recorded across all journeys
-	measure 'Max Delay Minutes' = MAXX(Fact_Transactions, Fact_Transactions[Delay Minutes])
+	measure 'Max Delay Minutes' =
+			
+			MAXX ( Fact_Transactions, Fact_Transactions[Delay Minutes] )
 		formatString: 0
 		displayFolder: On-Time Performance
 		lineageTag: 3d3ee136-a884-4a0e-b6df-22a11924e661
 
 	/// Number of delayed journeys where delay exceeded 15 minutes
 	measure 'Delays Over 15 Min' =
-			CALCULATE(
-			    COUNTROWS(Fact_Transactions),
+			
+			CALCULATE (
+			    COUNTROWS ( Fact_Transactions ),
 			    Fact_Transactions[Delay Minutes] > 15
 			)
 		formatString: #,##0
@@ -303,41 +370,42 @@ table _Measures
 		lineageTag: 080cd5ea-1016-4f7e-bb06-d47861951831
 
 	/// Percentage of delayed journeys where delay exceeded 15 minutes
-	measure 'Delays Over 15 Min %' = DIVIDE([Delays Over 15 Min], [Delayed Journeys])
+	measure 'Delays Over 15 Min %' =
+			
+			DIVIDE ( [Delays Over 15 Min], [Delayed Journeys] )
 		formatString: 0.0%
 		displayFolder: On-Time Performance
 		lineageTag: e1fda856-5c07-4f87-978e-471937cb5812
 
 	/// Number of delayed journeys where a refund was also requested
 	measure 'Delayed with Refund' =
-			CALCULATE(
-			    [Refund Requests],
-			    Dim_Journey_Status[Is Delayed] = TRUE()
-			)
+			
+			CALCULATE ( [Refund Requests], Dim_Journey_Status[Is Delayed] = TRUE () )
 		formatString: #,##0
 		displayFolder: On-Time Performance
 		lineageTag: e546ea26-f4f1-4153-9725-b8679d0f183e
 
 	/// Number of cancelled journeys where a refund was also requested
 	measure 'Cancelled with Refund' =
-			CALCULATE(
-			    [Refund Requests],
-			    Dim_Journey_Status[Is Cancelled] = TRUE()
-			)
+			
+			CALCULATE ( [Refund Requests], Dim_Journey_Status[Is Cancelled] = TRUE () )
 		formatString: #,##0
 		displayFolder: On-Time Performance
 		lineageTag: ce21af0b-2153-4978-8778-531b600e4782
 
 	/// Refund request rate for delayed journeys specifically
-	measure 'Delay Refund Rate %' = DIVIDE([Delayed with Refund], [Delayed Journeys])
+	measure 'Delay Refund Rate %' =
+			
+			DIVIDE ( [Delayed with Refund], [Delayed Journeys] )
 		formatString: 0.0%
 		displayFolder: On-Time Performance
 		lineageTag: b62e10c6-5f3d-4ba4-90d8-7145c67dc90f
 
 	/// Number of disruptions caused by Signal Failure
 	measure 'Signal Failure Disruptions' =
-			CALCULATE(
-			    COUNTROWS(Fact_Transactions),
+			
+			CALCULATE (
+			    COUNTROWS ( Fact_Transactions ),
 			    Dim_Journey_Status[Reason for Delay] = "Signal Failure"
 			)
 		formatString: #,##0
@@ -346,8 +414,9 @@ table _Measures
 
 	/// Number of disruptions caused by Technical Issues
 	measure 'Technical Issue Disruptions' =
-			CALCULATE(
-			    COUNTROWS(Fact_Transactions),
+			
+			CALCULATE (
+			    COUNTROWS ( Fact_Transactions ),
 			    Dim_Journey_Status[Reason for Delay] = "Technical Issue"
 			)
 		formatString: #,##0
@@ -356,9 +425,10 @@ table _Measures
 
 	/// Number of disruptions caused by Weather or Weather Conditions
 	measure 'Weather Disruptions' =
-			CALCULATE(
-			    COUNTROWS(Fact_Transactions),
-			    Dim_Journey_Status[Reason for Delay] IN {"Weather", "Weather Conditions"}
+			
+			CALCULATE (
+			    COUNTROWS ( Fact_Transactions ),
+			    Dim_Journey_Status[Reason for Delay] IN { "Weather", "Weather Conditions" }
 			)
 		formatString: #,##0
 		displayFolder: On-Time Performance
@@ -366,8 +436,9 @@ table _Measures
 
 	/// Number of disruptions caused by Staffing issues
 	measure 'Staffing Disruptions' =
-			CALCULATE(
-			    COUNTROWS(Fact_Transactions),
+			
+			CALCULATE (
+			    COUNTROWS ( Fact_Transactions ),
 			    Dim_Journey_Status[Reason for Delay] = "Staffing"
 			)
 		formatString: #,##0
@@ -376,24 +447,24 @@ table _Measures
 
 	/// Month-over-month percentage change in total journeys (journey date)
 	measure 'Journeys MoM %' =
+			
 			VAR CurrentRevenue = [Total Transactions (Journey Date)]
 			VAR PreviousRevenue =
-			    CALCULATE(
+			    CALCULATE (
 			        [Total Transactions (Journey Date)],
-			        DATEADD(Dim_Date[Date], -1, MONTH)
+			        DATEADD ( Dim_Date[Date], -1, MONTH )
 			    )
-			
 			VAR NextRevenue =
-			    CALCULATE(
+			    CALCULATE (
 			        [Total Transactions (Journey Date)],
-			        DATEADD(Dim_Date[Date], 1, MONTH)
+			        DATEADD ( Dim_Date[Date], 1, MONTH )
 			    )
-			
 			RETURN
-			    IF(
-			        NOT ISBLANK(PreviousRevenue) && NOT ISBLANK(NextRevenue) && PreviousRevenue <> 0,
-			        DIVIDE(CurrentRevenue - PreviousRevenue, PreviousRevenue),
-			        BLANK()
+			    IF (
+			        NOT ISBLANK ( PreviousRevenue )
+			            && NOT ISBLANK ( NextRevenue ) && PreviousRevenue <> 0,
+			        DIVIDE ( CurrentRevenue - PreviousRevenue, PreviousRevenue ),
+			        BLANK ()
 			    )
 		formatString: +0.0%;-0.0%;0.0%
 		displayFolder: Volume
@@ -401,88 +472,101 @@ table _Measures
 
 	/// Month-over-month percentage change in total revenue
 	measure 'Revenue MoM %' =
+			
 			VAR CurrentRev = [Total Revenue]
 			VAR PreviousRev =
-			    CALCULATE(
-			        [Total Revenue],
-			        DATEADD(Dim_Date[Date], -1, MONTH)
-			    )
+			    CALCULATE ( [Total Revenue], DATEADD ( Dim_Date[Date], -1, MONTH ) )
 			RETURN
-			    IF(
-			        NOT ISBLANK(PreviousRev) && PreviousRev <> 0,
-			        DIVIDE(CurrentRev - PreviousRev, PreviousRev),
-			        BLANK()
+			    IF (
+			        NOT ISBLANK ( PreviousRev ) && PreviousRev <> 0,
+			        DIVIDE ( CurrentRev - PreviousRev, PreviousRev ),
+			        BLANK ()
 			    )
 		formatString: +0.0%;-0.0%;0.0%
 		displayFolder: Revenue
 		lineageTag: 85bedc9e-864f-41a2-a0fd-70338e078837
 
 	/// Average revenue generated per transaction
-	measure 'Revenue per Journey' = DIVIDE([Total Revenue], [Total Transactions])
+	measure 'Revenue per Journey' =
+			
+			DIVIDE ( [Total Revenue], [Total Transactions] )
 		formatString: £#,##0.00
 		displayFolder: Revenue
 		lineageTag: b844e732-eddc-47b8-8dd1-85df72fe477b
 
 	/// Estimated refund exposure: revenue on journeys where a refund was requested
 	measure 'Refund Exposure' =
-			CALCULATE(
-			    [Total Revenue],
-			    Fact_Transactions[Refund Request] = TRUE()
-			)
+			
+			CALCULATE ( [Total Revenue], Fact_Transactions[Refund Request] = TRUE () )
 		formatString: £#,##0
 		displayFolder: Refunds
 		lineageTag: 3fedb8a8-a5aa-4ca9-bae2-8e643f256241
 
 	/// Count of Standard Class transactions
-	measure 'Standard Transactions' = CALCULATE([Total Transactions], Dim_Ticket[Ticket Class] = "Standard")
+	measure 'Standard Transactions' =
+			
+			CALCULATE ( [Total Transactions], Dim_Ticket[Ticket Class] = "Standard" )
 		formatString: #,##0
 		displayFolder: Volume
 		lineageTag: 0a74feaa-f457-4c6a-8019-d17666cb5c16
 
 	/// Count of First Class transactions
-	measure 'First Class Transactions' = CALCULATE([Total Transactions], Dim_Ticket[Ticket Class] = "First Class")
+	measure 'First Class Transactions' =
+			
+			CALCULATE ( [Total Transactions], Dim_Ticket[Ticket Class] = "First Class" )
 		formatString: #,##0
 		displayFolder: Volume
 		lineageTag: f58a3e02-1ae2-4fa5-955d-b1ec6ba66111
 
 	/// Standard Class share of total transactions
-	measure 'Standard Class %' = DIVIDE([Standard Transactions], [Total Transactions])
+	measure 'Standard Class %' =
+			
+			DIVIDE ( [Standard Transactions], [Total Transactions] )
 		formatString: 0.0%
 		displayFolder: Rates
 		lineageTag: f61530c5-4d5b-4da1-a99e-8d4f6a615e24
 
 	/// Number of journeys purchased online
-	measure 'Online Transactions' = CALCULATE([Total Transactions], Dim_Payment[Purchase Type] = "Online")
+	measure 'Online Transactions' =
+			
+			CALCULATE ( [Total Transactions], Dim_Payment[Purchase Type] = "Online" )
 		formatString: #,##0
 		displayFolder: Volume
 		lineageTag: bc8302fd-c420-4424-81f6-4718d6ff2085
 
 	/// Online purchase share of total transactions
-	measure 'Online Purchase Rate %' = DIVIDE([Online Transactions], [Total Transactions])
+	measure 'Online Purchase Rate %' =
+			
+			DIVIDE ( [Online Transactions], [Total Transactions] )
 		formatString: 0.0%
 		displayFolder: Rates
 		lineageTag: 5b1fb32c-d3a1-4e59-8b53-bad890ebf689
 
 	/// Disruptions from all reasons combined (delayed + cancelled)
-	measure 'Total Disruptions' = [Delayed Journeys] + [Cancelled Journeys]
+	measure 'Total Disruptions' =
+			
+			[Delayed Journeys] + [Cancelled Journeys]
 		formatString: #,##0
 		displayFolder: On-Time Performance
 		lineageTag: 39e45e53-dd74-499c-845b-64362b9db3cd
 
 	/// Returns the currently selected metric name from the Metric Selector button slicer. Default: Total Journeys.
-	measure 'Selected Metric' = SELECTEDVALUE('Metric Selector'[Metric Name], "Total Journeys")
+	measure 'Selected Metric' =
+			
+			SELECTEDVALUE ( 'Metric Selector'[Metric Name], "Total Journeys" )
 		displayFolder: Dynamic Selectors
 		lineageTag: 9a08cb9a-cc37-497b-8766-a4f4c7b50a6d
 
 	/// Dynamic KPI — switches between 6 metrics based on Metric Selector button slicer. Drop this onto chart Y-axis instead of individual measures.
 	measure 'Dynamic KPI' =
-			SWITCH(
+			
+			SWITCH (
 			    [Selected Metric],
-			    "Total Journeys",   [Total Transactions (Journey Date)],
-			    "Net Revenue",      [Total Revenue],
-			    "On-Time Rate",   [On Time Rate %],
-			    "Delay Rate",     [Delay Rate %],
-			    "Cancel Rate",    [Cancel Rate %],
+			    "Total Journeys", [Total Transactions (Journey Date)],
+			    "Net Revenue", [Total Revenue],
+			    "On-Time Rate", [On Time Rate %],
+			    "Delay Rate", [Delay Rate %],
+			    "Cancel Rate", [Cancel Rate %],
 			    "Avg Ticket Price", [Avg Ticket Price],
 			    [Total Transactions (Journey Date)]
 			)
@@ -493,38 +577,44 @@ table _Measures
 
 	/// Formatted label for the Dynamic KPI — use in card titles or data labels to show the correct unit.
 	measure 'Dynamic KPI Label' =
-			SWITCH(
+			
+			SWITCH (
 			    [Selected Metric],
-			    "Net Revenue",      FORMAT([Total Revenue],      "£#,##0"),
-			    "On-Time Rate",   FORMAT([On Time Rate %],     "0.0%"),
-			    "Delay Rate",     FORMAT([Delay Rate %],       "0.0%"),
-			    "Cancel Rate",    FORMAT([Cancel Rate %],      "0.0%"),
-			    "Avg Ticket Price", FORMAT([Avg Ticket Price],   "£#,##0.00"),
-			    FORMAT([Total Transactions (Journey Date)], "#,##0")
+			    "Net Revenue", FORMAT ( [Total Revenue], "£#,##0" ),
+			    "On-Time Rate", FORMAT ( [On Time Rate %], "0.0%" ),
+			    "Delay Rate", FORMAT ( [Delay Rate %], "0.0%" ),
+			    "Cancel Rate", FORMAT ( [Cancel Rate %], "0.0%" ),
+			    "Avg Ticket Price", FORMAT ( [Avg Ticket Price], "£#,##0.00" ),
+			    FORMAT ( [Total Transactions (Journey Date)], "#,##0" )
 			)
 		displayFolder: Dynamic Selectors
 		lineageTag: ef64d6c4-a4e1-4c64-83a5-ec23ea8e43cd
 
 	/// Returns the currently selected time dimension name from the Time Dimension slicer.
-	measure 'Selected Time Dimension' = SELECTEDVALUE('Time Dimension'[Dimension Name], "Month")
+	measure 'Selected Time Dimension' =
+			
+			SELECTEDVALUE ( 'Time Dimension'[Dimension Name], "Month" )
 		displayFolder: Dynamic Selectors
 		lineageTag: d39cada8-5a42-4f6f-a474-6df4bd377edb
 
 	/// Returns the currently selected delay threshold in minutes from the What-If slider. Uses MIN() so it works with a 'Greater than or equal to' slicer. Default = 15.
-	measure 'Selected Delay Threshold' = COALESCE(MIN('Delay Threshold Minutes'[Value]), 15)
+	measure 'Selected Delay Threshold' =
+			
+			COALESCE ( MIN ( 'Delay Threshold Minutes'[Value] ), 15 )
 		displayFolder: What-If
 		lineageTag: 9088950a-8ce4-4806-8992-129341f59d46
 
 	/// Count of journeys delayed by AT LEAST the selected threshold — updates live with the slider. Excludes on-time journeys (Delay Minutes = 0).
 	measure 'Journeys Above Threshold' =
-			CALCULATE(
-			    COUNTROWS(Fact_Transactions),
-			    FILTER(
+			
+			CALCULATE (
+			    COUNTROWS ( Fact_Transactions ),
+			    FILTER (
 			        Fact_Transactions,
 			        Fact_Transactions[Delay Minutes] >= [Selected Delay Threshold]
 			            && Fact_Transactions[Delay Minutes] > 0
 			    ),
-			    USERELATIONSHIP(Fact_Transactions[Journey Date Key], Dim_Date[Date Key])
+			    USERELATIONSHIP ( Fact_Transactions[Journey Date Key], Dim_Date[Date Key] )
 			)
 		formatString: #,##0
 		displayFolder: What-If
@@ -532,11 +622,12 @@ table _Measures
 
 	/// Revenue at risk from refund claims on journeys delayed by AT LEAST the selected threshold. Excludes on-time journeys (Delay Minutes = 0).
 	measure 'Refund Exposure Above Threshold' =
-			CALCULATE(
+			
+			CALCULATE (
 			    [Total Revenue],
-			    FILTER(
+			    FILTER (
 			        Fact_Transactions,
-			        Fact_Transactions[Refund Request] = TRUE()
+			        Fact_Transactions[Refund Request] = TRUE ()
 			            && Fact_Transactions[Delay Minutes] >= [Selected Delay Threshold]
 			            && Fact_Transactions[Delay Minutes] > 0
 			    )
@@ -547,11 +638,12 @@ table _Measures
 
 	/// Estimated saving if no refunds were given for delays BELOW the selected threshold (i.e. stricter policy).
 	measure 'Refund Policy Saving' =
-			CALCULATE(
+			
+			CALCULATE (
 			    [Total Revenue],
-			    FILTER(
+			    FILTER (
 			        Fact_Transactions,
-			        Fact_Transactions[Refund Request] = TRUE()
+			        Fact_Transactions[Refund Request] = TRUE ()
 			            && Fact_Transactions[Delay Minutes] < [Selected Delay Threshold]
 			            && Fact_Transactions[Delay Minutes] > 0
 			    )
@@ -561,45 +653,61 @@ table _Measures
 		lineageTag: 1ba978f2-e2b6-4206-bf57-7195b6ca3294
 
 	/// Returns selected price adjustment % from the What-If slider (e.g. 5 = +5%). Uses MIN() so it works with a 'Greater than or equal to' slicer. Default = 0.
-	measure 'Selected Price Adjustment' = COALESCE(MIN('Price Adjustment %'[Value]), 0)
+	measure 'Selected Price Adjustment' =
+			
+			COALESCE ( MIN ( 'Price Adjustment %'[Value] ), 0 )
 		displayFolder: What-If
 		lineageTag: a0b5c380-3e6f-4473-b252-3805cdc60731
 
 	/// Simulated total revenue if all ticket prices were adjusted by the selected percentage.
-	measure 'Simulated Revenue' = [Total Revenue (Journey Date)] * (1 + [Selected Price Adjustment] / 100)
+	measure 'Simulated Revenue' =
+			
+			[Total Revenue (Journey Date)] * ( 1 + [Selected Price Adjustment] / 100 )
 		formatString: £#,##0
 		displayFolder: What-If
 		lineageTag: 66f1d82e-7b55-4bf1-833d-a78fb09c63b3
 
 	/// Difference between simulated revenue and actual revenue — shows the monetary impact of the price change.
-	measure 'Revenue Delta' = [Simulated Revenue] - [Total Revenue]
+	measure 'Revenue Delta' =
+			
+			[Simulated Revenue] - [Total Revenue]
 		formatString: +£#,##0;-£#,##0;£0
 		displayFolder: What-If
 		lineageTag: f30ca951-2859-49c5-a5d5-8997a3398d41
 
 	/// Revenue delta as a percentage of actual revenue — shows relative impact of the price change.
-	measure 'Revenue Delta %' = DIVIDE([Revenue Delta], [Total Revenue])
+	measure 'Revenue Delta %' =
+			
+			DIVIDE ( [Revenue Delta], [Total Revenue] )
 		formatString: +0.0%;-0.0%;0.0%
 		displayFolder: What-If
 		lineageTag: 87f83d17-0bed-45fa-ad8c-66498f58560a
 
-	measure 'Advance Revenue %' = DIVIDE([Advance Revenue], [Total Revenue])
+	measure 'Advance Revenue %' =
+			
+			DIVIDE ( [Advance Revenue], [Total Revenue] )
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Revenue
 		lineageTag: 12f1e7fb-1bc1-4130-9c17-39411910a675
 
-	measure 'Half of Delayed Journeys' = DIVIDE([Delayed Journeys], 2)
+	measure 'Half of Delayed Journeys' =
+			
+			DIVIDE ( [Delayed Journeys], 2 )
 		formatString: #,0
 		displayFolder: Volume
 		lineageTag: b5551ba0-5aba-40b9-81f6-7dbd296863c4
 
 		annotation PBI_FormatHint = {"isDecimal":true}
 
-	measure 'Selected Metric by Month' = SELECTEDVALUE('Metric Selector'[Metric Name], "Total Journeys") & " by Month"
+	measure 'Selected Metric by Month' =
+			
+			SELECTEDVALUE ( 'Metric Selector'[Metric Name], "Total Journeys" ) & " by Month"
 		displayFolder: Dynamic Selectors
 		lineageTag: c1455f46-20e8-44e2-a1e1-ccad0626aa6f
 
-	measure 'Selected Metric by Route' = "Top 10 " & SELECTEDVALUE('Metric Selector'[Metric Name], "Total Journeys") & " by Route"
+	measure 'Selected Metric by Route' =
+			
+			"Top 10 " & SELECTEDVALUE ( 'Metric Selector'[Metric Name], "Total Journeys" ) & " by Route"
 		displayFolder: Dynamic Selectors
 		lineageTag: 32fa92c9-be9a-4ce3-9bcf-ca613ddbde8f
 
