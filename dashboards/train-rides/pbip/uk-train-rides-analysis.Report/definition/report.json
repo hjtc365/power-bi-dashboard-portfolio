@@ -40,7 +40,7 @@
           "expanded": {
             "expr": {
               "Literal": {
-                "Value": "false"
+                "Value": "true"
               }
             }
           }
@@ -64,6 +64,21 @@
       "name": "RegisteredResources",
       "type": "RegisteredResources",
       "items": [
+        {
+          "name": "clear-filters-default3931929346844416.svg",
+          "path": "clear-filters-default3931929346844416.svg",
+          "type": "Image"
+        },
+        {
+          "name": "clear-filters-hover8476850731567027.svg",
+          "path": "clear-filters-hover8476850731567027.svg",
+          "type": "Image"
+        },
+        {
+          "name": "clear-filters-selected631465871365273.svg",
+          "path": "clear-filters-selected631465871365273.svg",
+          "type": "Image"
+        },
         {
           "name": "cover-banner646638437961095.svg",
           "path": "cover-banner646638437961095.svg",

@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "73ae8c6beb130cae3417",
   "position": {
-    "x": 175.70793234179058,
-    "y": 114.89763779527559,
-    "z": 4000,
-    "height": 592.62992125984249,
-    "width": 537.27704870224557,
-    "tabOrder": 5000
+    "x": 175.37007874015748,
+    "y": 130.01574803149606,
+    "z": 10000,
+    "height": 574.488188976378,
+    "width": 538.20472440944877,
+    "tabOrder": 9000
   },
   "visualGroup": {
     "displayName": "RefundPolicySimulator",

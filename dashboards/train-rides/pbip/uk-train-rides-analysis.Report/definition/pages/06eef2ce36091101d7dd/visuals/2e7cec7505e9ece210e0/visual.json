@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "2e7cec7505e9ece210e0",
   "position": {
-    "x": 172,
-    "y": 172,
-    "z": 6000,
-    "height": 531,
-    "width": 484,
-    "tabOrder": 6000
+    "x": 175.13314967860421,
+    "y": 182.18549127640037,
+    "z": 12000,
+    "height": 523.04866850321389,
+    "width": 478.38383838383834,
+    "tabOrder": 7000
   },
   "visualGroup": {
     "displayName": "Top10Analysis",

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "53b8e4d0dc92153c4c20",
   "position": {
     "x": 83,
@@ -235,6 +235,11 @@
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "Ticket Class",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   },

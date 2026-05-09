@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "d79cb3d6200018089577",
   "position": {
-    "x": 782,
-    "y": 176.36363636363635,
-    "z": 8250,
-    "height": 164.54545454545453,
-    "width": 485.45454545454544,
-    "tabOrder": 2000
+    "x": 747.54820936639112,
+    "y": 181.010101010101,
+    "z": 2000,
+    "height": 149.27456382001836,
+    "width": 518.34710743801645,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "donutChart",
@@ -110,7 +110,7 @@
             "startAngle": {
               "expr": {
                 "Literal": {
-                  "Value": "20L"
+                  "Value": "80L"
                 }
               }
             }

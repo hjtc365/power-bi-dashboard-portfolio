@@ -1,17 +1,16 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "9cf277e0a61b9b2c47a5",
   "position": {
-    "x": 25.196850393700771,
-    "y": 0,
-    "z": 7000,
-    "height": 50,
-    "width": 233.48148148148152,
-    "tabOrder": 6000
+    "x": 174.36220472440945,
+    "y": 67.5275590551181,
+    "z": 6000,
+    "height": 38.829297281236066,
+    "width": 233.57340332458446,
+    "tabOrder": 8000
   },
   "visualGroup": {
     "displayName": "DelayThreshold",
     "groupMode": "ScaleMode"
-  },
-  "parentGroupName": "2d669da020e16e424004"
+  }
 }
