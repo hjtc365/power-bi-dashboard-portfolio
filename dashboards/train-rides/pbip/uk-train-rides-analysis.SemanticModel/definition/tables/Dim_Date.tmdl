@@ -107,32 +107,169 @@ table Dim_Date
 		summarizeBy: none
 		sourceColumn: Is Weekend
 
+	column Year_Month
+		dataType: string
+		lineageTag: 2bc9deab-263c-4744-a49e-0d04647fbc76
+		summarizeBy: none
+		sourceColumn: Year_Month
+		sortByColumn: 'Year_Month Sort'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year_Month Sort'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c179f74a-03f8-4b81-8cb6-d411b32ffecf
+		summarizeBy: none
+		sourceColumn: Year_Month Sort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Dim_Date = m
 		mode: import
 		source =
 				let
-				    StartDate = #date(2023, 1, 1),
-				    EndDate   = #date(2025, 12, 31),
+				    StartDate = #date(2024, 1, 1),
+				    EndDate   = #date(2024, 12, 31),
 				    NumDays   = Duration.Days(EndDate - StartDate) + 1,
 				    DateList  = List.Dates(StartDate, NumDays, #duration(1, 0, 0, 0)),
-				    Source    = Table.FromList(DateList, Splitter.SplitByNothing(), type table [Date = date]),
-				    AddDateKey        = Table.AddColumn(Source,         "Date Key",            each Date.Year([Date]) * 10000 + Date.Month([Date]) * 100 + Date.Day([Date]),             Int64.Type),
-				    AddYear           = Table.AddColumn(AddDateKey,     "Year",                each Date.Year([Date]),                                                                   Int64.Type),
-				    AddQuarterNum     = Table.AddColumn(AddYear,        "Quarter Number",      each Date.QuarterOfYear([Date]),                                                          Int64.Type),
-				    AddQuarter        = Table.AddColumn(AddQuarterNum,  "Quarter",             each "Q" & Text.From(Date.QuarterOfYear([Date])),                                          type text),
-				    AddMonthNum       = Table.AddColumn(AddQuarter,     "Month Number",        each Date.Month([Date]),                                                                  Int64.Type),
-				    AddMonthName      = Table.AddColumn(AddMonthNum,    "Month Name",          each Text.Proper(Date.ToText([Date], "MMMM", "en-GB")),                                    type text),
-				    AddMonthShort     = Table.AddColumn(AddMonthName,   "Month Short",         each Text.Proper(Date.ToText([Date], "MMM",  "en-GB")),                                    type text),
-				    AddWeekNum        = Table.AddColumn(AddMonthShort,  "Week Number",         each Date.WeekOfYear([Date]),                                                             Int64.Type),
-				    AddDayOfWeekNum   = Table.AddColumn(AddWeekNum,     "Day of Week Number",  each Date.DayOfWeek([Date], Day.Monday) + 1,                                              Int64.Type),
-				    AddDayName        = Table.AddColumn(AddDayOfWeekNum,"Day Name",            each Text.Proper(Date.ToText([Date], "dddd", "en-GB")),                                    type text),
-				    AddDayShort       = Table.AddColumn(AddDayName,     "Day Short",           each Text.Proper(Date.ToText([Date], "ddd",  "en-GB")),                                    type text),
-				    AddIsWeekend      = Table.AddColumn(AddDayShort,    "Is Weekend",          each Date.DayOfWeek([Date], Day.Monday) >= 5,                                             type logical),
-				    ReorderCols = Table.ReorderColumns(AddIsWeekend, {
-				        "Date Key", "Date", "Year", "Quarter Number", "Quarter",
-				        "Month Number", "Month Name", "Month Short",
-				        "Week Number", "Day of Week Number", "Day Name", "Day Short", "Is Weekend"
-				    })
+				
+				    Source = Table.FromList(
+				        DateList,
+				        Splitter.SplitByNothing(),
+				        type table [Date = date]
+				    ),
+				
+				    AddDateKey = Table.AddColumn(
+				        Source,
+				        "Date Key",
+				        each Date.Year([Date]) * 10000 +
+				             Date.Month([Date]) * 100 +
+				             Date.Day([Date]),
+				        Int64.Type
+				    ),
+				
+				    AddYear = Table.AddColumn(
+				        AddDateKey,
+				        "Year",
+				        each Date.Year([Date]),
+				        Int64.Type
+				    ),
+				
+				    AddQuarterNum = Table.AddColumn(
+				        AddYear,
+				        "Quarter Number",
+				        each Date.QuarterOfYear([Date]),
+				        Int64.Type
+				    ),
+				
+				    AddQuarter = Table.AddColumn(
+				        AddQuarterNum,
+				        "Quarter",
+				        each "Q" & Text.From(Date.QuarterOfYear([Date])),
+				        type text
+				    ),
+				
+				    AddMonthNum = Table.AddColumn(
+				        AddQuarter,
+				        "Month Number",
+				        each Date.Month([Date]),
+				        Int64.Type
+				    ),
+				
+				    AddMonthName = Table.AddColumn(
+				        AddMonthNum,
+				        "Month Name",
+				        each Text.Proper(Date.ToText([Date], "MMMM", "en-GB")),
+				        type text
+				    ),
+				
+				    AddMonthShort = Table.AddColumn(
+				        AddMonthName,
+				        "Month Short",
+				        each Text.Proper(Date.ToText([Date], "MMM", "en-GB")),
+				        type text
+				    ),
+				
+				    AddYearMonth = Table.AddColumn(
+				        AddMonthShort,
+				        "Year_Month",
+				        each Date.ToText([Date], "MMM, yyyy", "en-GB"),
+				        type text
+				    ),
+				
+				    AddYearMonthSort = Table.AddColumn(
+				        AddYearMonth,
+				        "Year_Month Sort",
+				        each Date.Year([Date]) * 100 + Date.Month([Date]),
+				        Int64.Type
+				    ),
+				
+				    AddWeekNum = Table.AddColumn(
+				        AddYearMonthSort,
+				        "Week Number",
+				        each Date.WeekOfYear([Date]),
+				        Int64.Type
+				    ),
+				
+				    AddDayOfWeekNum = Table.AddColumn(
+				        AddWeekNum,
+				        "Day of Week Number",
+				        each Date.DayOfWeek([Date], Day.Monday) + 1,
+				        Int64.Type
+				    ),
+				
+				    AddDayName = Table.AddColumn(
+				        AddDayOfWeekNum,
+				        "Day Name",
+				        each Text.Proper(Date.ToText([Date], "dddd", "en-GB")),
+				        type text
+				    ),
+				
+				    AddDayShort = Table.AddColumn(
+				        AddDayName,
+				        "Day Short",
+				        each Text.Proper(Date.ToText([Date], "ddd", "en-GB")),
+				        type text
+				    ),
+				
+				    AddIsWeekend = Table.AddColumn(
+				        AddDayShort,
+				        "Is Weekend",
+				        each Date.DayOfWeek([Date], Day.Monday) >= 5,
+				        type logical
+				    ),
+				
+				    ReorderCols = Table.ReorderColumns(
+				        AddIsWeekend,
+				        {
+				            "Date Key",
+				            "Date",
+				            "Year",
+				            "Quarter Number",
+				            "Quarter",
+				            "Month Number",
+				            "Month Name",
+				            "Month Short",
+				            "Year_Month",
+				            "Year_Month Sort",
+				            "Week Number",
+				            "Day of Week Number",
+				            "Day Name",
+				            "Day Short",
+				            "Is Weekend"
+				        }
+				    )
+				
 				in
 				    ReorderCols
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 
