@@ -270,9 +270,11 @@ table _Measures
 			
 			SWITCH (
 			    TRUE (),
-			    [Batch Efficiency %] < 0.60, "#A4262C",
-			    [Batch Efficiency %] < 0.75, "#C19C00",
-			    "#34A85A"
+			    [Batch Efficiency %] < 0.50, "#A4262C",   -- Severe inefficiency
+			    [Batch Efficiency %] < 0.70, "#D13438",   -- Significant delays
+			    [Batch Efficiency %] < 0.80, "#C19C00",   -- Moderate delays
+			    [Batch Efficiency %] < 0.90, "#92C353",   -- Very efficient
+			    "#34A85A"                                 -- Excellent / near perfect
 			)
 		displayFolder: 🎨 Styling
 		lineageTag: 11111111-1111-1111-1111-111111110004

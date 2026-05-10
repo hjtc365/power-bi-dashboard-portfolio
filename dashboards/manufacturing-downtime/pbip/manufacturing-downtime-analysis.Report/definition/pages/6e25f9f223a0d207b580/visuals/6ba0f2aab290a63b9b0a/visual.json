@@ -77,6 +77,13 @@
                   "Value": "'BottomCenter'"
                 }
               }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
             }
           }
         }
@@ -126,6 +133,27 @@
               "expr": {
                 "Literal": {
                   "Value": "'Data value, percent of total'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "percentageLabelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
                 }
               }
             }

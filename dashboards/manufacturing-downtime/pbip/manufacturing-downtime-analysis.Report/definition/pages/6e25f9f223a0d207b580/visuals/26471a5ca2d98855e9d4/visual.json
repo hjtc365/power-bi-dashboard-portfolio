@@ -98,6 +98,34 @@
                   "Value": "true"
                 }
               }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            },
+            "enableDetailDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableBackground": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -272,6 +300,27 @@
               "expr": {
                 "Literal": {
                   "Value": "'BottomCenter'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
                 }
               }
             }
