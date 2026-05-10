@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "df43fe54b9b0a9734e54",
   "position": {
     "x": 0,
@@ -250,5 +250,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "73ae8c6beb130cae3417"
+  "parentGroupName": "73ae8c6beb130cae3417",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "484d582099c9f6ca6773",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Delay Threshold Minutes"
+              }
+            },
+            "Property": "Value"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }
