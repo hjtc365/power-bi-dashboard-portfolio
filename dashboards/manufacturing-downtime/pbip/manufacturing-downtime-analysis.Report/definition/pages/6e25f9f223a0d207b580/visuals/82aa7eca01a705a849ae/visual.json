@@ -10,7 +10,7 @@
     "tabOrder": 1000
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "lineClusteredColumnComboChart",
     "query": {
       "queryState": {
         "Category": {
@@ -33,7 +33,7 @@
             }
           ]
         },
-        "Tooltips": {
+        "Y": {
           "projections": [
             {
               "field": {
@@ -67,7 +67,7 @@
             }
           ]
         },
-        "Y": {
+        "Y2": {
           "projections": [
             {
               "field": {
@@ -115,7 +115,7 @@
             "showMarker": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
@@ -124,8 +124,8 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 5,
-                      "Percent": -0.25
+                      "ColorId": 1,
+                      "Percent": 0
                     }
                   }
                 }
@@ -167,7 +167,56 @@
             "show": {
               "expr": {
                 "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "secShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "secFontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "secLabelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "secShowAxisTitle": {
+              "expr": {
+                "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "secLogAxisScale": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "alignZeros": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
                 }
               }
             }
@@ -275,14 +324,14 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
           }
         }
       ],
-      "referenceLine": [
+      "legend": [
         {
           "properties": {
             "show": {
@@ -292,41 +341,20 @@
                 }
               }
             },
-            "displayName": {
+            "position": {
               "expr": {
                 "Literal": {
-                  "Value": "'Median line 1'"
+                  "Value": "'BottomCenter'"
                 }
               }
             },
-            "value": {
+            "fontSize": {
               "expr": {
-                "Aggregation": {
-                  "Expression": {
-                    "SelectRef": {
-                      "ExpressionName": "_Measures.Batch Efficiency %"
-                    }
-                  },
-                  "Function": 6
-                }
-              }
-            },
-            "lineColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 6,
-                      "Percent": 0
-                    }
-                  }
+                "Literal": {
+                  "Value": "9D"
                 }
               }
             }
-          },
-          "selector": {
-            "metadata": "_Measures.Batch Efficiency %",
-            "id": "1"
           }
         }
       ]
@@ -364,6 +392,13 @@
                       "Percent": 0.4
                     }
                   }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
                 }
               }
             }
