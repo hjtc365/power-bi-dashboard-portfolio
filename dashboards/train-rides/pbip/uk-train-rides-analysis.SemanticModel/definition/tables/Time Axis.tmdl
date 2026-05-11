@@ -40,10 +40,10 @@ table 'Time Axis'
 		mode: import
 		source =
 				{
-				    ("Month", NAMEOF('Dim_Date'[Month Name]), 0),
-				    ("DOW", NAMEOF('Dim_Date'[Day Short]), 1),
-				    ("Time Band", NAMEOF('Fact_Transactions'[Time Band]), 2),
-				    ("Hour", NAMEOF('Fact_Transactions'[Departure Hour]), 3)
+				    ("Month", NAMEOF('Dim_Date'[Month Name]), 3),
+				    ("DOW", NAMEOF('Dim_Date'[Day Short]), 2),
+				    ("Time Band", NAMEOF('Fact_Transactions'[Time Band]), 1),
+				    ("Hour", NAMEOF('Fact_Transactions'[Departure Hour]), 0)
 				}
 
 	annotation PBI_Id = 0e593eff0d23436fa39decb7d23df1eb

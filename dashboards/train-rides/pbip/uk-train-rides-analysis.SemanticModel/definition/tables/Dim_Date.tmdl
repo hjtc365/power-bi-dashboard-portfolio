@@ -134,7 +134,7 @@ table Dim_Date
 		mode: import
 		source =
 				let
-				    StartDate = #date(2024, 1, 1),
+				    StartDate = #date(2023, 1, 1),
 				    EndDate   = #date(2024, 12, 31),
 				    NumDays   = Duration.Days(EndDate - StartDate) + 1,
 				    DateList  = List.Dates(StartDate, NumDays, #duration(1, 0, 0, 0)),

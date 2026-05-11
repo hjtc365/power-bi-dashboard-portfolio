@@ -17,17 +17,19 @@ dashboards/
 
 ## Dashboards Included
 
+- **Manufacturing Performance Dashboard**
+	- Monitor and analyze production line downtime, identify root causes, and optimize manufacturing efficiency.
+	- Located in: `dashboards/manufacturing-downtime/`
+	- [View on Fabric Community](https://community.fabric.microsoft.com/t5/Data-Stories-Gallery/Manufacturing-Performance-Dashboard/td-p/5180249)
+
+- **UK National Rail Performance Dashboard**
+	- Explore UK train ride data, uncover ridership trends, and visualize key rail network metrics.
+	- Located in: `dashboards/train-rides/`
+	- [View on Fabric Community](https://community.fabric.microsoft.com/t5/Data-Stories-Gallery/UK-National-Rail-Performance-Dashboard/td-p/5180274)
+  
 - **Campaign Performance Dashboard**
 	- Analyze marketing campaign effectiveness, channel performance, and customer engagement.
 	- Located in: `dashboards/campaign-performance/`
-
-- **Manufacturing Downtime Dashboard**
-	- Monitor and analyze production line downtime, identify root causes, and optimize manufacturing efficiency.
-	- Located in: `dashboards/manufacturing-downtime/`
-
-- **Train Rides Analytics Dashboard**
-	- Explore UK train ride data, uncover ridership trends, and visualize key rail network metrics.
-	- Located in: `dashboards/train-rides/`
 
 ## How to Use
 

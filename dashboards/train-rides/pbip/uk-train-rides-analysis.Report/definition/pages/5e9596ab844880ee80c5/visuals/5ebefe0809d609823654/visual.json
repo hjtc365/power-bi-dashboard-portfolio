@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "5ebefe0809d609823654",
   "position": {
     "x": 0.03359229480804421,
@@ -256,6 +256,19 @@
             "id": "selection:selected"
           }
         }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "strictSingleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -373,5 +386,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "a741e7c07321cac23ee4"
+  "parentGroupName": "a741e7c07321cac23ee4",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2f7167f8520c65c02161",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Metric Selector"
+              }
+            },
+            "Property": "Metric Name"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
 }

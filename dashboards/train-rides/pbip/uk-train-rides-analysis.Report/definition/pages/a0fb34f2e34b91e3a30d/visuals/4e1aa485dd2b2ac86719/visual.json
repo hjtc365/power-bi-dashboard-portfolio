@@ -7,7 +7,7 @@
     "z": 0,
     "height": 41,
     "width": 130,
-    "tabOrder": 7004
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "slicer",
@@ -254,7 +254,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "4f4890a07703de570401",
+        "name": "769d7c37563b17d2361d",
         "field": {
           "Column": {
             "Expression": {
@@ -262,71 +262,25 @@
                 "Entity": "Dim_Date"
               }
             },
-            "Property": "Month Name"
+            "Property": "Year_Month"
           }
         },
         "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
+        "objects": {
+          "general": [
             {
-              "Name": "d",
-              "Entity": "Dim_Date",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "d"
-                          }
-                        },
-                        "Property": "Month Name"
-                      }
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
                     }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'January'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'February'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'March'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'April'"
-                        }
-                      }
-                    ]
-                  ]
+                  }
                 }
               }
             }
           ]
-        },
-        "howCreated": "User"
+        }
       }
     ]
   }
