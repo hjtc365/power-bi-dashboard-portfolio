@@ -7,10 +7,9 @@ Welcome to the Power BI Dashboard Portfolio! This repository showcases a collect
 
 ```
 dashboards/
-	campaign-performance/
+	manufacturing-downtime/
 		assets/           # Themes and images
 		datasets/         # Data and data dictionary
-		docs/             # Documentation
 		pbip/             # Power BI Project files
 		pbix/             # Power BI Desktop files
 ```
