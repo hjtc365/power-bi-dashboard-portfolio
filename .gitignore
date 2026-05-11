@@ -4,3 +4,6 @@
 **/generator/
 todos/
 .github/
+**/.github/
+.vscode/
+**/.vscode/
