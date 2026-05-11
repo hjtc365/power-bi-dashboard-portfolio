@@ -212,7 +212,49 @@
       ],
       "general": [
         {
-          "properties": {}
+          "properties": {
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "t",
+                    "Entity": "Time Axis",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "t"
+                                }
+                              },
+                              "Property": "Time Axis Fields"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'''Fact_Transactions''[Departure Hour]'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
         }
       ],
       "layout": [
@@ -229,6 +271,19 @@
               "expr": {
                 "Literal": {
                   "Value": "4L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "strictSingleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -430,5 +485,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "549b18d3c74733d0c541"
+  "parentGroupName": "549b18d3c74733d0c541",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "13de2c944c6c7f0bb7c7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Time Axis"
+              }
+            },
+            "Property": "Time Axis"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
 }

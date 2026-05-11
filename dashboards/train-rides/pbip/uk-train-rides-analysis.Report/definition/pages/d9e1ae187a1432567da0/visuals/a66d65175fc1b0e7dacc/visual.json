@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "a66d65175fc1b0e7dacc",
   "position": {
     "x": 505.3305785123963,
@@ -7,7 +7,7 @@
     "z": 500,
     "height": 41,
     "width": 187,
-    "tabOrder": 1000
+    "tabOrder": 2000
   },
   "visualGroup": {
     "displayName": "MonthSlicer",

@@ -41,7 +41,7 @@
             "numericStart": {
               "expr": {
                 "Literal": {
-                  "Value": "30D"
+                  "Value": "15D"
                 }
               }
             },
@@ -137,7 +137,7 @@
                         },
                         "Right": {
                           "Literal": {
-                            "Value": "30D"
+                            "Value": "15D"
                           }
                         }
                       }
@@ -250,23 +250,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "73ae8c6beb130cae3417",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "484d582099c9f6ca6773",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Delay Threshold Minutes"
-              }
-            },
-            "Property": "Value"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "parentGroupName": "73ae8c6beb130cae3417"
 }

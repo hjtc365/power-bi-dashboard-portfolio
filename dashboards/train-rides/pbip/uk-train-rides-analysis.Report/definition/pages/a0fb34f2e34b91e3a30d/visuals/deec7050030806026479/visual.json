@@ -20,54 +20,6 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim_Date"
-                    }
-                  },
-                  "Property": "Month Name"
-                }
-              },
-              "queryRef": "Dim_Date.Month Name",
-              "nativeQueryRef": "Month",
-              "active": false,
-              "displayName": "Month"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dim_Date"
-                    }
-                  },
-                  "Property": "Day Short"
-                }
-              },
-              "queryRef": "Dim_Date.Day Short",
-              "nativeQueryRef": "DOW",
-              "active": false,
-              "displayName": "DOW"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Fact_Transactions"
-                    }
-                  },
-                  "Property": "Time Band"
-                }
-              },
-              "queryRef": "Fact_Transactions.Time Band",
-              "nativeQueryRef": "Time Band",
-              "active": false,
-              "displayName": "Time Band"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
                       "Entity": "Fact_Transactions"
                     }
                   },
@@ -93,7 +45,7 @@
                 }
               },
               "index": 0,
-              "length": 4
+              "length": 1
             }
           ]
         },
@@ -116,6 +68,24 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Total Transactions (Journey Date)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
